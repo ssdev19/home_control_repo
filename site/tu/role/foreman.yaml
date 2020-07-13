@@ -14,7 +14,7 @@ files:
     group: "foreman-proxy"
     backup: false
     content: |
------BEGIN RSA PRIVATE KEY-----
+    -----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAz/l7ZGrjPF7yauBlJejXfWkiUZjfmijVN3DML0WiCwJQVWwm
 SrcCMku7N2MSpLAlUcFzSeEP/GfNwNtA3sKJcKcEqKGDrtx58LjC61yZNO4o0ZEB
 7qHIx5at9ZGmIi9HeK7ZYbwuzg2RClSiwfcfaA5B4h0aEeaF8fxj/NKMC8ie6FPq
