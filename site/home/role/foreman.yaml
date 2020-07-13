@@ -1,0 +1,43 @@
+---
+lookup_options:
+  files:
+    merge: "deep"
+files:
+  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
+    mode: "0644"
+    owner: "foreman-proxy"
+    group: "foreman-proxy"
+    content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP+XtkauM8XvJq4GUl6Nd9aSJRmN+aKNU3cMwvRaILAlBVbCZKtwIyS7s3YxKksCVRwXNJ4Q/8Z83A20DewolwpwSooYOu3HnwuMLrXJk07ijRkQHuocjHlq31kaYiL0d4rtlhvC7ODZEKVKLB9x9oDkHiHRoR5oXx/GP80owLyJ7oU+oEo9zvjytmpoIW/en5ZGgEaunV2LZ7tAJEKpLUplu09PsFFVXOkn7+RI6Hym18dgUvI2LyCM25jZb3sZEc7ZqJ5x9Os/4b3MdEpyLWYritw1TG3ThpIcepUhTQSY2MhMOT+137I4DgQYSRk2llOWIiIgGNmxqCc64ygPfT root@puppetagent.home.vm"
+  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
+    mode: "0600"
+    owner: "foreman-proxy"
+    group: "foreman-proxy"
+    backup: false
+    content: |
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAz/l7ZGrjPF7yauBlJejXfWkiUZjfmijVN3DML0WiCwJQVWwm
+SrcCMku7N2MSpLAlUcFzSeEP/GfNwNtA3sKJcKcEqKGDrtx58LjC61yZNO4o0ZEB
+7qHIx5at9ZGmIi9HeK7ZYbwuzg2RClSiwfcfaA5B4h0aEeaF8fxj/NKMC8ie6FPq
+BKPc748rZqaCFv3p+WRoBGrp1di2e7QCRCqS1KZbtPT7BRVVzpJ+/kSOh8ptfHYF
+LyNi8gjNuY2W97GRHO2aiecfTrP+G9zHRKci1mK4rcNUxt04aSHHqVIU0EmNjITD
+k/td+yOA4EGEkZNpZTliIiIBjZsagnOuMoD30wIDAQABAoIBAQCQTOnworlIChjp
+TwjfZM8flPLa6tc6f1pxPTJvGkF0ogZbPs7SyGgdva4IoBUvb4h1UWRMvnv5BY0d
+YwN/jDsQjtIMrwRPL2rsO0YDSByFPTnVLmfIyzgkQ8gvuv8qeON+ONNbnNZc4czg
+/hhvvKdt63aLDOYpxWjqndRCd1P0V961DBE+Ddi53BjEgMEsU0CcJ6eKNeywEkK/
+pzoB/0y64yiCEe/enKErvVsLYYl61ePZl1NEl9qSUN4JCCA0S861AQjdE5J1jdnm
+crTNgZjyunA8B0u03lMNMZIeRhbKBm8Kc3vBWYXakHAcx/x4HApRn1+bmDnfwTIf
+fpZUBBEBAoGBAOhztnuk0qm/BIksJtk5PgSIHbWIol5Ee2ENvRM0apMERa75Y6iW
+Po5IknVTTmeDWFVBZaGrFRgI9biynsqEq9OA8M8OW5uWX5H4XYujWdD1VW5YV53P
++Eb03ywgdHKok2lDHhbpGsw8B6OD/0O8fq45LTxAizDNcWAywM8szM5/AoGBAOUK
++8v/cII79EebdVvd0JPs/vmLSnzxCF/1NGb+IeurW0BAA0JOVzsivj45TZcYFgr+
+BMlTiBT8paLX4LHOeTP3auGm+3u96a8KvqyWAZ5UmieeEiJbuXs1LhLjWOu/auBF
+9sNuC5X1B6CS4+PfNjnslBFfM/g/66dkJG0PSJStAoGAQEbO7P20qu+BB5VH4MUt
+Wv9wh6QSkdKJ81pjMA5Mcf66bhnT7ugswBddOEgi5Aizwk9lFQFDwfOoTrxFoGZz
+RPbgn8CuoCVCpBBzfYtb6KYOS4buI1tAog5QL9mBmbr3mCHRDjDDEjp/Oj3jtg1H
+UlHJKmIGmyYT9a/TFPakY20CgYEAvqmM/70M0CzOZYmAgU+9oFYpzltoT2dp/E8n
+JxEn9YF4fZyL2fdS4BRE35FeCIfxWYcpPtp9LlM+IreoAPuKo3qzi1IwiEqIK8E7
+Bnn8sOtmQ9Ju8BEA7xJO30RHsj9u3XEAQKDrnhISHlYIxJj8D+3jOC7TGTVEmtxf
+AjY1yiUCgYBGRmB2p5U5/If/6lZSTxQMh5tpveOYKjrHFJgK2EwplTUGqQVTs5iC
+EbspMF+ZOzIPc3ENuw65PmMrLdrcb7dBrt2Fq+/ZokF3+JgPr00P6FPrIPqkaD3F
+KW0odjVhROpzbPLBOBdMagVqeASvvvUCaUlKKSeC+8EZGxqEyR550Q==
+-----END RSA PRIVATE KEY-----
