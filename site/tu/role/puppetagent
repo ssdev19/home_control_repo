@@ -1,0 +1,11 @@
+---
+lookup_options:
+  files:
+    merge: "deep"
+files:
+  "/root/home/test"
+    mode: "0644"
+    owner: "root"
+    group: "root"
+    content: "this is a test 7132020"
+    
