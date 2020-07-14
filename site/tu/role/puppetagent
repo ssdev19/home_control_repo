@@ -3,7 +3,7 @@ lookup_options:
   files:
     merge: "deep"
 files:
-  "/root/home/test"
+  "/root/test"
     mode: "0644"
     owner: "root"
     group: "root"
