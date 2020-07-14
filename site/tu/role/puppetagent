@@ -4,7 +4,7 @@ lookup_options:
     merge: "deep"
 files:
   "/root/test"
-    :mode: "0644"
+    mode: "0644"
     owner: "root"
     group: "root"
     content: "this is a test 7132020"
