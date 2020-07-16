@@ -7,37 +7,38 @@ files:
     mode: "0644"
     owner: "foreman-proxy"
     group: "foreman-proxy"
-    content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP+XtkauM8XvJq4GUl6Nd9aSJRmN+aKNU3cMwvRaILAlBVbCZKtwIyS7s3YxKksCVRwXNJ4Q/8Z83A20DewolwpwSooYOu3HnwuMLrXJk07ijRkQHuocjHlq31kaYiL0d4rtlhvC7ODZEKVKLB9x9oDkHiHRoR5oXx/GP80owLyJ7oU+oEo9zvjytmpoIW/en5ZGgEaunV2LZ7tAJEKpLUplu09PsFFVXOkn7+RI6Hym18dgUvI2LyCM25jZb3sZEc7ZqJ5x9Os/4b3MdEpyLWYritw1TG3ThpIcepUhTQSY2MhMOT+137I4DgQYSRk2llOWIiIgGNmxqCc64ygPfT root@puppetagent.home.vm"
-  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
+    content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqcwXv6jkQu0ZTOzvJJLKh8BlkgTKCJuy1uDkn978KM8wXsqQMog20TYGYRwIgRImIQeOWD+GvnOkYknb+XIQhng42lJKp5F6xfXthVxfaeWEPTgo3so6RI+BEXMlBL6x+T7HaCw0ZunUq9hMObsF1wzCao5h69P2dCoeB+LroFQEfk+uFOnEoJz/bOGo4sKuhqlRQUJHXtaRPVshxzPgGuaMQbikDgYzFaynfu/SVu8hEONd7GXfxQxz16mpwiy1hYblnYLKV0nNYVcDf/a+tBwV5ZD/WGGkU+0GEmXd9780HDL4lTv0VP5UEHHqU2j9au/o+UcagbBdu3awpFWAL foreman-proxy@puppetmaster.home.vm"
+    "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
     mode: "0600"
     owner: "foreman-proxy"
     group: "foreman-proxy"
     backup: false
     content: |
       -----BEGIN RSA PRIVATE KEY-----
-      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
+      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
       -----END RSA PRIVATE KEY-----
+      
