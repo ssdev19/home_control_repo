@@ -1,0 +1,11 @@
+---
+lookup_options:
+  files:
+    merge: "deep"
+files:
+  "/root/test":
+    mode: "0644"
+    owner: "root"
+    group: "root"
+    content: "this is a test for graylog server 7162020"
+    
