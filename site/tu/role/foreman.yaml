@@ -13,7 +13,7 @@ files:
     owner: "foreman-proxy"
     group: "foreman-proxy"
     content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqcwXv6jkQu0ZTOzvJJLKh8BlkgTKCJuy1uDkn978KM8wXsqQMog20TYGYRwIgRImIQeOWD+GvnOkYknb+XIQhng42lJKp5F6xfXthVxfaeWEPTgo3so6RI+BEXMlBL6x+T7HaCw0ZunUq9hMObsF1wzCao5h69P2dCoeB+LroFQEfk+uFOnEoJz/bOGo4sKuhqlRQUJHXtaRPVshxzPgGuaMQbikDgYzFaynfu/SVu8hEONd7GXfxQxz16mpwiy1hYblnYLKV0nNYVcDf/a+tBwV5ZD/WGGkU+0GEmXd9780HDL4lTv0VP5UEHHqU2j9au/o+UcagbBdu3awpFWAL foreman-proxy@puppetmaster.home.vm"
-    "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
+  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
     mode: "0600"
     owner: "foreman-proxy"
     group: "foreman-proxy"
