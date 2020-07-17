@@ -7,7 +7,7 @@ lookup_options:
 files:
   "/root/test07152020":
     mode: "0644"
-    owner: "shahram"
+    owner: "root"
     ensure: "file"
     content: |
       this is a test only
