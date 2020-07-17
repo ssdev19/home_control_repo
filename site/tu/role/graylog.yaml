@@ -1,6 +1,4 @@
 ---
-classes:
-  - profile::it::graylog
 lookup_options:
   files:
     merge: "deep"
