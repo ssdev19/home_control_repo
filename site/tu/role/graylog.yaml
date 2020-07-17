@@ -1,45 +1,58 @@
 ---
-classes:
 lookup_options:
   files:
     merge: "deep"
+#echo -n 'PuppetIsTough!2020' | sha256sum
+# root_password_sha2: "066d0562da4d35e363e24fda81585ca8e9a45cf233a963d35f178617ce5f6ee1"
 files:
-  "/root/test":
+  "/root/test07152020":
     mode: "0644"
-    owner: "root"
-    group: "root"
-    content: "this is a test for graylog server updated 12:30 7172020"
-# #This password must have at least 16 characters
-# graylog_server_password_secret: "root4uroot4uroot4u"
+    owner: "shahram"
+    ensure: "file"
+    content: |
+      this is a test only
+# ---
+# classes:
+# lookup_options:
+#   files:
+#     merge: "deep"
+# files:
+#   "/root/test":
+#     mode: "0644"
+#     owner: "root"
+#     group: "root"
+#     content: "this is a test for graylog server updated 12:30 7172020"
+# # #This password must have at least 16 characters
+# # graylog_server_password_secret: "root4uroot4uroot4u"
 
-# #echo -n "vagrant" | sha256sum
-# graylog_server_root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
-# ssl_passout_phrase: "pass:secret"
-# ssl_key_passout_phrase: "pass:albatroz"
-# ssl_graylog_cert_pass: "changeit"
+# # #echo -n "vagrant" | sha256sum
+# # graylog_server_root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
+# # ssl_passout_phrase: "pass:secret"
+# # ssl_key_passout_phrase: "pass:albatroz"
+# # ssl_graylog_cert_pass: "changeit"
 
-graylog::server::config:
-  password_secret: "vagrant"
-  root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
-  is_master: true
-  node_id_file: '/etc/graylog/server/node-id'
-  # root_username                                      => 'admin',
-  root_timezone: 'America/Phoenix'
-  allow_leading_wildcard_searches: true
-  allow_highlighting: true
-  http_bind_address: "0.0.0.0:9000"
-  http_external_uri: "https://graylog.home.vm:9000/"
-  http_enable_tls: true
-  http_tls_cert_file: '/etc/ssl/graylog/graylog-cert.pem'
-  http_tls_key_file: '/etc/ssl/graylog/graylog-key.pem'
-  http_tls_key_password: 'secret'
-  rest_listen_uri: 'https://graylog.home.vm:9000/api/'
-  rest_transport_uri: 'https://graylog.home.vm:9000/api/'
-  rotation_strategy: 'time'
-  retention_strategy: 'delete'
-  elasticsearch_max_time_per_index: '1d'
-  elasticsearch_max_number_of_indices: '30'
-  elasticsearch_shards: '4'
-  elasticsearch_replicas: '1'
-  # Needed for Inputs to work:
-  # keytool -importcert -keystore cacerts -alias graylog-CA-signed -file /etc/ssl/graylog/graylog-cert.pem  
+# graylog::server::config:
+#   password_secret: "vagrant"
+#   root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
+#   is_master: true
+#   node_id_file: '/etc/graylog/server/node-id'
+#   # root_username                                      => 'admin',
+#   root_timezone: 'America/Phoenix'
+#   allow_leading_wildcard_searches: true
+#   allow_highlighting: true
+#   http_bind_address: "0.0.0.0:9000"
+#   http_external_uri: "https://graylog.home.vm:9000/"
+#   http_enable_tls: true
+#   http_tls_cert_file: '/etc/ssl/graylog/graylog-cert.pem'
+#   http_tls_key_file: '/etc/ssl/graylog/graylog-key.pem'
+#   http_tls_key_password: 'secret'
+#   rest_listen_uri: 'https://graylog.home.vm:9000/api/'
+#   rest_transport_uri: 'https://graylog.home.vm:9000/api/'
+#   rotation_strategy: 'time'
+#   retention_strategy: 'delete'
+#   elasticsearch_max_time_per_index: '1d'
+#   elasticsearch_max_number_of_indices: '30'
+#   elasticsearch_shards: '4'
+#   elasticsearch_replicas: '1'
+#   # Needed for Inputs to work:
+#   # keytool -importcert -keystore cacerts -alias graylog-CA-signed -file /etc/ssl/graylog/graylog-cert.pem  
