@@ -10,7 +10,7 @@ files:
     owner: "root"
     ensure: "file"
     content: |
-      this is a test only
+      this is a test only 07172020
 # ---
 # classes:
 # lookup_options:
