@@ -2,6 +2,12 @@
 lookup_options:
   files:
     merge: "deep"
+files:
+  "/root/test":
+    mode: "0644"
+    owner: "root"
+    group: "root"
+    content: "this is a test for graylog server updated 12:30 7172020"    
 # files:
 #   "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
 #     mode: "0644"
