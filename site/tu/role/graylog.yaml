@@ -17,28 +17,28 @@ files:
 # ssl_key_passout_phrase: "pass:albatroz"
 # ssl_graylog_cert_pass: "changeit"
 
-# graylog::server::config:
-#   password_secret: "vagrant"
-#   root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
-#   is_master: true
-#   node_id_file: '/etc/graylog/server/node-id'
-#   # root_username                                      => 'admin',
-#   root_timezone: 'America/Phoenix'
-#   allow_leading_wildcard_searches: true
-#   allow_highlighting: true
-#   http_bind_address: "0.0.0.0:9000"
-#   http_external_uri: "https://graylog.home.vm:9000/"
-#   http_enable_tls: true
-#   http_tls_cert_file: '/etc/ssl/graylog/graylog-cert.pem'
-#   http_tls_key_file: '/etc/ssl/graylog/graylog-key.pem'
-#   http_tls_key_password: 'secret'
-#   rest_listen_uri: 'https://graylog.home.vm:9000/api/'
-#   rest_transport_uri: 'https://graylog.home.vm:9000/api/'
-#   rotation_strategy: 'time'
-#   retention_strategy: 'delete'
-#   elasticsearch_max_time_per_index: '1d'
-#   elasticsearch_max_number_of_indices: '30'
-#   elasticsearch_shards: '4'
-#   elasticsearch_replicas: '1'
+graylog::server::config:
+  password_secret: "vagrant"
+  root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
+  is_master: true
+  node_id_file: '/etc/graylog/server/node-id'
+  # root_username                                      => 'admin',
+  root_timezone: 'America/Phoenix'
+  allow_leading_wildcard_searches: true
+  allow_highlighting: true
+  http_bind_address: "0.0.0.0:9000"
+  http_external_uri: "https://graylog.home.vm:9000/"
+  http_enable_tls: true
+  http_tls_cert_file: '/etc/ssl/graylog/graylog-cert.pem'
+  http_tls_key_file: '/etc/ssl/graylog/graylog-key.pem'
+  http_tls_key_password: 'secret'
+  rest_listen_uri: 'https://graylog.home.vm:9000/api/'
+  rest_transport_uri: 'https://graylog.home.vm:9000/api/'
+  rotation_strategy: 'time'
+  retention_strategy: 'delete'
+  elasticsearch_max_time_per_index: '1d'
+  elasticsearch_max_number_of_indices: '30'
+  elasticsearch_shards: '4'
+  elasticsearch_replicas: '1'
   # Needed for Inputs to work:
   # keytool -importcert -keystore cacerts -alias graylog-CA-signed -file /etc/ssl/graylog/graylog-cert.pem  
