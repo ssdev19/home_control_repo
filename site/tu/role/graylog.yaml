@@ -1,12 +1,21 @@
 ---
-#This password must have at least 16 characters
-graylog_server_password_secret: "root4uroot4uroot4u"
+lookup_options:
+  files:
+    merge: "deep"
+files:
+  "/root/test":
+    mode: "0644"
+    owner: "root"
+    group: "root"
+    content: "this is a test for graylog server updated 7:30 7162020"
+# #This password must have at least 16 characters
+# graylog_server_password_secret: "root4uroot4uroot4u"
 
-#echo -n "vagrant" | sha256sum
-graylog_server_root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
-ssl_passout_phrase: "pass:secret"
-ssl_key_passout_phrase: "pass:albatroz"
-ssl_graylog_cert_pass: "changeit"
+# #echo -n "vagrant" | sha256sum
+# graylog_server_root_password_sha2: "9756da65fe52aefb7651f526629b9a04cf6119172caa3bfe027fd2a2409fce4f"
+# ssl_passout_phrase: "pass:secret"
+# ssl_key_passout_phrase: "pass:albatroz"
+# ssl_graylog_cert_pass: "changeit"
 
 # graylog::server::config:
 #   password_secret: "vagrant"
