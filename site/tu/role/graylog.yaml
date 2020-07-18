@@ -11,6 +11,7 @@ files:
     ensure: "file"
     content: |
       this is a test only 225 07172020
+
 class { 'mongodb::globals':
   manage_package_repo => true,
 }->
@@ -39,4 +40,3 @@ class { 'graylog::server':
     'password_secret' => 'root4u',    # Fill in your password secret
 #    'root_password_sha2' => '...', # Fill in your root password hash
   }
-}
