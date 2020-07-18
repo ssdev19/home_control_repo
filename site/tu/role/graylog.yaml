@@ -1,42 +1,13 @@
 ---
-# lookup_options:
-#   files:
-#     merge: "deep"
-# #echo -n 'PuppetIsTough!2020' | sha256sum
-# # root_password_sha2: "066d0562da4d35e363e24fda81585ca8e9a45cf233a963d35f178617ce5f6ee1"
-# files:
-#   "/root/test07152020":
-#     mode: "0644"
-#     owner: "root"
-#     ensure: "file"
-#     content: |
-#       this is a test only 225 07172020
-
-class { 'mongodb::globals':
-  manage_package_repo => true,
-}
-class { 'mongodb::server':
-  bind_ip => ['127.0.0.1'],
-}
-
-class { 'elasticsearch':
-  version      => '6.6.0',
-  repo_version => '6.x',
-  manage_repo  => true,
-}
-elasticsearch::instance { 'graylog':
-  config => {
-    'cluster.name' => 'graylog',
-    'network.host' => '127.0.0.1',
-  }
-
-
-class { 'graylog::repository':
-  version => '3.0'
-}
-class { 'graylog::server':
-  package_version => '3.0.0-12',
-  config          => {
-    'password_secret' => 'root4u',    # Fill in your password secret
-#    'root_password_sha2' => '...', # Fill in your root password hash
-  }
+lookup_options:
+  files:
+    merge: "deep"
+#echo -n 'PuppetIsTough!2020' | sha256sum
+# root_password_sha2: "066d0562da4d35e363e24fda81585ca8e9a45cf233a963d35f178617ce5f6ee1"
+files:
+  "/root/test07152020":
+    mode: "0644"
+    owner: "root"
+    ensure: "file"
+    content: |
+      this is a test only 225 07172020
