@@ -29,9 +29,9 @@ state: Arizona
 locality: "Tucson"
 organization: "LSST"
 division: IT
-canonical_name: "graylog.home.vm" # Also used to decide the URL for Graylog's web 
-server_ip_address: 192.168.0.42 # Temporal IP while we re-deploy the Summit Network Infrastructure
-alternative_dns_1: "graylog.home.vm"
+canonical_name: "graylog2.home.vm" # Also used to decide the URL for Graylog's web 
+server_ip_address: 192.168.0.43 # Temporal IP while we re-deploy the Summit Network Infrastructure
+alternative_dns_1: "graylog2.home.vm"
 
 certificate_duration: 3650
 ssl_key_algorithm: "rsa:2048"
