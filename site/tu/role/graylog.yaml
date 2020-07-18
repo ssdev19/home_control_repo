@@ -1,16 +1,16 @@
----
-lookup_options:
-  files:
-    merge: "deep"
-#echo -n 'PuppetIsTough!2020' | sha256sum
-# root_password_sha2: "066d0562da4d35e363e24fda81585ca8e9a45cf233a963d35f178617ce5f6ee1"
-files:
-  "/root/test07152020":
-    mode: "0644"
-    owner: "root"
-    ensure: "file"
-    content: |
-      this is a test only 225 07172020
+# ---
+# lookup_options:
+#   files:
+#     merge: "deep"
+# #echo -n 'PuppetIsTough!2020' | sha256sum
+# # root_password_sha2: "066d0562da4d35e363e24fda81585ca8e9a45cf233a963d35f178617ce5f6ee1"
+# files:
+#   "/root/test07152020":
+#     mode: "0644"
+#     owner: "root"
+#     ensure: "file"
+#     content: |
+#       this is a test only 225 07172020
 
 class { 'mongodb::globals':
   manage_package_repo => true,
