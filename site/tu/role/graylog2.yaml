@@ -38,3 +38,29 @@ ssl_key_algorithm: "rsa:2048"
 ssl_passout_phrase: "pass:secret"
 ssl_key_passout_phrase: "pass:albatroz"
 ssl_graylog_cert_pass: changeit
+
+##########################################################
+
+#firewall configuration
+
+firewalld::ports:
+        'Opening port for Graylog service':
+                ensure: present
+                zone: public
+                port: 9000
+                protocol: 'tcp'
+        'Opening port for Syslog in public zone':
+                ensure: present
+                zone: public
+                port: 5514
+                protocol: 'udp'
+        'Opening port for pfsense in public zone':
+                ensure: present
+                zone: public
+                port: 6514
+                protocol: 'udp'
+                'Opening port for Windows Machines in public zone':
+                ensure: present
+                zone: public
+                port: 7514
+                protocol: 'udp'
