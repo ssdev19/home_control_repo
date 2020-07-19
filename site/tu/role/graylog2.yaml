@@ -29,7 +29,7 @@ state: Arizona
 locality: "Tucson"
 organization: "LSST"
 division: IT
-canonical_name: "graylog2.home.vm" 
+canonical_name: "https://graylog2.home.vm:9000" 
 server_ip_address: 192.168.0.43 
 alternative_dns_1: "graylog2.home.vm"
 
