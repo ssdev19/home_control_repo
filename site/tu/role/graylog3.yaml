@@ -11,8 +11,8 @@ files:
     ensure: "file"
     content: |
       this is a test only 225 07172020
-elasticsearch_xms: "2048m"
-elasticsearch_xmx: "2048m"
+elasticsearch_xms: "1048m"
+elasticsearch_xmx: "1048m"
 
 #This password must have at least 16 characters
 graylog_server_password_secret: "root4uroot4uroot4u"
@@ -29,9 +29,9 @@ state: Arizona
 locality: "Tucson"
 organization: "LSST"
 division: IT
-canonical_name: "gs-graylog-node-01.po.us.lsst.org" # Also used to decide the URL for Graylog's web 
+canonical_name: "graylog3.home.vm" # Also used to decide the URL for Graylog's web 
 server_ip_address: 192.168.0.42 # Temporal IP while we re-deploy the Summit Network Infrastructure
-alternative_dns_1: "graylog.home.vm"
+alternative_dns_1: "graylog3.home.vm"
 
 certificate_duration: 3650
 ssl_key_algorithm: "rsa:2048"
