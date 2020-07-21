@@ -18,3 +18,13 @@ influx_telegraf_passwd: "Bnice2me"
 influx_grafana_user: "grafana"
 #Please don't use ! since it won't work
 influx_grafana_passwd: "Bnice2me"
+
+firewalld_status: "running"
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources: 
+        - 140.252.32.0/22
+        - 140.252.115.0/24 # Steward Observatory
+        - 140.252.201.0/24 # DMZ
+        - 192.168.0.0/24
+        - 139.229.136.0/24 # La Serena Base
