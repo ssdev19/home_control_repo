@@ -1,0 +1,6 @@
+---
+firewalld_status: "running"
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources: 
+        - 140.252.32.0/22
