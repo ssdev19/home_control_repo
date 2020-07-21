@@ -11,8 +11,8 @@ files:
     ensure: "file"
     content: |
       this is a test only 225 07172020
-elasticsearch_xms: "1048m"
-elasticsearch_xmx: "1048m"
+elasticsearch_xms: "2048m"
+elasticsearch_xmx: "2048m"
 
 #This password must have at least 16 characters
 graylog_server_password_secret: "root4uroot4uroot4u"
