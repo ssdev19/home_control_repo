@@ -1,2 +1,103 @@
 ---
 firewalld_status: "running"
+---
+# Site configuration file
+#=============================================================================
+# IT Services Layout
+# Network List at Cerro Pachon: 
+#       * 139.229.160.0/24 - General Services Servers
+#       * 139.229.162.0/24 - Users' Network
+#
+# Services List
+# Graylog Master                : 140.252.32.157 
+# InfluxDB Master               : 140.252.32.159
+# Grafana                       : 140.252.32.158
+# Puppet Master                 : 140.252.32.139
+
+#Pre-Login
+sshd_banner_content: |
+        *** THIS DEVICE IS MONITORED AND MANAGED BY AURA/LSST ***
+        *** Access to this device is PROHIBITED unless explicitly AUTHORIZED, you are not welcomed ***
+        *** If you are not authorized disconnect NOW. If you fail to disconnect now you may be prosecuted under the USA laws, be advised. ***
+
+#Once Logged in
+motd: |
+        _    ___ ___ _____ 
+        | |  / __/ __|_   _|
+        | |__\__ \__ \ | |
+        |____|___/___/ |_|
+        Server controlled by puppet, configurations may be overwritten.
+        Server configured to use Tucson configuration.
+        Server installed in Rack %{::rack}, Room %{::room}
+        Syslog messages sent to graylog, metrics to inflluxdb
+        Any questions or suggestions forward it to IT.
+
+#TODO This must point to the new NTP server to be installed in Tucson
+ntp:
+        ntp_server_1 : "0.us.pool.ntp.org"
+        ntp_server_2 : "1.us.pool.ntp.org"
+        ntp_server_3 : "2.us.pool.ntp.org"
+
+#=============================================================================
+# Users's Passwords
+# Password generated as: openssl passwd -1 -salt LSST <PWD>
+#==============================================================================
+
+#WinterIsComming
+ts_sal::sal_pwd: "$1$LSST$7h7GMTq.pqe.VewHsRRFA0"
+#s4l4s4l4d
+ts_sal::salmgr_pwd: "$1$LSST$bUNkP0Bf47l.Z8/eFHKvK/"
+
+#=============================================================================
+# Puppet configuration.
+#=============================================================================
+
+#TODO Recreate SSH Key
+# puppet_ssh_id_rsa_pub: "AAAAB3NzaC1yc2EAAAADAQABAAABAQDKzR0QSjL3KOjivps+Zzi+LH20sDds7k9I3jJ4c3pze06iG/ed8N2yhBFtIX2uXskQ4YPfnbpCCC0/hH3BtqsF/KxRQ5v7Tee/jbiXDHk6nyvKu1neKriBFCpYMGErDU79Iygb2fYn6gRdzPHwrFRKauC/B0D3/UEVeMrLYqS95X/Y/FyuCwmf0Bvd50LnWX6rpW0MhUv6bSkoQp/cx190cK7gQ8HZKikU1FU+kbmiLUjF12FcXr4OKkf5vMFK6AlMaWsLr0+Gw8ZIC6ycGZzIk2tEhz8GavJ6FhqNPXQ2LFAtqJ8sSR5eZbEMAjwh8V/gt+JMGcGk8E6nEopTWvhx"
+
+# puppet_agent_run_interval: 3600
+
+# puppet_master_server: "puppet-master.us.lsst.org"
+# puppet_agent_service_state: "running"
+
+#=============================================================================
+# Firewall and Security Configuration
+#=============================================================================
+
+firewalld_status: "running"
+lsst_firewall_default_zone: "public"
+lsst_firewall_default_target: "DROP"
+lsst_firewall_default_sources: 
+        - 192.168.0.0/24
+        - 140.252.32.0/22
+        - 140.252.115.0/24 # Steward Observatory
+        - 140.252.201.0/24 # DMZ
+        - 139.229.162.0/25 # Cerro Pachon
+        - 139.229.136.0/24 # La Serena Base
+
+#=============================================================================
+# Monitoring Configuration
+#=============================================================================
+# Remote Logging and Graylog Configuration
+#=============================================================================
+rsyslog_host: "192.168.0.44"
+rsyslog_port: "5514"
+rsyslog_proto: "udp"
+rsyslog_patterns: "*.info;mail.none;authpriv.none;cron.none"
+
+#=============================================================================
+# Telegraf common configuration
+#=============================================================================
+
+monitoring_enabled: true
+telegraf::outputs:
+        influxdb:
+                urls:
+                        - "https://gs-influxdb-node-01.po.us.lsst.org:8086"
+                database: 'telegraf'
+                username: 'telegraf'
+                password: 'Bnice2me'
+                insecure_skip_verify: true
+
+
+
