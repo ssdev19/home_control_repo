@@ -6,7 +6,7 @@ lsst_firewall_default_sources:
         - 140.252.32.0/22
 
 accounts::user_list:
-  sshahram:  
+  shahram:  
     groups:
       - "wheel"
     sshkeys:
