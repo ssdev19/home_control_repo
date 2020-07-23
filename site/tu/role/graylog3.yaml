@@ -37,7 +37,7 @@ certificate_duration: 3650
 ssl_key_algorithm: "rsa:2048"
 ssl_passout_phrase: "pass:secret"
 ssl_key_passout_phrase: "pass:albatroz"
-ssl_graylog_cert_pass: chang
+ssl_graylog_cert_pass: changeit
 
 ##########################################################
 ##########################################################
