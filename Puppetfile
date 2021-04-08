@@ -7,7 +7,6 @@ mod 'juniorsysadmin/irqbalance', '1.1.0'
 mod 'qtechnologies/sysstat', '1.2.0'
 mod 'puppetlabs/sshkeys_core', '1.0.2'
 mod 'puppetlabs/accounts', '4.1.0'
-mod 'puppetlabs/translate', '1.2.0'
 mod 'saz/sudo', '6.0.0'
 mod 'puppetlabs/puppet_agent', '2.1.2'
 mod 'saz/resolv_conf', '4.1.0'
@@ -91,61 +90,8 @@ mod 'simp/gnome', '8.1.1'
 mod 'simp/polkit', '6.2.0'
 mod 'simp/simplib', '3.15.3'
 
-# mod 'lsst/ccs_database',
-#   git: 'https://github.com/lsst-it/puppet-ccs_database.git',
-#   ref: 'v0.1.0'
 mod 'puppetlabs/mysql', '10.4.0'
-# mod 'lsst/ccs_hcu',
-#   git: 'https://github.com/lsst-it/puppet-ccs_hcu.git',
-#   ref: 'v0.1.0'
-# mod 'lsst/ccs_monit',
-#   git: 'https://github.com/lsst-it/puppet-ccs_monit.git',
-#   ref: 'v0.1.1'
-# mod 'lsst/ccs_mrtg',
-#   git: 'https://github.com/lsst-it/puppet-ccs_mrtg.git',
-#   ref: 'v0.1.0'
-# mod 'lsst/ccs_sal',
-#   git: 'https://github.com/lsst-it/puppet-ccs_sal.git',
-#   ref: 'v0.1.0'
-# mod 'lsst/ccs_software',
-#   git: 'https://github.com/lsst-it/puppet-ccs_software.git',
-#   ref: 'v0.3.0'
-# mod 'lsst/maven',
-#   git: 'https://github.com/lsst-it/puppet-maven.git',
-#   ref: 'v1.0.0'
-# mod 'lsst/java_artisanal',
-#   git: 'https://github.com/lsst-it/puppet-java_artisanal.git',
-#   ref: 'v1.0.0'
-
-# Needed by NCSA (sort into above later)
-#mod 'herculesteam/augeasproviders_sysctl', '2.3.1'  # conflicts duritong/sysctl
-mod 'MiamiOH/pam_access', '1.0.1'
-mod 'bodgit/bodgitlib', '2.0.1'
-mod 'herculesteam/augeasproviders', '2.4.1'
-mod 'herculesteam/augeasproviders_apache', '3.1.1'
-mod 'herculesteam/augeasproviders_base', '2.1.0'
-mod 'herculesteam/augeasproviders_core', '2.5.0'
-mod 'herculesteam/augeasproviders_grub', '3.1.0'
-mod 'herculesteam/augeasproviders_mounttab', '2.1.1'
-mod 'herculesteam/augeasproviders_nagios', '2.1.1'
-mod 'herculesteam/augeasproviders_pam', '2.2.1'
-mod 'herculesteam/augeasproviders_postgresql', '3.1.1'
-mod 'herculesteam/augeasproviders_puppet', '2.2.1'
-mod 'herculesteam/augeasproviders_shellvar', '4.0.0'
-mod 'herculesteam/augeasproviders_ssh', '3.2.1'
-mod 'herculesteam/augeasproviders_syslog', '2.3.0'
-mod 'inkblot/ipcalc', '2.2.0'
-# mod 'lsst/baseline_cfg', git: 'https://github.com/lsst-it/puppet-baseline_cfg.git', branch: 'production'
-# mod 'lsst/miniconda', git: 'https://github.com/lsst-it/puppet-miniconda', branch: 'IT-2267/miniconda_for_headerservice'
-# mod 'lsst/pakrat_client', git: 'https://github.com/lsst-it/puppet-pakrat_client', branch: 'production'
-# mod 'lsst/sal2', git: 'https://github.com/lsst-it/puppet-sal2', branch: 'production'
-# mod 'lsst/sshd', git: 'https://github.com/lsst-it/puppet-sshd.git', branch: 'production'
-# mod 'lsst/sssd', git: 'https://github.com/lsst-it/puppet-sssd.git', branch: 'production'
-# mod 'lsst/system_authnz', git: 'https://github.com/lsst-it/puppet-system_authnz.git', branch: 'production'
-# mod 'lsst/tuned', git: 'https://github.com/lsst-it/puppet-tuned.git', branch: 'production'
-# mod 'lsst/unbound', git: 'https://github.com/lsst-it/puppet-unbound', branch: 'production'
-# mod 'lsst/xcat', git: 'https://github.com/lsst-it/puppet-xcat.git', branch: 'production'
-mod 'puppetlabs/apache', '5.0.0'
+mod 'puppetlabs/apache', '6.0.0'
 mod 'puppetlabs/apt', '7.0.1'
 mod 'puppetlabs/kubernetes', '4.0.1'
 mod 'puppetlabs/lvm', '1.3.0'
