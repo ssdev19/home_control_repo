@@ -8,41 +8,41 @@ files:
     owner: "root"
     group: "root"
     content: "this is a test for graylog server updated 7:51 7172020"    
-  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
-    mode: "0644"
-    owner: "foreman-proxy"
-    group: "foreman-proxy"
-    content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqcwXv6jkQu0ZTOzvJJLKh8BlkgTKCJuy1uDkn978KM8wXsqQMog20TYGYRwIgRImIQeOWD+GvnOkYknb+XIQhng42lJKp5F6xfXthVxfaeWEPTgo3so6RI+BEXMlBL6x+T7HaCw0ZunUq9hMObsF1wzCao5h69P2dCoeB+LroFQEfk+uFOnEoJz/bOGo4sKuhqlRQUJHXtaRPVshxzPgGuaMQbikDgYzFaynfu/SVu8hEONd7GXfxQxz16mpwiy1hYblnYLKV0nNYVcDf/a+tBwV5ZD/WGGkU+0GEmXd9780HDL4lTv0VP5UEHHqU2j9au/o+UcagbBdu3awpFWAL foreman-proxy@puppetmaster.home.vm"
-  "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
-    mode: "0600"
-    owner: "foreman-proxy"
-    group: "foreman-proxy"
-    backup: false
-    content: |
-      -----BEGIN RSA PRIVATE KEY-----
-      MIIEowIBAAKCAQEAqnMF7+o5ELtGUzs7ySSyofAZZIEygibstbg5J/e/CjPMF7Kk
-      DKINtE2BmEcCIESJiEHjlg/hr5zpGJJ2/lyEIZ4ONpSSqeResX17YVcX2nlhD04K
-      N7KOkSPgRFzJQS+sfk+x2gsNGbp1KvYTDm7BdcMwmqOYevT9nQqHgfi66BUBH5Pr
-      hTpxKCc/2zhqOLCroapUUFCR17WkT1bIccz4BrmjEG4pA4GMxWsp37v0lbvIRDjX
-      exl38UMc9epqcIstYWG5Z2CyldJzWFXA3/2vrQcFeWQ/1hhpFPtBhJl3fe/NBwy+
-      JU79FT+VBBx6lNo/Wrv6PlHGoGwXbt2sKRVgCwIDAQABAoIBAGIW7ZzCqvJxA6iU
-      VvSLVO2Scdp/62QxKFnvWZ0hmuQxKMued3/5pm9Thzft7VBKgOdUG7fZDeT1JMOK
-      TkZVUYjTH5TTbY+tp7z23JEJAOYuoeef3ottC1SFU+OjjgIggGD0VgKIB5L91b3S
-      fOb6YAT4PjlP2kkwQd8lFxR54n354AnrPDZgI/9Uzj9vk37S1qi0+6ubWdzwVq2h
-      mR5uIgwTXy2yVPIUogJwOwbE5HVgSPpb3rRct/1PX7onLsD0t/bFbki8j7xt5RFy
-      aWzT4wYA9gmJ16B95zB6eXgvCJqaNhZusc+mbldsRZUxlxUmDqw02aSaC/7JUVc6
-      S/b3O2ECgYEA0ykZmvtsFrgJIJptqQkfcuTPR2+udl6Qzl59YA7FwxMkNvJIdAFi
-      U8TatU5353vpDeHdVxAP4eqv6POGKyX4/OYzXpEnzLfnFuCJr3iMzaGd8FYHzq/g
-      sBwSVW768/siXXUMN9YRUgCqH66T0Bf0m8oVJtAv/8uls0Jl4UueNRsCgYEAzqTR
-      vWxaA/cx+qbjRAKcF6MOz6Xg2Z+PqfaThBgfpXND5JfT7IQFodojHzRnNc4gvnrJ
-      nm6VphzJ8jSPeqK6Jj+rkW32pXHEEEQvxix+d15454/RDDFcC8RF6+kIqXhz0br7
-      LlhA3YjlAQJgPjffFweYvgn3m2yz+2hpu9QVX9ECgYEAylDuv5d1kK7zz9EmkHa1
-      MxgXoZJXzgH9LD1MUuTUhnuojxzEXqGU3D4Ybu6n45rNSQfHUsuI7CQ4NzJcsqrH
-      TUgin9DkGTl6qGiqgv01qy/Wa5eCE35gAVxkFIco2usbmf+znSv1nGQWnBRge1j4
-      fOu6KF4AH023jXFou9v/0VECgYARW5TmpXBWPvBqzpPuhY2ZCrBWzuc5QIbvzu+L
-      O/+EhU8hp4M8rcZPVyR2HY/B3EOx3FyNO1rErkxkVPfsZDjgt55ww9zg/tJqT1/3
-      9IrW+g+L2+/CZ28E6gK5k0SP/7cy2dL5jJ4+PZ6G3C07bLQHmjLBW9L5skLYDmg7
-      R9BX0QKBgB9xNXqvtzc4b6K93xEQMnMBVDG5U62OWDyDYsWbsP7wRygNKXvDuVcM
-      YECVpd8OeIhy8YUZcEbH5QumNqLdRlrCvD3SPIcIIBYr3udghEv9hTD68/gyYXds
-      hlFDxKzEdoRNSnlLv/gM4AkF02aiHCa0UH+XTaC4jVRXsU/YGHbB
-      -----END RSA PRIVATE KEY-----
+#   "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
+#     mode: "0644"
+#     owner: "foreman-proxy"
+#     group: "foreman-proxy"
+#     content: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqcwXv6jkQu0ZTOzvJJLKh8BlkgTKCJuy1uDkn978KM8wXsqQMog20TYGYRwIgRImIQeOWD+GvnOkYknb+XIQhng42lJKp5F6xfXthVxfaeWEPTgo3so6RI+BEXMlBL6x+T7HaCw0ZunUq9hMObsF1wzCao5h69P2dCoeB+LroFQEfk+uFOnEoJz/bOGo4sKuhqlRQUJHXtaRPVshxzPgGuaMQbikDgYzFaynfu/SVu8hEONd7GXfxQxz16mpwiy1hYblnYLKV0nNYVcDf/a+tBwV5ZD/WGGkU+0GEmXd9780HDL4lTv0VP5UEHHqU2j9au/o+UcagbBdu3awpFWAL foreman-proxy@puppetmaster.home.vm"
+#   "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy":
+#     mode: "0600"
+#     owner: "foreman-proxy"
+#     group: "foreman-proxy"
+#     backup: false
+#     content: |
+#       -----BEGIN RSA PRIVATE KEY-----
+#       MIIEowIBAAKCAQEAqnMF7+o5ELtGUzs7ySSyofAZZIEygibstbg5J/e/CjPMF7Kk
+#       DKINtE2BmEcCIESJiEHjlg/hr5zpGJJ2/lyEIZ4ONpSSqeResX17YVcX2nlhD04K
+#       N7KOkSPgRFzJQS+sfk+x2gsNGbp1KvYTDm7BdcMwmqOYevT9nQqHgfi66BUBH5Pr
+#       hTpxKCc/2zhqOLCroapUUFCR17WkT1bIccz4BrmjEG4pA4GMxWsp37v0lbvIRDjX
+#       exl38UMc9epqcIstYWG5Z2CyldJzWFXA3/2vrQcFeWQ/1hhpFPtBhJl3fe/NBwy+
+#       JU79FT+VBBx6lNo/Wrv6PlHGoGwXbt2sKRVgCwIDAQABAoIBAGIW7ZzCqvJxA6iU
+#       VvSLVO2Scdp/62QxKFnvWZ0hmuQxKMued3/5pm9Thzft7VBKgOdUG7fZDeT1JMOK
+#       TkZVUYjTH5TTbY+tp7z23JEJAOYuoeef3ottC1SFU+OjjgIggGD0VgKIB5L91b3S
+#       fOb6YAT4PjlP2kkwQd8lFxR54n354AnrPDZgI/9Uzj9vk37S1qi0+6ubWdzwVq2h
+#       mR5uIgwTXy2yVPIUogJwOwbE5HVgSPpb3rRct/1PX7onLsD0t/bFbki8j7xt5RFy
+#       aWzT4wYA9gmJ16B95zB6eXgvCJqaNhZusc+mbldsRZUxlxUmDqw02aSaC/7JUVc6
+#       S/b3O2ECgYEA0ykZmvtsFrgJIJptqQkfcuTPR2+udl6Qzl59YA7FwxMkNvJIdAFi
+#       U8TatU5353vpDeHdVxAP4eqv6POGKyX4/OYzXpEnzLfnFuCJr3iMzaGd8FYHzq/g
+#       sBwSVW768/siXXUMN9YRUgCqH66T0Bf0m8oVJtAv/8uls0Jl4UueNRsCgYEAzqTR
+#       vWxaA/cx+qbjRAKcF6MOz6Xg2Z+PqfaThBgfpXND5JfT7IQFodojHzRnNc4gvnrJ
+#       nm6VphzJ8jSPeqK6Jj+rkW32pXHEEEQvxix+d15454/RDDFcC8RF6+kIqXhz0br7
+#       LlhA3YjlAQJgPjffFweYvgn3m2yz+2hpu9QVX9ECgYEAylDuv5d1kK7zz9EmkHa1
+#       MxgXoZJXzgH9LD1MUuTUhnuojxzEXqGU3D4Ybu6n45rNSQfHUsuI7CQ4NzJcsqrH
+#       TUgin9DkGTl6qGiqgv01qy/Wa5eCE35gAVxkFIco2usbmf+znSv1nGQWnBRge1j4
+#       fOu6KF4AH023jXFou9v/0VECgYARW5TmpXBWPvBqzpPuhY2ZCrBWzuc5QIbvzu+L
+#       O/+EhU8hp4M8rcZPVyR2HY/B3EOx3FyNO1rErkxkVPfsZDjgt55ww9zg/tJqT1/3
+#       9IrW+g+L2+/CZ28E6gK5k0SP/7cy2dL5jJ4+PZ6G3C07bLQHmjLBW9L5skLYDmg7
+#       R9BX0QKBgB9xNXqvtzc4b6K93xEQMnMBVDG5U62OWDyDYsWbsP7wRygNKXvDuVcM
+#       YECVpd8OeIhy8YUZcEbH5QumNqLdRlrCvD3SPIcIIBYr3udghEv9hTD68/gyYXds
+#       hlFDxKzEdoRNSnlLv/gM4AkF02aiHCa0UH+XTaC4jVRXsU/YGHbB
+#       -----END RSA PRIVATE KEY-----
