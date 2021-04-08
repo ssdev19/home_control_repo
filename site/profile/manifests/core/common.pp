@@ -9,7 +9,7 @@ class profile::core::common #(
 #   Boolean $collect_metrics = true,
 # ) 
 {
-  include timezone
+#  include timezone
   # include tuned
   # include chrony
   # include selinux
