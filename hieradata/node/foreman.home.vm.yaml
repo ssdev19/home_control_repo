@@ -1,6 +1,4 @@
 ---
 classes:
    - profile::core::common
-#   - "timezone"
-#   - "postfix"
-#   - "ssh" 
+   - profile::core::debugutils::packages
