@@ -1,4 +1,5 @@
 ---
 classes:
    - "r10k"
+profile::core::debugutils::packages
 #profile::core::puppet_master::smee_url: ""
