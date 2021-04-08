@@ -1,4 +1,3 @@
 ---
 classes:
    - profile::core::common
-   - profile::core::debugutils::packages
