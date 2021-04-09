@@ -7,7 +7,7 @@ files:
     mode: "0644"
     owner: "root"
     group: "root"
-    content: "this file is created because in foreman site parameter is set to tu"    
+    content: "this file is created because in foreman site parameter is set to tu. \n"    
 #   "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
 #     mode: "0644"
 #     owner: "foreman-proxy"
