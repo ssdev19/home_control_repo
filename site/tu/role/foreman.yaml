@@ -7,7 +7,7 @@ files:
     mode: "0644"
     owner: "root"
     group: "root"
-    content: "this is a test for graylog server updated 7:51 7172020"    
+    content: "this file is created because in foreman site parameter is set to tu"    
 #   "/var/lib/foreman-proxy/ssh/id_rsa_foreman_proxy.pub":
 #     mode: "0644"
 #     owner: "foreman-proxy"
