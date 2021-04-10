@@ -14,7 +14,7 @@ class profile::it::influxdb {
   class {'influxdb':
     # ensure                 => present,
     service_ensure              => running,
-    http_enabled                => true,
+#    http_enabled                => true,
     http_auth_enabled           => true,
     http_log_enabled            => true,
     http_write_tracing          => false,
