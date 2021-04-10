@@ -1,6 +1,6 @@
 class profile::it::influxdb {
-
   include influxdb
+  # class {'influxdb':
   #   ensure                 => "present",
   #   service_enabled        => true,
   #   http_enabled           => true,
