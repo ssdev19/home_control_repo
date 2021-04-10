@@ -1,7 +1,6 @@
 class profile::it::influxdb {
-  include influxdb
-  # class {'influxdb':
-    ensure                 => "present",
+  class {'influxdb':
+    ensure                 => present,
     service_enabled        => true,
     http_enabled           => true,
     http_auth_enabled      => true,
@@ -15,7 +14,7 @@ class profile::it::influxdb {
     http_https_enabled     => true,
     http_https_certificate => "/etc/ssl/influxdb.crt",
     http_https_private_key      => "/etc/ssl/influxdb.key"
-  # }
+    }
 
   $openssl_country = lookup('country')
   $openssl_state = lookup("state")
