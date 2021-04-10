@@ -101,6 +101,6 @@ class profile::it::influxdb {
   #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"GRANT READ ON ${influx_telegraf_db_name} TO ${influx_grafana_user}\"",
   #   require => [Exec["Create admin user on influxdb"],Exec["Create telegraf database on influxdb"], Exec["Create grafana user on influxdb"]],
   #   onlyif => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW GRANTS FOR ${influx_grafana_user}\" | grep -i ${influx_telegraf_db_name} | grep -i READ | wc -l ) -lt 1",
-  # }
+  }
   # define the telegraf plugins to be used on influx for network monitoring
 }
