@@ -14,7 +14,7 @@ class profile::it::influxdb {
   class {'influxdb':
     # ensure                 => present,
     service_ensure              => running,
-#    http_enabled                => true,
+    http_enabled                => true,
     http_auth_enabled           => true,
     http_log_enabled            => true,
     http_write_tracing          => false,
@@ -23,7 +23,7 @@ class profile::it::influxdb {
     # meta_http_bind_address => ":8091",
     http_bind_address           => ':8086',
     # influxd_opts           => lookup('influxdb_opts'),
-    http_https_enabled          => true,
+    http_https_enabled          => false,
     http_https_certificate_path => '/etc/ssl/influxdb.pem',
   #  http_https_certificate_content => lookup 
     http_https_private_key_path => '/etc/ssl/influxdb.key',
