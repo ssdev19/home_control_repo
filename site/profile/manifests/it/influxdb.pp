@@ -2,12 +2,12 @@ class profile::it::influxdb {
 
 # create certs for http
   $openssl_country = lookup('country')
-  $openssl_state = lookup("state")
-  $openssl_locality = lookup("locality")
+  $openssl_state = lookup('state')
+  $openssl_locality = lookup('locality')
   $openssl_cn = $trusted['certname']
 
-  exec{"Create Selfsigned cert":
-    path    => "/usr/bin/",
+  exec{'Create Selfsigned cert':
+    path    => '/usr/bin/',
     command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
     onlyif  => "test ! -f /etc/ssl/influxdb.pem"
   }
@@ -25,7 +25,7 @@ class profile::it::influxdb {
     # influxd_opts           => lookup('influxdb_opts'),
     http_https_enabled          => true,
     http_https_certificate_path => "/etc/ssl/influxdb.pem",
-    http_https_certificate_content => lookup 
+  #  http_https_certificate_content => lookup 
     http_https_private_key_path => "/etc/ssl/influxdb.key",
     admin_password              => lookup('influx_admin_user'),
     }
