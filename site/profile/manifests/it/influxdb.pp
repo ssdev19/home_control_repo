@@ -57,14 +57,14 @@ class profile::it::influxdb {
   $influx_admin_user = lookup('influx_admin_user')
   $influx_admin_passwd = lookup('influx_admin_passwd')
 
-  exec{"Create admin user on influxdb":
+  exec{'Create admin user on influxdb':
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
     onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
   }
 
   $influx_telegraf_db_name = lookup("influx_telegraf_db_name")
-  exec{"Create telegraf database on influxdb":
+  exec{'Create telegraf database on influxdb':
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
     require => Exec['Create admin user on influxdb'],
@@ -100,7 +100,7 @@ class profile::it::influxdb {
     onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW USERS\" | grep ${influx_grafana_user} | wc -l ) -lt 1",
   }
 
-  exec{"Grant READ access to telegraf db influxdb":
+  exec{'Grant READ access to telegraf db influxdb':
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"GRANT READ ON ${influx_telegraf_db_name} TO ${influx_grafana_user}\"",
     require => [Exec['Create admin user on influxdb'],Exec["Create telegraf database on influxdb"], Exec["Create grafana user on influxdb"]],
