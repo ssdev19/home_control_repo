@@ -17,7 +17,7 @@ class profile::it::influxdb {
     http_https_private_key      => "/etc/ssl/influxdb.key"
   }
 
-  $openssl_country = lookup("country")
+  $openssl_country = lookup('country')
   $openssl_state = lookup("state")
   $openssl_locality = lookup("locality")
   $openssl_cn = $trusted['certname']
