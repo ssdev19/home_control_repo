@@ -1,20 +1,20 @@
 class profile::it::influxdb {
   include influxdb
   # class {'influxdb':
-  #   ensure                 => "present",
-  #   service_enabled        => true,
-  #   http_enabled           => true,
-  #   http_auth_enabled      => true,
-  #   http_log_enabled       => true,
-  #   http_write_tracing     => false,
-  #   http_pprof_enabled     => true,
-  #   meta_bind_address      => ":8088",
-  #   meta_http_bind_address => ":8091",
-  #   http_bind_address      => ":8086",
-  #   influxd_opts           => lookup('influxdb_opts'),
-  #   http_https_enabled     => true,
-  #   http_https_certificate => "/etc/ssl/influxdb.crt",
-  #   http_https_private_key      => "/etc/ssl/influxdb.key"
+    ensure                 => "present",
+    service_enabled        => true,
+    http_enabled           => true,
+    http_auth_enabled      => true,
+    http_log_enabled       => true,
+    http_write_tracing     => false,
+    http_pprof_enabled     => true,
+    meta_bind_address      => ":8088",
+    meta_http_bind_address => ":8091",
+    http_bind_address      => ":8086",
+    influxd_opts           => lookup('influxdb_opts'),
+    http_https_enabled     => true,
+    http_https_certificate => "/etc/ssl/influxdb.crt",
+    http_https_private_key      => "/etc/ssl/influxdb.key"
   # }
 
   $openssl_country = lookup('country')
