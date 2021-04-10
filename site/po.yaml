@@ -90,7 +90,7 @@ monitoring_enabled: true
 telegraf::outputs:
         influxdb:
                 urls:
-                        - "https://192.168.0.46:8086"
+                        - "https://192.168.0.47:8086"
                 database: 'telegraf'
                 username: 'telegraf'
                 password: 'Bnice2me'
