@@ -1,5 +1,5 @@
 class profile::it::grafana {
-  class { 'grafana': 
+  class { 'grafana':
     version  => '8.0.0'
   }
 

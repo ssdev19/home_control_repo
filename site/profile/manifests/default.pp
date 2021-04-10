@@ -5,13 +5,13 @@ class profile::default {
 include ssh
 #include accounts
 
-  Package { ensure => 'installed' }
+  # Package { ensure => 'installed' }
 
-  $enhancers = [ 'tree', 'sssd', 'realmd', 'oddjob', 'oddjob-mkhomedir', 'adcli',
-  'samba-common', 'samba-common-tools', 'krb5-workstation', 'openldap-clients', 'policycoreutils-python',
-  'tcpdump', 'openssl', 'openssl-devel', 'telnet', 'acpid', 'lvm2', 'bash-completion', 'sudo', 'vim' ]
+  # $enhancers = [ 'tree', 'sssd', 'realmd', 'oddjob', 'oddjob-mkhomedir', 'adcli',
+  # 'samba-common', 'samba-common-tools', 'krb5-workstation', 'openldap-clients', 'policycoreutils-python',
+  # 'tcpdump', 'openssl', 'openssl-devel', 'telnet', 'acpid', 'lvm2', 'bash-completion', 'sudo', 'vim' ]
 
-  package { $enhancers: }
+  # package { $enhancers: }
   # Firewall and security measurements
 	file_line { 'SELINUX=permissive':
 		path  => '/etc/selinux/config',
