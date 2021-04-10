@@ -1,6 +1,6 @@
 class profile::it::grafana {
   class { 'grafana':
-    version  => '8.0.0'
+    version  => '7.5.3'
   }
 
   firewalld_port { 'Grafana Main Port':
