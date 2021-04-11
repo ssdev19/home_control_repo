@@ -25,7 +25,7 @@ class profile::it::influxdb {
   #  pprof_enabled               => true,
 #    bind_address                   => ':8088',
     # meta_http_bind_address => ":8091",
-    bind_address                   => ":8086",
+    bind_address                   => ':8086',
     # influxd_opts           => lookup('influxdb_opts'),
     http_https_enabled             => true,
     http_https_certificate_path    => '/etc/ssl/influxdb.pem',
