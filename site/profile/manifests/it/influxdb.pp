@@ -35,7 +35,7 @@ class profile::it::influxdb {
   #  admin_user                  => $influx_admin_user,
     # auth_superuser              => lookup($influx_admin_user),
     # auth_superpass              => lookup($influx_admin_passwd),
-    admin_password                 => $influx_admin_passwd,
+  #  admin_password                 => $influx_admin_passwd,
     }
 
 
