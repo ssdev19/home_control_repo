@@ -42,11 +42,11 @@ class profile::it::influxdb {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-influx_username{$influx_admin_user:
-    ensure   => present,
-    password => $influx_admin_passwd,
-    database => $influx_telegraf_db_name,
-}
+# influx_username{$influx_admin_user:
+#     ensure   => present,
+#     password => $influx_admin_passwd,
+#     database => $influx_telegraf_db_name,
+# }
 # influx_database{$influx_telegraf_db_name:
 #   ensure    => present,
 #   superuser => $influx_telegraf_user,
@@ -84,11 +84,11 @@ influx_username{$influx_admin_user:
   }
 
 
-  # exec{'Create telegraf database on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '
-  #   ${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-  #   require => Exec['Create admin user on influxdb'],
+  exec{'Create telegraf database on influxdb':
+    path    => ['/usr/bin','/usr/sbin'],
+    command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '
+    ${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
+    require => Exec['Create admin user on influxdb'],
 
   #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '
   #   ${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
