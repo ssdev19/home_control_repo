@@ -31,8 +31,8 @@ class profile::it::influxdb {
   #  http_https_certificate_content => lookup 
     http_https_private_key_path => '/etc/ssl/influxdb.key',
   #  admin_user                  => $influx_admin_user,
-    auth_superuser              => lookup($influx_admin_user),
-    auth_superpass              => lookup($influx_admin_passwd),
+    # auth_superuser              => lookup($influx_admin_user),
+    # auth_superpass              => lookup($influx_admin_passwd),
     admin_password              => $influx_admin_passwd,
     }
 
