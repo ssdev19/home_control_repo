@@ -42,11 +42,11 @@ class profile::it::influxdb {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-# influx_telegraf_user{$influx_admin_user:
-#     ensure   => present,
-#     password => $influx_admin_passwd,
-#     database => $influx_telegraf_db_name,
-# }
+influx_username{$influx_admin_user:
+    ensure   => present,
+    password => $influx_admin_passwd,
+    database => $influx_telegraf_db_name,
+}
 # influx_database{$influx_telegraf_db_name:
 #   ensure    => present,
 #   superuser => $influx_telegraf_user,
@@ -77,11 +77,11 @@ class profile::it::influxdb {
 
 
 
-  # exec{'Create admin user on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
-  # }
+  exec{'Create admin user on influxdb':
+    path    => ['/usr/bin','/usr/sbin'],
+    command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
+    onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
+  }
 
 
   # exec{'Create telegraf database on influxdb':
