@@ -6,6 +6,9 @@ class profile::it::influxdb {
   $openssl_locality = lookup('locality')
   $openssl_cn = $trusted['certname']
 
+  $influx_admin_user = lookup('influx_admin_user')
+  $influx_admin_passwd = lookup('influx_admin_passwd')
+
   exec{'Create Selfsigned cert':
     path    => '/usr/bin/',
     command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
@@ -57,8 +60,7 @@ class profile::it::influxdb {
     ensure => 'installed'
   }
 
-  $influx_admin_user = lookup('influx_admin_user')
-  $influx_admin_passwd = lookup('influx_admin_passwd')
+
 
   # exec{'Create admin user on influxdb':
   #   path    => ['/usr/bin','/usr/sbin'],
