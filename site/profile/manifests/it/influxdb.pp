@@ -22,7 +22,7 @@ class profile::it::influxdb {
 #    log_enabled                 => true,
 #    suppress-write-log          => false,
   #  pprof_enabled               => true,
-    bind_address                => "{::fqdn}:8088",
+    bind_address                => ':8088',
     # meta_http_bind_address => ":8091",
     #bind_address                => ':8086',
     # influxd_opts           => lookup('influxdb_opts'),
