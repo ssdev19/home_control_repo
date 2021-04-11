@@ -87,10 +87,9 @@ class profile::it::influxdb {
   exec{'Create telegraf database on influxdb':
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"", require => Exec['Create admin user on influxdb'],
-
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '
-  #   ${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
-  # }
+    onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '
+    ${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
+  }
 
   # exec{'Create telegraf user on influxdb':
   #   path    => ['/usr/bin','/usr/sbin'],
