@@ -27,7 +27,7 @@ class profile::it::influxdb {
     # meta_http_bind_address => ":8091",
     #bind_address                => ':8086',
     # influxd_opts           => lookup('influxdb_opts'),
-    http_https_enabled          => false,
+    http_https_enabled          => true,
     http_https_certificate_path => '/etc/ssl/influxdb.pem',
   #  http_https_certificate_content => lookup 
     http_https_private_key_path => '/etc/ssl/influxdb.key',
@@ -88,7 +88,7 @@ class profile::it::influxdb {
 		path    => ['/usr/bin','/usr/sbin'],
 		command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
 		require => Exec["Create admin user on influxdb"],
-		onlyif => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
+		onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
 	}
 
   # exec{'Create telegraf user on influxdb':
