@@ -29,7 +29,7 @@ class profile::it::influxdb {
     # influxd_opts           => lookup('influxdb_opts'),
     http_https_enabled          => true,
     http_https_certificate_path => '/etc/ssl/influxdb.pem',
-  #  http_https_certificate_content => lookup 
+    http_https_certificate_content => lookup(https_certificate_content),
     http_https_private_key_path => '/etc/ssl/influxdb.key',
   #  admin_user                  => $influx_admin_user,
     # auth_superuser              => lookup($influx_admin_user),
