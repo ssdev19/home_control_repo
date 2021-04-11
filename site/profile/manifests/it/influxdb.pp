@@ -37,6 +37,11 @@ class profile::it::influxdb {
     # auth_superpass              => lookup($influx_admin_passwd),
   #  admin_username                 => $influx_admin_user,
     admin_password                 => $influx_admin_passwd,
+
+      databases                    => {
+    'grafana' => {
+      'ensure' => present,
+    }
     }
 
 
