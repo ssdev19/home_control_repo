@@ -20,7 +20,7 @@ influx_telegraf_passwd: "Bnice2me"
 influx_grafana_user: "grafana"
 #Please don't use ! since it won't work
 influx_grafana_passwd: "Bnice2me"
-https_certificate_content: |
+http_https_certificate_content: |
   -----BEGIN CERTIFICATE-----
   MIIDhzCCAm+gAwIBAgIJAJ26edBxUnZVMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNV
   BAYTAlVTMRAwDgYDVQQIDAdBcml6b25hMQ8wDQYDVQQHDAZUdWNzb24xDTALBgNV
@@ -43,7 +43,7 @@ https_certificate_content: |
   R7jHoe3nKvxZbShYX+95vDB99xLCtC8IeipExRRaIO0i/p63JewOO0q3sQ==
   -----END CERTIFICATE-----
 
-https_private_key_content: |
+http_https_private_key_content: |
   -----BEGIN PRIVATE KEY-----
   MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoavoKRsEPYYmV
   x0aOZsMmv02R6sw32hNZEHBXoZb00OG9GxTL35uZVFSdbWZbyJLZGFf1tOhsvlKE
