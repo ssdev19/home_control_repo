@@ -5,6 +5,8 @@
 country: "US"
 state: "Arizona"
 locality: "Tucson"
+https_private_key_content: ''
+https_certificate_content: ''
 
 #"-join my.other.node1:8091,my.other.node2:8091"
 influxdb_opts: ""

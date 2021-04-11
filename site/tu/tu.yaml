@@ -93,11 +93,8 @@ monitoring_enabled: true
 telegraf::outputs:
         influxdb:
                 urls:
-                        - "https://gs-influxdb-node-01.po.us.lsst.org:8086"
+                        - "https://influxdb.home.vm:8086"
                 database: 'telegraf'
                 username: 'telegraf'
                 password: 'Bnice2me'
                 insecure_skip_verify: true
-
-
-
