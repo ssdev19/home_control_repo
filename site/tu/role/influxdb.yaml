@@ -21,7 +21,7 @@ influx_grafana_user: "grafana"
 #Please don't use ! since it won't work
 influx_grafana_passwd: "Bnice2me"
 
-# firewalld_status: "running"
+ firewalld_status: "stopped"
 # lsst_firewall_default_zone: "public"
 # lsst_firewall_default_target: "DROP"
 # lsst_firewall_default_sources: 
