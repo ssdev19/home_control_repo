@@ -27,7 +27,8 @@ class profile::it::influxdb {
     http_https_certificate_path => '/etc/ssl/influxdb.pem',
   #  http_https_certificate_content => lookup 
     http_https_private_key_path => '/etc/ssl/influxdb.key',
-    admin_password              => lookup('influx_admin_user'),
+    admin_user                  => lookup(influx_admin_password),
+    admin_password              => lookup('influx_admin_password'),
     }
 
 
