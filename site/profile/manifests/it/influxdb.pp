@@ -42,6 +42,7 @@ class profile::it::influxdb {
     'grafana' => {
       'ensure' => present,
     }
+      }
     }
 
 
