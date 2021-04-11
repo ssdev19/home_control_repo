@@ -1,3 +1,4 @@
+
 class profile::it::influxdb {
 
 # create certs for http
@@ -15,118 +16,106 @@ class profile::it::influxdb {
   $influx_telegraf_user = lookup('influx_telegraf_user')
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
+class influxdb::config {
 
-  exec{'Create Selfsigned cert':
-    path    => '/usr/bin/',
-    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
-    onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
+  service {
+    'influxdb':
+      ensure => $influxdb::service_ensure;
+  }
+
+  if $influxdb::service_ensure == 'running' {
+    Service['influxdb'] {
+      enable => true
     }
-	exec{"Create telegraf database on influxdb":
-		path    => ['/usr/bin','/usr/sbin'],
-		command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-		require => Exec["Create admin user on influxdb"],
-		onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
-	}
+  } else {
+    Service['influxdb'] {
+      enable => false
+    }
+  }
 
-  class {'influxdb':
-    # ensure                 => present,
-    service_ensure                 => running,
-    http_enabled                   => true,
-#    write_tracing               => false,
-#    auth_enabled                   => true,
-#    log_enabled                 => true,
-#    suppress-write-log          => false,
-  #  pprof_enabled               => true,
-#    bind_address                   => ':8088',
-    # meta_http_bind_address => ":8091",
-    bind_address                   => ':8086',
-    # influxd_opts           => lookup('influxdb_opts'),
-    http_https_enabled             => true,
-    http_https_certificate_path    => '/etc/ssl/influxdb.pem',
-    http_https_certificate_content => lookup('https_certificate_content'),
-    http_https_private_key_path    => '/etc/ssl/influxdb.key',
-    http_https_private_key_content => lookup('https_private_key_content'),
-  #  admin_user                  => $influx_admin_user,
-    # auth_superuser              => lookup($influx_admin_user),
-    # auth_superpass              => lookup($influx_admin_passwd),
-  #  admin_username                 => $influx_admin_user,
-    admin_password                 => $influx_admin_passwd,
+  file {
+    '/etc/influxdb/influxdb.conf':
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'influxdb',
+      mode    => '0440',
+      content => template('influxdb/influxdb.conf.erb'),
+      notify  => Service['influxdb'];
+  }
+
+  if $influxdb::http_https_enabled {
+    if $influxdb::http_https_certificate_content == '' or $influxdb::http_https_private_key_content == '' {
+      fail('If you enable https you must provide certificate and key')
     }
 
+    if $facts['os']['family'] == 'Debian' {
+      # TODO: convert to ruby
+      exec {
+        'Add influxdb to ssl-cert group':
+          user    => 'root',
+          command => 'gpasswd -a influxdb ssl-cert',
+          unless  => "id influxdb | grep '(ssl-cert)'",
+          path    => ['/bin', '/usr/bin'];
+      }
+    }
 
+    if $influxdb::manage_ssl_certs {
+      file {
+        $influxdb::http_https_certificate_path:
+          ensure  => 'present',
+          owner   => 'root',
+          group   => 'influxdb',
+          mode    => '0444',
+          content => $influxdb::http_https_certificate_content,
+          notify  => Service['influxdb'];
 
-# influx_username{$influx_admin_user:
-#     ensure   => present,
-#     password => $influx_admin_passwd,
-#     database => $influx_telegraf_db_name,
-# }
-# influx_database{$influx_telegraf_db_name:
-#   ensure    => present,
-#   superuser => $influx_telegraf_user,
-#   superpass => $influx_telegraf_passwd,
-# }
-
-  firewalld_port { 'InfluxDB Main Port':
-    ensure   => present,
-    port     => '8086',
-    protocol => 'tcp',
-    require  => Service['firewalld'],
+        $influxdb::http_https_private_key_path:
+          ensure    => 'present',
+          owner     => 'root',
+          group     => $influxdb::http_https_private_key_group,
+          mode      => '0440',
+          content   => $influxdb::http_https_private_key_content,
+          show_diff => false,
+          notify    => Service['influxdb'];
+      }
+    }
   }
 
-  firewalld_port { 'InfluxDB Internodes Port':
-    ensure   => present,
-    port     => '8091',
-    protocol => 'tcp',
-    require  => Service['firewalld'],
+  influxdb::user {
+    'admin':
+      password => $influxdb::admin_password,
+      is_admin => true;
   }
 
-  package{'net-snmp':
-    ensure => 'installed'
+  if $influxdb::backup_enabled {
+    file {
+      $influxdb::backup_directory:
+        ensure => 'directory',
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0700';
+    }
+
+    cron {
+      'InfluxDB daily backup':
+        ensure  => 'present',
+        user    => 'root',
+        hour    => $influxdb::backup_hour,
+        minute  => $influxdb::backup_minute,
+        command => "/usr/bin/influxd backup -portable ${influxdb::backup_directory}";
+
+      'InfluxDB tidy backups':
+        ensure  => 'present',
+        user    => 'root',
+        hour    => $influxdb::backup_hour,
+        minute  => $influxdb::backup_minute,
+        command => "/usr/bin/find ${influxdb::backup_directory} -mtime +${influxdb::backup_keep} -type f -delete";
+    }
+  } else {
+    cron {
+      ['InfluxDB daily backup', 'InfluxDB tidy backups']:
+        ensure => 'absent',
+        user   => 'root';
+    }
   }
-
-  package{'net-snmp-utils':
-    ensure => 'installed'
-  }
-
-
-
-  # exec{'Create admin user on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
-  # }
-
-
-
-
-  # exec{'Create telegraf user on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE USER ${influx_telegraf_user} WITH PASSWORD '${influx_telegraf_passwd}'\"",
-  #   require => [Exec['Create admin user on influxdb'],Exec['Create telegraf database on influxdb']],
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW USERS\" | grep ${influx_telegraf_user} | wc -l ) -lt 1",
-  # }
-
-  # exec{'Grant WRITE access to telegraf db influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl  -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"GRANT WRITE ON ${influx_telegraf_db_name} TO ${influx_telegraf_user}\"",
-  #   require => [Exec['Create admin user on influxdb'],Exec['Create telegraf database on influxdb'], Exec["Create telegraf user on influxdb"]],
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW GRANTS FOR ${influx_telegraf_user}\" | grep -i ${influx_telegraf_db_name} | grep -i WRITE | wc -l ) -lt 1",
-  # }
-
-
-
-  # exec{'Create grafana user on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE USER ${influx_grafana_user} WITH PASSWORD '${influx_grafana_passwd}'\"",
-  #   require => [Exec['Create admin user on influxdb'],Exec['Create telegraf database on influxdb']],
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW USERS\" | grep ${influx_grafana_user} | wc -l ) -lt 1",
-  # }
-
-  # exec{'Grant READ access to telegraf db influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"GRANT READ ON ${influx_telegraf_db_name} TO ${influx_grafana_user}\"",
-  #   require => [Exec['Create admin user on influxdb'],Exec['Create telegraf database on influxdb'], Exec["Create grafana user on influxdb"]],
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW GRANTS FOR ${influx_grafana_user}\" | grep -i ${influx_telegraf_db_name} | grep -i READ | wc -l ) -lt 1",
-  # }
-  # define the telegraf plugins to be used on influx for network monitoring
 }
