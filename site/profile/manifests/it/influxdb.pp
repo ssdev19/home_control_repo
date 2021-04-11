@@ -41,7 +41,7 @@ class profile::it::influxdb {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-influx_telegraf_database{lookup($influx_telegraf_db_name):
+influx_database{lookup($influx_telegraf_db_name):
   ensure    => present,
   superuser => lookup($influx_telegraf_user),
   superpass => lookup($influx_telegraf_passwd)
