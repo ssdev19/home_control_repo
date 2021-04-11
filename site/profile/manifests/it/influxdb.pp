@@ -18,6 +18,7 @@ class profile::it::influxdb {
     # ensure                 => present,
     service_ensure              => running,
     http_enabled                => true,
+    write_tracing               => false,
 #    auth_enabled                => true,
 #    log_enabled                 => true,
 #    suppress-write-log          => false,
@@ -41,11 +42,11 @@ class profile::it::influxdb {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-influx_telegraf_user{$influx_admin_user:
-    ensure   => present,
-    password => $influx_admin_passwd,
-    database => $influx_telegraf_db_name,
-}
+# influx_telegraf_user{$influx_admin_user:
+#     ensure   => present,
+#     password => $influx_admin_passwd,
+#     database => $influx_telegraf_db_name,
+# }
 # influx_database{$influx_telegraf_db_name:
 #   ensure    => present,
 #   superuser => $influx_telegraf_user,
