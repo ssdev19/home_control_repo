@@ -12,7 +12,7 @@ https_certificate_content: ''
 influxdb_opts: ""
 influx_admin_user: "admin"
 #Please don't use ! since it won't work
-influx_admin_passwd: "root4u"
+influx_admin_passwd: 'root4u'
 influx_telegraf_db_name: "telegraf"
 influx_telegraf_user: "telegraf"
 #Please don't use ! since it won't work
