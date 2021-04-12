@@ -17,7 +17,6 @@ class profile::it::influxdb {
   # $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   # $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 # class influxdb::config {
-$dnsmasq_packages   = ['dnsmasq-base', 'dnsmasq-utils']
 
   service {
     'influxdb':

@@ -1,6 +1,7 @@
 forge 'https://forgeapi.puppetlabs.com'
 
 mod 'saz/timezone', '5.1.1'
+mod 'puppetlabs/ntp'
 mod 'puppet/selinux', '3.0.0'
 mod 'puppetlabs/firewall', '2.0.0'
 mod 'juniorsysadmin/irqbalance', '1.1.0'
