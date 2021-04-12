@@ -39,7 +39,7 @@ class profile::it::influxdb {
       owner   => 'root',
       group   => 'influxdb',
       mode    => '0440',
-      content => template('influxdb/influxdb.conf.erb'),
+#      content => template('influxdb/influxdb.conf.erb'),
       notify  => Service['influxdb'];
   }
 
