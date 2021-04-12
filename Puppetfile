@@ -67,7 +67,7 @@ mod 'graylog/graylog', '0.9.0'
 mod 'puppet/archive', '4.1.0'
 mod 'puppet-grafana', '8.0.0'
 mod 'puppetlabs-concat', '7.0.1'
-mod 'puppetlabs/inifile', '3.0.0'
+mod 'puppetlabs/inifile',
 mod 'puppetlabs/java', '6.2.0'
 mod 'puppetlabs-stdlib', '7.0.0'
 mod 'puppetlabs/vcsrepo', '3.0.0'
