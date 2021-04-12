@@ -20,6 +20,8 @@ influx_telegraf_passwd: "Bnice2me"
 influx_grafana_user: "grafana"
 #Please don't use ! since it won't work
 influx_grafana_passwd: "Bnice2me"
+
+http_https_private_key_group: 'root'
 http_https_certificate_content: |
   -----BEGIN CERTIFICATE-----
   MIIDhzCCAm+gAwIBAgIJAJ26edBxUnZVMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNV
