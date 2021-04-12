@@ -83,7 +83,7 @@ class profile::it::influxdb {
 
   influxdb::user {
     'admin':
-      password => $influxdb::admin_password,
+      password => $influxdb::influx_admin_passwd,
       is_admin => true;
   }
 
