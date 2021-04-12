@@ -87,35 +87,35 @@ class profile::it::influxdb {
       is_admin => true;
   }
 
-  if $influxdb::backup_enabled {
-    file {
-      $influxdb::backup_directory:
-        ensure => 'directory',
-        owner  => 'root',
-        group  => 'root',
-        mode   => '0700';
-    }
+  # if $influxdb::backup_enabled {
+  #   file {
+  #     $influxdb::backup_directory:
+  #       ensure => 'directory',
+  #       owner  => 'root',
+  #       group  => 'root',
+  #       mode   => '0700';
+  #   }
 
-    cron {
-      'InfluxDB daily backup':
-        ensure  => 'present',
-        user    => 'root',
-        hour    => $influxdb::backup_hour,
-        minute  => $influxdb::backup_minute,
-        command => "/usr/bin/influxd backup -portable ${influxdb::backup_directory}";
+  #   cron {
+  #     'InfluxDB daily backup':
+  #       ensure  => 'present',
+  #       user    => 'root',
+  #       hour    => $influxdb::backup_hour,
+  #       minute  => $influxdb::backup_minute,
+  #       command => "/usr/bin/influxd backup -portable ${influxdb::backup_directory}";
 
-      'InfluxDB tidy backups':
-        ensure  => 'present',
-        user    => 'root',
-        hour    => $influxdb::backup_hour,
-        minute  => $influxdb::backup_minute,
-        command => "/usr/bin/find ${influxdb::backup_directory} -mtime +${influxdb::backup_keep} -type f -delete";
-    }
-  } else {
-    cron {
-      ['InfluxDB daily backup', 'InfluxDB tidy backups']:
-        ensure => 'absent',
-        user   => 'root';
-    }
-  }
+  #     'InfluxDB tidy backups':
+  #       ensure  => 'present',
+  #       user    => 'root',
+  #       hour    => $influxdb::backup_hour,
+  #       minute  => $influxdb::backup_minute,
+  #       command => "/usr/bin/find ${influxdb::backup_directory} -mtime +${influxdb::backup_keep} -type f -delete";
+  #   }z
+  # } else {
+  #   cron {
+  #     ['InfluxDB daily backup', 'InfluxDB tidy backups']:
+  #       ensure => 'absent',
+  #       user   => 'root';
+  #   }
+  # }
 }
