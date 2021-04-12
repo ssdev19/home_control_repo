@@ -23,7 +23,7 @@ class profile::it::influxdb {
     }
 
   class {'influxdb':
-    # ensure                 => present,
+    ensure                         => present,
     service_ensure                 => running,
     http_enabled                   => true,
 #    write_tracing               => false,
