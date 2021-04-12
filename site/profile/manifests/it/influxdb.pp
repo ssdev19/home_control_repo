@@ -2,21 +2,21 @@
 class profile::it::influxdb {
 
 # create certs for http
-  $openssl_country = lookup('country')
-  $openssl_state = lookup('state')
-  $openssl_locality = lookup('locality')
-  $openssl_cn = $trusted['certname']
+  # $openssl_country = lookup('country')
+  # $openssl_state = lookup('state')
+  # $openssl_locality = lookup('locality')
+  # $openssl_cn = $trusted['certname']
 
-  $influx_admin_user = lookup('influx_admin_user')
-  $influx_admin_passwd = lookup('influx_admin_passwd')
+  # $influx_admin_user = lookup('influx_admin_user')
+  # $influx_admin_passwd = lookup('influx_admin_passwd')
 
-  $influx_grafana_user = lookup('influx_grafana_user')
-  $influx_grafana_passwd = lookup('influx_grafana_passwd')
+  # $influx_grafana_user = lookup('influx_grafana_user')
+  # $influx_grafana_passwd = lookup('influx_grafana_passwd')
 
-  $influx_telegraf_user = lookup('influx_telegraf_user')
-  $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
-  $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
-class influxdb::config {
+  # $influx_telegraf_user = lookup('influx_telegraf_user')
+  # $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
+  # $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
+# class influxdb::config {
 
   service {
     'influxdb':
@@ -72,7 +72,7 @@ class influxdb::config {
         $influxdb::http_https_private_key_path:
           ensure    => 'present',
           owner     => 'root',
-          group     => $influxdb::http_https_private_key_group,
+          group     => $influxdb::http_https_private_key_g,
           mode      => '0440',
           content   => $influxdb::http_https_private_key_content,
           show_diff => false,
@@ -118,5 +118,4 @@ class influxdb::config {
         user   => 'root';
     }
   }
-}
 }
