@@ -20,28 +20,28 @@ class profile::it::influxdb {
 
   service {
     'influxdb':
-      ensure => 'running' # $influxdb::service_ensure;
+      ensure => $influxdb::service_ensure;
   }
 
-  # if $influxdb::service_ensure == 'running' {
-  #   Service['influxdb'] {
-  #     enable => true
-  #   }
-  # } else {
-  #   Service['influxdb'] {
-  #     enable => false
-  #   }
-  # }
+  if $influxdb::service_ensure == 'running' {
+    Service['influxdb'] {
+      enable => true
+    }
+  } else {
+    Service['influxdb'] {
+      enable => false
+    }
+  }
 
-  # file {
-  #   '/etc/influxdb/influxdb.conf':
-  #     ensure  => 'present',
-  #     owner   => 'root',
-  #     group   => 'influxdb',
-  #     mode    => '0440',
-  #     content => template('influxdb/influxdb.conf.erb'),
-  #     notify  => Service['influxdb'];
-  # }
+  file {
+    '/etc/influxdb/influxdb.conf':
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'influxdb',
+      mode    => '0440',
+      content => template('influxdb/influxdb.conf.erb'),
+      notify  => Service['influxdb'];
+  }
 
   if $influxdb::http_https_enabled {
     if $influxdb::http_https_certificate_content == '' or $influxdb::http_https_private_key_content == '' {
