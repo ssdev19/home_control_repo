@@ -20,18 +20,18 @@ class profile::it::influxdb {
 
   service {
     'influxdb':
-      ensure => $influxdb::service_ensure;
+      ensure => 'running' # $influxdb::service_ensure;
   }
 
-  if $influxdb::service_ensure == 'running' {
-    Service['influxdb'] {
-      enable => true
-    }
-  } else {
-    Service['influxdb'] {
-      enable => false
-    }
-  }
+  # if $influxdb::service_ensure == 'running' {
+  #   Service['influxdb'] {
+  #     enable => true
+  #   }
+  # } else {
+  #   Service['influxdb'] {
+  #     enable => false
+  #   }
+  # }
 
   # file {
   #   '/etc/influxdb/influxdb.conf':
