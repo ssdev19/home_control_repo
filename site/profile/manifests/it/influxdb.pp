@@ -72,7 +72,7 @@ class profile::it::influxdb {
         $influxdb::http_https_private_key_path:
           ensure    => 'present',
           owner     => 'root',
-          group     => $influxdb::http_https_private_key_g,
+          group     => $influxdb::http_https_private_key_gro,
           mode      => '0440',
           content   => $influxdb::http_https_private_key_content,
           show_diff => false,
