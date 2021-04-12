@@ -45,7 +45,7 @@ http_https_certificate_content: |
 
 http_https_private_key_content: |
   -----BEGIN PRIVATE KEY-----
-  MjIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoavoKRsEPYYmV
+  MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCoavoKRsEPYYmV
   x0aOZsMmv02R6sw32hNZEHBXoZb00OG9GxTL35uZVFSdbWZbyJLZGFf1tOhsvlKE
   16kaI/Ti/adnezfpxsXbO2j/TMIFgcyuBwv1GZqSzuGFUnupmDZ3dWLLEcN53dbo
   rnq+ba1pXfnGT5A60/nTUK1assu3KiMKjAKCNWDY0/2+HNooA8icYqZzIsZqN1Vp
