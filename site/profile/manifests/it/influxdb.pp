@@ -23,6 +23,7 @@ class profile::it::influxdb {
     }
 
   class {'influxdb':
+    version                        => '2.0',
     ensure                         => present,
     service_ensure                 => running,
     http_enabled                   => true,
