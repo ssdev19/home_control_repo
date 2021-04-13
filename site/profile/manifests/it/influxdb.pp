@@ -17,15 +17,16 @@ class profile::it::influxdb {
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 #include influxdb
 
-  exec{'Create Selfsigned cert':
-    path    => '/usr/bin/',
-    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/pki/tls/private/InfluxDB.key -out /etc/pki/tls/certs/InfluxDB.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
-    onlyif  => 'test ! -f /etc/pki/tls/certs/InfluxDB.crt'
-    }
+  # exec{'Create Selfsigned cert':
+  #   path    => '/usr/bin/',
+  #   command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/pki/tls/private/InfluxDB.key -out /etc/pki/tls/certs/InfluxDB.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
+  #   onlyif  => 'test ! -f /etc/pki/tls/certs/InfluxDB.crt'
+  #   }
 # influxdb config file: /etc/influxdb/influxdb.conf
   class {'influxdb':
     # version                        => '2.0',
     admin_password                 => $influx_admin_passwd,
+    admin_user                     => $influx_admin_user,
     service_ensure                 => running,
     http_enabled                   => true,
 # #    write_tracing               => false,
@@ -42,7 +43,6 @@ class profile::it::influxdb {
 #     http_https_certificate_content => lookup('https_certificate_content'),
 #     http_https_private_key_path    => '/etc/pki/tls/private/InfluxDB.key',
 #     http_https_private_key_content => lookup('https_private_key_content'),
-#   #  admin_user                  => $influx_admin_user,
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
