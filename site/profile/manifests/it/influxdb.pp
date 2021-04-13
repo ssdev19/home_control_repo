@@ -82,12 +82,12 @@ class profile::it::influxdb {
     ensure => 'installed'
   }
 
-exec { "create_database_${$influx_telegraf_db_name}":
-      path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
-      command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-      onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1",
-      require => Class['influxdb']
-    }
+# exec { "create_database_${$influx_telegraf_db_name}":
+#       path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
+#       command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
+#       onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1",
+#       require => Class['influxdb']
+#     }
 
 
   # exec{'Create admin user on influxdb':
