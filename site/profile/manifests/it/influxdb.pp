@@ -20,7 +20,7 @@ class profile::it::influxdb {
   exec{'Create Selfsigned cert':
     path    => '/usr/bin/',
     command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/pki/tls/private/InfluxDB.key -out /etc/pki/tls/certs/InfluxDB.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
-    onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
+    onlyif  => 'test ! -f /etc/pki/tls/certs/InfluxDB.crt'
     }
 # influxdb config file: /etc/influxdb/influxdb.conf
   class {'influxdb':
