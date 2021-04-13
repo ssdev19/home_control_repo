@@ -91,11 +91,11 @@ class profile::it::influxdb {
 #     }
 
 
-  exec{'Create admin user on influxdb':
-    path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
-    command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
-    onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
-  }
+  # exec{'Create admin user on influxdb':
+  #   path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
+  #   command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
+  #   onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
+  # }
 
 
 
