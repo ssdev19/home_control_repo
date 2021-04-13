@@ -33,7 +33,7 @@ class profile::it::influxdb {
 #    auth_enabled                   => true,
 # #    log_enabled                 => true,
 # #    suppress-write-log          => false,
-#    pprof_enabled                  => true,
+    http_pprof_enabled                  => true,
 # #    bind_address                   => ':8088',
 #     # meta_http_bind_address => ":8091",
     http_bind_address               => ':8086',
