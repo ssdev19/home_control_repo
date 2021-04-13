@@ -26,7 +26,7 @@ class profile::it::influxdb {
   class {'influxdb':
     # version                        => '2.0',
     admin_password                 => $influx_admin_passwd,
-    admin_user                     => $influx_admin_user,
+#    admin_user                     => $influx_admin_user,
     service_ensure                 => running,
     http_enabled                   => true,
 # #    write_tracing               => false,
@@ -83,19 +83,19 @@ class profile::it::influxdb {
     ensure => 'installed'
   }
 
-exec { "create_database_${$influx_telegraf_db_name}":
-      path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
-      command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-      onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1",
-      require => Class['influxdb']
-    }
+# exec { "create_database_${$influx_telegraf_db_name}":
+#       path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
+#       command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
+#       onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1",
+#       require => Class['influxdb']
+#     }
 
 
-  # exec{'Create admin user on influxdb':
-  #   path    => ['/usr/bin','/usr/sbin'],
-  #   command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
-  #   onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
-  # }
+  exec{'Create admin user on influxdb':
+    path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
+    command => "influx -ssl -unsafeSsl -execute \"CREATE USER ${influx_admin_user} WITH PASSWORD '${influx_admin_passwd}' WITH ALL PRIVILEGES\"",
+    onlyif  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1"
+  }
 
 
 
