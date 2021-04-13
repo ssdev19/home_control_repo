@@ -29,7 +29,7 @@ class profile::it::influxdb {
     service_ensure                 => running,
     http_enabled                   => true,
 # #    write_tracing               => false,
-    auth_enabled                   => true,
+#    auth_enabled                   => true,
 # #    log_enabled                 => true,
 # #    suppress-write-log          => false,
 #    pprof_enabled                  => true,
