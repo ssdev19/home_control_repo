@@ -19,7 +19,7 @@ class profile::it::influxdb {
 
   exec{'Create Selfsigned cert':
     path    => '/usr/bin/',
-    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
+    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=home/CN=vm\"",
     onlyif  => 'test ! -f /etc/ssl/influxdb.crt'
     }
 # influxdb config file: /etc/influxdb/influxdb.conf
@@ -42,7 +42,7 @@ class profile::it::influxdb {
 #    http_https_certificate_content => lookup('https_certificate_content'),
     http_https_private_key_path    => '/etc/ssl/influxdb.key',
 #    http_https_private_key_content => lookup('https_private_key_content'),
-#    http_https_enabled             => true,
+    http_https_enabled             => true,
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
