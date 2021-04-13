@@ -22,12 +22,12 @@ class profile::it::influxdb {
   #   command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
   #   onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
   #   }
-
+# influxdb config file: /etc/influxdb/influxdb.conf
   class {'influxdb':
     # version                        => '2.0',
     admin_password                 => $influx_admin_passwd,
     service_ensure                 => running,
-#     http_enabled                   => true,
+    http_enabled                   => true,
 # #    write_tracing               => false,
 # #    auth_enabled                   => true,
 # #    log_enabled                 => true,
