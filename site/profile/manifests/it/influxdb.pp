@@ -17,11 +17,11 @@ class profile::it::influxdb {
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 #include influxdb
 
-  # exec{'Create Selfsigned cert':
-  #   path    => '/usr/bin/',
-  #   command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
-  #   onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
-  #   }
+  exec{'Create Selfsigned cert':
+    path    => '/usr/bin/',
+    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/pki/tls/private/InfluxDB.key -out /etc/pki/tls/certs/InfluxDB.crt -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
+    onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
+    }
 # influxdb config file: /etc/influxdb/influxdb.conf
   class {'influxdb':
     # version                        => '2.0',
@@ -32,15 +32,15 @@ class profile::it::influxdb {
 # #    auth_enabled                   => true,
 # #    log_enabled                 => true,
 # #    suppress-write-log          => false,
-#   #  pprof_enabled               => true,
+    pprof_enabled                  => true,
 # #    bind_address                   => ':8088',
 #     # meta_http_bind_address => ":8091",
 #     bind_address                   => ':8086',
 #     # influxd_opts           => lookup('influxdb_opts'),
 #     http_https_enabled             => true,
-#     http_https_certificate_path    => '/etc/ssl/influxdb.pem',
+#     http_https_certificate_path    => '/etc/pki/tls/certs/InfluxDB.crt',
 #     http_https_certificate_content => lookup('https_certificate_content'),
-#     http_https_private_key_path    => '/etc/ssl/influxdb.key',
+#     http_https_private_key_path    => '/etc/pki/tls/private/InfluxDB.key',
 #     http_https_private_key_content => lookup('https_private_key_content'),
 #   #  admin_user                  => $influx_admin_user,
 #     # auth_superuser              => lookup($influx_admin_user),
