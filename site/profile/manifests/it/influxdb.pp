@@ -16,13 +16,13 @@ class profile::it::influxdb {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-  exec{'Create Selfsigned cert':
-    path    => '/usr/bin/',
-    command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
-    onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
-    }
+  # exec{'Create Selfsigned cert':
+  #   path    => '/usr/bin/',
+  #   command => "openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/influxdb.key -out /etc/ssl/influxdb.pem -days 365 -subj \"/C=${openssl_country}/ST=${openssl_state}/L=${openssl_locality}/O=LSST/CN=${openssl_cn}\"",
+  #   onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
+  #   }
 
-  class {'influxdb':
+  # class {'influxdb':
     # version                        => '2.0',
     # ensure                         => present,
 #     service_ensure                 => running,
@@ -46,7 +46,7 @@ class profile::it::influxdb {
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
 #     admin_password                 => $influx_admin_passwd,
-    }
+    # }
 
 
 
