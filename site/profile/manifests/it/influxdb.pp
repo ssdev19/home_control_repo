@@ -92,7 +92,7 @@ class profile::it::influxdb {
   # }
 
 
-  exec{"Create telegraf database on influxdb":
+  exec{"Create database telegraf":
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
     require => Exec["Create admin user on influxdb"],
