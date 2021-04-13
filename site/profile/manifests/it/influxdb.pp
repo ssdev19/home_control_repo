@@ -1,5 +1,5 @@
 class profile::it::influxdb {
-include influxdb
+
 # create certs for http
   $openssl_country = lookup('country')
   $openssl_state = lookup('state')
@@ -15,6 +15,7 @@ include influxdb
   $influx_telegraf_user = lookup('influx_telegraf_user')
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
+include influxdb
 
   # exec{'Create Selfsigned cert':
   #   path    => '/usr/bin/',
@@ -22,7 +23,7 @@ include influxdb
   #   onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
   #   }
 
-  class {'influxdb':
+  # class {'influxdb':
     # version                        => '2.0',
     # ensure                         => present,
 #     service_ensure                 => running,
@@ -45,7 +46,7 @@ include influxdb
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
-    admin_password                 => $influx_admin_passwd, }
+    # admin_password                 => $influx_admin_passwd, }
 
 
 
