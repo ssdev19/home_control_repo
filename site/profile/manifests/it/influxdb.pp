@@ -1,5 +1,4 @@
 class profile::it::influxdb {
-
 # create certs for http
   $openssl_country = lookup('country')
   $openssl_state = lookup('state')

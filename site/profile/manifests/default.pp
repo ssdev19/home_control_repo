@@ -47,4 +47,8 @@ include ssh
 		require => Class["firewalld"],
 		onlyif => "[[ \"\$(firewall-cmd --list-protocols)\" != *\"icmp\"* ]]"
 	}
+	Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2',
+'bash-completion', 'sudo', 'screen', 'vim' ]:
+ensure => installed,
+}
 }
