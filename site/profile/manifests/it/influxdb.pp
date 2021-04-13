@@ -23,7 +23,7 @@ include influxdb
   #   onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
   #   }
 
-  # class {'influxdb':
+  class {'influxdb':
     # version                        => '2.0',
     # ensure                         => present,
 #     service_ensure                 => running,
@@ -46,7 +46,7 @@ include influxdb
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
-    # admin_password                 => $influx_admin_passwd, }
+  admin_password                 => $influx_admin_passwd, }
 
 
 
