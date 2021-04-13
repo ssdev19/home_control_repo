@@ -28,7 +28,6 @@ class profile::it::influxdb {
     admin_password                 => $influx_admin_passwd,
     service_ensure                 => running,
     http_enabled                   => true,
-    db_name                        => $influx_telegraf_db_name
 # #    write_tracing               => false,
 #    auth_enabled                   => true,
 # #    log_enabled                 => true,
@@ -84,6 +83,12 @@ class profile::it::influxdb {
     ensure => 'installed'
   }
 
+exec { "create_database_${$influx_telegraf_db_name}":
+      path    => '/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin',
+      command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
+      unless  => "test $(influx -ssl -unsafeSsl -execute 'show databases' -username '${influx_admin_user}' -password '${influx_admin_passwd}' &> /dev/null; echo $? ) -eq 1",
+      require => Class['influxdb']
+    }
 
 
   # exec{'Create admin user on influxdb':
