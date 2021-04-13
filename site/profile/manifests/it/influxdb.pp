@@ -92,10 +92,10 @@ class profile::it::influxdb {
   # }
 
 
-  exec{"Create database telegraf":
+  exec{'Create database telegraf':
     path    => ['/usr/bin','/usr/sbin'],
     command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-    require => Exec["Create database telegraf"],
+    require => Exec['Create database telegraf'],
     onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
     }
 
