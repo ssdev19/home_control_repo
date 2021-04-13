@@ -15,7 +15,7 @@ class profile::it::influxdb {
   $influx_telegraf_user = lookup('influx_telegraf_user')
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
-include influxdb
+#include influxdb
 
   # exec{'Create Selfsigned cert':
   #   path    => '/usr/bin/',
