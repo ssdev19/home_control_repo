@@ -25,9 +25,8 @@ class profile::it::influxdb {
 
   class {'influxdb':
     # version                        => '2.0',
-    ensure                         => present,
     admin_password                 => $influx_admin_passwd,
-#     service_ensure                 => running,
+    service_ensure                 => running,
 #     http_enabled                   => true,
 # #    write_tracing               => false,
 # #    auth_enabled                   => true,
