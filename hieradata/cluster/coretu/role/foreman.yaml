@@ -1,4 +1,5 @@
 ---
 classes:
+   - profile::common
    - "r10k"
 #profile::core::puppet_master::smee_url: ""

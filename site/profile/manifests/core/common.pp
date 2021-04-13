@@ -31,4 +31,8 @@ class profile::core::common(
 #  if $collect_metrics {
 #    include profile::core::telegraf
 #  }
+Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2',
+'bash-completion', 'sudo', 'screen', 'vim' ]:
+ensure => installed,
+}
 }
