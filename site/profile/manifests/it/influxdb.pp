@@ -38,7 +38,7 @@ class profile::it::influxdb {
 #     # meta_http_bind_address => ":8091",
 #     bind_address                   => ':8086',
 #     # influxd_opts           => lookup('influxdb_opts'),
-#     http_https_enabled             => true,
+    http_https_enabled             => true,
 #     http_https_certificate_path    => '/etc/pki/tls/certs/InfluxDB.crt',
 #     http_https_certificate_content => lookup('https_certificate_content'),
 #     http_https_private_key_path    => '/etc/pki/tls/private/InfluxDB.key',
