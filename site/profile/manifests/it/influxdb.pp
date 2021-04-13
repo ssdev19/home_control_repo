@@ -28,6 +28,7 @@ class profile::it::influxdb {
     admin_password                 => $influx_admin_passwd,
     service_ensure                 => running,
     http_enabled                   => true,
+    db_name                        => $influx_telegraf_db_name
 # #    write_tracing               => false,
 #    auth_enabled                   => true,
 # #    log_enabled                 => true,
