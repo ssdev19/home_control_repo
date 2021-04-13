@@ -46,11 +46,6 @@ class profile::it::influxdb {
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
-  databases    => {
-    'telegraf' => {
-      'ensure' => present,
-    }
-  },
 }
 
 
