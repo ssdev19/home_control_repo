@@ -20,7 +20,7 @@ ssh::server_options:
   ChallengeResponseAuthentication: "no"
   GSSAPIAuthentication: "yes"
   GSSAPICleanupCredentials: "yes"
-  UsePAM: "yes"
+  UsePAM: "no"
   AllowTcpForwarding: "yes"
   X11Forwarding: "yes"
   X11UseLocalhost: "yes"
