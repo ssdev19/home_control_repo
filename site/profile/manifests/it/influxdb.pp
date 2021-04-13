@@ -22,7 +22,7 @@ class profile::it::influxdb {
     onlyif  => 'test ! -f /etc/ssl/influxdb.pem'
     }
 
-  class {'influxdb':
+  class {'influxdb::server':
     version                        => '2.0',
     ensure                         => present,
     service_ensure                 => running,
