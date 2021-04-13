@@ -25,7 +25,8 @@ class profile::it::influxdb {
 
   class {'influxdb':
     # version                        => '2.0',
-    # ensure                         => present,
+    ensure                         => present,
+    admin_password                 => $influx_admin_passwd,
 #     service_ensure                 => running,
 #     http_enabled                   => true,
 # #    write_tracing               => false,
@@ -46,7 +47,7 @@ class profile::it::influxdb {
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
-  admin_password                 => $influx_admin_passwd, }
+}
 
 
 
