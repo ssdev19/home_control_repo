@@ -34,7 +34,7 @@ class profile::it::influxdb {
 # #    log_enabled                 => true,
 # #    suppress-write-log          => false,
     http_pprof_enabled                  => true,
-    meta_bind_address                   => ':8088',
+# #    bind_address                   => ':8088',
 #     # meta_http_bind_address => ":8091",
     http_bind_address               => ':8086',
 #     # influxd_opts           => lookup('influxdb_opts'),
