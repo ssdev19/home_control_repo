@@ -46,12 +46,13 @@ class profile::it::influxdb {
 #     # auth_superuser              => lookup($influx_admin_user),
 #     # auth_superpass              => lookup($influx_admin_passwd),
 #   #  admin_username                 => $influx_admin_user,
-}
-  databases      => {
+  databases    => {
     'telegraf' => {
       'ensure' => present,
     }
   },
+}
+
 
 
 # influx_username{$influx_admin_user:
@@ -99,7 +100,7 @@ class profile::it::influxdb {
   # exec{"Create database telegraf":
   #   path    => ['/usr/bin','/usr/sbin'],
   #   command => "influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"CREATE DATABASE ${influx_telegraf_db_name}\"",
-  #   require => Exec["Create admin user on influxdb"],
+  #   require => Exec["Create database telegraf"],
   #   onlyif  => "test $(influx -ssl -unsafeSsl -username '${influx_admin_user}' -password '${influx_admin_passwd}' -execute \"SHOW DATABASES\" | grep ${influx_telegraf_db_name} | wc -l ) -lt 1"
   #   }
 
