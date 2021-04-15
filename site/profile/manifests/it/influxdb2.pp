@@ -17,8 +17,8 @@ class profile::it::influxdb2 {
 
 # influxdb config file: /etc/influxdb/influxdb.conf
 class { '::influxdb':
-  admin_username => "${influx_admin_user}",
-  admin_password => "${influx_admin_passwd}",
+  admin_username => $influx_admin_user,
+  admin_password => $influx_admin_passwd,
   configuration  => {
     'data'  => {
       'dir'                     => '/var/lib/influxdb/data',
@@ -43,7 +43,7 @@ class { '::influxdb':
     # 'grafana' => {
     #   'password' => $influx_grafana_passwd,
     # },
-    "${influx_telegraf_user}" => {
+    $influx_telegraf_user => {
       'password' => $influx_telegraf_passwd,
       privilege  => 'READ',
       database   => $influx_telegraf_db_name,
