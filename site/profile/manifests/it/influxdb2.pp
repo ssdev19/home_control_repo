@@ -40,10 +40,10 @@ class { '::influxdb':
     }
   },
   users          => {
-    'grafana2' => {
+    'grafana2'  => {
       'password' => $influx_grafana_passwd,
       privilege  => 'READ',
-      database   => $influx_telegraf_db_name,  
+      database   => $influx_telegraf_db_name,
     },
     $influx_telegraf_user => {
       'password' => $influx_telegraf_passwd,
@@ -63,7 +63,7 @@ influxdb::user { $influx_grafana_user:
 
 # Note: for durations, InfluxDB converts the duration literals to something else. Write that something else in puppet.
 influxdb::retention_policy { '1YearRetention':
-  database => $influx_telegraf_db_name,
+  database => "${influx_telegraf_db_name}",
   duration => '8640h0m0s',
 }
 }
