@@ -45,7 +45,7 @@ class { '::influxdb':
       privilege  => 'READ',
       database   => $influx_telegraf_db_name,
     },
-    $influx_telegraf_user => {
+    "${influx_telegraf_user}" => {
       'password' => $influx_telegraf_passwd,
       privilege  => 'READ',
       database   => $influx_telegraf_db_name,
@@ -56,9 +56,9 @@ class { '::influxdb':
 influxdb::database { 'metrics': }
 
 influxdb::user { $influx_grafana_user:
-  password   => $influx_grafana_passwd,
-  privilege  => 'READ',
-  database   => 'metrics',
+  password  => $influx_grafana_passwd,
+  privilege => 'READ',
+  database  => 'metrics',
 }
 
 # Note: for durations, InfluxDB converts the duration literals to something else. Write that something else in puppet.
