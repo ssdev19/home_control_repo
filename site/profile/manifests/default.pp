@@ -20,10 +20,10 @@ include ssh
 	}  
 	$lsst_firewall_default_zone = lookup("lsst_firewall_default_zone")
 
-	class { "firewalld":
-		service_ensure => lookup("firewalld_status"),
-		default_zone => $lsst_firewall_default_zone,
-	}
+	# class { "firewalld":
+	# 	service_ensure => lookup("firewalld_status"),
+	# 	default_zone => $lsst_firewall_default_zone,
+	# }
 
 	firewalld_zone { $lsst_firewall_default_zone:
 		ensure => present,
