@@ -49,6 +49,8 @@ class { '::influxdb':
     # },
     "${influx_telegraf_user}" => {
       'password' => $influx_telegraf_passwd,
+      privilege  => 'READ',
+      database   => $influx_telegraf_db_name,
     },
   },
 }
