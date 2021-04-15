@@ -1,3 +1,65 @@
 class profile::it::influxdb2 {
 
+  $openssl_country = lookup('country')
+  $openssl_state = lookup('state')
+  $openssl_locality = lookup('locality')
+  $openssl_cn = $trusted['certname']
+
+  $influx_admin_user = lookup('influx_admin_user')
+  $influx_admin_passwd = lookup('influx_admin_passwd')
+
+  $influx_grafana_user = lookup('influx_grafana_user')
+  $influx_grafana_passwd = lookup('influx_grafana_passwd')
+
+  $influx_telegraf_user = lookup('influx_telegraf_user')
+  $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
+  $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
+
+
+class { '::influxdb':
+  admin_username => $influx_admin_user,
+  admin_password => $influx_admin_passwd,
+  configuration  => {
+    'data'  => {
+      'dir'                     => '/mnt/influxdb/data',
+      'wal-dir'                 => '/mnt/influxdb/wal',
+      'max-series-per-database' => 0,
+      'max-values-per-tag'      => 0,
+    },
+    '[udp]' => {
+      'enabled'       => true,
+      'bind-address'  => ':8090',
+      'database'      => 'metrics',
+      'batch-pending' => 1024,
+      'read-buffer'   => 33554432,
+    },
+  },
+  databases      => {
+    $influx_telegraf_db_name => {
+      'ensure' => present,
+    }
+  },
+  users          => {
+    $influx_grafana_user => {
+      'password' => $influx_grafana_passwd,
+    },
+    $influx_telegraf_user => {
+      'password' => $influx_telegraf_passwd,
+    },
+  },
+}
+
+influxdb::database { 'metrics': }
+
+# influxdb::user { 'grafana_user':
+#   password   => 'mySuperSecretPassWORD',
+#   privilege  => 'READ',
+#   database   => 'metrics',
+# }
+
+# Note: for durations, InfluxDB converts the duration literals to something else. Write that something else in puppet.
+influxdb::retention_policy { '1YearRetention':
+  database => $influx_telegraf_db_name,
+  duration => '8640h0m0s',
+}
 }
