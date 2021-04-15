@@ -13,11 +13,11 @@ include ssh
 
   # package { $enhancers: }
   # Firewall and security measurements
-	file_line { 'SELINUX=permissive':
-		path  => '/etc/selinux/config',
-		line => 'SELINUX=enforce',
-		match => '^SELINUX=+',
-	}  
+	# file_line { 'SELINUX=permissive':
+	# 	path  => '/etc/selinux/config',
+	# 	line => 'SELINUX=enforce',
+	# 	match => '^SELINUX=+',
+	# }  
 	$lsst_firewall_default_zone = lookup("lsst_firewall_default_zone")
 
 # 	class { "firewalld":
