@@ -1,7 +1,4 @@
 ---
 classes:
    - profile::core::common
-package { 'toml':
-  ensure   => 'installed',
-  provider => 'puppetserver_gem',
-}
+   - profile::core::puppet_master
