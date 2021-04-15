@@ -63,7 +63,7 @@ influxdb::user { $influx_grafana_user:
 
 # Note: for durations, InfluxDB converts the duration literals to something else. Write that something else in puppet.
 influxdb::retention_policy { '1YearRetention':
-  'database' => "${influx_telegraf_db_name}",
-  'duration' => '8640h0m0s',
+  database => $influx_telegraf_db_name,
+  duration => '8640h0m0s',
 }
 }
