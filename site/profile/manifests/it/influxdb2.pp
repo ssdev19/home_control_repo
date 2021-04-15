@@ -39,15 +39,15 @@ class { '::influxdb':
     },
   },
   databases      => {
-    $influx_telegraf_db_name => {
+    "${influx_telegraf_db_name}" => {
       'ensure' => present,
     }
   },
   users          => {
-    $influx_grafana_user => {
+    "${influx_grafana_user}" => {
       'password' => $influx_grafana_passwd,
     },
-    $influx_telegraf_user => {
+    "${influx_telegraf_user}" => {
       'password' => $influx_telegraf_passwd,
     },
   },
