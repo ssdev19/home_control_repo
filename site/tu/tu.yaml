@@ -64,7 +64,7 @@ ts_sal::salmgr_pwd: "$1$LSST$bUNkP0Bf47l.Z8/eFHKvK/"
 # Firewall and Security Configuration
 #=============================================================================
 
-firewalld_status: "stopped"
+firewalld_status: "disabled"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"
 lsst_firewall_default_sources: 
