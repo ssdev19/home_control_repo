@@ -17,8 +17,8 @@ class profile::it::influxdb2 {
 
 # influxdb config file: /etc/influxdb/influxdb.conf
 class { '::influxdb':
-  admin_username => "${influx_admin_user}"",
-  admin_password => $influx_admin_passwd,
+  admin_username => "${influx_admin_user}",
+  admin_password => "${influx_admin_passwd}",
   configuration  => {
     'data'  => {
       'dir'                     => '/var/lib/influxdb/data',
