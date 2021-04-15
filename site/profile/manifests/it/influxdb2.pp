@@ -15,6 +15,10 @@ class profile::it::influxdb2 {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
+package { 'toml':
+  ensure   => 'installed',
+  provider => 'puppetserver_gem',
+}
 
 class { '::influxdb':
   admin_username => $influx_admin_user,
