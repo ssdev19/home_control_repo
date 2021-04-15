@@ -44,9 +44,9 @@ class { '::influxdb':
     }
   },
   users          => {
-    'grafana' => {
-      'password' => $influx_grafana_passwd,
-    },
+    # 'grafana' => {
+    #   'password' => $influx_grafana_passwd,
+    # },
     "${influx_telegraf_user}" => {
       'password' => $influx_telegraf_passwd,
     },
