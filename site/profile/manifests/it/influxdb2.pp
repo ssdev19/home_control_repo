@@ -15,18 +15,14 @@ class profile::it::influxdb2 {
   $influx_telegraf_passwd = lookup('influx_telegraf_passwd')
   $influx_telegraf_db_name = lookup('influx_telegraf_db_name')
 
-# package { 'toml':
-#   ensure   => 'installed',
-#   provider => 'puppetserver_gem',
-# }
-
+# influxdb config file: /etc/influxdb/influxdb.conf
 class { '::influxdb':
   admin_username => $influx_admin_user,
   admin_password => $influx_admin_passwd,
   configuration  => {
     'data'  => {
-#      'dir'                     => '/mnt/influxdb/data',
-#      'wal-dir'                 => '/mnt/influxdb/wal',
+#      'dir'                     => '/var/lib/influxdb/data',
+#      'wal-dir'                 => '/var/lib/influxdb/wal',
       'max-series-per-database' => 0,
       'max-values-per-tag'      => 0,
     },
