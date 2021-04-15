@@ -40,11 +40,11 @@ class { '::influxdb':
     }
   },
   users          => {
-    'grafana2'  => {
-      'password' => $influx_grafana_passwd,
-      privilege  => 'READ',
-      database   => $influx_telegraf_db_name,
-    },
+    # 'grafana2'  => {
+    #   'password' => $influx_grafana_passwd,
+    #   privilege  => 'READ',
+    #   database   => $influx_telegraf_db_name,
+    # },
     "${influx_telegraf_user}" => {
       'password' => $influx_telegraf_passwd,
       privilege  => 'READ',
