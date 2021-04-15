@@ -55,8 +55,8 @@ class { '::influxdb':
 
 influxdb::database { 'metrics': }
 
-influxdb::user { $influx_grafana_user:
-  password  => $influx_grafana_passwd,
+influxdb::user { "${influx_grafana_user}":
+  password  => "${influx_grafana_passwd}",
   privilege => 'READ',
   database  => 'metrics',
 }
