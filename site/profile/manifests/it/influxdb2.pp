@@ -25,8 +25,8 @@ class { '::influxdb':
   admin_password => $influx_admin_passwd,
   configuration  => {
     'data'  => {
-      'dir'                     => '/mnt/influxdb/data',
-      'wal-dir'                 => '/mnt/influxdb/wal',
+#      'dir'                     => '/mnt/influxdb/data',
+#      'wal-dir'                 => '/mnt/influxdb/wal',
       'max-series-per-database' => 0,
       'max-values-per-tag'      => 0,
     },
