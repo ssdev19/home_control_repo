@@ -2,6 +2,7 @@ class profile::default {
 #  include profile::it::monitoring
 # All telegraf configuration came from Hiera
 include ssh
+include timezone
 #include accounts
 $motd_msg = lookup('motd')
 file { '/etc/motd' :

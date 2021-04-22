@@ -54,7 +54,7 @@ sudo::config_file_replace: false
 sudo::purge: false
 
 accounts::user_list:
-  shahram2:
+  shahram:
     groups:
       - "wheel"
     sshkeys:
