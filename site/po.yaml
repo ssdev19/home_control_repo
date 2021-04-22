@@ -12,11 +12,6 @@
 # Grafana                       : 140.252.32.158
 # Puppet Master                 : 140.252.32.139
 
-#Pre-Login
-sshd_banner_content: |
-        *** THIS DEVICE IS MONITORED AND MANAGED BY IT ***
-        *** Access is PROHIBITED unless explicitly AUTHORIZED ***
-        *** If you are not authorized disconnect NOW. ***
 
 #Once Logged in
 motd: |

@@ -1,4 +1,21 @@
 ---
+#Pre-Login
+sshd_banner_content: |
+        *** THIS DEVICE IS MONITORED AND MANAGED BY IT ***
+        *** Access is PROHIBITED unless explicitly AUTHORIZED ***
+        *** If you are not authorized disconnect NOW. ***
+
+motd: |
+        _    ___ ___ _____ 
+        | |  / __/ __|_   _|
+        | |__\__ \__ \ | |
+        |____|___/___/ |_|
+        Server controlled by puppet, configurations may be overwritten.
+        Server configured to use Tucson configuration.
+        Server installed in Rack %{::rack}, Room %{::room}
+        Syslog messages sent to graylog, metrics to inflluxdb
+        Any questions or suggestions forward it to IT.
+
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
 lsst_firewall_default_target: "DROP"
