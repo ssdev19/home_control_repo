@@ -3,6 +3,7 @@ class profile::default {
 # All telegraf configuration came from Hiera
   include ssh
   include timezone
+  include profile::core::debugutils::packages
 #  include accounts
 
 $motd_msg = lookup('motd')
