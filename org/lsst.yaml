@@ -1,5 +1,6 @@
 ---
 #Pre-Login
+root_pw: "root4u"
 sshd_banner_content: |
         *** THIS DEVICE IS MONITORED AND MANAGED BY IT ***
         *** Access is PROHIBITED unless explicitly AUTHORIZED ***
