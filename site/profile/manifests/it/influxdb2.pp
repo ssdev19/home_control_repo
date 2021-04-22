@@ -35,8 +35,8 @@ class { '::influxdb':
     },
   },
   databases      => {
-    "${influx_telegraf_db_name}" => {
-      'ensure' => absent,
+    'telegraf' => {
+      'ensure' => present,
     }
   },
   users          => {
