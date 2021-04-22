@@ -52,21 +52,9 @@ mod 'puppetlabs/tomcat', '4.0.0'
 mod 'puppet/nginx', '1.1.0'
 mod 'puppet-prometheus', '11.0.0'
 
-# 2019-12-18 athebo: added for DIMM Ubuntu VM, we can remove this when the node is rebuilt
-# mod 'attachmentgenie/ufw',
-#   git: 'https://github.com/attachmentgenie/attachmentgenie-ufw',
-#   commit: '58e0e9de'
-# mod 'stm/debconf', '3.0.0'
-
-# mod 'aboe/chrony',
-#   git: 'https://github.com/lsst-it/puppet-chrony',
-#   ref: 'ffa20883a41d7177da0d09f259b52ca463b778d8'
 mod 'puppet/firewalld', '4.2.2'
-mod 'elastic/elasticsearch', '6.4.0'
-mod 'elastic/elastic_stack', '6.3.1'
 mod 'mightp-influxdb', '1.0.3'
 mod 'puppet-healthcheck', '1.0.1'
-mod 'graylog/graylog', '0.9.0'
 mod 'puppet-archive', '5.0.0'
 mod 'puppet-grafana', '8.0.0'
 mod 'puppetlabs-concat', '7.0.1'
@@ -74,7 +62,6 @@ mod 'puppetlabs-inifile', '5.0.1'
 mod 'puppetlabs/java', '6.2.0'
 mod 'puppetlabs-stdlib', '7.0.1'
 mod 'puppetlabs/vcsrepo', '3.0.0'
-mod 'puppet/mongodb', '3.1.0'
 mod 'puppet/rsyslog', '4.0.0'
 mod 'puppet/ssh_keygen', '4.0.0'
 
