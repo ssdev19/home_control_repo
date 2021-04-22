@@ -18,23 +18,23 @@ include ssh
 		line  => 'SELINUX=enforce',
 		match => '^SELINUX=+',
 	}  
-#	$lsst_firewall_default_zone = lookup("lsst_firewall_default_zone")
+	$lsst_firewall_default_zone = lookup("lsst_firewall_default_zone")
 
-# 	class { "firewalld":
-# 		service_ensure => lookup("firewalld_status"),
-# 		default_zone => $lsst_firewall_default_zone,
-# 	}
+	class { "firewalld":
+		service_ensure => lookup("firewalld_status"),
+		default_zone => $lsst_firewall_default_zone,
+	}
 
-# 	firewalld_zone { $lsst_firewall_default_zone:
-# 		ensure => present,
-# 		target => lookup("lsst_firewall_default_target"),
-# 		sources => lookup("lsst_firewall_default_sources")
-# 	}
+	firewalld_zone { $lsst_firewall_default_zone:
+		ensure => present,
+		target => lookup("lsst_firewall_default_target"),
+		sources => lookup("lsst_firewall_default_sources")
+	}
 
-# 	firewalld_service { 'Enable SSH':
-# 		ensure  => 'present',
-# 		service => 'ssh',
-# 	}
+	firewalld_service { 'Enable SSH':
+		ensure  => 'present',
+		service => 'ssh',
+	}
 
 # 	firewalld_service { 'Enable DHCP':
 # 		ensure  => 'present',
