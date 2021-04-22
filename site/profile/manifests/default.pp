@@ -3,7 +3,11 @@ class profile::default {
 # All telegraf configuration came from Hiera
 include ssh
 #include accounts
-
+$motd_msg = lookup('motd')
+file { '/etc/motd' :
+  ensure  => file,
+  content => $motd_msg,
+}
   # Package { ensure => 'installed' }
 
   # $enhancers = [ 'tree', 'sssd', 'realmd', 'oddjob', 'oddjob-mkhomedir', 'adcli',
