@@ -1,7 +1,7 @@
 class profile::it::prometheus {
 
 class { 'prometheus::server':
-  version        => '2.4.3',
+  version        => '2.26.0',
   alerts         => {
     'groups' => [
       {
