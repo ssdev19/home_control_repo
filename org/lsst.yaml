@@ -14,7 +14,7 @@ motd: |
         Server configured to use Tucson configuration.
         Server installed in Rack %{::rack}, Room %{::room}
         Syslog messages sent to graylog, metrics to inflluxdb
-        Any questions or suggestions forward it to IT.
+        Any questions or suggestions forward it to IT. test
 
 firewalld_status: "running"
 lsst_firewall_default_zone: "public"
