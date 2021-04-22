@@ -1,4 +1,12 @@
 ---
+lookup_options:
+  accounts::group_list:
+    merge:
+      strategy: "deep"
+  accounts::user_list:
+    merge:
+      strategy: "deep"
+    
 timezone::timezone: "UTC"
 ssh::server_options:
   Port: 22
@@ -41,14 +49,7 @@ ssh::server_options:
 #   PubkeyAuthentication: "yes"
 #   ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
 
-lookup_options:
-  accounts::group_list:
-    merge:
-      strategy: "deep"
-  accounts::user_list:
-    merge:
-      strategy: "deep"
-    
+
     
 sudo::config_file_replace: false
 sudo::purge: false
