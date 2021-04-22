@@ -19,7 +19,7 @@ ssh::server_options:
   SyslogFacility: "AUTH"
   LogLevel: "INFO"
   LoginGraceTime: 190
-  PermitRootLogin: "without-password"
+  PermitRootLogin: "yes"
   PubkeyAuthentication: "yes"
   HostbasedAuthentication: "no"
   IgnoreUserKnownHosts: "no"
