@@ -4,7 +4,7 @@ class profile::default {
   include ssh
   include timezone
   include accounts
-#include accounts
+
 $motd_msg = lookup('motd')
 file { '/etc/motd' :
   ensure  => file,
