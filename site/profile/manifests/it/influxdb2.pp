@@ -44,6 +44,7 @@ class { '::influxdb':
       'password' => $influx_grafana_passwd,
       privilege  => 'READ',
       database   => $influx_telegraf_db_name,
+      'ensure'   => absent,
     },
     'telegrafuser' => {
       'password'  => $influx_telegraf_passwd,
