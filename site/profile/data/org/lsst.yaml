@@ -14,3 +14,4 @@ profile::core::debugutils::packages:
   - "powertop"
   - "tcpdump"
   - "traceroute"
+  - "vim"
