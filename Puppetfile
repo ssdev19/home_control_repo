@@ -17,21 +17,7 @@ mod 'puppet/r10k', '8.0.0'
 mod 'camptocamp/systemd', '2.6.0'
 mod 'bodgit/scl', '1.0.1'
 mod 'puppet-dhcp'
-# mod 'theforeman/dhcp',
-#  git: 'https://github.com/lsst-it/puppet-dhcp',
-#   ref: 'c9304257d4a800008baa3406e453fc9393faf7b7'
-# mod 'theforeman/dns', '6.2.0'
-# mod 'duritong/sysctl',
-#   git: 'https://github.com/lsst-it/puppet-sysctl',
-#   ref: 'working'
-# mod 'example42/network',
-#   git: 'https://github.com/example42/puppet-network',
-#   ref: 'b34d44d7818140d724333dfa00688fc46f6dae1a'  # post v3.5.3
-# mod 'cirrax/libvirt', '4.1.2'
-# #mod 'puppetfinland/easy_ipa', '2.2.0'
-# mod 'puppetfinland/easy_ipa',
-#   git: 'https://github.com/lsst-it/puppet-ipa.git',
-#   ref: 'production'
+az
 mod 'puppetlabs/cron_core', '1.0.2'
 mod 'puppetlabs/k5login_core', '1.0.2'
 mod 'ghoneycutt/hosts', '2.7.0'
