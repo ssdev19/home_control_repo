@@ -1,4 +1,4 @@
 .env
 /.vscode/
 /modules
-.test
+.env_sample
