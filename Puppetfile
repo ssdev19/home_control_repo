@@ -17,7 +17,7 @@ mod 'puppet/r10k', '8.0.0'
 mod 'camptocamp/systemd', '2.6.0'
 mod 'bodgit/scl', '1.0.1'
 mod 'puppet-dhcp'
-az
+
 mod 'puppetlabs/cron_core', '1.0.2'
 mod 'puppetlabs/k5login_core', '1.0.2'
 mod 'ghoneycutt/hosts', '2.7.0'
