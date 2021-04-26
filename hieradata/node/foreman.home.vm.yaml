@@ -2,3 +2,4 @@
 classes:
    - profile::core::common
    - profile::core::puppet_master
+node_encrypt::certificates::ca_server: "%{facts.fqdn}"
