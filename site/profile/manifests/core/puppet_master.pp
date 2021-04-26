@@ -11,7 +11,7 @@ class profile::core::puppet_master {
 include r10k
 
 # Encryption
-
+# Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
 
 file {
   default:

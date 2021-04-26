@@ -33,7 +33,6 @@ class profile::core::common(
 #    include profile::core::telegraf
 #  }
 Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
-
   Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap']:
