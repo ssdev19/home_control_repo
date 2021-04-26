@@ -76,5 +76,6 @@ mod 'puppetlabs/xinetd', '3.3.0'
 mod 'thrnio/ip', '1.0.1'
 # mod 'woodsbw/augeasfacter', git: 'https://github.com/woodsbw/augeasfacter', commit: '9aea81311d277ed7ff1e8f2d4f79d13cd25f6ded'
 # Encryption
+mod 'puppetlabs-hocon', '1.1.0'
 mod 'puppetlabs-puppet_authorization', '0.5.1'
 mod 'binford2k-node_encrypt', '0.4.1'
