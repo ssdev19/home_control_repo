@@ -11,7 +11,7 @@ class profile::core::puppet_master {
 include r10k
 
 # Encryption
-include node_encrypt::certificates  
+include node_encrypt::certificates
 
 Puppet_authorization::Rule <| |> ~> Service['puppetserver']
 
@@ -25,15 +25,15 @@ file {
     ensure => directory,
     mode   => '0755',
   ;
-  '/etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem':
-    group   => 'puppet',
-    mode    => '0440',
-    content => lookup('profile::pe::master::eyaml_private_key'),
-  ;
-  '/etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem':
-    mode   => '0444',
-    source => 'puppet:///modules/profile/pe/master/eyaml_public_key.pkcs7.pem',
-  ;
+  # '/etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem':
+  #   group   => 'puppet',
+  #   mode    => '0440',
+  #   content => lookup('profile::pe::master::eyaml_private_key'),
+  # ;
+  # '/etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem':
+  #   mode   => '0444',
+  #   source => 'puppet:///modules/profile/pe/master/eyaml_public_key.pkcs7.pem',
+  # ;
 }
 
 package { 'hiera-eyaml puppetserver_gem':
