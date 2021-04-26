@@ -13,7 +13,7 @@ include r10k
 # Encryption
 include node_encrypt::certificates
 
-Puppet_authorization::Rule <| |> ~> Service['puppetserver']
+Puppet_authorization::Rule <| |> ~> service['puppetserver']
 
 file {
   default:
