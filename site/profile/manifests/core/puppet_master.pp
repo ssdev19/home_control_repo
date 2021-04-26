@@ -13,7 +13,7 @@ include r10k
 # Encryption
 include node_encrypt::certificates  
 
-Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
+Puppet_authorization::Rule <| |> ~> Service['puppetserver']
 
 file {
   default:
@@ -26,7 +26,7 @@ file {
     mode   => '0755',
   ;
   '/etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem':
-    group   => 'pe-puppet',
+    group   => 'puppet',
     mode    => '0440',
     content => lookup('profile::pe::master::eyaml_private_key'),
   ;
@@ -40,6 +40,6 @@ package { 'hiera-eyaml puppetserver_gem':
   ensure   => '2.7.6',
   name     => 'hiera-eyaml',
   provider => 'puppetserver_gem',
-  notify   => Service['pe-puppetserver'],
+  notify   => Service['puppetserver'],
 }
 }
