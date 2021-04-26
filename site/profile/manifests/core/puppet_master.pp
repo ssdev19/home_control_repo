@@ -36,10 +36,10 @@ file {
   # ;
 }
 
-package { 'hiera-eyaml puppetserver_gem':
-  ensure   => '2.7.6',
-  name     => 'hiera-eyaml',
-  provider => 'puppetserver_gem',
-  # notify   => Service['puppetserver'],
-}
+# package { 'hiera-eyaml puppetserver_gem':
+#   ensure   => '2.7.6',
+#   name     => 'hiera-eyaml',
+#   provider => 'puppetserver_gem',
+#   notify   => Service['puppetserver'],
+# }
 }
