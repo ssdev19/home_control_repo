@@ -13,7 +13,7 @@ include r10k
 # Encryption
 
 
-# Puppet_authorization::Rule <| |> ~> Service['puppetserver']
+Puppet_authorization::Rule <| |> ~> Service['puppetserver']
 
 file {
   default:
