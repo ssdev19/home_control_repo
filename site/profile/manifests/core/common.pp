@@ -18,7 +18,7 @@ class profile::core::common(
   # include sysstat
   # include epel
   # include sudo
-  # include accounts
+  include accounts
   # include puppet_agent
   # include resolv_conf
   # include ssh
