@@ -10,7 +10,6 @@ class profile::core::common(
 ){
   include timezone
   include node_encrypt::certificates
-  include node_encrypt::secret()
   # include tuned
   # include chrony
   # include selinux
@@ -36,7 +35,7 @@ class profile::core::common(
 
 file { '/root/secretfile.cfg':
   ensure  => file,
-  content => 'this string will be encrypted in your catalog'.node_encrypt::secret
+  content => 'this string will be encrypted  in your catalog'.node_encrypt::secret
 }
 
   Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
