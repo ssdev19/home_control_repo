@@ -9,7 +9,7 @@ class profile::core::common(
   Boolean $collect_metrics = true,
 ){
   include timezone
-#  include node_encrypt::certificates
+  include node_encrypt::certificates
   # include tuned
   # include chrony
   # include selinux
