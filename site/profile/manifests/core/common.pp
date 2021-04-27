@@ -6,13 +6,13 @@
 #   nodes, nodes that don't have uptime requirements, or nodes that should only have minimal
 #   software load.
 class profile::core::common(
-  Boolean $collect_metrics = true,
   Sensitive[String[1]] $sensitive_default_some_password,
   Array[String[1], 1]  $default_some_array    = [
     'item1',
     'item2',
   ],
   String[1]            $default_some_username = 'jdoe',
+  # several more parameters omitted here
 ){
   $fog_hash = {
     'default' => {
@@ -30,7 +30,6 @@ class profile::core::common(
     content => to_yaml($fog_hash),
     require => User['jenkins'],
   }
-
   include timezone
   include node_encrypt::certificates
   # include tuned
