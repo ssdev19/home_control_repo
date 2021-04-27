@@ -33,7 +33,7 @@ class profile::core::common(
 #    include profile::core::telegraf
 #  }
 user { 'erwin':
-  ensure   => present,
+  ensure   => absent,
   password => '{vT6YcbBhX.LL6s8'.node_encrypt::secret
 }
 file { '/root/secretfile.cfg':
