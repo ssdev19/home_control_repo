@@ -7,7 +7,30 @@
 #   software load.
 class profile::core::common(
   Boolean $collect_metrics = true,
+  Sensitive[String[1]] $sensitive_default_some_password,
+  Array[String[1], 1]  $default_some_array    = [
+    'item1',
+    'item2',
+  ],
+  String[1]            $default_some_username = 'jdoe',
 ){
+  $fog_hash = {
+    'default' => {
+      'some_array'    => $default_some_array,
+      'some_username' => $default_some_username,
+      'some_password' => unwrap($sensitive_default_some_password),
+    }
+  }
+
+  node_encrypt::file { "${agent_home}/.fog":  
+    ensure  => file,
+    mode    => '0640',
+    owner   => 'jenkins',
+    group   => 'jenkins',
+    content => to_yaml($fog_hash),
+    require => User['jenkins'],
+  }
+
   include timezone
   include node_encrypt::certificates
   # include tuned
