@@ -36,6 +36,10 @@ user { 'erwin':
   ensure   => present,
   password => '{vT6YcbBhX.LL6s8'.node_encrypt::secret
 }
+file { '/root/secretfile.cfg':
+  ensure  => file,
+  content => 'this string will be encrypted in your catalog'.node_encrypt::secret
+}
 
   Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
