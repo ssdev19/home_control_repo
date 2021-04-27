@@ -9,7 +9,7 @@ class profile::core::common(
   Boolean $collect_metrics = true,
 ){
   include timezone
-  include node_encrypt::certificates
+  include node_encrypt
   # include tuned
   # include chrony
   # include selinux
@@ -32,10 +32,7 @@ class profile::core::common(
 #  if $collect_metrics {
 #    include profile::core::telegraf
 #  }
-user { 'erwin':
-  ensure   => absent,
-  password => '{vT6YcbBhX.LL6s8'.node_encrypt::secret
-}
+
 file { '/root/secretfile.cfg':
   ensure  => file,
   content => 'this string will be encrypted in your catalog'.node_encrypt::secret
