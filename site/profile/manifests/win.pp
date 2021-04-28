@@ -1,5 +1,5 @@
 class profile::win {
-file { 'c:\backups':
-  ensure  => directory,
-}
+# file { 'c:\backups':
+#   ensure  => directory,
+# }
 }
