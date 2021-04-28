@@ -80,4 +80,8 @@ mod 'puppet-nsclient', '2.1.0'
 mod 'puppetlabs-hocon', '1.1.0'
 mod 'puppetlabs-puppet_authorization', '0.5.1'
 mod 'binford2k-node_encrypt', '0.4.1'
+# Windows 
 mod 'puppetlabs-chocolatey', '6.0.0'
+mod 'puppetlabs-registry', '4.0.0'
+mod 'puppetlabs-powershell', '5.0.0'
+mod 'puppetlabs-pwshlib', '0.8.0'
