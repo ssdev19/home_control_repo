@@ -74,6 +74,7 @@ mod 'puppetlabs/lvm', '1.3.0'
 mod 'puppetlabs/mount_providers', '2.0.1'
 mod 'puppetlabs/xinetd', '3.3.0'
 mod 'thrnio/ip', '1.0.1'
+mod 'puppet-nsclient', '2.1.0'
 # mod 'woodsbw/augeasfacter', git: 'https://github.com/woodsbw/augeasfacter', commit: '9aea81311d277ed7ff1e8f2d4f79d13cd25f6ded'
 # Encryption
 mod 'puppetlabs-hocon', '1.1.0'
