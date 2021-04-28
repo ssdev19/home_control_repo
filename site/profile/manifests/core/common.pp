@@ -35,10 +35,10 @@ class profile::core::common(
 
 file { '/root/secretfile.cfg':
   ensure  => file,
-  content => 'this string will be encrypted in your catalog', #.node_encrypt::secret
+  content => 'this string will be encrypted is your catalog'.node_encrypt::secret
 }
 
-  Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap']:
 ensure => installed,
