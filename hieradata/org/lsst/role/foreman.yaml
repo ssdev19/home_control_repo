@@ -13,6 +13,8 @@ classes:
 #     user: "root"
 #     description: "Run R10K"
 r10k::mcollective: false
+r10k::backends: 
+  - eyaml
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
 r10k::cachedir: "/var/cache/r10k"
 r10k::sources:
