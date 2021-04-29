@@ -7,4 +7,11 @@ class { 'nsclient':
 file { 'c:\backups':
   ensure  => directory,
 }
+user {'bob':
+    ensure     => present,
+    name       => 'bob',
+    groups     => ['Users'],
+    password   => lookup('password').node_encrypt::secret,
+    managehome => false,
+}
 }
