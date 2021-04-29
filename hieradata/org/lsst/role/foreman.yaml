@@ -17,7 +17,7 @@ r10k::backends:
   - eyaml
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
 r10k::cachedir: "/var/cache/r10k"
-r10k::sources:
+r10k::eyaml:
   
   home-control-repo:
     basedir: /etc/puppetlabs/code/environments
