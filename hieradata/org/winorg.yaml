@@ -3,3 +3,5 @@
 lookup_options:
   '^profile::.+::sensitive_\w+$':
     convert_to: 'Sensitive'
+
+profile::win::psswrd: fakepwds
