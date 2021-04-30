@@ -1,10 +1,9 @@
 ---
 version: 5
 defaults:
-  datadir: data
+  data_hash: "yaml_data"
 hierarchy:
   - name: "private hiera"
-    data_hash: yaml_data
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
     paths:
       - "node/%{fqdn}.yaml"
@@ -18,10 +17,9 @@ hierarchy:
       - "role/%{role}.yaml"
       - "org/%{org}.yaml"
   - name: "public hiera"
-#    datadir: "/etc/puppetlabs/code/environments/%{environment}/hieradata"
-    lookup_key: eyaml_lookup_key # eyaml backend
+    datadir: "/etc/puppetlabs/code/environments/%{environment}/hieradata"
     paths:
-      - "node/%{fqdn}.eyaml"
+      - "node/%{fqdn}.yaml"
       - "site/%{site}/cluster/%{cluster}/role/%{role}.yaml"
       - "site/%{site}/cluster/%{cluster}.yaml"
       - "cluster/%{cluster}/role/%{role}.yaml"
@@ -31,9 +29,3 @@ hierarchy:
       - "org/%{org}/role/%{role}.yaml"
       - "role/%{role}.yaml"
       - "org/%{org}.yaml"
-      - "secrets/nodes/%{trusted.certname}.eyaml"  # Include explicit file extension
-      - "secrets/location/%{facts.whereami}.eyaml"
-      - "common.eyaml"
-    options:
-    pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
-    pkcs7_public_key:  /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
