@@ -1,4 +1,5 @@
 ---
+profile::win::psswrd: fakepwd
 lookup_options:
   '^profile::.+::sensitive_\w+$':
     convert_to: 'Sensitive'
