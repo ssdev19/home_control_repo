@@ -1,4 +1,5 @@
 ---
+# passwords can be passed via org rather than the node
 profile::win::psswrd: fakepwd
 lookup_options:
   '^profile::.+::sensitive_\w+$':
