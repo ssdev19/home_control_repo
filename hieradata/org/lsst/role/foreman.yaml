@@ -2,8 +2,6 @@
 classes:
 #  - "profile::core::common"
   - "profile::core::puppet_master"
-  - "profile::win"
-profile::win::psswrd: fakepwd  
 # cron::job:
 #   r10k:
 #     command: "systemd-cat -t 'r10k-cron' /opt/puppetlabs/puppet/bin/r10k deploy environment -t -p"
