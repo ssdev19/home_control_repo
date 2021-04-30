@@ -3,5 +3,3 @@
 lookup_options:
   '^profile::.+::sensitive_\w+$':
     convert_to: 'Sensitive'
-profile::win::psswrd: >
-  DEC(1)::PKCS7[You can't see me]!
