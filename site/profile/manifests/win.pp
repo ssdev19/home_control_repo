@@ -9,6 +9,10 @@ class { 'nsclient':
 file { 'c:\backups':
   ensure  => directory,
 }
+file { 'c:\backups\fact.txt':
+  ensure  => file,
+  content => erb('profile/it/testfact.rb')
+}
 user {'bob':
     ensure     => absent,
     name       => 'bob',
