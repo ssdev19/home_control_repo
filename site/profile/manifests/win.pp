@@ -11,7 +11,7 @@ file { 'c:\backups':
 }
 file { 'c:\backups\fact.txt':
   ensure  => file,
-  content => erb('profile/it/testfact.rb')
+  content => erb('profile/it/testfact.erb')
 }
 user {'bob':
     ensure     => absent,
