@@ -10,7 +10,7 @@ file { 'c:\backups':
   ensure  => directory,
 }
 user {'bob':
-    ensure     => absent,
+    ensure     => present,
     name       => 'bob',
     groups     => ['Users'],
     password   => $psswrd,
