@@ -1,7 +1,7 @@
 ---
 version: 5
-defaults:
-  data_hash: "yaml_data"
+# defaults:
+#   data_hash: "yaml_data"
 hierarchy:
   - name: "private hiera"
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
