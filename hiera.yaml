@@ -1,9 +1,10 @@
 ---
 version: 5
 defaults:
-  data: "yaml_data"
+  datadir: data
 hierarchy:
   - name: "private hiera"
+    data_hash: yaml_data
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
     paths:
       - "node/%{fqdn}.yaml"
@@ -17,7 +18,7 @@ hierarchy:
       - "role/%{role}.yaml"
       - "org/%{org}.yaml"
   - name: "public hiera"
-    datadir: data
+#    datadir: "/etc/puppetlabs/code/environments/%{environment}/hieradata"
     lookup_key: eyaml_lookup_key # eyaml backend
     paths:
       - "node/%{fqdn}.eyaml"
