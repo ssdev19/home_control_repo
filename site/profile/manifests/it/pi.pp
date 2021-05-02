@@ -1,3 +1,3 @@
-class profile::pi {
+class profile::it::pi {
 
 }
