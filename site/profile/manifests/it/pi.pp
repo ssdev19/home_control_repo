@@ -1,4 +1,5 @@
-class profile::it::pi {
+class profile::it::pi (String $sudo,){
+
   include ssh
   include timezone
   include accounts
