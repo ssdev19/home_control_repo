@@ -1,4 +1,4 @@
-class profile::it::pi (String $sudo,){
+class profile::it::pi {
 
   include ssh
   include timezone
