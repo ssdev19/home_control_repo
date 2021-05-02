@@ -9,7 +9,7 @@ lookup_options:
   '^profile::.+::sensitive_\w+$':
     convert_to: 'Sensitive'   
 
-timezone::timezone: "America/Phoenix"
+timezone::timezone: "UTC"
 ssh::server_options:
   Port: 22
   Protocol: 2
