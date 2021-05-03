@@ -18,7 +18,7 @@ r10k::backends:
 r10k::eyaml:
   pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
   pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
-  extention: 'yaml'
+  extentixon: 'yaml'
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
 r10k::cachedir: "/var/cache/r10k"
 r10k::sources:
