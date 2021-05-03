@@ -27,8 +27,7 @@ r10k::sources:
   repo-private:
     basedir: /etc/puppetlabs/code/hieradata/private
     invalid_branches: correct 
-    remote: git@github.com:/AnonSS/repo_private.git
-# r10k::postrun: ['/bin/hammer', 'proxy', 'import-classes', '--id=1']
+    remote: git@github.com:/AnonSS/repo_private.git 
 # r10k::webhook::config::use_mcollective: false
 # r10k::webhook::config::enable_ssl: false
 # r10k::webhook::config::protected: false
