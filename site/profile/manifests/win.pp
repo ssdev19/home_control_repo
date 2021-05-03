@@ -3,7 +3,7 @@ class profile::win (String
 $psswrd,
 ) {
   include chocolatey
-#  include registry
+  include registry
   include facter
 facter::fact { 'symantec_defenition_version':
   value => 'test',
