@@ -3,7 +3,7 @@ class profile::it::pi {
   include ssh
   include timezone
   include accounts
-service { 'cron':
+service { 'puppet':
   ensure => running,
 }
 }
