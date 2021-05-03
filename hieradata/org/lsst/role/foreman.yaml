@@ -20,13 +20,13 @@ r10k::eyaml:
   pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
   extention: 'yaml'
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
-r10k::cachedir: "/var/cache/r10k"
+r10k::cachedir: "/var/cache/r10k \n"
 r10k::sources:
   
   home-control-repo:
     basedir: /etc/puppetlabs/code/environments
     invalid_branches: correct
-    remote: https://github.com/AnonSS/home_control_repo 
+    remote: "https://github.com/AnonSS/home_control_repo \n"
   
   repo-private:
     basedir: /etc/puppetlabs/code/hieradata/private
