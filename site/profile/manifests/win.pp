@@ -5,8 +5,8 @@ $psswrd,
   include chocolatey
 #  include registry
   include facter
-facter::fact { 'symantec defenition version':
-  value => 'some-version number',
+facter::fact { 'symantec_defenition_version':
+  value => 'some-version-number',
 }
 
 class { 'nsclient':
