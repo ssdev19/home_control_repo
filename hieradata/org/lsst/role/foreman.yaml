@@ -13,12 +13,6 @@ classes:
 #     user: "root"
 #     description: "Run R10K"
 r10k::mcollective: false
-r10k::backends: 
-  - eyaml
-r10k::eyaml:
-  pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
-  pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
-  extention: 'yaml'
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
 r10k::cachedir: "/var/cache/r10k \n"
 r10k::sources:
