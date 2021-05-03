@@ -5,6 +5,9 @@ $psswrd,
   include chocolatey
 #  include registry
   include facter
+facter::fact { 'symantec defenition version':
+  value => 'some-version number',
+}
 
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
