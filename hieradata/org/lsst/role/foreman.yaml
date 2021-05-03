@@ -15,15 +15,18 @@ classes:
 r10k::mcollective: false
 r10k::backends: 
   - eyaml
+r10k::eyaml:
 r10k::postrun: ["/bin/hammer", "proxy", "import-classes", "--id=1"]
 r10k::cachedir: "/var/cache/r10k"
 r10k::sources:
+  pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
+  pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
   
   home-control-repo:
     basedir: /etc/puppetlabs/code/environments
     invalid_branches: correct
-    remote: https://github.com/AnonSS/home_control_repo
-\n  
+    remote: https://github.com/AnonSS/home_control_repo 
+  
   repo-private:
     basedir: /etc/puppetlabs/code/hieradata/private
     invalid_branches: correct 
