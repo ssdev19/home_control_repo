@@ -23,8 +23,8 @@ r10k::sources:
     basedir: /etc/puppetlabs/code/environments
     invalid_branches: correct
     remote: https://github.com/AnonSS/home_control_repo
-  
-  repo-privates:
+\n  
+  repo-private:
     basedir: /etc/puppetlabs/code/hieradata/private
     invalid_branches: correct 
     remote: git@github.com:/AnonSS/repo_private.git 
