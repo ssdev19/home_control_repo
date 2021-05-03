@@ -7,3 +7,4 @@ service { 'puppet service':
   ensure => running,
   name   => 'puppet',
 }
+}
