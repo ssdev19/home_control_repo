@@ -1,9 +1,11 @@
+# For windows computers
 class profile::win (String
 $psswrd,
 ) {
   include chocolatey
 #  include registry
-#  include 'nsclient'
+  include facter
+
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
 }
