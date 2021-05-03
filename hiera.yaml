@@ -1,5 +1,8 @@
 ---
 version: 5
+backends:
+  - yaml
+  - eyaml
 defaults:
   data_hash: "yaml_data"
 hierarchy:

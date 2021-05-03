@@ -3,8 +3,8 @@ Facter.add('windows_edition_custom') do
   setcode do
     value = nil
     Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Microsoft\Windows NT\CurrentVersion') do |regkey|
-      value = regkey['EditionID'],
-      value2 = regkey['CurrentBuild']
+      value = 'build: '+regkey['CurrentBuild'], 'Edition: '+regkey['EditionID'], "Product: "+regkey['ProductName']
+      value2 = 
     end
     value
   end
