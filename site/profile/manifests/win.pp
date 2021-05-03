@@ -6,7 +6,7 @@ $psswrd,
 #  include registry
   include facter
 facter::fact { 'symantec_defenition_version':
-  value => 'C:\Windows\System32\reg.exe query HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion',
+  value => 'test',
 }
 
 class { 'nsclient':
