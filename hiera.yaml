@@ -1,9 +1,10 @@
 ---
 version: 5
 defaults:
-  data_hash: "yaml_data"
+  
 hierarchy:
   - name: "private hiera"
+    data_hash: "yaml_data"
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
     paths:
       - "node/%{fqdn}.yaml"
