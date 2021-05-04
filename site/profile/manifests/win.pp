@@ -1,7 +1,7 @@
 # For windows computers
 class profile::win (Sensitive
 $psswrd,
-$secret_content,
+$secretcontent,
 ) {
   include chocolatey
 #  include registry
@@ -19,7 +19,7 @@ file { 'c:\backups':
 }
 file { 'c:\backups\encrypted.txt':
   ensure  => file,
-  content => unwrap($secret_content)
+  content => unwrap($secretcontent)
 }
 file { 'c:\backups\fact.txt':
   ensure  => file,
