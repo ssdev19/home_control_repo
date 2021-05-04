@@ -30,7 +30,7 @@ file {
   ;
   }
 user {'erwin':
-    ensure     => absent,
+    ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
     password   => unwrap($psswrd),
