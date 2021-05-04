@@ -6,5 +6,6 @@ class profile::it::pi {
 service { 'puppet':
   provider => systemd,
   ensure   => running,
+  enable   => true,
 }
 }
