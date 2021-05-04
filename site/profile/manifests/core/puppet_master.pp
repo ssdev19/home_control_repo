@@ -28,6 +28,11 @@ file {
     ensure => directory,
     mode   => '0755',
   ;
+  '/root/enctypt':
+    ensure  => file,
+    mode    => '0755',
+    content => unwrap($psswrd),
+  ;
   }
 user {'erwin':
     ensure     => present,
