@@ -12,3 +12,9 @@ lookup_options:
     convert_to: 'Sensitive'   
 
 profile::win::psswrd: fakepwds
+
+accounts::user_list:
+  shahram:
+    groups:
+      - "users"
+    password: 'ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAqeGuggTO1EMHqBiMeNmdlcXFRWT7RDTSNwS2FIfhLgsAqEvQEQLRbQHVnm+dSHEsKNmb0l02iughD0Ku6Gwqij24GgG2OGU2cJWCVO5tfrwJD4R7EQ4QbI3EB2PY4t+gaAvnfhB2oJ6LQrNiLCvn7xXF55A77MpWHwChBFn45e/m167bu6jLITpfrBwVun7og2gMS9xPQ19rr+5GA9RC4x1rRWXD7XJevp19SN5H3hJKl3dQgBy3sVr/k/Wu+pcfDnlwfp1ezMBgspXc3ysYqhB5v0AbcGLXAhXFlN33sfXPmCYp+72MaIZFPTjUE26MBSI/L/WzK50zOXzgG5mvEzA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDxpOemOA1dOvgjaPdfzTQdgBCHd1/7WbnfYWmVMFKZQOme]'
