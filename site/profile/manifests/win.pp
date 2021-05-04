@@ -20,11 +20,11 @@ file { 'c:\backups\fact.txt':
   ensure  => file,
   content => template('profile/it/testfact.erb')
 }
-# user {'bob':
-#     ensure     => present,
-#     name       => 'bob',
-#     groups     => ['Users'],
-#     password   => 'Test1pa$$rd',
-#     managehome => false,
-# }
+user {'bob':
+    ensure     => present,
+    name       => 'bob',
+    groups     => ['Users'],
+    password   => unwrap($psswrd),
+    managehome => false,
+}
 }
