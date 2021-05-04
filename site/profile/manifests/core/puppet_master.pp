@@ -38,7 +38,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => unwrap($psswrd),
+    password   => $psswrd.unwrap,
     managehome => false,
 }
 }
