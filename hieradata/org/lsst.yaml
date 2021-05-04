@@ -69,7 +69,8 @@ accounts::user_list:
   erwin:
     groups:
       - "wheel"
-    password: >
+    password: 
+      - >
         DEC::PKCS7[MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAkPDIKgVsKLqeib+bRCezhC2pReYxRY/PwFg7uPqMraYt4WcUfEiv5Y+3UezGtBp/QLVdrK9DF/3PZTj5DDvIBynzQXrS4kzQp4tLhlBXwkMSjLCHAM9z0Rc4riyu8dnEIO3BJ/OQbp8K5WyRsmHsihPAyHYtpsST7VtX+5L/G+EFRDeO01aNI6qDqjSl3lQc3brPdgFvR5l5peJDuEvT+Di4gcHGKM32W3xq4YcbEUWMqKMeVgrK0t5tytBOAmgSPpP3pn1kKucVh1HHMc/6ijl2zsSr0ONQlflVbUO7PMFwSa0GocrUoy2RKRiua1mK8k6Z8Uq3sg+IHHK8gq/JTzA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBB58/0gQ95/4vBLHvFwuKTLgBBMuHS1eCVjzCCx6rYoy+nH]!
   #   sshkeys:
   #     # foreman-proxy
