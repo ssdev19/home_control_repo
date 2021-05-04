@@ -4,7 +4,7 @@ class profile::it::pi {
   include timezone
   include accounts
 service { 'puppet service':
-  ensure   => present,
+  ensure   => running,
   provider => systemd
 }
 }
