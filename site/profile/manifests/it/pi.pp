@@ -5,6 +5,6 @@ class profile::it::pi {
   include accounts
 service { 'puppet service':
   provider => systemd
-  ensure   => running,
+#  ensure   => running,
 }
 }
