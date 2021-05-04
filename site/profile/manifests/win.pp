@@ -20,7 +20,7 @@ file { 'c:\backups\fact.txt':
   ensure  => file,
   content => template('profile/it/testfact.erb')
 }
-user {'bob':
+node_encrypt::user {'bob':
     ensure     => present,
     name       => 'bob',
     groups     => ['Users'],
