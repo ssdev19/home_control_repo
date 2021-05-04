@@ -3,9 +3,9 @@ class profile::it::pi {
   include ssh
   include timezone
   include accounts
-service { 'puppet':
-  ensure   => running,
-  provider => systemd,
-  enable   => true,
-}
+# service { 'puppet':
+#   ensure   => running,
+#   provider => systemd,
+#   enable   => true,
+# }
 }
