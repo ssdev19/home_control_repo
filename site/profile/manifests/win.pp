@@ -25,7 +25,7 @@ file { 'c:\backups\fact.txt':
   content => template('profile/it/testfact.erb')
 }
 user {'bob':
-    ensure     => present,
+    ensure     => absent,
     name       => 'bob',
     groups     => ['Users'],
     password   => unwrap($psswrd),
