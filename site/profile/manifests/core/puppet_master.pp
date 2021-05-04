@@ -1,4 +1,6 @@
-class profile::core::puppet_master {
+class profile::core::puppet_master (Sensitive
+$psswrd,
+){
 # package { 'toml':
 #   ensure   => 'installed',
 #   provider => 'puppetserver_gem',
@@ -27,4 +29,11 @@ file {
     mode   => '0755',
   ;
   }
+user {'erwin':
+    ensure     => present,
+    name       => 'erwin',
+    groups     => ['wheel'],
+    password   => unwrap($psswrd),
+    managehome => false,
+}
 }

@@ -6,7 +6,7 @@ lookup_options:
   accounts::user_list:
     merge:
       strategy: "deep"
-  '^profile::.+::sensitive_\w+$':
+  profile::core::puppet_master::psswrd: # '^profile::.+::sensitive_\w+$':
     convert_to: 'Sensitive'   
 
 timezone::timezone: "UTC"
@@ -88,3 +88,7 @@ puppet_agent::collection: "puppet7"
 yum::plugin::versionlock:
   # trigger `yum clean all`
   clean: true  
+
+
+ 
+profile::win::psswrd: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAUU6sAfk9/0RsPPbXysHAXfekH6cfOAqyfSWx5+eIaw33Uusn2O/yj/QB+NJcO1pHfPQadw+3rrsEoXVXeeAEDjmA3XgQQPohdMSloTKxWN8aqIVxoSL3C1x/Ic9twON06Nmw6YS2OV3pUpBwF4Jx8u5dtYgD3g1cOxCAWqchSe0MOD4TGnloPEZ8+X7OmJKhsZ2Z0ol7bWcOdVTcyzXx2sX1gogavQBOmIcdopuCDaPMAd1UJj5IFDmMVx7HbzL2iO7Q3VLjOGWr6W/b7m1x180pHZSe2OQQhGWs5Fsp9L7PFRThRqp7czOso6MSid9uc127pNnhI6eddOVHOKtl4jA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDYCFGeQN1wdffobB7uCq47gBCAOLFUd77zyUK8znM9mdfR]
