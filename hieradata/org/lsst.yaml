@@ -91,4 +91,4 @@ yum::plugin::versionlock:
 
 
  
-profile::core::puppet_master::psswrd: fakepwds
+profile::core::puppet_master::psswrd: fakepwds1
