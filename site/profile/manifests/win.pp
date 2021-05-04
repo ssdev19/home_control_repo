@@ -16,6 +16,10 @@ class { 'nsclient':
 file { 'c:\backups':
   ensure  => directory,
 }
+file { 'c:\backups\encrypted.txt':
+  ensure  => file,
+  content => unwrap($psswrd)
+}
 file { 'c:\backups\fact.txt':
   ensure  => file,
   content => template('profile/it/testfact.erb')
