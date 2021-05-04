@@ -77,8 +77,8 @@ accounts::user_list:
     ensure: "absent"
     managehome: true
     purge_user_home: true
-  erwin:
-    <<: *remove_user
+  # erwin:
+  #   <<: *remove_user
 
 selinux::mode: "disabled"
 firewall::ensure: "stopped"
