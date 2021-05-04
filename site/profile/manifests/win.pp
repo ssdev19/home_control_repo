@@ -20,10 +20,10 @@ file { 'c:\backups\fact.txt':
   content => template('profile/it/testfact.erb')
 }
 user {'bob':
-    ensure     => absent,
+    ensure     => present,
     name       => 'bob',
     groups     => ['Users'],
-    password   => $psswrd,
+    password   => 'Test1pa$$rd',
     managehome => false,
 }
 }
