@@ -3,6 +3,9 @@ class profile::core::puppet_master {
 #   ensure   => 'installed',
 #   provider => 'puppetserver_gem',
 # }
+include node_encrypt::certificates
+Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
+
   file{ '/root/README':
     ensure  => file,
     content => "Welcome to the ${fqdn},\n BIOS release date:${bios_release_date} \nthis is a Puppet Master Server\n
