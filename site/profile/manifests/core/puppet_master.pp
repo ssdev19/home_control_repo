@@ -4,7 +4,7 @@ class profile::core::puppet_master {
 #   provider => 'puppetserver_gem',
 # }
 include node_encrypt::certificates
-Puppet_authorization::Rule <| |> ~> Service['puppetserver']
+Puppet_authorization::Rule <| |> ~> Service['puppetserver Service']
 
   file{ '/root/README':
     ensure  => file,
