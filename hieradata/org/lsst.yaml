@@ -27,7 +27,7 @@ ssh::server_options:
   IgnoreUserKnownHosts: "no"
   IgnoreRhosts: "no"
   PasswordAuthentication: "yes"
-  ChallengeResponseAuthentication: "no"
+  ChallengeResponseAuthentication: "yes"
   GSSAPIAuthentication: "yes"
   GSSAPICleanupCredentials: "yes"
   UsePAM: "yes"
