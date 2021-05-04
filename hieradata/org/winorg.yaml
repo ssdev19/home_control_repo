@@ -1,7 +1,7 @@
 ---
 # passwords can be passed via org rather than the node
 lookup_options:
-   "^profile::.*(psswrd|secret|token)$":
+   "^profile::.*(psswrd|secretcontent|token)$":
   #  profile::win::psswrd: # '^profile::.+::sensitive_\w+$':
   #    convert_to: 'Sensitive' 
   #  profile::win::secretcontent:
