@@ -1,5 +1,5 @@
 # For windows computers
-class profile::win (Sensitive[String]
+class profile::win (Sensitive
 $psswrd,
 ) {
   include chocolatey
