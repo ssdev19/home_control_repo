@@ -18,11 +18,11 @@ include r10k
 # Encryption
 # Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
 
-file {
-  default:
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
+file { '/root/encrypt':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    content => unwrap($psswrd),
   ;
   '/etc/puppetlabs/puppet/eyaml':
     ensure => directory,
