@@ -7,7 +7,7 @@ classes:
 node_encrypt::certificates::ca_server: "%{facts.fqdn}"
 
 lookup_options:
- profile::core::puppet_master::psswrd: # '^profile::.+::sensitive_\w+$':
+ "^profile::.*(psswrd|encryptedpwd|token)$": # '^profile::.+::sensitive_\w+$':
   convert_to: 'Sensitive' 
 profile::core::puppet_master::encryptedpwd: secretpwd
 profile::core::puppet_master::psswrd: >
