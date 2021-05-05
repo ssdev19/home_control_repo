@@ -7,9 +7,17 @@ classes:
 node_encrypt::certificates::ca_server: "%{facts.fqdn}"
 
 lookup_options:
- "^profile::.*(psswrd|encryptedpwd|token)$": # '^profile::.+::sensitive_\w+$':
+ "^profile::.*(psswrd|encryptedpwd|token|_encrypt)$": # '^profile::.+::sensitive_\w+$':
   convert_to: 'Sensitive' 
-profile::core::puppet_master::encryptedpwd: secretpwd
+profile::core::puppet_master::pwd_encrypt: >
+  ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
+  KoZIhvcNAQEBBQAEggEAI2/74OVU7NvJVSeI/hTe4i6Qbtb0IZbw6D5jCHm8YhLhng7r/PC/yZ
+  wnaq5x1WWNaq2z/nZzdPVQFcb7UueT5fTZYZ6vSFyn7iQ9sLK3eAnUrjEa9shqkbVp4LYbR5AG
+  aOyG9p332r0n3CPNM4V6fIEllWKFHTvo/SuNhrSD1hTzswty5gXc0phWTAwrsUB3yfx2j9v1xo
+  S3BxRiMx7oIdoTkqi7f5L0e2vDSa3NTyVTj8RtgO9sRsauGVWRxnu7JP3hEJpXkcSgL25JUy8+
+  7Mk9eM+jmzDUsSnIhIGrzbsZeAsygzzYv+/IsDf9voBs6R3aVLdrkLR90A94EzpPVDA8Bgkqhk
+  iG9w0BBwEwHQYJYIZIAWUDBAEqBBDQ2EgPTY6Fo8ZCLLi9XxSegBDhKsgk0oBza0yV/JPRH+3Z
+  ]
 profile::core::puppet_master::psswrd: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
   KoZIhvcNAQEBBQAEggEAmq7ZQhRc6BG/UqmXcRhEFm9mHlUEwDJ+2BIWuDn1de0Hm9ARLOStvw

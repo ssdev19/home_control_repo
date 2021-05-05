@@ -1,5 +1,6 @@
 class profile::core::puppet_master (Sensitive
 $psswrd,
+$pwd_encrypt,
 ){
 # package { 'toml':
 #   ensure   => 'installed',
@@ -31,7 +32,7 @@ file {
   '/root/encrtypt':
     ensure  => file,
     mode    => '0755',
-    content => 'this is simple content that should get redacted'.node_encrypt::secret,
+    content => unwrap($pwd_encrypt).node_encrypt::secret,
   ;
   }
 user {'erwin':
