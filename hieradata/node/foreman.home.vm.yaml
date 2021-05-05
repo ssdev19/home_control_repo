@@ -10,4 +10,13 @@ lookup_options:
  profile::core::puppet_master::psswrd: # '^profile::.+::sensitive_\w+$':
   convert_to: 'Sensitive' 
 profile::core::puppet_master::encryptedpwd: secretpwd
-profile::core::puppet_master::psswrd: 'ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEA0vqrD0yaBB4uzQQ9jGtnCER+Zn1CLMbYPiqpoOckNnyTDvHeqh77qelW7EJuMofDKykomXUKR5YosPWM7/ANLv8OZr7QHrDR1oGygm/E0UtGaJijuJhT3G7c/bv8CcmEe7glsuAsKHRdJRtFGY7stRhuBAi5pb96PYbkxQrLRfOM3eJTbirwriYKGDfRCaLHgPrpuSq3fDfdJV8kX40RKbwM1UTSCTw/bcNjfkwBRWOGloWX89XkZ64aSmCYsj3fFQiMYzufp3FXYvdXEWogGbN1WFlqwXTre9wHPZE1+PVO9cl/cduiyMzezSPQjiBHqdK5jfQV/M3s0pMDfCFucTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAb9yHtHUkoOOt52qOGK+FggBD2d+fZcntSKCR41hmSUITl]'
+profile::core::puppet_master::psswrd: >
+  ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBAD
+  AFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAqttHFf99K6dQDf1Ir5ruL3k4ue
+  vp/5CkZKpxHVUMwRdgAeWyE6cD94RdvANWznJlmmtWUD/x2ncNqygSaz+IBW
+  YXauIybNi4iHSrm2htRv1UohATLxpYHsYT+smB3WqRN6Ax0XuJtaQUPt3phc
+  M946iwjAwJZNmJTqxDBFD1ksur5NWrmLAJ1wNKjHJomuTlDNnIVa7bcMidbX
+  dWzG4RK2sUu8HPbY8N05lPrOig9fliTYhhLwBxeoh+8dmmTD59W28mDYI2CR
+  5Mh6l9+bukqDyNQypn7nMbHTpuYhJbgtn0azeh5HXMm91YbIiVQeFsk1JM0q
+  Zdsn5aCH8xsJcdlTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDlZtF1by
+  CjWKo2CFPWYtLCgBAkV7gfEoTQARkVR86YSZYm]
