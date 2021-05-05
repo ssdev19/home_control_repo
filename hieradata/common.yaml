@@ -1,7 +1,0 @@
----
-lookup_options:
-   "^profile::.*(psswrd|secretcontent|token)$":
-  #  profile::win::psswrd: # '^profile::.+::sensitive_\w+$':
-  #    convert_to: 'Sensitive' 
-  #  profile::win::secretcontent:
-     convert_to: 'Sensitive' 
