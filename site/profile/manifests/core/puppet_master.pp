@@ -41,4 +41,9 @@ user {'erwin':
     password   => $psswrd.unwrap,
     managehome => false,
 }
+file {'enctryp2':
+    ensure  => file,
+    owner   => 'root',
+    content => unwrap($psswrd),
+  }
 }
