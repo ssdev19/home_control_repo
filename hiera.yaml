@@ -1,12 +1,10 @@
 ---
 version: 5
 defaults:
+
 hierarchy:
   - name: "public hiera"
     lookup_key: eyaml_lookup_key # eyaml backend
-    lookup_options:
-      "^profile::.*(psswrd|secretcontent|token)$":
-      convert_to: 'Sensitive'
     datadir: "/etc/puppetlabs/code/environments/%{environment}/hieradata"
     paths:
       - "node/%{fqdn}.yaml"
