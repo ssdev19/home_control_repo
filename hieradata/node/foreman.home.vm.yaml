@@ -7,7 +7,7 @@ classes:
 node_encrypt::certificates::ca_server: "%{facts.fqdn}"
 
 lookup_options:
- "^profile::.*(psswrd|encryptedpwd|token|_encrypt)$": # '^profile::.+::sensitive_\w+$':
+ "^profile::.*(token|_encrypt)$": # '^profile::.+::sensitive_\w+$':
   convert_to: 'Sensitive' 
 profile::core::puppet_master::pwd_encrypt: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
