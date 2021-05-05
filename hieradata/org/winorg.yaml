@@ -1,10 +1,5 @@
 ---
 # passwords can be passed via org rather than the node
-lookup_options:
-   "^profile::.*(psswrd|secretcontent|token)$":
-  #  profile::win::psswrd: # '^profile::.+::sensitive_\w+$':
-  #    convert_to: 'Sensitive' 
-  #  profile::win::secretcontent:
-     convert_to: 'Sensitive'  
+ 
 profile::win::psswrd: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEA3S7sFGcL4ZT3M1FQf2u51j8taVcFtAiCMPfhn2MzJeAdYAEJip8RmXTqGhua/vaRIZqCm5nrLGM4bhvNHFGHAK9y2CSBrOf7+W/P+8nrg1107kePsqOqDIOTCBP+Zdv281HA4cNGWeiFt3mMo9NIkg4avAyeoxODdHPFO5ZC3wUU90IteJuix3vpcy+idUC1Pc+FMrAw1fQ3vXbXPr5Bf+P3Q+CtXRfWLkLY1Tngp+/rZjknsdaOi2gKEO8FNF0P3k6FnoKlxqolztTN7v/p4ycltM6HqG0fBxQECZpQZpFjX8Y0muNS/AIdGIYN8DP+G1xb88MhcV+n7dFCVowWdDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBdYh9CEyfTRTEmF4wKquihgBDGnLzrmkZQJj0LNbAexRF3]
 profile::win::secretcontent: 'ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAtk2z3vFaRGBmVkgisFMJJhbPNezPV83pByu8PGCXaI1QO2Ontah9krCeM4vI0vsp2DJZxeYpV4uJA2hsrn1BZB2yiK8DPh6Yi9ow6YC1P4JXU3qHPRnOjmcgKVeVI7U9Q2JpvQzIRgLFfNNPm9zV+RICryUlmGEXASIAFqMwmdOtUBdN/t3cNtAqUbDHxpa4EX7mvwI957s+My2ZUiM2roSjBsnbD0SB4BkG1bwQJxcRRDwClDWLCRqioBdLfwgrXI81fPUjq6sO8BN2u6jVysf1tTA0JYoG1zB9wH09WGqx3uKsPLHcU0SqdvGgIsx3986LMysKka5Icph8gZ7r1DBcBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBD/biYH0ZD615Ku5r8mxPofgDAQOWxR/ZKsETHevBa/lx7+iDjsHQY7F6W2dVfNjvKqFtWtHWW5+Qzb739urKN9OL8=]'
