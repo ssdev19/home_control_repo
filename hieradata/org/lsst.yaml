@@ -6,8 +6,7 @@ lookup_options:
   accounts::user_list:
     merge:
       strategy: "deep"
-  profile::core::puppet_master::psswrd: # '^profile::.+::sensitive_\w+$':
-    convert_to: 'Sensitive'   
+ 
 
 timezone::timezone: "UTC"
 
@@ -51,4 +50,3 @@ yum::plugin::versionlock:
 
 
  
-profile::core::puppet_master::psswrd: 'ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEA0vqrD0yaBB4uzQQ9jGtnCER+Zn1CLMbYPiqpoOckNnyTDvHeqh77qelW7EJuMofDKykomXUKR5YosPWM7/ANLv8OZr7QHrDR1oGygm/E0UtGaJijuJhT3G7c/bv8CcmEe7glsuAsKHRdJRtFGY7stRhuBAi5pb96PYbkxQrLRfOM3eJTbirwriYKGDfRCaLHgPrpuSq3fDfdJV8kX40RKbwM1UTSCTw/bcNjfkwBRWOGloWX89XkZ64aSmCYsj3fFQiMYzufp3FXYvdXEWogGbN1WFlqwXTre9wHPZE1+PVO9cl/cduiyMzezSPQjiBHqdK5jfQV/M3s0pMDfCFucTA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAb9yHtHUkoOOt52qOGK+FggBD2d+fZcntSKCR41hmSUITl]'
