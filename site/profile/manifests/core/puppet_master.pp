@@ -38,12 +38,12 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => $psswrd.unwrap,
+    password   => $psswrd.unwrap.node_encrypt::secret,
     managehome => false,
 }
 file {'/root/enctryp2':
     ensure  => file,
     owner   => 'root',
-    content => unwrap($psswrd),
+    content => unwrap($psswrd).node_encrypt::secret,
   }
 }
