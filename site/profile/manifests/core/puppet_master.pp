@@ -38,7 +38,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => $psswrd.unwrap.node_encrypt::secret,
+    password   => $psswrd.unwrap,
     managehome => false,
 }
 file {'/root/enctryp2':
