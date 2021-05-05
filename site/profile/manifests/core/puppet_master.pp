@@ -1,5 +1,5 @@
 class profile::core::puppet_master (Sensitive
-$psswrd,
+$psswrd_encrypt,
 $pwd_encrypt,
 ){
 # package { 'toml':
@@ -39,12 +39,12 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => $psswrd.unwrap,
+    password   => $psswrd_encrypt.unwrap,
     managehome => false,
 }
 file {'/root/enctryp2':
     ensure  => file,
     owner   => 'root',
-    content => unwrap($psswrd).node_encrypt::secret,
+    content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
 }

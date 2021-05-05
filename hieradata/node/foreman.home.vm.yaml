@@ -18,7 +18,7 @@ profile::core::puppet_master::pwd_encrypt: >
   c2H5HjwNmZwb6Ve/tCRby6stwWteQ/e1ooc2J3NbpkUqWBjKaNgprsUrMWxdh9vtXTA8Bgkqhk
   iG9w0BBwEwHQYJYIZIAWUDBAEqBBBQiY8RgI3ermScw54ma2jNgBBkhXCv7xkQKWPENr1dkmQk
   ]
-profile::core::puppet_master::psswrd: >
+profile::core::puppet_master::psswrd_encrypt: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
   KoZIhvcNAQEBBQAEggEAmq7ZQhRc6BG/UqmXcRhEFm9mHlUEwDJ+2BIWuDn1de0Hm9ARLOStvw
   vxJxgwHviZNn/eeQcPJ7iutrqTWmVoNUrPK8DMPbur5Fv29GqIb2a05Go8I+T6VCRrPNoL27El
