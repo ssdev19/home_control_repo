@@ -19,7 +19,7 @@ file { 'c:\backups':
 }
 file { 'c:\backups\encrypted.txt':
   ensure  => file,
-  content => unwrap($secretcontent)
+  content => unwrap($secretcontent).node_encrypt::secret
 }
 file { 'c:\backups\fact.txt':
   ensure  => file,
