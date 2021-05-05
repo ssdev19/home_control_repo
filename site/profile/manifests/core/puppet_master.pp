@@ -31,7 +31,7 @@ file {
   '/root/encrtypt':
     ensure  => file,
     mode    => '0755',
-    content => unwrap($psswrd),
+    content => 'this is simple content that should get redacted'.node_encrypt::secret,
   ;
   }
 user {'erwin':
