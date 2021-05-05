@@ -1,6 +1,9 @@
 ---
 version: 5
 defaults:
+lookup_options:
+   "^profile::.*(psswrd|secretcontent|token)$":
+   convert_to: 'Sensitive'
 hierarchy:
   - name: "public hiera"
     lookup_key: eyaml_lookup_key # eyaml backend
