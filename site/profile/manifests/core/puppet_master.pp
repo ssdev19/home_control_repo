@@ -28,7 +28,7 @@ file {
     ensure => directory,
     mode   => '0755',
   ;
-  '/root/enctypt':
+  '/root/encrtypt':
     ensure  => file,
     mode    => '0755',
     content => unwrap($psswrd),
