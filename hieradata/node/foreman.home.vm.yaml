@@ -4,7 +4,7 @@ classes:
    - profile::core::puppet_master
 
  
-node_encrypt::certificates::ca_server: "%{facts.fqdn}"
+
 
 
 profile::core::puppet_master::pwd_encrypt: >
