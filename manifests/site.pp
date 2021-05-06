@@ -1,23 +1,24 @@
-lookup('classes', Array[String], 'unique').include
+lookup('classes').include
+# lookup('classes', Array[String], 'unique').include
 
-$files = lookup(
-  name          => 'files',
-  value_type    => Variant[Hash[String, Hash], Undef],
-  merge         => 'deep',
-  default_value => undef,
-)
+# $files = lookup(
+#   name          => 'files',
+#   value_type    => Variant[Hash[String, Hash], Undef],
+#   merge         => 'deep',
+#   default_value => undef,
+# )
 
-if ($files) {
-  ensure_resources('file', $files)
-}
+# if ($files) {
+#   ensure_resources('file', $files)
+# }
 
-$packages = lookup(
-  name          => 'packages',
-  value_type    => Variant[Array[String], Undef],
-  merge         => 'unique',
-  default_value => undef,
-)
+# $packages = lookup(
+#   name          => 'packages',
+#   value_type    => Variant[Array[String], Undef],
+#   merge         => 'unique',
+#   default_value => undef,
+# )
 
-if ($packages) {
-  ensure_packages($packages)
-}
+# if ($packages) {
+#   ensure_packages($packages)
+# }
