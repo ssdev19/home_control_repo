@@ -1,4 +1,3 @@
 ---
 classes:
-   # - profile::win
-   - ''
+   - profile::win
