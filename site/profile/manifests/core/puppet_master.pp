@@ -7,7 +7,7 @@ $pwd_encrypt,
 #   ensure   => 'installed',
 #   provider => 'puppetserver_gem',
 # }
-  include node_encrypt::certificates
+#  include node_encrypt::certificates
 #Puppet_authorization::Rule <| |> ~> Service['puppetserver Service']
 
   file{ '/root/README':
