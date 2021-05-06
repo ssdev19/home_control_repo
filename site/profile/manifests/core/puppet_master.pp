@@ -1,4 +1,4 @@
-class profile::core::puppet_master (Sensitive
+class profile::core::puppet_master (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
