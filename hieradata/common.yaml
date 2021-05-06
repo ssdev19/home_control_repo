@@ -1,4 +1,4 @@
 ---
 lookup_options:
- "^profile::.*(_token|_encrypt)$": # '^profile::.+::sensitive_\w+$':
+ "^profile::.*(_token|_encrypt)$": 
   convert_to: 'Sensitive' 
