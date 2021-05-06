@@ -1,13 +1,13 @@
 ---
 # passwords can be passed via org rather than the node
 lookup_options:
-   "^profile::.*(psswrd|secretcontent|token)$":
+  #  "^profile::.*(psswrd|secretcontent|token)$":
   #  profile::win::psswrd: # '^profile::.+::sensitive_\w+$':
   #    convert_to: 'Sensitive' 
   #  profile::win::secretcontent:
-    convert_to: 'Sensitive'  
-profile::win::psswrd: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEA3S7sFGcL4ZT3M1FQf2u51j8taVcFtAiCMPfhn2MzJeAdYAEJip8RmXTqGhua/vaRIZqCm5nrLGM4bhvNHFGHAK9y2CSBrOf7+W/P+8nrg1107kePsqOqDIOTCBP+Zdv281HA4cNGWeiFt3mMo9NIkg4avAyeoxODdHPFO5ZC3wUU90IteJuix3vpcy+idUC1Pc+FMrAw1fQ3vXbXPr5Bf+P3Q+CtXRfWLkLY1Tngp+/rZjknsdaOi2gKEO8FNF0P3k6FnoKlxqolztTN7v/p4ycltM6HqG0fBxQECZpQZpFjX8Y0muNS/AIdGIYN8DP+G1xb88MhcV+n7dFCVowWdDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBdYh9CEyfTRTEmF4wKquihgBDGnLzrmkZQJj0LNbAexRF3]
-profile::win::secretcontent: >
+    # convert_to: 'Sensitive'  
+profile::win::psswrd_encrypt: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEA3S7sFGcL4ZT3M1FQf2u51j8taVcFtAiCMPfhn2MzJeAdYAEJip8RmXTqGhua/vaRIZqCm5nrLGM4bhvNHFGHAK9y2CSBrOf7+W/P+8nrg1107kePsqOqDIOTCBP+Zdv281HA4cNGWeiFt3mMo9NIkg4avAyeoxODdHPFO5ZC3wUU90IteJuix3vpcy+idUC1Pc+FMrAw1fQ3vXbXPr5Bf+P3Q+CtXRfWLkLY1Tngp+/rZjknsdaOi2gKEO8FNF0P3k6FnoKlxqolztTN7v/p4ycltM6HqG0fBxQECZpQZpFjX8Y0muNS/AIdGIYN8DP+G1xb88MhcV+n7dFCVowWdDA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBdYh9CEyfTRTEmF4wKquihgBDGnLzrmkZQJj0LNbAexRF3]
+profile::win::secretcontent_encrypt: >
   ENC[PKCS7,MIIBmQYJKoZIhvcNAQcDoIIBijCCAYYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
   KoZIhvcNAQEBBQAEggEA4SIcFoizKSHIFxRE8aGmb2X8puHxCDeFkU9UXCb0iQFAP/+5atFjLr
   MEwMIBlXNhFK9nnIbtdm6h67+PBibHzSRgTvjDlb/AbdcXqvgdf7cTqkUEJyY9Q3HhSK13kd0h
