@@ -3,4 +3,4 @@ lookup_options:
  "^profile::.*(_token|_encrypt)$": 
   convert_to: 'Sensitive' 
 
-node_encrypt::certificates::ca_server: "%{facts.fqdn}"
+# node_encrypt::certificates::ca_server: "%{facts.fqdn}"
