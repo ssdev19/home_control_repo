@@ -2,19 +2,14 @@
 classes:
    - profile::core::common
    - profile::core::puppet_master
-
- 
-
-
-
 profile::core::puppet_master::pwd_encrypt: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
-  KoZIhvcNAQEBBQAEggEApvGyqxKHt0BsLRWBUlB79Obq0+cGYKt72mkxqgRkFIIxpazalC80k9
-  cK564DxZIZUHJUARdq8GN7FE4vziTAJ7v/YSVpHXZCEzSvSKE5NI22HpXt1gZ31rh8sKBiOILO
-  s2c8nNSDAfSXyk+DADlcJDNum61qdhDo6KExz3z+/QvR9c7cyYjtnPg2St+RmTOPVtbrK3Ijw8
-  /ZTGcIb87vM8YClS1VWOXeaNdcgH8bAmILGzhR1ppEmkFW2sRRb/KDw3mNFbIZ+0hquAYA3HSh
-  csQq0bMpkIOPx+ZJNqu3c9G85q0CD7vyzIkd+iYeQu2UWNxSPrVueY2aqX/Q5k81szA8Bgkqhk
-  iG9w0BBwEwHQYJYIZIAWUDBAEqBBB5fUhWpg2Pa14v/bnywMU2gBAFoP9YNK3aD7zwY4WIQwtK
+  KoZIhvcNAQEBBQAEggEAMnnoMqocFaxpKNfafnWQqA9PJH223kWY22v83cbT0H026j4svMiG0X
+  +RZeBbY0wmj6+AOpin32G34x9Ar10Zpwfs8ZB5ymUTWAHr4WkcYBkTJpVV1pcYKbb0ogMHpmSl
+  g+SqxPmgNH6wHo+8/b4I1CWStHgdRKe6JupO6w+Az4SNwQYSpQflXQ5rN38n2mzi0dvVYzCaej
+  6VDasnxrXxC5o1jZI2cFOdQcCPwhC4fEyqRa45ULwwwY/ks8HbETXjW/H4x3s9J1AIICF41YFJ
+  FORSzwOdsrWnws6/yLb7WKjvramu6qZYZfYZon7DKjw2pGtvWyfw+gOzZURwwLJW2TA8Bgkqhk
+  iG9w0BBwEwHQYJYIZIAWUDBAEqBBDxHs8lTeknwYOaPovzJESWgBCdMuh4zzquNjWBZnyD3vxM
   ]
 profile::core::puppet_master::psswrd_encrypt: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
