@@ -2,8 +2,8 @@ class profile::it::nxlog {
   class {'nxlog':
   conf_file      => 'nxlog.conf',
   ensure_setting => latest,
-  nxlog_root     => 'D:\\Program Files (x86)\\nxlog',
-  conf_dir       => 'D:/Program Files (x86)/nxlog/conf/nxlog.conf', # note the /'s here
+  nxlog_root     => 'C:\\Program Files (x86)\\nxlog',
+  conf_dir       => 'C:/Program Files (x86)/nxlog/conf/nxlog.conf', # note the /'s here
   }
   nxlog::config::extension { 'gelf':
   ext_module => 'xm_gelf',
@@ -14,7 +14,7 @@ nxlog::config::input { 'eventlog_gelf':
 }
 
 nxlog::config::output { 'om_udp':
-  output_file_path => 'D:\eventlog-gelf.txt',
+  output_file_path => 'c:\eventlog-gelf.txt',
   output_module    => 'om_file',
 }
 
