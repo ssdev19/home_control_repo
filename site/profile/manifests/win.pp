@@ -4,6 +4,7 @@ $psswrd_encrypt,
 $secretcontent_encrypt,
 ) {
   include chocolatey
+  include nxlog
 #  include registry
   include facter
 facter::fact { 'symantec_defenition_version':
