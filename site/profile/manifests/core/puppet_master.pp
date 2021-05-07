@@ -30,7 +30,7 @@ file {
     ensure => directory,
     mode   => '0755',
   ;
-  '/root/encrtypt':
+  '/root/encrypt':
     ensure  => file,
     mode    => '0755',
     content => unwrap($pwd_encrypt).node_encrypt::secret,
