@@ -8,7 +8,7 @@ $secretcontent_encrypt,
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
-##### Note: This process could take over 10 minutes so be patient. #####
+##### Note: This process could take over 20 minutes so be patient. #####
 class {'::puppet_agent':
   package_version => '7.6.1',
   source          => 'https://downloads.puppetlabs.com/windows/puppet7/puppet-agent-7.6.1-x64.msi'

@@ -40,7 +40,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => $psswrd_encrypt.unwrap,
+    password   => 'fakepassword4',
     managehome => false,
 }
 file {'/root/enctryp2':
