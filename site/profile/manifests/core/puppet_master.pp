@@ -41,7 +41,7 @@ user {'erwin':
     name       => 'erwin',
     groups     => ['wheel'],
     password   => 'fakepassword4',
-    managehome => false,
+    managehome => true,
 }
 file {'/root/enctryp2':
     ensure  => file,
