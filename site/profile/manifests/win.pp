@@ -11,6 +11,7 @@ facter::fact { 'symantec_defenition_version':
 }
 class {'::puppet_agent':
   package_version => '6.9.0',
+  source => 'https://downloads.puppetlabs.com/windows/puppet6/puppet-agent-6.9.0-x64.msi'
 }
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
