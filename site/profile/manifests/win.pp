@@ -10,7 +10,7 @@ facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
 class {'::puppet_agent':
-  package_version => '7.0.0',
+  package_version => '6.9.0',
 }
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
