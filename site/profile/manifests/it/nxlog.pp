@@ -3,7 +3,7 @@ class profile::it::nxlog {
   conf_file      => 'nxlog.conf',
   ensure_setting => latest,
   nxlog_root     => 'D:\\Program Files (x86)\\nxlog',
-  conf_dir       => 'D:\\Program Files (x86)\\nxlog\\conf\\nxlog.conf', # note the /'s here
+  conf_dir       => 'D:/Program Files (x86)/nxlog/conf/nxlog.conf', # note the /'s here
   }
   nxlog::config::extension { 'gelf':
   ext_module => 'xm_gelf',
