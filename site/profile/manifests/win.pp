@@ -4,14 +4,15 @@ $psswrd_encrypt,
 $secretcontent_encrypt,
 ) {
   include chocolatey
-#  include registry
+  include registry
   include facter
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
+##### Note: This process could take over 10 minutes so be patient. #####
 class {'::puppet_agent':
   package_version => '6.9.0',
-  source => 'https://downloads.puppetlabs.com/windows/puppet6/puppet-agent-6.9.0-x64.msi'
+  source          => 'https://downloads.puppetlabs.com/windows/puppet6/puppet-agent-6.9.0-x64.msi'
 }
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
