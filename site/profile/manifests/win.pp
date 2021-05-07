@@ -6,7 +6,6 @@ $secretcontent_encrypt,
   include chocolatey
 #  include registry
   include facter
-  include accounts
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
