@@ -36,7 +36,7 @@ file {
   default:
     ensure => file,
   ;
-  'c:\backups':
+  'c:\backups\dir1\dir2\dir3':
     ensure => directory,
   ;
   'c:\backups\test2.txt':
