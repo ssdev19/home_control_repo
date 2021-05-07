@@ -1,8 +1,8 @@
 class profile::it::nxlog {
   class {'nxlog':
   ensure_setting => latest,
-  nxlog_root     => 'C:\\Program Files (x86)\\nxlog',
-  conf_dir       => 'C:\\Program Files (x86)\\nxlog\\conf', # note the /'s here
+  nxlog_root     => 'C:\Program Files (x86)\nxlog',
+  conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
   conf_file      => 'nxlog.conf',
   }
 #   nxlog::config::extension { 'gelf':
