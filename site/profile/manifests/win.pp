@@ -18,7 +18,7 @@ class { 'nsclient':
 }
 
 package { 'nxlog':
-  ensure   => '2.10.2150',
+  ensure   => present,
   provider => chocolatey,
 }
 # file { 'c:\backups':
