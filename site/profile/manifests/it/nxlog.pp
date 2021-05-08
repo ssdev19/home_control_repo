@@ -2,7 +2,7 @@ class profile::it::nxlog {
 class {'nxlog':
   conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
   conf_file      => 'nxlog.conf',
-  ensure_setting => 'https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150.msi',
+#  ensure_setting => latest,
   nxlog_root     => 'C:\Program Files (x86)\nxlog',
 }
   nxlog::config::extension { 'gelf':
