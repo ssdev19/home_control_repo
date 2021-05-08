@@ -17,10 +17,6 @@ $pwd_encrypt,
   This file is created because profile::core::puppet_master includes this class and in forpuppet_master role is set to puppet_master.\n",
   }
 
-
-# Encryption
-# Puppet_authorization::Rule <| |> ~> Service['pe-puppetserver']
-
 file {
   default:
     ensure => file,
