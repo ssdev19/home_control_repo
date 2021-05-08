@@ -16,6 +16,11 @@ class {'::puppet_agent':
 class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
 }
+
+package { 'nxlog':
+  ensure   => '2.10.2150',
+  provider => chocolatey,
+}
 # file { 'c:\backups':
 #   ensure  => directory,
 # }
