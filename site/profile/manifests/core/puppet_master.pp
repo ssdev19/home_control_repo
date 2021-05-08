@@ -1,3 +1,4 @@
+# foreman
 class profile::core::puppet_master (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
@@ -12,7 +13,7 @@ $pwd_encrypt,
 
   file{ '/root/README':
     ensure  => file,
-    content => "Welcome to the ${fqdn},\n BIOS release date:${bios_release_date} \nthis is a Puppet Master Server\n
+    content => "Welcome to the ${facts.fqdn},\n BIOS release date:${facts.bios_release_date} \nthis is a Puppet Master Server\n
     This file is created because profile::core::puppet_master includes this class and in forpuppet_master role is set to puppet_master.",
   }
 

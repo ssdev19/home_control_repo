@@ -1,3 +1,4 @@
+# Nxlog
 class profile::it::nxlog {
 class {'nxlog':
   conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
