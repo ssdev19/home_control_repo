@@ -3,14 +3,7 @@ classes:
    - profile::core::common
    - profile::core::puppet_master
 profile::core::puppet_master::pwd_encrypt: >
-  ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
-  KoZIhvcNAQEBBQAEggEAMnnoMqocFaxpKNfafnWQqA9PJH223kWY22v83cbT0H026j4svMiG0X
-  +RZeBbY0wmj6+AOpin32G34x9Ar10Zpwfs8ZB5ymUTWAHr4WkcYBkTJpVV1pcYKbb0ogMHpmSl
-  g+SqxPmgNH6wHo+8/b4I1CWStHgdRKe6JupO6w+Az4SNwQYSpQflXQ5rN38n2mzi0dvVYzCaej
-  6VDasnxrXxC5o1jZI2cFOdQcCPwhC4fEyqRa45ULwwwY/ks8HbETXjW/H4x3s9J1AIICF41YFJ
-  FORSzwOdsrWnws6/yLb7WKjvramu6qZYZfYZon7DKjw2pGtvWyfw+gOzZURwwLJW2TA8Bgkqhk
-  iG9w0BBwEwHQYJYIZIAWUDBAEqBBDxHs8lTeknwYOaPovzJESWgBCdMuh4zzquNjWBZnyD3vxM
-  ]
+  secretpwdssaw2
 profile::core::puppet_master::psswrd_encrypt: >
   ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJ
   KoZIhvcNAQEBBQAEggEAcOcokJS8C7EyzEB8oYnVKnTtq3SLI7GGAzNmdfSVw0XmBiGeY+9m+s
