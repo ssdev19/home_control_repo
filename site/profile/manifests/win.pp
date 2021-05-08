@@ -17,10 +17,6 @@ class { 'nsclient':
   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
 }
 
-package { 'nxlog':
-  ensure   => present,
-  provider => chocolatey,
-}
 # file { 'c:\backups':
 #   ensure  => directory,
 # }
