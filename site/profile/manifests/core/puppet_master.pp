@@ -40,7 +40,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => pw_hash('password', 'SHA-512', 'mysalt'),
+    password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
     managehome => true,
 }
 file {'/root/enctryp2':
