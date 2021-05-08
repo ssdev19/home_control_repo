@@ -40,7 +40,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => 'fakepassword4',
+    password   => Sensitive('fakepassword6'),
     managehome => true,
 }
 file {'/root/enctryp2':
