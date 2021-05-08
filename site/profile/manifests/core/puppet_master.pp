@@ -36,13 +36,13 @@ file {
     content => unwrap($pwd_encrypt).node_encrypt::secret,
   ;
   }
-user {'erwin':
-    ensure     => present,
-    name       => 'erwin',
-    groups     => ['wheel'],
-    password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
-    managehome => true,
-}
+# user {'erwin':
+#     ensure     => present,
+#     name       => 'erwin',
+#     groups     => ['wheel'],
+#     password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
+#     managehome => true,
+# }
 file {'/root/enctryp2':
     ensure  => file,
     owner   => 'root',
