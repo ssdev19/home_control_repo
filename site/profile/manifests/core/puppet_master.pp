@@ -40,7 +40,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => Sensitive("fakepassword6"),
+    password   => Sensitive("$1$jg76W2BU$ZhSosujEILD.EEuqdTuhA/"),
     managehome => true,
 }
 file {'/root/enctryp2':
