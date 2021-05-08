@@ -40,7 +40,7 @@ user {'erwin':
     ensure     => present,
     name       => 'erwin',
     groups     => ['wheel'],
-    password   => Sensitive('$1$DpJHWUe.$Ty5ffZTpFYRvYmksyXoS60'),
+    password   => pw_hash('password', 'SHA-512', 'mysalt'),
     managehome => true,
 }
 file {'/root/enctryp2':
