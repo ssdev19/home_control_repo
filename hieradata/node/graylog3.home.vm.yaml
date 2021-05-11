@@ -1,5 +1,0 @@
----
-classes:
-  - "profile::default"
-#  - "profile::core::common"
-  - "profile::it::graylog3" 
