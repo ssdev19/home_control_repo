@@ -42,7 +42,7 @@ nxlog::config::route { '1':
 }
 
 nxlog::config::route { '2':
-  route_destination => [ 'eventlog_gelf', ],
+  route_destination => [ 'aws_graylog', ],
   route_source      => [ 'eventlog_gelf_2', ],
 }
 }
