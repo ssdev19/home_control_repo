@@ -1,6 +1,7 @@
 # Nxlog
 class profile::it::nxlog (Sensitive[String]
-$graylogip_hide
+$graylogip_hide,
+$graylogport_hide,
 ){
     # package { 'NXLog-CE':
     #     ensure => '2.10.2150',
@@ -32,7 +33,7 @@ nxlog::config::output { 'om_udp':
 nxlog::config::output { 'logserver':
   output_address => unwrap($graylogip_hide),
   output_module  => 'om_udp',
-  output_port    => '6514',
+  output_port    => unwrap($graylogport_hide),
 }
 
 nxlog::config::route { 'local':
