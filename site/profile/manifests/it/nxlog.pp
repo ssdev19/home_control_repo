@@ -1,5 +1,7 @@
 # Nxlog
-class profile::it::nxlog {
+class profile::it::nxlog (Sensitive[Strin]
+$graylogip_hide
+){
     # package { 'NXLog-CE':
     #     ensure => '2.10.2150',
     #     source => 'https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150.msi'
@@ -28,7 +30,7 @@ nxlog::config::output { 'om_udp':
 }
 
 nxlog::config::output { 'logserver':
-  output_address => '192.168.0.48',
+  output_address => $graylogip_hide,
   output_module  => 'om_udp',
   output_port    => '6514',
 }

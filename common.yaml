@@ -2,5 +2,5 @@
 lookup_options:
  "^profile::.*(_token|_encrypt)$": 
   convert_to: 'Sensitive' 
-
+profile::it::nxlog::graylogip_hide: '192.168.0.48'
 # node_encrypt::certificates::ca_server: "%{facts.fqdn}"
