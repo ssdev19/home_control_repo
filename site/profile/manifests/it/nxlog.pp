@@ -4,12 +4,12 @@ class profile::it::nxlog {
     #     ensure => '2.10.2150',
     #     source => 'https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150.msi'
     # }
-class {'nxlog':
-  conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
-  conf_file      => 'nxlog.conf',
-  ensure_setting => latest,
-  nxlog_root     => 'C:\Program Files (x86)\nxlog',
-}
+# class {'nxlog':
+#   conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
+#   conf_file      => 'nxlog.conf',
+#   ensure_setting => latest,
+#   nxlog_root     => 'C:\Program Files (x86)\nxlog',
+# }
   nxlog::config::extension { 'gelf':
   ext_module => 'xm_gelf',
 }
