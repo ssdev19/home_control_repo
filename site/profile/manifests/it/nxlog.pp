@@ -30,7 +30,7 @@ nxlog::config::output { 'om_udp':
 }
 
 nxlog::config::output { 'logserver':
-  output_address => $graylogip_hide,
+  output_address => unwrap($graylogip_hide).node_encrypt::secret,
   output_module  => 'om_udp',
   output_port    => '6514',
 }
