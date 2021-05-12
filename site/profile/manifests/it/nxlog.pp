@@ -30,19 +30,19 @@ nxlog::config::output { 'om_udp':
   output_module    => 'om_file',
 }
 
-nxlog::config::output { 'aws_graylog':
-  output_address => unwrap($graylogip_hide),
-  output_module  => 'om_udp',
-  output_port    => unwrap($graylogport_hide),
-}
+# nxlog::config::output { 'aws_graylog':
+#   output_address => unwrap($graylogip_hide),
+#   output_module  => 'om_udp',
+#   output_port    => unwrap($graylogport_hide),
+# }
 
 nxlog::config::route { '1':
   route_destination => [ 'aws_graylog', ],
   route_source      => [ 'eventlog_gelf', ],
 }
 
-nxlog::config::route { '2':
-  route_destination => [ 'aws_graylog', ],
-  route_source      => [ 'eventlog_gelf_2', ],
-}
+# nxlog::config::route { '2':
+#   route_destination => [ 'aws_graylog', ],
+#   route_source      => [ 'eventlog_gelf_2', ],
+# }
 }
