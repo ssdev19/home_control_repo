@@ -6,8 +6,8 @@ $pwd_encrypt,
 
   file{ '/root/README':
     ensure  => file,
-    content => "\nWelcome to ${fqdn},\nBIOS release date:${bios_release_date} \nthis is a Puppet Master Server\n
-  This file is created because profile::core::puppet_master includes this class and in forpuppet_master role is set to puppet_master.\n",
+    content => "\nWelcome to ${::fqdn},\nBIOS release date:${::bios_release_date} \nthis is a Puppet Master Server\n
+  This file i s created because profile::core::puppet_master includes this class and in forpuppet_master role is set to puppet_master.\n",
   }
 
 file {

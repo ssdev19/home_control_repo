@@ -17,9 +17,9 @@ nxlog::config::extension { 'gelf':
   ext_module => 'xm_gelf',
 }
 
-# nxlog::config::input { 'eventlog_gelf':
-#   input_module  => 'im_mseventlog',
-# }
+nxlog::config::input { 'eventlog_gelf':
+  input_module  => 'im_mseventlog',
+}
 
 nxlog::config::input { 'eventlog_gelf_2':
   input_module => 'im_msvistalog',
@@ -36,10 +36,10 @@ nxlog::config::output { 'aws_graylog':
   output_port    => unwrap($graylogport_hide),
 }
 
-# nxlog::config::route { '1':
-#   route_destination => [ 'aws_graylog', ],
-#   route_source      => [ 'eventlog_gelf', ],
-# }
+nxlog::config::route { '1':
+  route_destination => [ 'aws_graylog', ],
+  route_source      => [ 'eventlog_gelf', ],
+}
 
 nxlog::config::route { '2':
   route_destination => [ 'aws_graylog', ],
