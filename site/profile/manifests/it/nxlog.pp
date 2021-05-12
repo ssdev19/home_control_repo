@@ -26,7 +26,7 @@ nxlog::config::input { 'eventlog_gelf_2':
 }
 
 nxlog::config::output { 'om_udp':
-  output_file_path => 'C:\Program Files (x86)\nxlog\data\dataeventlog-gelf.txt',
+  output_file_path => 'C:\Program Files (x86)\nxlog\data\nxlog.log',
   output_module    => 'om_file',
 }
 
