@@ -3,10 +3,10 @@ class profile::it::nxlog (Sensitive[String]
 $graylogip_hide,
 $graylogport_hide,
 ){
-    # package { 'NXLog-CE':
-    #     ensure => '2.10.2150',
-    #     source => 'https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150.msi'
-    # }
+package { 'NXLog-CE':
+    ensure => '2.10.2150',
+    source => 'https://nxlog.co/system/files/products/files/348/nxlog-ce-2.10.2150.msi'
+}
 class {'nxlog':
   conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
   conf_file      => 'nxlog.conf',
