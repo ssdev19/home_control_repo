@@ -1,5 +1,5 @@
 # Nxlog
-class profile::it::nxlog (Sensitive[Strin]
+class profile::it::nxlog (Sensitive[String]
 $graylogip_hide
 ){
     # package { 'NXLog-CE':
