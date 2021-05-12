@@ -21,20 +21,20 @@ nxlog::config::input { 'eventlog_gelf':
   input_module  => 'im_mseventlog',
 }
 
-nxlog::config::input { 'eventlog_gelf_2':
-  input_module => 'im_msvistalog',
-}
+# nxlog::config::input { 'eventlog_gelf_2':
+#   input_module => 'im_msvistalog',
+# }
 
 nxlog::config::output { 'om_udp':
   output_file_path => 'C:\Program Files (x86)\nxlog\data\nxlog.log',
   output_module    => 'om_file',
 }
 
-# nxlog::config::output { 'aws_graylog':
-#   output_address => unwrap($graylogip_hide),
-#   output_module  => 'om_udp',
-#   output_port    => unwrap($graylogport_hide),
-# }
+nxlog::config::output { 'aws_graylog':
+  output_address => unwrap($graylogip_hide),
+  output_module  => 'om_udp',
+  output_port    => unwrap($graylogport_hide),
+}
 
 nxlog::config::route { '1':
   route_destination => [ 'aws_graylog', ],
