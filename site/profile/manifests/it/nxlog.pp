@@ -16,12 +16,11 @@ class {'nxlog':
 
 nxlog::config::input { 'eventlog_gelf':
   input_module  => 'im_mseventlog',
-  output_module => 'im_msvistalog',
 }
 
-# nxlog::config::input { 'eventlog_gelf':
-#   input_module => 'im_msvistalog',
-# }
+nxlog::config::input { 'eventlog_gelf2':
+  input_module => 'im_msvistalog',
+}
 
 nxlog::config::output { 'om_udp':
   output_file_path => 'C:\\Program Files (x86)\\nxlog\\data\\dataeventlog-gelf.txt',
