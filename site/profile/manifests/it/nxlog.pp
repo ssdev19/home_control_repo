@@ -16,7 +16,7 @@ class {'nxlog':
 
 nxlog::config::input { 'eventlog_gelf':
   input_module  => 'im_mseventlog',
-  input_module2 => 'im_msvistalog',
+  output_module => 'im_msvistalog',
 }
 
 # nxlog::config::input { 'eventlog_gelf':
