@@ -24,7 +24,7 @@ file { '/etc/motd' :
     line  => 'SELINUX=enforce',
     match => '^SELINUX=+',
   }
-  $firewall_default_zone = lookup('firewall_default_zone')
+  $firewall_default_zone = lookup("firewall_default_zone")
 
   class { 'firewalld':
     service_ensure => lookup('firewalld_status'),
