@@ -49,4 +49,4 @@ firewalld::ports:
     ensure: present
     zone: public
     port: 9090
-    protocol: ['tcp', 'udp']
+    protocol: tcp
