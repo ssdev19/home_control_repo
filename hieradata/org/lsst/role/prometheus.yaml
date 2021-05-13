@@ -48,6 +48,6 @@ firewalld::ports:
   'Opening port for Prometheus service':
     ensure: present
     zone: public
-    port: 9091
+    port: 9090
     protocol: tcp
     
