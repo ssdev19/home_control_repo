@@ -44,10 +44,3 @@ ssh::server_options:
 
 #firewall configuration
 
-firewalld::ports:
-  'Opening port for Prometheus service':
-    ensure: present
-    zone: public
-    port: 9090
-    protocol: tcp
-    
