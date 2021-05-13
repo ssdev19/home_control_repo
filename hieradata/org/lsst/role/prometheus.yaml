@@ -49,6 +49,7 @@ firewalld::ports:
     ensure: present
     zone: public
     port: 
-      - 9090
-      - 443
+      - port: 9090
+      - port: 443
     protocol: tcp
+    
