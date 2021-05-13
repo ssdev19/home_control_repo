@@ -1,3 +1,4 @@
+# Applies to all servers
 class profile::default {
 #  include profile::it::monitoring
 # All telegraf configuration came from Hiera
@@ -23,17 +24,17 @@ file { '/etc/motd' :
     line  => 'SELINUX=enforce',
     match => '^SELINUX=+',
   }
-  $lsst_firewall_default_zone = lookup("lsst_firewall_default_zone")
+  $firewall_default_zone = lookup('firewall_default_zone')
 
-  class { "firewalld":
-    service_ensure => lookup("firewalld_status"),
-    default_zone   => $lsst_firewall_default_zone,
+  class { 'firewalld':
+    service_ensure => lookup('firewalld_status'),
+    default_zone   => $firewall_default_zone,
   }
 
-  firewalld_zone { $lsst_firewall_default_zone:
+  firewalld_zone { $firewall_default_zone:
   ensure  => present,
-  target  => lookup("lsst_firewall_default_target"),
-  sources => lookup("lsst_firewall_default_sources")
+  target  => lookup('firewall_default_target'),
+  sources => lookup('firewall_default_sources')
   }
 
   firewalld_service { 'Enable SSH':
@@ -46,10 +47,10 @@ file { '/etc/motd' :
 # 		service => 'dhcpv6-client',
 # 	}
 
-  exec{"enable_icmp":
-    provider => "shell",
-    command  => "/usr/bin/firewall-cmd --add-protocol=icmp --permanent && /usr/bin/firewall-cmd --reload",
-    require  => Class["firewalld"],
+  exec{'enable_icmp':
+    provider => 'shell',
+    command  => '/usr/bin/firewall-cmd --add-protocol=icmp --permanent && /usr/bin/firewall-cmd --reload',
+    require  => Class['firewalld'],
     onlyif   => "[[ \"\$(firewall-cmd --list-protocols)\" != *\"icmp\"* ]]"
   }
 # 	Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
