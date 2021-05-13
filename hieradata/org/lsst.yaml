@@ -48,5 +48,43 @@ yum::plugin::versionlock:
   # trigger `yum clean all`
   clean: true  
 
-
- 
+ssh::server_options:
+  Port: 22
+  Protocol: 2
+#  AddressFamily: "inet"
+#   HostKey:
+#     - "/etc/ssh/ssh_host_rsa_key"
+#     - "/etc/ssh/ssh_host_ecdsa_key"
+#     - "/etc/ssh/ssh_host_ed25519_key"
+  SyslogFacility: "AUTH"
+  LogLevel: "INFO"
+  LoginGraceTime: 170
+  PermitRootLogin: "yes"
+  PubkeyAuthentication: "yes"
+  HostbasedAuthentication: "no"
+  IgnoreUserKnownHosts: "no"
+  IgnoreRhosts: "no"
+  PasswordAuthentication: "yes"
+  ChallengeResponseAuthentication: "no"
+  GSSAPIAuthentication: "yes"
+  GSSAPICleanupCredentials: "yes"
+  UsePAM: "yes"
+  AllowTcpForwarding: "yes"
+  X11Forwarding: "yes"
+  X11UseLocalhost: "yes"
+  PrintMotd: "no"
+  TCPKeepAlive: "yes"
+  ClientAliveInterval: 0
+  ClientAliveCountMax: 3
+  UseDNS: "yes"
+  PermitTunnel: "no"
+  Banner: "none" 
+#   XAuthLocation: "/usr/bin/xauth"
+#   Subsystem: "sftp /usr/libexec/openssh/sftp-server"
+#   KerberosAuthentication: "no"
+#   AuthorizedKeysCommand: "/usr/bin/sss_ssh_authorizedkeys"
+#   AuthorizedKeysCommandUser: "nobody"
+# ssh::client_options:
+#   GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
+#   PubkeyAuthentication: "yes"
+#   ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
