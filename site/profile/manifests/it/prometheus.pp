@@ -1,3 +1,4 @@
+# Prometheus monitoring
 class profile::it::prometheus {
 
 class { 'prometheus::server':

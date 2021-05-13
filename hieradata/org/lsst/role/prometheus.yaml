@@ -40,3 +40,13 @@ ssh::server_options:
 #   GlobalKnownHostsFile: "/var/lib/sss/pubconf/known_hosts"
 #   PubkeyAuthentication: "yes"
 #   ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
+##########################################################
+
+#firewall configuration
+
+firewalld::ports:
+        'Opening port for Graylog service':
+                ensure: present
+                zone: public
+                port: 9090
+                protocol: 'tcp'
