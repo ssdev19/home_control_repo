@@ -1,4 +1,4 @@
-# Prometheus monitoring
+# Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus {
 
 class { 'prometheus::server':
