@@ -29,12 +29,12 @@ file { '/etc/hosts' :
   #   line  => 'SELINUX=enforce',
   #   match => '^SELINUX=+',
   # }
-  # $firewall_default_zone = lookup('firewall_default_zone')
+  $firewall_default_zone = lookup('firewall_default_zone')
 
-  # class { 'firewalld':
-  #   service_ensure => lookup('firewalld_status'),
-  #   default_zone   => $firewall_default_zone,
-  # }
+  class { 'firewalld':
+    service_ensure => lookup('firewalld_status'),
+    default_zone   => $firewall_default_zone,
+  }
 
   # firewalld_zone { $firewall_default_zone:
   # ensure  => present,
