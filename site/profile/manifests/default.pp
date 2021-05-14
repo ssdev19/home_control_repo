@@ -24,12 +24,12 @@ file { '/etc/hosts' :
 
   # package { $enhancers: }
   # Firewall and security measurements
-  file_line { 'SELINUX=permissive':
-    path  => '/etc/selinux/config',
-    line  => 'SELINUX=enforce',
-    match => '^SELINUX=+',
-  }
-  $firewall_default_zone = lookup('firewall_default_zone')
+  # file_line { 'SELINUX=permissive':
+  #   path  => '/etc/selinux/config',
+  #   line  => 'SELINUX=enforce',
+  #   match => '^SELINUX=+',
+  # }
+  # $firewall_default_zone = lookup('firewall_default_zone')
 
   # class { 'firewalld':
   #   service_ensure => lookup('firewalld_status'),
