@@ -11,6 +11,11 @@ file { '/etc/motd' :
   ensure  => file,
   content => $motd_msg,
 }
+$hosts = lookup ('hosts')
+file { '/etc/hosts' :
+  ensure  => file,
+  content => $hosts,
+}
   # Package { ensure => 'installed' }
 
   # $enhancers = [ 'tree', 'sssd', 'realmd', 'oddjob', 'oddjob-mkhomedir', 'adcli',
