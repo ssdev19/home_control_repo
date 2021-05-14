@@ -8,7 +8,7 @@ class profile::it::grafana {
         name      => 'Prometheus',
         type      => 'prometheus',
         access    => 'proxy',
-        url       => 'http://prometheus.home.vm:9090/',
+        url       => 'http://prometheus.home.vm:9182/',
         isDefault => true,
       },
     ],
