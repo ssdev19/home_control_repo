@@ -31,7 +31,7 @@ class { 'prometheus::server':
       'scrape_timeout'  => '10s',
       'static_configs'  => [
         {
-          'targets' => [ 'localhost:9090' ],
+          'targets' => [ 'localhost:9090', 'localhost:9182' ],
           'labels'  => {
             'alias' => 'Prometheus',
           }
