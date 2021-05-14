@@ -1,6 +1,10 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus {
-include prometheus::node_exporter
+class { 'prometheus::node_exporter':
+  version            => '0.12.0',
+  collectors_disable => ['loadavg', 'mdadm'],
+#  extra_options      => '--collector.ntp.server ntp1.orange.intra',
+}
 class { 'prometheus::server':
   version        => '2.26.0',
   alerts         => {
