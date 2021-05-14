@@ -35,7 +35,7 @@ class { 'prometheus::server':
       'scrape_timeout'  => '10s',
       'static_configs'  => [
         {
-          'targets' => [ 'localhost:9090', 'grafana.home.vm:9090', '192.168.0.107:9182' ],
+          'targets' => [ 'localhost:9090', 'grafana.home.vm:9100', '192.168.0.107:9182' ],
           'labels'  => {
             'alias' => 'Prometheus',
           }
