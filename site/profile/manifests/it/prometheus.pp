@@ -3,7 +3,7 @@ class profile::it::prometheus {
 class { 'prometheus::node_exporter':
   version            => '0.12.0',
   collectors_disable => ['loadavg', 'mdadm'],
-#  extra_options      => '--collector.ntp.server ntp1.orange.intra',
+  extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
 class { 'prometheus::server':
   version        => '2.26.0',
