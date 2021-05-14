@@ -1,6 +1,6 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus {
-
+include prometheus::node_exporter
 class { 'prometheus::server':
   version        => '2.26.0',
   alerts         => {
