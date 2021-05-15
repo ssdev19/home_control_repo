@@ -33,6 +33,6 @@ prometheus::scrape_configs:
     static_configs:
       - targets:
           - 'prometheus.home.vm:9090'
-          - 'localhost:9182'
+          - '192.168.0.107:9182'
         labels:
           alias: 'none'
