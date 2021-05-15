@@ -10,7 +10,7 @@ ssh::server_options:
 #     - "/etc/ssh/ssh_host_ed25519_key"
   SyslogFacility: "AUTH"
   LogLevel: "INFO"
-  LoginGraceTime: 170
+  LoginGraceTime: 190
   PermitRootLogin: "yes"
   PubkeyAuthentication: "yes"
   HostbasedAuthentication: "no"
