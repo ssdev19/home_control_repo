@@ -37,7 +37,7 @@ mod 'puppet/lldpd', '2.2.0'
 # mod 'puppetlabs/tomcat', '4.0.0'
 mod 'puppet/nginx', '1.1.0'
 mod 'puppet-prometheus', '11.0.0'
-
+mod 'gulei-node_exporter', '1.0.0'
 mod 'puppet/firewalld', '4.2.2'
 mod 'mightp-influxdb', '1.0.3'
 mod 'puppet-healthcheck', '1.0.1'

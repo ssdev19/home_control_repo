@@ -1,6 +1,7 @@
 ---
 classes:
 #  - "profile::win"
+
 collectors:
   enabled: cpu,cs,net,service
 collector:
@@ -8,4 +9,3 @@ collector:
     services-where: "Name='windows_exporter'"
 log:
   level: warn
-  
