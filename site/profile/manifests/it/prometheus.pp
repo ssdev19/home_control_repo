@@ -1,6 +1,7 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus {
   # include node_exporter
+  include prometheus
 # $target = "${::fqdn}:9100"
 # # class { 'prometheus::node_exporter':
 # #   version            => '0.12.0',
