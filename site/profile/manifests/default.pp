@@ -5,7 +5,6 @@ class profile::default {
   include ssh
   include timezone
   include accounts
-  include profile::it::prometheus
   include node_exporter
 
   #   $fqdn = $::fqdn
