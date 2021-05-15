@@ -6,9 +6,13 @@ class profile::default {
   include timezone
   include accounts
   include profile::it::prometheus
-  # include node_exporter
+  include node_exporter
 
-
+    $fqdn = $::fqdn
+  @@profile::it::prometheus::target { "${fqdn} - node_exporter":
+    job  => 'node',
+    host => "${fqdn}:9100",
+  }
 
 $motd_msg = lookup('motd')
 file { '/etc/motd' :

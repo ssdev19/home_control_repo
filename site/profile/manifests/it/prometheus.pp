@@ -1,11 +1,7 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus {
-  include node_exporter
-    $fqdn = $::fqdn
-  @@profile::prometheus::target { "${fqdn} - node_exporter":
-    job  => 'node',
-    host => "${fqdn}:9100",
-  }
+  # include node_exporter
+
 # class { 'prometheus::node_exporter':
 #   version            => '0.12.0',
 #   collectors_disable => ['loadavg', 'mdadm'],
