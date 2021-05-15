@@ -43,18 +43,3 @@ ssh::server_options:
 ##########################################################
 
 #firewall configuration
-prometheus::scrape_configs:
-  - job_name: 'prometheus'
-    scrape_interval: '10s'
-    scrape_timeout: '10s'
-    static_configs:
-      - targets: '%{::fqdn}'
-        labels:
-          alias: 'Prometheus'
-  - job_name: 'node'
-    scrape_interval: '10s'
-    scrape_timeout: '10s'
-    static_configs:
-      - targets: '%{::fqdn}'
-        labels:
-          alias: 'none'
