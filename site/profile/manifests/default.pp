@@ -5,6 +5,7 @@ class profile::default {
   include ssh
   include timezone
   include accounts
+  include node_exporter
 
 $motd_msg = lookup('motd')
 file { '/etc/motd' :
