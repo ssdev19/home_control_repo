@@ -1,6 +1,6 @@
 # Applies to all servers
 class profile::default {
-#  include profile::it::monitoring
+  # include profile::it::monitoring
 # All telegraf configuration came from Hiera
   include ssh
   include timezone
