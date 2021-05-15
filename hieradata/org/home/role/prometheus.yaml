@@ -31,9 +31,9 @@ prometheus::scrape_configs:
     scrape_interval: '10s'
     scrape_timeout: '10s'
     static_configs:
-      - targets:
-          - 'prometheus.home.vm:9100'
-          - '192.168.0.107:9182'
-          - 'foreman.home.vm:9100'
+      - targets: $facts['networking']['fqdn']
+          # - 'prometheus.home.vm:9100'
+          # - '192.168.0.107:9182'
+          # - 'foreman.home.vm:9100'
         labels:
           alias: 'none'
