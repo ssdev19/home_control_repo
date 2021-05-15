@@ -8,7 +8,7 @@ class { 'prometheus::node_exporter':
   extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
 class { 'prometheus::server':
-  version        => '2.26.0',
+  version        => '2.27.0',
   alerts         => {
     'groups' => [
       {
