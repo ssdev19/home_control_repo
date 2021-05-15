@@ -8,11 +8,11 @@ class profile::default {
   include profile::it::prometheus
   include node_exporter
 
-    $fqdn = $::fqdn
-  @@profile::it::prometheus::target { "${fqdn} - node_exporter":
-    job  => 'node',
-    host => "${fqdn}:9100",
-  }
+  #   $fqdn = $::fqdn
+  # profile::it::prometheus::target: { "${fqdn} - node_exporter":
+  #   job  => 'node',
+  #   host => "${fqdn}:9100",
+  # }
 
 $motd_msg = lookup('motd')
 file { '/etc/motd' :
