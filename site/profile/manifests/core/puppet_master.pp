@@ -4,6 +4,10 @@ $psswrd_encrypt,
 $pwd_encrypt,
 ){
   include node_exporter
+
+  class { 'firewalld':
+    service_ensure => stopped,
+  }
 file {
   default:
     ensure => file,
