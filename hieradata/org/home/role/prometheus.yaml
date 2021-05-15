@@ -34,6 +34,6 @@ prometheus::scrape_configs:
       - targets:
           - 'prometheus.home.vm:9090'
           - '192.168.0.107:9182'
-          - 'foreman.home.vm:9090'
+          - 'foreman.home.vm:9100'
         labels:
           alias: 'none'
