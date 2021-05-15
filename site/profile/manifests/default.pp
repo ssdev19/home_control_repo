@@ -7,6 +7,12 @@ class profile::default {
   include accounts
   include node_exporter
 
+  $fqdn = $::fqdn
+  @@profile::prometheus::target { "${fqdn} - node_exporter":
+    job  => 'node',
+    host => "${fqdn}:9100",
+  }
+
 $motd_msg = lookup('motd')
 file { '/etc/motd' :
   ensure  => file,
