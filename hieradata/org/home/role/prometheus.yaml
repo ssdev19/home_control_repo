@@ -1,7 +1,7 @@
 ---
-prometheus::manage_prometheus_server: true
+# prometheus::manage_prometheus_server: true
 
-prometheus::version: '2.27.0'
+# prometheus::version: '2.27.0'
 
 # prometheus::alerts:
 #   groups:
