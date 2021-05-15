@@ -1,5 +1,8 @@
 # Grafana url: http://192.168.0.46:3000
 class profile::it::grafana {
+   class { 'prometheus::server':
+   ensure       => absent,
+   }
   class { 'grafana':
     version                  => '7.5.3',
     provisioning_datasources => {
