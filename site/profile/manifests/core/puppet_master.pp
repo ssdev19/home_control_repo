@@ -3,6 +3,7 @@ class profile::core::puppet_master (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
+  include node_exporter
 file {
   default:
     ensure => file,
