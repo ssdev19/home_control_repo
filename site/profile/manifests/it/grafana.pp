@@ -1,3 +1,4 @@
+# Grafana url: http://192.168.0.46:3000
 class profile::it::grafana {
   class { 'prometheus::node_exporter':
   version            => '0.12.0',
