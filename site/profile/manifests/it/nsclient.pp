@@ -7,7 +7,7 @@ $nagios_password
     package_name            => 'NSClient++ (x64)',
     package_source          => 'NSClient.-0.3.7-x64.msi',
     allowed_hosts           => ['140.252.32.34'],
-    password                => $nagios_password,
+    password                => unwrap($nagios_password),
     service_enable          => true,
   }
   service { 'NSClientpp':
