@@ -8,4 +8,7 @@ class profile::it::nsclient {
     password                => testpwd,
     service_enable          => true,
   }
+  service { 'NSClientpp':
+  ensure => 'running',
+}
 }
