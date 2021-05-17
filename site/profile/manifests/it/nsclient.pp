@@ -11,6 +11,7 @@ $nagios_password,
     service_enable          => true,
   }
   service { 'NSClientpp':
-  ensure => 'running',
+    ensure => 'running',
+    enable => true,
 }
 }
