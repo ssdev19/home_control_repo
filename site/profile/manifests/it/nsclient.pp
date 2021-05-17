@@ -1,6 +1,6 @@
 # nscliet
 class profile::it::nsclient (Sensitive[String]
-$nagios_password
+$nagios_password,
 ){
   class { 'nsclient':
     package_source_location => 'https://github.com/mickem/nscp/releases/download/0.3.7',
