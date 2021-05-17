@@ -5,6 +5,6 @@ class { 'nsclient':
   package_name            => 'NSClient++ (Win64)',
   package_source          => '0.3.7.msi',
   allowed_hosts           => ['140.252.32.34'],
-  password                => test_pwd,
+  password                => 'test_pwd',
   service_enable          => true,
 }
