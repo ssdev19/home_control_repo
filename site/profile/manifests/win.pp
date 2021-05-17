@@ -18,9 +18,9 @@ class {'::puppet_agent':
   package_version => '7.6.1',
   source          => 'https://downloads.puppetlabs.com/windows/puppet7/puppet-agent-7.6.1-x64.msi'
 }
-class { 'nsclient':
-  allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
-}
+# class { 'nsclient':
+#   allowed_hosts => ['192.168.0.0/24','192.168.1.0/24'],
+# }
 
 # file { 'c:\backups':
 #   ensure  => directory,
