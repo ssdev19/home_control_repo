@@ -40,7 +40,7 @@ file { '/root/secretfile.cfg':
 }
 nrpe_command { 'check_spec_test':
   ensure  => present,
-  command => "echo 'text here' >> testfile.txt",
+  command => "/usr/bin/echo 'text here' >> /root/testfile.txt",
 }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
