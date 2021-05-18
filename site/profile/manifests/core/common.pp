@@ -8,7 +8,6 @@
 class profile::core::common {
   include timezone
   include node_encrypt::certificates
-  include augeasproviders_nagios
   # include tuned
   # include chrony
   # include selinux
