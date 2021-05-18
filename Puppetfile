@@ -58,7 +58,7 @@ mod 'puppetlabs-puppetserver_gem', '1.1.1'
 
 mod 'puppet/yum', '4.0.0'
 mod 'richardc/datacat', '0.6.2'
-#mod 'stahnma/epel', '1.3.1'
+mod 'puppet-epel', '3.0.1'
 
 mod 'simp/x2go', '0.2.1'
 mod 'simp/mate', '1.0.2'
@@ -75,8 +75,9 @@ mod 'puppetlabs/lvm', '1.3.0'
 mod 'puppetlabs/mount_providers', '2.0.1'
 mod 'puppetlabs/xinetd', '3.3.0'
 mod 'thrnio/ip', '1.0.1'
-mod 'thias-nagios', '2.0.0'
-mod 'puppetlabs-nagios_core', '1.0.3'
+mod 'jgazeley-nagios', '0.4.0'
+mod 'dalen-dnsquery', '3.0.0'
+
 # mod 'woodsbw/augeasfacter', git: 'https://github.com/woodsbw/augeasfacter', commit: '9aea81311d277ed7ff1e8f2d4f79d13cd25f6ded'
 # Encryption
 mod 'puppetlabs-hocon', '1.1.0'
