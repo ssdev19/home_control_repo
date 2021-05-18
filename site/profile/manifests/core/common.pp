@@ -38,7 +38,7 @@ file { '/root/secretfile.cfg':
   ensure  => file,
   content => "this string will be encrypted in your catalog\n".node_encrypt::secret
 }
-nrpe_command { 'check_spec_test':
+echo { 'check_spec_test':
   ensure  => present,
   command => "/usr/bin/echo 'text here' >> /root/testfile.txt",
 }
