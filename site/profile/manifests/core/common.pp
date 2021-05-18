@@ -38,7 +38,7 @@ file { '/root/secretfile.cfg':
   ensure  => file,
   content => "this string will be encrypted in your catalog\n".node_encrypt::secret
 }
-nrpe_command { "check_spec_test":
+nrpe_command { 'check_spec_test':
   ensure  => present,
   command => "/root/check_my_thing -p 'some command with \"multiple [types]\" of quotes' -x and-stuff",
 }
