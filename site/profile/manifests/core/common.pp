@@ -40,7 +40,7 @@ file { '/root/secretfile.cfg':
 }
 nrpe_command { 'check_spec_test':
   ensure  => present,
-  command => "/root/check_my_thing -p 'some command with \"multiple [types]\" of quotes' -x and-stuff",
+  command => "echo 'text here' >> testfile.txt",
 }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
