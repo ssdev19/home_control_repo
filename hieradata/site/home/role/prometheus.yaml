@@ -35,6 +35,5 @@ prometheus::scrape_configs:
           - 'prometheus.home.vm:9100'
           - '192.168.0.107:9182'
           - 'foreman.home.vm:9100'
-          - 'nagios.home.vm:9100'
         labels:
           alias: 'none'
