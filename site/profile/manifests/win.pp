@@ -5,7 +5,7 @@ $secretcontent_encrypt,
 ) {
   include chocolatey
   include facter
-  include node_exporter
+
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
