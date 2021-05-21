@@ -20,7 +20,7 @@ $ldaphost_hide,
     ],
       ldap_cfg  => {
         servers              => [
-          { host            => uwrap($ldaphost_hide),
+          { host            => unwrap($ldaphost_hide),
             port            => 389+0,
             use_ssl         => true,
             search_filter   => '(sAMAccountName=%s)',
