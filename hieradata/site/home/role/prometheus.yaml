@@ -13,7 +13,7 @@ prometheus::alerts:
           labels:
             severity: 'page'
           annotations:
-            summary: 'Instance {{ .Labels.instance }} {{ .Value }} down'
+            summary: 'Instance {{ $labels.instance }} down'
             description: '{{ $labels.instance }} of job {{ $labels.job }} has been
               down for more than 1 minutes.'
 
