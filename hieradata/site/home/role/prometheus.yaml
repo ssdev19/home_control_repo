@@ -24,6 +24,14 @@ prometheus::alerts:
           annotations:
             summary: Prometheus job missing (instance {{ $labels.instance }})
             description: "A Prometheus job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: WindowsServerServiceStatus
+          expr: windows_service_status{status="ok"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Server service Status (instance {{ $labels.instance }})
+            description: "Windows Service state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
