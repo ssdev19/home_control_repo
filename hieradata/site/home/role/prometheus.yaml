@@ -16,25 +16,20 @@ prometheus::alerts:
             summary: 'Instance {{ .Labels.instance }} {{ .Value }} down'
             description: '{{ $labels.instance }} of job {{ $labels.job }} has been
               down for more than 1 minutes.'
-    - name: Apache
-      exporters:
-        - name: Lusitaniae/apache_exporter
-          doc_url: https://github.com/Lusitaniae/apache_exporter
-          rules:
-            - name: Apache down
-              description: Apache down
-              query: 'apache_up == 0'
-              severity: critical
-            - name: Apache workers load
-              description: Apache workers in busy state approach the max workers count 80% workers busy on {{ $labels.instance }}
-              query: '(sum by (instance) (apache_workers{state="busy"}) / sum by (instance) (apache_scoreboard) ) * 100 > 80'
-              severity: warning
-              for: 2m
-            - name: Apache restart
-              description: Apache has just been restarted.
-              query: 'apache_uptime_seconds_total / 60 < 1'
-              severity: warning
-
+        - name: Apache down
+          description: Apache down
+          query: 'apache_up == 0'
+          severity: critical
+        - name: Apache workers load
+          description: Apache workers in busy state approach the max workers count 80% workers busy on {{ $labels.instance }}
+          query: '(sum by (instance) (apache_workers{state="busy"}) / sum by (instance) (apache_scoreboard) ) * 100 > 80'
+          severity: warning
+          for: 2m
+        - name: Apache restart
+          description: Apache has just been restarted.
+          query: 'apache_uptime_seconds_total / 60 < 1'
+          severity: warning
+              
 prometheus::scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: '10s'
