@@ -33,8 +33,8 @@ prometheus::alerts:
             summary: Windows Server service Status (instance {{ $labels.instance }})
             description: "Windows Service state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
         - alert: WindowsServerDiskSpaceUsage
-          expr: 100.0 - 100 * ((windows_logical_disk_free_bytes / 1024 / 1024 ) / (windows_logical_disk_size_bytes{volume!=“Harddiskvolume1”} / 1024 / 1024)) > 80
-          for: 2m
+          expr: 100.0 - 100 * ((windows_logical_disk_free_bytes / 1024 / 1024 ) / ((windows_logical_disk_size_bytes{volume!=“Harddiskvolume1”}) / 1024 / 1024)) > 80
+          for: 1m
           labels:
             severity: critical
           annotations:
