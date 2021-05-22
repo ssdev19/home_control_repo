@@ -49,7 +49,7 @@ prometheus::alerts:
           annotations:
             summary: Windows Hyperv service Status (instance {{ $labels.instance }})
             description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-# iis managemnt service
+# W32Time managemnt service
         - alert: WindowsW32TimeServiceStatus
           expr: windows_service_state{name="W32Time", state="running"} == 0
           for: 1m
@@ -57,7 +57,7 @@ prometheus::alerts:
             severity: critical
           annotations:
             summary: Windows W32Time service Status (instance {{ $labels.instance }})
-            description: "Windows W32Time state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+            description: "Windows W32time state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
