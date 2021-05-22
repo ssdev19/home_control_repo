@@ -40,14 +40,6 @@ prometheus::alerts:
           annotations:
             summary: Windows Server disk Space Usage (instance {{ $labels.instance }})
             description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-        - alert: vmms
-          expr: windows_service_info{name="vmms"} = 1
-          for: 1m
-          labels:
-            severity: critical
-          annotations:
-            summary: Windows Server service Status (instance {{ $labels.instance }})
-            description: "Windows Service state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
