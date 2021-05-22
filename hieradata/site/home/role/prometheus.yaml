@@ -40,6 +40,15 @@ prometheus::alerts:
           annotations:
             summary: Windows Server disk Space Usage (instance {{ $labels.instance }})
             description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Hyperv managemnt service
+        - alert: WindowsHypervServiceStatus
+          expr: windows_service_info{name="vmms"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Hyperv service Status (instance {{ $labels.instance }})
+            description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
