@@ -49,6 +49,15 @@ prometheus::alerts:
           annotations:
             summary: Windows Hyperv service Status (instance {{ $labels.instance }})
             description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# iis managemnt service
+        - alert: WindowsIISServiceStatus
+          expr: windows_service_state{name="iis", state="running"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows iis service Status (instance {{ $labels.instance }})
+            description: "Windows iis state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
