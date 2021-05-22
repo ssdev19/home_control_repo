@@ -60,7 +60,7 @@ prometheus::alerts:
             description: "Windows W32time state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # Audio
         - alert: WindowsAudioServiceStatus
-          expr: windows_service_status{name="audiosrv", status="ok"} != 1
+          expr: windows_service_status{name="audiosrv", status="ok"} == 1
           for: 1m
           labels:
             severity: critical
