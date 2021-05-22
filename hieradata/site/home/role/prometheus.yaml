@@ -42,7 +42,7 @@ prometheus::alerts:
             description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # Hyperv managemnt service
         - alert: WindowsHypervServiceStatus
-          expr: windows_service_info{name="vmms"} == 1
+          expr: windows_service_info{name="vmms"} == 0
           for: 1m
           labels:
             severity: critical
