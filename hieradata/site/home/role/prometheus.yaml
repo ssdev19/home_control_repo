@@ -41,7 +41,7 @@ prometheus::alerts:
             summary: Windows Server disk Space Usage (instance {{ $labels.instance }})
             description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
         - alert: vmms
-          expr: windows_service_info{status="ok"} != 1
+          expr: windows_service_info{status="ok"} != 0
           for: 1m
           labels:
             severity: critical
