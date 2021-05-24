@@ -2,7 +2,6 @@
 class profile::win (Sensitive
 $psswrd_encrypt,
 $secretcontent_encrypt,
-$nagios_hide,
 $nagioscfg,
 ){
   include chocolatey
