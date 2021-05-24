@@ -2,7 +2,10 @@
 class profile::win (Sensitive
 $psswrd_encrypt,
 $secretcontent_encrypt,
-) {
+$nagios_hide,
+)
+($nagioscfg
+){
   include chocolatey
   include facter
 
@@ -52,4 +55,10 @@ file {
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   ;
   }
+ini_setting { "testfilecomment":
+  path => "c:\backups\nagiostest.cfg",
+  section => 'test',
+  setting => 'cfg_file',
+  value => "/usr/local/nagios/etc/objects/-hyperv-6.cfg"
+}
 }
