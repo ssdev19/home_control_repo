@@ -42,7 +42,7 @@ file {'/root/enctryp2':
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
 augeas { 'Append a 6nd line to /root/augeasfile':
-  context => '/root/encrypt3',
+  context => '/root/augeasfile',
   # Only if no node exists for http_proxy
   onlyif  => "match Defaults/env_keep/var[. = 'http_proxy'] size==0",
   changes => [
