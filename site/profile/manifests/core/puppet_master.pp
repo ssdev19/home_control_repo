@@ -41,8 +41,8 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
-augeas { 'vaugeasfile title':
-  context => '/root/vaugeasfile',
+augeas { "vaugeasfile title":
+  context => "/root/vaugeasfile",
   # Only if no node exists for http_proxy
   # onlyif  => "match password/var[. = 'fakepwd'] size==0",
   changes => [
