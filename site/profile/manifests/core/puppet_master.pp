@@ -43,6 +43,6 @@ file {'/root/enctryp2':
   }
 file_line { 'Append a line to /root/enctryp2':
   path => '/root/enctryp2',
-  line => 'Want to add this line as a test',
+  line => 'Want to add this 2nd line as a test',
 }
 }
