@@ -1,6 +1,10 @@
 # nagios
 class profile::it::nagios {
-  include ::nrpe
+  # include ::nrpe
+  class { '::nrpe':
+  package_ensure => latest,
+  service_manage => false,
+}
   # Install Nagios server
   # class { 'nagios':
   #   nrpe        => true,                     # Set up NRPE for monitoring of remote hosts
