@@ -44,8 +44,8 @@ file {'/root/enctryp2':
 file_line { 'Append a 6nd line to /root/encrypt3':
   ensure => present,
   path => '/root/encrypt3',
-  line => 'Want to add this 6nd line as a test',
-  match => 'Want to add this 5nd',
+  line => 'Want to add this line as a test',
+  match => 'Want to add this',
   match_for_absence => true,
   multiple => true,
 }
