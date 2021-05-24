@@ -42,6 +42,7 @@ file {'/root/enctryp2':
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
 augeas { "testfilecomment":
-    changes => ["set /files/root/comment_test/banana add this line"],
+  context => " /files/root/comment_test",
+  changes => ["set banana add"],
 }
 }
