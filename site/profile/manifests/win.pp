@@ -55,7 +55,7 @@ file {
   }
 ini_setting { "testfilecomment":
   path => "c:\\backups\\nagiostest.txt",
-  section => 'test',
+  section => 'windows',
   setting => 'cfg_file',
   value => "/usr/local/nagios/etc/objects/-${$nagioscfg}.cfg"
 }
