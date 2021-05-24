@@ -45,6 +45,6 @@ ini_setting { "testfilecomment":
   path => "/root/nagiostest.cfg",
   section => 'test',
   setting => 'cfg_file',
-  value => '/usr/local/nagios/etc/objects/bmc-hyperv-5.cfg'
+  value => '/usr/local/nagios/etc/objects/bmc-hyperv-6.cfg'
 }
 }
