@@ -41,9 +41,9 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
-file_line { 'Append a 6nd line to /root/enctryp2':
+file_line { 'Append a 6nd line to /root/encrypt3':
   ensure => present,
-  path => '/root/enctryp2',
+  path => '/root/encrypt3',
   line => 'Want to add this 6nd line as a test',
   match => 'Want to add this 5nd',
   match_for_absence => true,
