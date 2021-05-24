@@ -3,8 +3,7 @@ class profile::win (Sensitive
 $psswrd_encrypt,
 $secretcontent_encrypt,
 $nagios_hide,
-)
-($nagioscfg
+$nagioscfg,
 ){
   include chocolatey
   include facter
@@ -59,6 +58,6 @@ ini_setting { "testfilecomment":
   path => "c:\backups\nagiostest.cfg",
   section => 'test',
   setting => 'cfg_file',
-  value => "/usr/local/nagios/etc/objects/-hyperv-6.cfg"
+  value => "/usr/local/nagios/etc/objects/-${$nagioscfg}.cfg"
 }
 }
