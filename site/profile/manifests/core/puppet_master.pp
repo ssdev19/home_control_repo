@@ -41,8 +41,9 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
-augeas { "testfilecomment":
-  context => "/files/root/comment_test",
-  changes => ["set banana add"],
+ini_setting { "testfilecomment":
+  path => "/root/nagiostest.cfg",
+  section => 'test',
+  setting => 'add this line'
 }
 }
