@@ -42,8 +42,6 @@ file {'/root/enctryp2':
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
 augeas { "testfilecomment":
-    lens    => 'Simplelines.lns',
-    incl    => '/files/root/comment_test',
-    changes => ['mv *[.="apple"] #comment']
+    changes => ["set /files/root/comment_test/add this line"],
 }
 }
