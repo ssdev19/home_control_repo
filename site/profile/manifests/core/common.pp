@@ -21,7 +21,7 @@ class profile::core::common {
   # include resolv_conf
   include ssh
   # include easy_ipa
-  # include augeas
+  include augeas
   # include rsyslog
 #  include rsyslog::config
 #  include profile::core::hardware

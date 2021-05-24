@@ -41,12 +41,18 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
-file_line { 'Append a 6nd line to /root/encrypt3':
-  ensure => present,
-  path => '/root/encrypt3',
-  line => 'Want to add this line as a test',
-  # match => 'Want to add this',
-  # match_for_absence => true,
-  # multiple => true,
+augeas { 'Append a 6nd line to /root/augeasfile':
+  context => '/root/encrypt3',
+  # Only if no node exists for http_proxy
+  onlyif  => "match Defaults/env_keep/var[. = 'http_proxy'] size==0",
+  changes => [
+    # Create a new Defaults line for the two variables
+    "ins Defaults after Defaults[last()]",
+    # Make this Defaults line a += type
+    "clear Defaults[last()]/env_keep/append",
+    # assign values to the two variables
+    "set Defaults[last()]/env_keep/var[1] http_proxy",
+    "set Defaults[last()]/env_keep/var[2] https_proxy",
+  ],
 }
 }
