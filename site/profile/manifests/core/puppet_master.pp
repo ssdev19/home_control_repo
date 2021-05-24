@@ -44,7 +44,6 @@ file {'/root/enctryp2':
 augeas { "testfilecomment":
     lens    => 'Simplelines.lns',
     incl    => '/root/comment_test',
-    changes => ["insert #comment  after orange",
-                "set #comment  sweet"]
+    changes => ['mv *[.="apple"] #comment']
 }
 }
