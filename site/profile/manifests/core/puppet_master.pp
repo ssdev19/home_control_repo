@@ -44,7 +44,7 @@ file {'/root/enctryp2':
 augeas { 'Append a 6nd line to /root/augeasfile':
   context => '/root/augeasfile',
   # Only if no node exists for http_proxy
-  onlyif  => "match Defaults/env_keep/var[. = 'http_proxy'] size==0",
+  onlyif  => "match password/var[. = 'fakepwd'] size==0",
   changes => [
     # Create a new Defaults line for the two variables
     "ins Defaults after Defaults[last()]",
