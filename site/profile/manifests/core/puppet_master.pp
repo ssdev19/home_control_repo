@@ -46,13 +46,9 @@ augeas { 'vaugeasfile':
   # Only if no node exists for http_proxy
   onlyif  => "match password/var[. = 'fakepwd'] size==0",
   changes => [
-    # Create a new Defaults line for the two variables
-    "ins Defaults after Defaults[last()]",
-    # Make this Defaults line a += type
-    "clear Defaults[last()]/env_keep/append",
-    # assign values to the two variables
-    "set Defaults[last()]/env_keep/var[1] http_proxy",
-    "set Defaults[last()]/env_keep/var[2] https_proxy",
+    "set ipaddr 192.168.100.3",
+    "set canonical test.localdomain",
+    "set alias[1] test",
   ],
 }
 }
