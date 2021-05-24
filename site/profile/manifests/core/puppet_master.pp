@@ -41,14 +41,9 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
-augeas { "vaugeasfile title":
-  context => "/root/vaugeasfile",
-  # Only if no node exists for http_proxy
-  # onlyif  => "match password/var[. = 'fakepwd'] size==0",
-  changes => [
-    "set ipaddr 192.168.100.3.",
-    # "set canonical test.localdomain",
-    # "set alias[1] test",
-  ],
+augeas::lens { 'augeasfile':
+  lens_content => file('/root/augeasfile'),
+  # test_content => file('networkmanager/lenses/test_networkmanager.aug'),
+  stock_since  => '1.0.0',
 }
 }
