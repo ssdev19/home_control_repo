@@ -46,9 +46,9 @@ augeas { 'vaugeasfile title':
   # Only if no node exists for http_proxy
   # onlyif  => "match password/var[. = 'fakepwd'] size==0",
   changes => [
-    "set ipaddr 192.168.100.3.",
-    "set canonical test.localdomain",
-    "set alias[1] test",
+    'set ipaddr 192.168.100.3.',
+    # "set canonical test.localdomain",
+    # "set alias[1] test",
   ],
 }
 }
