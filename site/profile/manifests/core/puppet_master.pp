@@ -41,4 +41,8 @@ file {'/root/enctryp2':
     owner   => 'root',
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   }
+file_line { 'Append a line to /root/enctryp2':
+  path => '/root/enctryp2',
+  line => 'Want to add this line as a test',
+}
 }
