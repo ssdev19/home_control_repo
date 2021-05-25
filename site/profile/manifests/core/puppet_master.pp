@@ -3,7 +3,7 @@ class profile::core::puppet_master (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
-  include node_exporter
+  # include node_exporter
 
   class { 'firewalld':
     service_ensure => stopped,
