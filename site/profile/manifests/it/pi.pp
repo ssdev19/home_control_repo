@@ -4,9 +4,11 @@ class profile::it::pi {
   include timezone
   include accounts
 
-  package { 'node_exporter':
-    ensure => 'absent'
-  }
+class { 'prometheus::node_exporter':
+  version            => '0.12.0',
+  collectors_disable => ['loadavg', 'mdadm'],
+  extra_options      => '--prometheus.home.vm',
+}
 # service { 'Puppet agent':
 #   ensure   => running,
 #   provider => init,
