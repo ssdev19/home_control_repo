@@ -4,9 +4,9 @@ class profile::it::pi {
   include timezone
   include accounts
   # include prometheus::node_exporter
-  class {'::puppet_agent':
-  package_version => '6.21.1',
-  }
+  # class {'::puppet_agent':
+  # package_version => '6.21.1',
+  # }
 # class { 'prometheus::node_exporter':
 #   version            => '0.16.2',
 #   collectors_disable => ['loadavg', 'mdadm'],
