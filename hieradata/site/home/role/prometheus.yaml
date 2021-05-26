@@ -59,9 +59,9 @@ prometheus::alerts:
           annotations:
             summary: Windows Hyperv service Status (instance {{ $labels.instance }})
             description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-# W32Time managemnt service
-        - alert: WindowsW32TimeServiceStatus
-          expr: windows_service_state{name="w32time", state="running"} == 0
+# windows_service_state service
+        - alert: windows_exporterServiceStatus
+          expr: windows_service_state{name="windows_exporter", state="running"} == 0
           for: 1m
           labels:
             severity: critical
