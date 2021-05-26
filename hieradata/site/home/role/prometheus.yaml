@@ -40,6 +40,16 @@ prometheus::alerts:
           annotations:
             summary: Windows Server disk Space Usage (instance {{ $labels.instance }})
             description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Clock skew detected
+        - alert: HostClockSkew
+          expr: (node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m]) <= 0)
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host clock skew (instance {{ $labels.instance }})
+            description: "Clock skew detected. Clock is out of sync.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
 # Hyperv managemnt service
         - alert: WindowsHypervServiceStatus
           expr: windows_service_state{name="vmms", state="running"} == 0
