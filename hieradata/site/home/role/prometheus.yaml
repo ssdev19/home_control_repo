@@ -77,6 +77,15 @@ prometheus::alerts:
           annotations:
             summary: Windows Audio service Status (instance {{ $labels.instance }})
             description: "Windows Audio state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# 80% of mysql connections in use
+        - alert: MysqlTooManyConnections(>80%)
+          expr: avg by (instance) (rate(mysql_global_status_threads_connected[1m])) / avg by (instance) (mysql_global_variables_max_connections) * 100 > 80
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: MySQL too many connections (> 80%) (instance {{ $labels.instance }})
+            description: "More than 80% of MySQL connections are in use on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::scrape_configs:
   - job_name: 'prometheus'
