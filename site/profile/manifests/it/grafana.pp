@@ -5,7 +5,7 @@ $binddns_hide,
 $ldaphost_hide,
 ){
 class { 'prometheus::node_exporter':
-  version            => '0.15.0',
+  version            => '0.16.0',
   collectors_disable => ['loadavg', 'mdadm'],
   extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
