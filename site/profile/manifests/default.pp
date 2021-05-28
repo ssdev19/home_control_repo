@@ -5,7 +5,7 @@ class profile::default {
   include ssh
   include timezone
   include accounts
-  include blackbox_exporter
+  # include node_exporter
 
   #   $fqdn = $::fqdn
   # profile::it::prometheus::target: { "${fqdn} - node_exporter":
