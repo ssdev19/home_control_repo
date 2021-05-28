@@ -10,6 +10,10 @@ $nagioscfg,
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
+
+package { 'blackbox_exporter':
+    source => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.windows-amd64.zip'
+}
 package { 'windows_exporter':
     ensure => '0.16.0',
     source => 'https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi'
