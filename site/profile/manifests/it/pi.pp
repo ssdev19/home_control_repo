@@ -1,3 +1,4 @@
+# Raspberry Pi
 class profile::it::pi {
 
   include ssh

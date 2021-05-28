@@ -11,10 +11,6 @@ facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
 
-package { 'blackbox_exporter':
-    ensure => present,
-    source => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.windows-amd64.zip'
-}
 package { 'windows_exporter':
     ensure => '0.16.0',
     source => 'https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi'
@@ -58,10 +54,10 @@ file {
     content => unwrap($psswrd_encrypt).node_encrypt::secret,
   ;
   }
-ini_setting { "testfilecomment":
-  path => "c:\\backups\\nagiostest.txt",
-  section => 'windows2',
-  setting => 'cfg_file',
-  value => "/usr/local/nagios/etc/objects/-${::hostname}.cfg"
-}
+# ini_setting { "testfilecomment":
+#   path => "c:\\backups\\nagiostest.txt",
+#   section => 'windows2',
+#   setting => 'cfg_file',
+#   value => "/usr/local/nagios/etc/objects/-${::hostname}.cfg"
+# }
 }
