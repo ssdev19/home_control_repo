@@ -9,7 +9,10 @@ user {'blackbox_exporter':
     groups     => ['blackbox_exporter'],
     managehome => false,
 }
-exec { 'wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
-  cwd     => '/usr/tmp',
+class { 'archive':
+  archives => { '/usr/tmp/' => {
+    'ensure' => 'present',
+    'source' => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz',
+    }, }
 }
 }
