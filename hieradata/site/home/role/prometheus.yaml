@@ -124,7 +124,7 @@ prometheus::scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-        - http://prometheus.home.vm:9090'
+        - https://w3.belldex.com'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
