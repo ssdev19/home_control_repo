@@ -23,13 +23,11 @@ file { '/etc/hosts' :
   ensure  => file,
   content => $hosts,
 }
-  # Package { ensure => 'installed' }
-
-  # $enhancers = [ 'tree', 'sssd', 'realmd', 'oddjob', 'oddjob-mkhomedir', 'adcli',
-  # 'samba-common', 'samba-common-tools', 'krb5-workstation', 'openldap-clients', 'policycoreutils-python',
-  # 'tcpdump', 'openssl', 'openssl-devel', 'telnet', 'acpid', 'lvm2', 'bash-completion', 'sudo', 'vim' ]
-
-  # package { $enhancers: }
+Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'acpid', 'wget', 'nmap']:
+ensure => installed,
+}
   # Firewall and security measurements
   # file_line { 'SELINUX=permissive':
   #   path  => '/etc/selinux/config',
