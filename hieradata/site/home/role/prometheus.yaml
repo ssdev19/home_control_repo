@@ -125,6 +125,9 @@ prometheus::scrape_configs:
       - targets:
         - https://www.belldex.com
         - https://w3.belldex.com
+        - https://jira.lsstcorp.org
+        - https://atlantis.lsst.org
+        - https://atlantis.lsst.org/owa/auth/logon.aspx?
         # - 'http://prometheus.home.vm:9090'
         # - 'http://prometheusq.home.vm:9000'
     relabel_configs:
