@@ -13,7 +13,8 @@ class { 'archive':
   archives => { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz' => {
     'ensure' => 'present',
     'source' => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz',
-    extract  => true,
+    'extract'  => true,
+    'extract_path'  => '/usr/tmp',
 }, }
 }
 }
