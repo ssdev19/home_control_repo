@@ -124,7 +124,7 @@ prometheus::scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-        - http://localhost:8080
+        - http://prometheus.home.vm:9090'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -132,7 +132,7 @@ prometheus::scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115
-        
+
 prometheus::alertmanagers_config:
   - static_configs:
       - targets:
