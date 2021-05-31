@@ -16,5 +16,10 @@ archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
     extract_path => '/usr/tmp',
     cleanup      => true,
 }
-
+file { '/usr/local/bin/' :
+  ensure  => 'directory',
+  recurse => true,
+  source  => '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
+  before  => File['/root/'],
+}
 }
