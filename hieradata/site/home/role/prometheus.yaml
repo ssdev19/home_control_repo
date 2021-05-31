@@ -124,8 +124,8 @@ prometheus::scrape_configs:
     static_configs:
       - targets:
         - 'https://www.belldex.com'
-        - 'http://prometheus.home.vm:9090'
-        - 'http://prometheusq.home.vm:9000'
+        # - 'http://prometheus.home.vm:9090'
+        # - 'http://prometheusq.home.vm:9000'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
