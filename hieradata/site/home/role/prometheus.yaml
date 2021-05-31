@@ -123,7 +123,8 @@ prometheus::scrape_configs:
       module: [http_2xx]
     static_configs:
       - targets:
-        - 'https://www.belldex.com'
+        - https://www.belldex.com
+        - https://w3.belldex.com
         # - 'http://prometheus.home.vm:9090'
         # - 'http://prometheusq.home.vm:9000'
     relabel_configs:
