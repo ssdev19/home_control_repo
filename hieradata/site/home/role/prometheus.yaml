@@ -118,7 +118,21 @@ prometheus::scrape_configs:
           - '192.168.0.107:9182'
         labels:
           alias: 'win'
-
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://localhost:8080
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+        
 prometheus::alertmanagers_config:
   - static_configs:
       - targets:
