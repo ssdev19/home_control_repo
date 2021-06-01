@@ -15,10 +15,12 @@ archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
     extract_path => '/usr/tmp',
     cleanup      => true,
 }
-# file { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter' :
-#   ensure => present,
-#   target => '/root/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
-# }
+$source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter'
+$target_directory = '/usr/local/bin'
+file { $target_directory :
+  owner  => 'blacbox_exporter',
+  source => 'file:///root/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
+}
   # Install Nagios server
   # class { 'nagios':
   #   nrpe        => true,                     # Set up NRPE for monitoring of remote hosts
