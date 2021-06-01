@@ -8,11 +8,6 @@ $content,
   class { 'prometheus::blackbox_exporter':
   version            => '0.19.0',
 }
-file { '/etc/blackbox-exporter.yaml':
-  ensure  => file,
-  owner   => 'blackbox_exporter',
-  content => $content,
-  }
 # user {'blackbox_exporter':
 #     ensure     => present,
 #     name       => 'blackbox_exporter',
