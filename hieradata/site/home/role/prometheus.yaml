@@ -128,7 +128,7 @@ prometheus::scrape_configs:
         - https://jira.lsstcorp.org
         - https://atlantis.lsst.org
         - https://ls.st
-        - http://confluence.lsst.org
+        - http://confluence.lsstcorp.org
         - http://www.lsst.org
     relabel_configs:
       - source_labels: [__address__]
