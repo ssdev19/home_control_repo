@@ -21,6 +21,10 @@ file { $target_directory :
   owner  => 'blackbox_exporter',
   source => 'file:///usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
 }
+file { '/etc/blackbox_exporter':
+  ensure => directory,
+  owner  => 'blackbox_exporter',
+}
 file { '/etc/blackbox_exporter/blackbox.yml':
   ensure => file,
   owner  => 'blackbox_exporter',
