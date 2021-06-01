@@ -16,7 +16,7 @@ archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
     cleanup      => true,
 }
 $source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter'
-$target_directory = '/usr/local/bin'
+$target_directory = '/usr/local/bin/blackbox_exporter'
 file { $target_directory :
   owner  => 'blacbox_exporter',
   source => 'file:///usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
