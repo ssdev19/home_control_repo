@@ -1,11 +1,11 @@
 # nagios
 class profile::it::nagios {
-  include ::nrpe
+  # include ::nrpe
 
 user {'blackbox_exporter':
     ensure     => present,
     name       => 'blackbox_exporter',
-    groups     => ['blackbox_exporter'],
+    # groups     => ['blackbox_exporter'],
     managehome => false,
 }
 archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
