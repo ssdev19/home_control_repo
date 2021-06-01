@@ -4,7 +4,7 @@ $content,
 $servicecontent,
 ) {
   # include ::nrpe
-
+include prometheus::node_exporter
 user {'blackbox_exporter':
     ensure     => present,
     name       => 'blackbox_exporter',
