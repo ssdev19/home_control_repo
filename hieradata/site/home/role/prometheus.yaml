@@ -117,7 +117,7 @@ prometheus::scrape_configs:
           - '192.168.0.107:9182'
         labels:
           alias: 'win'
-  - job_name: 'blackbox'
+  - job_name: 'https'
     metrics_path: /probe
     params:
       module: [http_2xx]
@@ -127,9 +127,9 @@ prometheus::scrape_configs:
         - https://w3.belldex.com
         - https://jira.lsstcorp.org
         - https://atlantis.lsst.org
-        - https://atlantis.lsst.org/owa/auth/logon.aspx?
-        # - 'http://prometheus.home.vm:9090'
-        # - 'http://prometheusq.home.vm:9000'
+        - https://ls.st
+        - http://confluence.lsst.org
+        - http://www.lsst.org
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
