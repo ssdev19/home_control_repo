@@ -1,6 +1,6 @@
 # nagios
 class profile::it::nagios (
-$content,
+# $content,
 $servicecontent,
 ) {
   # include ::nrpe
@@ -28,11 +28,11 @@ file { '/etc/blackbox_exporter':
   ensure => directory,
   owner  => 'blackbox_exporter',
 }
-file { '/etc/blackbox_exporter/blackbox.yml':
-  ensure  => file,
-  owner   => 'blackbox_exporter',
-  content => $content,
-  }
+# file { '/etc/blackbox_exporter/blackbox.yml':
+#   ensure  => file,
+#   owner   => 'blackbox_exporter',
+#   content => $content,
+#   }
 file { '/etc/systemd/system/blackbox_exporter.service':
   ensure  => file,
   content => $servicecontent,

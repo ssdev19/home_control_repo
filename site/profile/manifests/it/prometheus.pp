@@ -1,13 +1,18 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
-class profile::it::prometheus {
+class profile::it::prometheus (
+$content,
+) {
   # include node_exporter
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
   version            => '0.19.0',
-  # collectors_disable => ['loadavg', 'mdadm'],
-  # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
+file { '/etc/blackbox-exporter.yaml':
+  ensure  => file,
+  owner   => 'blackbox_exporter',
+  content => $content,
+  }
 # user {'blackbox_exporter':
 #     ensure     => present,
 #     name       => 'blackbox_exporter',
