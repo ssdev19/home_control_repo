@@ -19,7 +19,7 @@ $source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_expo
 $target_directory = '/usr/local/bin'
 file { $target_directory :
   owner  => 'blacbox_exporter',
-  source => 'file:///root/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
+  source => 'file:///usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
 }
   # Install Nagios server
   # class { 'nagios':
