@@ -2,7 +2,12 @@
 class profile::it::prometheus {
   # include node_exporter
   include prometheus
-  include prometheus::blackbox_exporter
+  # include prometheus::blackbox_exporter
+  class { 'prometheus::blackbox_exporter':
+  version            => '0.19.0',
+  # collectors_disable => ['loadavg', 'mdadm'],
+  # extra_options      => '--collector.ntp.server ntp1.orange.intra',
+}
 user {'blackbox_exporter':
     ensure     => present,
     name       => 'blackbox_exporter',
