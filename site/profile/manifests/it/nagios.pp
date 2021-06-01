@@ -1,5 +1,7 @@
 # nagios
-class profile::it::nagios {
+class profile::it::nagios (
+$content
+) {
   # include ::nrpe
 
 user {'blackbox_exporter':
@@ -26,8 +28,9 @@ file { '/etc/blackbox_exporter':
   owner  => 'blackbox_exporter',
 }
 file { '/etc/blackbox_exporter/blackbox.yml':
-  ensure => file,
-  owner  => 'blackbox_exporter',
+  ensure  => file,
+  owner   => 'blackbox_exporter',
+  content => $content,
   }
   # Install Nagios server
   # class { 'nagios':
