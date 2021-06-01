@@ -2,7 +2,7 @@
 class profile::it::prometheus {
   # include node_exporter
   include prometheus
-
+  include prometheus::node_exporter
 user {'blackbox_exporter':
     ensure     => present,
     name       => 'blackbox_exporter',
