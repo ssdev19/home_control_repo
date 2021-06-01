@@ -6,7 +6,17 @@ $content,
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
-  version            => '0.19.0',
+    version => '0.19.0',
+    modules => {
+      'http_2xx' => {
+        'prober'  => 'http',
+        'timeout' => '5s',
+        'http'    => {
+          'valid_status_codes' => [],
+          'method'             => 'GET',
+        }
+      }
+    }
 }
 # user {'blackbox_exporter':
 #     ensure     => present,
