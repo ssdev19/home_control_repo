@@ -17,7 +17,7 @@ $content,
         }
       }
     }
-}
+  }
 # user {'blackbox_exporter':
 #     ensure     => present,
 #     name       => 'blackbox_exporter',

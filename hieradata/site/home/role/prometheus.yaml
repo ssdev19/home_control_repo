@@ -131,7 +131,8 @@ prometheus::scrape_configs:
         - http://confluence.lsstcorp.org
         - http://www.lsst.org
         - https://docushare.lsstcorp.org/docushare/dsweb/HomePage
-        - https://pwdreset.lsst.org/
+        - https://pwdreset.lsst.org
+        - http://192.168.0.1
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
