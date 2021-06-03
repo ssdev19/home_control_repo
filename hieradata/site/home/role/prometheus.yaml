@@ -146,7 +146,8 @@ prometheus::alertmanagers_config:
   - static_configs:
       - targets:
           - 'localhost:9093'
-
+      - global:
+          resolve_timeout: 5m
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
 #   group_by:
