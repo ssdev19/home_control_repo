@@ -43,7 +43,7 @@ class { 'prometheus::alertmanager':
       'name'          => 'email',
       'email_configs' => [
         {
-          'to'            => 'belldex.inc.com',
+          'to'            => 'belldex.inc@gmail.com',
           'from'          => $gmail_account,
           'smarthost'     => 'smtp.gmail.com:587',
           'auth_username' => true,
