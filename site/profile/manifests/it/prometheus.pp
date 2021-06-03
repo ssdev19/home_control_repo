@@ -34,8 +34,8 @@ class { 'prometheus::alertmanager':
   route     => {
     'group_by'        => ['job'],
     'group_wait'      => '30s',
-    'group_interval'  => '1m',
-    'repeat_interval' => '3m',
+    'group_interval'  => '5m',
+    'repeat_interval' => '3h',
     'receiver'        => 'email',
   },
   receivers => [
@@ -43,7 +43,7 @@ class { 'prometheus::alertmanager':
       'name'          => 'email',
       'email_configs' => [
         {
-          'to'            => 'shahram@lsst.org',
+          'to'            => $gmail_account,
           'from'          => $gmail_account,
           'smarthost'     => 'smtp.gmail.com:587',
           'auth_username' => $gmail_account,
