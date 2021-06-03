@@ -34,8 +34,8 @@ class { 'prometheus::alertmanager':
   route     => {
     'group_by'        => ['job'],
     'group_wait'      => '30s',
-    'group_interval'  => '5m',
-    'repeat_interval' => '3h',
+    'group_interval'  => '1m',
+    'repeat_interval' => '3m',
     'receiver'        => 'email',
   },
   receivers => [
