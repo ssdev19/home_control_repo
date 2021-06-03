@@ -24,7 +24,7 @@ class { 'prometheus::alertmanager':
   version   => '0.22.2',
   global    => {
     'resolve_timeout' => '1m',
-    }
+    },
   route     => {
     'group_by'        => ['alertname', 'cluster', 'service'],
     'group_wait'      => '30s',
