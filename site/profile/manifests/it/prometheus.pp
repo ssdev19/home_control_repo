@@ -18,8 +18,8 @@ $content,
       }
     }
   }
-$gmail_auth_token = lookup('gmail_auth_token')
-$gmail_account = lookup('gmail_account')
+$gmail_auth_token = lookup("gmail_auth_token")
+$gmail_account = lookup("gmail_account")
 class { 'prometheus::alertmanager':
   version   => '0.22.2',
   # global    => {
@@ -43,7 +43,7 @@ class { 'prometheus::alertmanager':
       'name'          => 'email',
       'email_configs' => [
         {
-          'to'            => 'wf@belldex.com',
+          'to'            => 'belldex.inc.com',
           'from'          => $gmail_account,
           'smarthost'     => 'smtp.gmail.com:587',
           'auth_username' => true,
