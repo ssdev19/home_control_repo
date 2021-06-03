@@ -49,7 +49,7 @@ class { 'prometheus::alertmanager':
           'auth_username' => true,
           'auth_identity' => $gmail_account,
           'auth_password' => $gmail_auth_token,
-          'require_tls'   => 'yes',
+          'require_tls'   => yes,
           'send_resolved' => true,
         },
       ],
