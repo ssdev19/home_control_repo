@@ -22,11 +22,11 @@ $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
   version   => '0.22.2',
-  global    => {
-    'resolve_timeout' => '1m',
-    },
+  # global    => {
+  #   'resolve_timeout' => '1m',
+  #   },
   route     => {
-    'group_by'        => ['alertname', 'cluster', 'service'],
+    'group_by'        => ['WindowsHypervServiceStatus', 'cluster', 'service'],
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
