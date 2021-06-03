@@ -18,7 +18,7 @@ $content,
       }
     }
   }
-$gmail_auth_token = lookup("gmail_auth_token")
+$gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
   version   => '0.22.2',
