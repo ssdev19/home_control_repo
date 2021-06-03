@@ -43,7 +43,7 @@ class { 'prometheus::alertmanager':
           'auth_username' => true,
           'auth_identity' => $gmail_account,
           'auth_password' => $gmail_auth_token,
-          'send_resolved' => true,
+          # 'send_resolved' => true,
         },
       ],
     },
