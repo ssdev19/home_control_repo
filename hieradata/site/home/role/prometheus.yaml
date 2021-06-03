@@ -142,28 +142,28 @@ prometheus::scrape_configs:
       - target_label: __address__
         replacement: localhost:9115
 
-prometheus::alertmanagers_config:
-  - static_configs:
-      - targets:
-          - 'localhost:9093'
+# prometheus::alertmanagers_config:
+#   - static_configs:
+#       - targets:
+#           - 'localhost:9093'
 
-prometheus::alertmanager::version: '0.22.2'          
-prometheus::alertmanager::route:
-  group_by:
-    - 'alertname'
-    - 'cluster'
-    - 'service'
-  group_wait: '30s'
-  group_interval: '5m'
-  repeat_interval: '3h'
-  receiver: 'email' # email it to me
+# prometheus::alertmanager::version: '0.22.2'          
+# prometheus::alertmanager::route:
+#   group_by:
+#     - 'alertname'
+#     - 'cluster'
+#     - 'service'
+#   group_wait: '30s'
+#   group_interval: '5m'
+#   repeat_interval: '3h'
+#   receiver: 'email' # email it to me
 
-  receivers:
-    - name: email-me
-      email_configs:
-      - to: "%{lookup('$GMAIL_ACCOUNT')}"
-        from: "%{lookup('$GMAIL_ACCOUNT')}"
-        smarthost: smtp.gmail.com:587
-        auth_username: "%{lookup('$GMAIL_ACCOUNT')}"
-        auth_identity: "$GMAIL_ACCOUNT"
-        auth_password: "%{lookup('$GMAIL_AUTH_TOKEN')}"
+#   receivers:
+#     - name: email-me
+#       email_configs:
+#       - to: "%{lookup('$GMAIL_ACCOUNT')}"
+#         from: "%{lookup('$GMAIL_ACCOUNT')}"
+#         smarthost: smtp.gmail.com:587
+#         auth_username: "%{lookup('$GMAIL_ACCOUNT')}"
+#         auth_identity: "$GMAIL_ACCOUNT"
+#         auth_password: "%{lookup('$GMAIL_AUTH_TOKEN')}"

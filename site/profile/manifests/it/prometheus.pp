@@ -18,21 +18,31 @@ $content,
       }
     }
   }
-# user {'blackbox_exporter':
-#     ensure     => present,
-#     name       => 'blackbox_exporter',
-#     groups     => ['blackbox_exporter'],
-#     managehome => false,
-# }
-# archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
-#     ensure       => 'present',
-#     source       => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz',
-#     extract      => true,
-#     extract_path => '/usr/tmp',
-#     cleanup      => true,
-# }
-# file { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter' :
-#   ensure => present,
-#   target => '/root/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
-# }
+$gmail_auth_token = lookup("gmail_auth_token")
+$gmail_account = lookup('gmail_account')
+class { 'prometheus::alertmanager':
+  version   => '0.22.2',
+  route     => {
+    'group_by'        => ['alertname', 'cluster', 'service'],
+    'group_wait'      => '30s',
+    'group_interval'  => '5m',
+    'repeat_interval' => '3h',
+    'receiver'        => 'email',
+  },
+  receivers => [
+    {
+      'name'          => 'email',
+      'email_configs' => [
+        {
+          'to'            => $gmail_account,
+          'from'          => $gmail_account,
+          'auth_username' => true,
+          'auth_identity' => $gmail_account,
+          'auth_password' => $gmail_auth_token,
+          'send_resolved' => true,
+        },
+      ],
+    },
+  ],
+}
 }
