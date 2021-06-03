@@ -39,6 +39,7 @@ class { 'prometheus::alertmanager':
         {
           'to'            => $gmail_account,
           'from'          => $gmail_account,
+          'smarthost'     => 'smtp.gmail.com:587'
           'auth_username' => true,
           'auth_identity' => $gmail_account,
           'auth_password' => $gmail_auth_token,
