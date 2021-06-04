@@ -32,7 +32,7 @@ class { 'prometheus::alertmanager':
   #   'auth_password'   => $gmail_auth_token,
   #   },
   route     => {
-    'group_by'        => ['job'],
+    'group_by'        => ["alert.rule", 'job'],
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
