@@ -61,7 +61,7 @@ class { 'prometheus::alertmanager':
       'slack_configs' => [
         {
           'api_url'       => unwrap($slackapi_hide),
-          'channel'       => '#it_monitoring',
+          'channel'       => '#monitoring',
           'send_resolved' => true,
           'username'      => unwrap($slackuser_hide)
         },
