@@ -42,20 +42,27 @@ class { 'prometheus::alertmanager':
   },
   receivers => [
     {
-      'name'          => 'email',
-      'email_configs' => [
+    #   'name'          => 'email',
+    #   'email_configs' => [
+    #     {
+    #       'to'            => $gmail_account,
+    #       'from'          => $gmail_account,
+    #       'smarthost'     => 'smtp.gmail.com:587',
+    #       'auth_username' => $gmail_account,
+    #       'auth_identity' => $gmail_account,
+    #       'auth_password' => $gmail_auth_token,
+    #       'require_tls'   => true,
+    #       'send_resolved' => true,
+    #     },
+    #   ],
+    # },
+      'name'          => 'slack',
+      'slack_configs' => [
         {
-          'to'            => $gmail_account,
-          'from'          => $gmail_account,
-          'smarthost'     => 'smtp.gmail.com:587',
-          'auth_username' => $gmail_account,
-          'auth_identity' => $gmail_account,
-          'auth_password' => $gmail_auth_token,
-          'require_tls'   => true,
+          'api_url'       => unwrap($slackapi_hide),
+          'channel'       => '#monitoring',
           'send_resolved' => true,
+          'username'      => unwrap($slackuser_hide)
         },
-      ],
-    },
   ],
-}
 }
