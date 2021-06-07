@@ -36,7 +36,7 @@ class { 'prometheus::alertmanager':
   route         => {
     'group_by'        => ['alertname', 'job'],
     'group_wait'      => '30s',
-    'group_interval'  => '5m',
+    'group_interval'  => '1m',
     'repeat_interval' => '3h',
     'receiver'        => 'slack',
   },
@@ -66,18 +66,6 @@ class { 'prometheus::alertmanager':
           'username'      => unwrap($slackuser_hide)
         },
       ],
-      # 'email_configs' => [
-      #   {
-      #     'to'            => $gmail_account,
-      #     'from'          => $gmail_account,
-      #     'smarthost'     => 'smtp.gmail.com:587',
-      #     'auth_username' => $gmail_account,
-      #     'auth_identity' => $gmail_account,
-      #     'auth_password' => $gmail_auth_token,
-      #     'require_tls'   => true,
-      #     'send_resolved' => true,
-      #   },
-      # ],
     },
   ],
 }
