@@ -23,7 +23,7 @@ $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
   extra_options => '--cluster.listen-address=',
-  version   => '0.22.2',
+  version       => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
   #   'to'              => 'wf@belldex.com',
@@ -33,14 +33,14 @@ class { 'prometheus::alertmanager':
   #   'auth_identity'   => $gmail_account,
   #   'auth_password'   => $gmail_auth_token,
   #   },
-  route     => {
+  route         => {
     'group_by'        => ['alertname', 'job'],
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slack',
+    'receiver'        => 'slackemail',
   },
-  receivers => [
+  receivers     => [
     # {
     #   'name'          => 'email',
     #   'email_configs' => [
@@ -57,7 +57,7 @@ class { 'prometheus::alertmanager':
     #   ],
     # },
     {
-      'name'          => 'slack',
+      'name'          => 'slackemail',
       'slack_configs' => [
         {
           'api_url'       => unwrap($slackapi_hide),
