@@ -1,5 +1,5 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
-class profile::it::prometheus (Sensitve[String]
+class profile::it::prometheus (Sensitive[String]
 $slackapi_hide,
 $slackuser_hide,
 ) {
