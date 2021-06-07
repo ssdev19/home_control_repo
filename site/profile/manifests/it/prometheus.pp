@@ -33,22 +33,13 @@ class { 'prometheus::alertmanager':
   #   'auth_identity'   => $gmail_account,
   #   'auth_password'   => $gmail_auth_token,
   #   },
-  route     => [
-    {
-    'group_by'        => ['alertname', 'job'],
-    'group_wait'      => '30s',
-    'group_interval'  => '5m',
-    'repeat_interval' => '3h',
-    'receiver'        => 'slack',
-  },
-    {
+  route     => {
     'group_by'        => ['alertname', 'job'],
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
     'receiver'        => 'email',
-    },
-  ],
+  },
   receivers => [
     {
       'name'          => 'email',
@@ -62,17 +53,6 @@ class { 'prometheus::alertmanager':
           'auth_password' => $gmail_auth_token,
           'require_tls'   => true,
           'send_resolved' => true,
-        },
-      ],
-    },
-    {
-      'name'          => 'slack',
-      'slack_configs' => [
-        {
-          'api_url'       => unwrap($slackapi_hide),
-          'channel'       => '#monitoring',
-          'send_resolved' => true,
-          'username'      => unwrap($slackuser_hide)
         },
       ],
     },
