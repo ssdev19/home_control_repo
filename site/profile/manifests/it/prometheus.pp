@@ -1,6 +1,6 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus (Sensitve[String]
-$content,
+$slackaip_hide,
 $slackuser_hide,
 ) {
   # include node_exporter
