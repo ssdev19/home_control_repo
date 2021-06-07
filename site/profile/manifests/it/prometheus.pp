@@ -38,7 +38,7 @@ class { 'prometheus::alertmanager':
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
-    'receiver'        => 'email',
+    'receiver'        => ['email', 'slack'],
   },
   receivers => [
     {
@@ -53,6 +53,17 @@ class { 'prometheus::alertmanager':
           'auth_password' => $gmail_auth_token,
           'require_tls'   => true,
           'send_resolved' => true,
+        },
+      ],
+    },
+    {
+      'name'          => 'slack',
+      'slack_configs' => [
+        {
+          'api_url'       => unwrap($slackapi_hide),
+          'channel'       => '#it_monitoring',
+          'send_resolved' => true,
+          'username'      => unwrap($slackuser_hide)
         },
       ],
     },
