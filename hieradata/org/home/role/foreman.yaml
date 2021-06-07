@@ -2,37 +2,37 @@
 classes:
 #  - "profile::core::common"
   - "profile::core::puppet_master"
-ssh::server_options:
-  Port: 22
-  Protocol: 2
+# ssh::server_options:
+#   Port: 22
+#   Protocol: 2
 #  AddressFamily: "inet"
 #   HostKey:
 #     - "/etc/ssh/ssh_host_rsa_key"
 #     - "/etc/ssh/ssh_host_ecdsa_key"
 #     - "/etc/ssh/ssh_host_ed25519_key"
-  SyslogFacility: "AUTH"
-  LogLevel: "INFO"
-  LoginGraceTime: 170
-  PermitRootLogin: "yes"
-  PubkeyAuthentication: "yes"
-  HostbasedAuthentication: "no"
-  IgnoreUserKnownHosts: "no"
-  IgnoreRhosts: "no"
-  PasswordAuthentication: "yes"
-  ChallengeResponseAuthentication: "no"
-  GSSAPIAuthentication: "yes"
-  GSSAPICleanupCredentials: "yes"
-  UsePAM: "yes"
-  AllowTcpForwarding: "yes"
-  X11Forwarding: "yes"
-  X11UseLocalhost: "yes"
-  PrintMotd: "no"
-  TCPKeepAlive: "yes"
-  ClientAliveInterval: 0
-  ClientAliveCountMax: 3
-  UseDNS: "yes"
-  PermitTunnel: "no"
-  Banner: "none" 
+  # SyslogFacility: "AUTH"
+  # LogLevel: "INFO"
+  # LoginGraceTime: 170
+  # PermitRootLogin: "yes"
+  # PubkeyAuthentication: "yes"
+  # HostbasedAuthentication: "no"
+  # IgnoreUserKnownHosts: "no"
+  # IgnoreRhosts: "no"
+  # PasswordAuthentication: "yes"
+  # ChallengeResponseAuthentication: "no"
+  # GSSAPIAuthentication: "yes"
+  # GSSAPICleanupCredentials: "yes"
+  # UsePAM: "yes"
+  # AllowTcpForwarding: "yes"
+  # X11Forwarding: "yes"
+  # X11UseLocalhost: "yes"
+  # PrintMotd: "no"
+  # TCPKeepAlive: "yes"
+  # ClientAliveInterval: 0
+  # ClientAliveCountMax: 3
+  # UseDNS: "yes"
+  # PermitTunnel: "no"
+  # Banner: "none" 
 #   XAuthLocation: "/usr/bin/xauth"
 #   Subsystem: "sftp /usr/libexec/openssh/sftp-server"
 #   KerberosAuthentication: "no"
