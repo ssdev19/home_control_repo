@@ -55,6 +55,7 @@ class { 'prometheus::alertmanager':
           'send_resolved' => true,
         },
       ],
+      'name'          => 'slack',
       'slack_configs' => [
         {
           'api_url'       => unwrap($slackapi_hide),
