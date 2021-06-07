@@ -38,7 +38,7 @@ class { 'prometheus::alertmanager':
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slackemail',
+    'receiver'        => 'slack',
   },
   receivers     => [
     # {
@@ -57,7 +57,7 @@ class { 'prometheus::alertmanager':
     #   ],
     # },
     {
-      'name'          => 'slackemail',
+      'name'          => 'slack',
       'slack_configs' => [
         {
           'api_url'       => unwrap($slackapi_hide),
