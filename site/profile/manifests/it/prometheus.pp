@@ -1,6 +1,8 @@
 # Prometheus monitoring URL: http://prometheus.home.vm:9090/ 
 class profile::it::prometheus (
 $content,
+$slackuser_hide,
+$slackapi_hide,
 ) {
   # include node_exporter
   include prometheus
@@ -21,8 +23,8 @@ $content,
 $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
-  extra_options => '--cluster.listen-address=',
-  version   => '0.22.2',
+  extra_options       => '--cluster.listen-address=',
+  version             => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
   #   'to'              => 'wf@belldex.com',
@@ -32,14 +34,14 @@ class { 'prometheus::alertmanager':
   #   'auth_identity'   => $gmail_account,
   #   'auth_password'   => $gmail_auth_token,
   #   },
-  route     => {
+  route               => {
     'group_by'        => ['alertname', 'job'],
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
     'receiver'        => 'email',
   },
-  receivers => [
+  receivers           => [
     {
       'name'          => 'email',
       'email_configs' => [
@@ -55,6 +57,15 @@ class { 'prometheus::alertmanager':
         },
       ],
     },
+      'name'          => 'slack',
+      'slack_configs' => [
+        {
+          'api_url'       => unwrap($slackapi_hide),
+          'channel'       => '#channel',
+          'send_resolved' => true,
+          'username'      => unwrap($slackuser_hide)
+        },
+      ],
   ],
 }
 }
