@@ -38,26 +38,24 @@ class { 'prometheus::alertmanager':
     'group_wait'      => '30s',
     'group_interval'  => '5m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slack',
+    'receiver'        => ['slack', 'email'],
   },
   receivers => [
-#     {
-#       'name'          => 'email',
-#       'email_configs' => [
-#         {
-#           'to'            => $gmail_account,
-#           'from'          => $gmail_account,
-#           'smarthost'     => 'smtp.gmail.com:587',
-#           'auth_username' => $gmail_account,
-#           'auth_identity' => $gmail_account,
-#           'auth_password' => $gmail_auth_token,
-#           'require_tls'   => true,
-#           'send_resolved' => true,
-#         },
-#       ],
-#     },
-#   ],
-# }
+    {
+      'name'          => 'email',
+      'email_configs' => [
+        {
+          'to'            => $gmail_account,
+          'from'          => $gmail_account,
+          'smarthost'     => 'smtp.gmail.com:587',
+          'auth_username' => $gmail_account,
+          'auth_identity' => $gmail_account,
+          'auth_password' => $gmail_auth_token,
+          'require_tls'   => true,
+          'send_resolved' => true,
+        },
+      ],
+    },
       {
       'name'          => 'slack',
       'slack_configs' => [
@@ -68,7 +66,7 @@ class { 'prometheus::alertmanager':
           'username'      => unwrap($slackuser_hide)
         },
       ],
-      },
-    ],
+    },
+  ],
 }
 }
