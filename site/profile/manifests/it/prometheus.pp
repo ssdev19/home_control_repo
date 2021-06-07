@@ -7,7 +7,6 @@ $content,
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
     version => '0.19.0',
-    # extra_options => '--cluster.listen-address=',
     modules => {
       'http_2xx' => {
         'prober'  => 'http',
@@ -22,6 +21,7 @@ $content,
 $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
+  extra_options => '--cluster.listen-address=',
   version   => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
