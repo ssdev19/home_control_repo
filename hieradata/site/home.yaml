@@ -1,5 +1,5 @@
 ---
-timezone::timezone: "America/Phoenix"
+timezone::timezone: "utc"
 ssh::server_options:
   Port: 22
   Protocol: 2

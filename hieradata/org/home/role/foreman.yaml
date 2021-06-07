@@ -2,7 +2,6 @@
 classes:
 #  - "profile::core::common"
   - "profile::core::puppet_master"
-timezone::timezone: "America/Phoenix"
 ssh::server_options:
   Port: 22
   Protocol: 2
