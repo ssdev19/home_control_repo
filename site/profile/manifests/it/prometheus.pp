@@ -55,6 +55,7 @@ class { 'prometheus::alertmanager':
           'require_tls'   => true,
           'send_resolved' => true,
         },
+        ],
     {
       'name'          => 'slack',
       'slack_configs' => [
@@ -63,10 +64,10 @@ class { 'prometheus::alertmanager':
           'channel'       => '#monitoring',
           'send_resolved' => true,
           'username'      => unwrap($slackuser_hide)
-        },      ],
-    }
+        },
+    
       ],
-    },
-  ],
+
+
 }
-}
+
