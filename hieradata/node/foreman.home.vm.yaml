@@ -7,6 +7,6 @@ profile::core::puppet_master::psswrd_encrypt: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIB
 network::interfaces_hash:
   eth0:
     ipaddress: '192.168.0.45'
-    netmask: '255.255.254.0'
+    netmask: '255.255.255.0'
     gateway: '192.168.0.1'
     dns_nameservers: "192.168.0.1 8.8.8.8 8.8.4.4"

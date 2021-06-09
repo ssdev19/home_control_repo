@@ -10,7 +10,7 @@ class profile::core::common (
 ){
   include timezone
   include node_encrypt::certificates
-    include network
+  include network
   # include tuned
   # include chrony
   # include selinux
