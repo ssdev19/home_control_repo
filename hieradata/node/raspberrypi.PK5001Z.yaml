@@ -6,4 +6,7 @@ classes:
 # profile::it::network::mask_hide: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAA5GKguDS5vjBPOynh12SAsqKQaiGnGm+vcvLIA8ttPVRvQ3iwWOIrS3h+lWUZ2fP/256VMAPSCq+WLViyr4yBelUviEwr2cuZ1hEllbtgy/NMLwruANOJQlITss6spE6KgkiAHSOolCPLQTNhurEWTQMxE4Pk3ul6xrXtUS8X5lcI1jumDcU7JATHgYLONn71CKKxsjHP/CqXV8AqossnZjC95Gkgf+LQHLaP4bavkajQ3w9TUIKIRRP365u/NzuTUuMb6KqqIh7qLlpucsDz9nOmN/N0lHMpJ8uRYakCMVom20R0oAlkOwoAkyOQ7cdhl1Im6Vg3cFMG61S05H+zzA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDR6KjVjdossTLsLJVLEALRgBDOXvzH0EOqpQVP20/+4ZE+]
 network::interfaces_hash:
   eth0:
-    ipaddress: '192.168.0.118/23'
+    ipaddress: '192.168.0.118'
+    netmask: '255.255.25.0'
+    gateway: '192.168.0.1'
+    dns_nameservers: "8.8.8.8 8.8.4.4"
