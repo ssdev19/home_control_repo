@@ -9,4 +9,4 @@ network::interfaces_hash:
     ipaddress: '192.168.0.118'
     netmask: '255.255.254.0'
     gateway: '192.168.0.1'
-    dns_nameservers: "8.8.8.8 8.8.4.4"
+    dns_nameservers: "192.168.0.1 8.8.8.8 8.8.4.4"
