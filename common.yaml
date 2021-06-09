@@ -14,17 +14,3 @@ profile::it::prometheus::content: |
       http:
         valid_status_codes: []
         method: GET
-profile::it::nagios::servicecontent: |
-  [Unit]
-  Description=Blackbox Exporter
-  Wants=network-online.target
-  After=network-online.target
-
-  [Service]
-  User=blackbox_exporter
-  Group=blackbox_exporter
-  Type=simple
-  ExecStart=/usr/local/bin/blackbox_exporter --config.file /etc/blackbox_exporter/blackbox.yml
-
-  [Install]
-  WantedBy=multi-user.target
