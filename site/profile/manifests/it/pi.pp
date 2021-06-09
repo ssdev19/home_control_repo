@@ -19,7 +19,7 @@ class profile::it::pi {
 #   enable   => true,
 # }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
 'acpid', 'wget', 'nmap', 'ifupdown-extra']:
 ensure => installed,
 }
