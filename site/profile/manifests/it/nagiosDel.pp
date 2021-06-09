@@ -1,5 +1,5 @@
 # nagios
-class profile::it::nagios (
+class profile::it::nagiosdel (
 # $content,
 $servicecontent,
 ) {
