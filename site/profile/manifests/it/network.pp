@@ -3,6 +3,7 @@ class profile::it::network (Sensitive[String]
 $ip_hide,
 $mask_hide,
 ){
+include '::network'
   network_config { 'eth0':
   ensure    => 'present',
   family    => 'inet',
