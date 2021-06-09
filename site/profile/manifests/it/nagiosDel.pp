@@ -5,19 +5,19 @@ $servicecontent,
 ) {
   # include ::nrpe
 
-user {'blackbox_exporter':
-    ensure     => present,
-    name       => 'blackbox_exporter',
-    # groups     => ['blackbox_exporter'],
-    managehome => false,
-}
-archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
-    ensure       => 'present',
-    source       => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz',
-    extract      => true,
-    extract_path => '/usr/tmp',
-    cleanup      => true,
-}
+# user {'blackbox_exporter':
+#     ensure     => present,
+#     name       => 'blackbox_exporter',
+#     # groups     => ['blackbox_exporter'],
+#     managehome => false,
+# }
+# archive { '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64.tar.gz':
+#     ensure       => 'present',
+#     source       => 'https://github.com/prometheus/blackbox_exporter/releases/download/v0.19.0/blackbox_exporter-0.19.0.linux-amd64.tar.gz',
+#     extract      => true,
+#     extract_path => '/usr/tmp',
+#     cleanup      => true,
+# }
 $source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter'
 $target_directory = '/usr/local/bin/blackbox_exporter'
 file { $target_directory :
