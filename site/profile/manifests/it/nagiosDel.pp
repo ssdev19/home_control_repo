@@ -18,25 +18,25 @@ $servicecontent,
 #     extract_path => '/usr/tmp',
 #     cleanup      => true,
 # }
-$source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter'
-$target_directory = '/usr/local/bin/blackbox_exporter'
-file { $target_directory :
-  owner  => 'blackbox_exporter',
-  source => 'file:///usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
-}
-file { '/etc/blackbox_exporter':
-  ensure => directory,
-  owner  => 'blackbox_exporter',
-}
+# $source_directory = '/usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter'
+# $target_directory = '/usr/local/bin/blackbox_exporter'
+# file { $target_directory :
+#   owner  => 'blackbox_exporter',
+#   source => 'file:///usr/tmp/blackbox_exporter-0.19.0.linux-amd64/blackbox_exporter',
+# }
+# file { '/etc/blackbox_exporter':
+#   ensure => directory,
+#   owner  => 'blackbox_exporter',
+# }
 # file { '/etc/blackbox_exporter/blackbox.yml':
 #   ensure  => file,
 #   owner   => 'blackbox_exporter',
 #   content => $content,
 #   }
-file { '/etc/systemd/system/blackbox_exporter.service':
-  ensure  => file,
-  content => $servicecontent,
-  }
+# file { '/etc/systemd/system/blackbox_exporter.service':
+#   ensure  => file,
+#   content => $servicecontent,
+#   }
   # Install Nagios server
   # class { 'nagios':
   #   nrpe        => true,                     # Set up NRPE for monitoring of remote hosts
