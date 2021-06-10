@@ -10,4 +10,4 @@ network::hostname: "%{facts.fqdn}"
 #     ipaddress: '192.168.0.51'
 #     netmask: '255.255.255.0'
 #     gateway: '192.168.0.1'
-#     dns_nameservers: "192.168.0.1 8.8.8.8 8.8.4.4"
+#     dns_nameservers: "192.168.0.1"

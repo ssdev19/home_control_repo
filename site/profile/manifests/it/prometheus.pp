@@ -22,7 +22,8 @@ $slackuser_hide,
 $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
-  extra_options => '--cluster.listen-address=',
+  # extra_options => '--cluster.listen-address=',
+  extra_options => "--cluster.peer=%{facts.fqdn}:9094",
   version       => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
