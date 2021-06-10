@@ -4,7 +4,7 @@ $slackapi_hide,
 $slackuser_hide,
 $cluster_hide,
 ) {
-  # include node_exporter
+  # include prometheus::node_exporter
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':

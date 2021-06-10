@@ -5,8 +5,12 @@ class profile::default {
   include ssh
   include timezone
   include accounts
-  include prometheus::node_exporter
-
+  # include prometheus::node_exporter
+class { 'prometheus::node_exporter':
+  version            => '1.1.2',
+  # collectors_disable => ['loadavg', 'mdadm'],
+  # extra_options      => '--collector.ntp.server ntp1.orange.intra',
+}
   #   $fqdn = $::fqdn
   # profile::it::prometheus::target: { "${fqdn} - node_exporter":
   #   job  => 'node',
