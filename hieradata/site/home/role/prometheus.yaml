@@ -103,6 +103,7 @@ prometheus::scrape_configs:
     static_configs:
       - targets:
           - 'prometheus.home.vm:9090'
+          - 'prometheus2.home.vm:9090'
           - 'foreman.home.vm:9100'
           - 'grafana.home.vm:9100'
           - '192.168.0.118:9100' #'raspberrypi.PK5001Z:9100'
