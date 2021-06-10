@@ -146,7 +146,8 @@ prometheus::scrape_configs:
 prometheus::alertmanagers_config:
   - static_configs:
       - targets:
-          - 'localhost:9093'
+          - 'prometheus.home.vm:9093'
+          - 'prometheus2.home.vm:9093'
 
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
