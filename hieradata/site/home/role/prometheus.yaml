@@ -114,7 +114,7 @@ prometheus::scrape_configs:
     scrape_timeout: '10s'
     static_configs:
       - targets:
-          - 'prometheus.home.vm:9100'
+          # - 'prometheus.home.vm:9100'
           - '192.168.0.107:9182'
         labels:
           alias: 'win'
