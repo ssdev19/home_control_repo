@@ -25,7 +25,7 @@ $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
   # extra_options => '--cluster.listen-address=',
-  extra_options => "--cluster.advertise-address=${server_ip}:9093 \--cluster.peer=${unwrap($cluster_hide)}",
+  extra_options => "--cluster.peer=${unwrap($cluster_hide)} \--cluster.advertise-address=${server_ip}:9093",
   version       => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
