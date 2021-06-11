@@ -24,7 +24,7 @@ $gmail_auth_token = lookup('gmail_auth_token')
 $gmail_account = lookup('gmail_account')
 class { 'prometheus::alertmanager':
   # extra_options => '--cluster.listen-address=',
-  extra_options => "--cluster.peer=${unwrap($cluster_hide)}",
+  extra_options => "--cluster.peer=${unwrap($cluster_hide)} \ --cluster.listen-address=",
   version       => '0.22.2',
   # global    => {
   #   'resolve_timeout' => '1m',
@@ -66,7 +66,7 @@ class { 'prometheus::alertmanager':
           'channel'       => '#monitoring',
           'send_resolved' => true,
           'username'      => unwrap($slackuser_hide),
-          'text'          => '@channel {{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}'
+          'text'          => '@channel {{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
         },
       ],
     },
