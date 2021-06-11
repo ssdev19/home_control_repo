@@ -29,7 +29,7 @@ file { '/etc/hosts' :
 }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap']:
+'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
 ensure => installed,
 }
   # Firewall and security measurements
