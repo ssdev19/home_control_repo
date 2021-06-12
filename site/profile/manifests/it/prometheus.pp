@@ -7,7 +7,7 @@ $server_ip,
 $advertise_ip,
 ) {
   # include prometheus::node_exporter
-  include firewalld # being tested on prometheus
+  # Firewall rules configured in hiera
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
@@ -75,12 +75,6 @@ class { 'prometheus::alertmanager':
     },
   ],
 }
-  firewalld_port { 'Open prometheus ports in the public zone':
-    ensure   => present,
-    zone     => 'public',
-    port     => '9093:9797',
-    protocol => 'tcp',
-  }
 # firewall { '100 allow prometheus ports':
 #   dport  => [9090, 9093, 9094, 9100, 9797],
 #   proto  => 'tcp',
