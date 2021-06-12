@@ -14,9 +14,9 @@ network::interfaces_hash:
     dns1: "192.168.0.1"
     peerdns: 'yes'
     bootproto: 'static'
-    onboot: 'no'
+    onboot: 'yes'
     peerroutes: 'yes'
-    
+
 # network::mroutes_hash:
 #   eth1:
 #     routes:
