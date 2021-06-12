@@ -15,3 +15,5 @@ network::interfaces_hash:
     dns_nameservers: "192.168.0.1"
     peerdns: 'yes'
     bootproto: 'static'
+    onboot: 'no'
+    name: 'eth1'
