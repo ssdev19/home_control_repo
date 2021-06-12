@@ -15,7 +15,7 @@ network::interfaces_hash:
     peerdns: 'yes'
     bootproto: 'static'
     onboot: 'no'
-    name: 'eth1'
+
 # network::mroutes_hash:
 #   eth1:
 #     routes:
