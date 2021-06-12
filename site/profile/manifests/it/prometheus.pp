@@ -7,6 +7,7 @@ $server_ip,
 $advertise_ip,
 ) {
   # include prometheus::node_exporter
+  include firewall # being tested on prometheus
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
