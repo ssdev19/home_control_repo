@@ -9,7 +9,7 @@ profile::it::prometheus::server_ip: "%{serverip}"
 profile::it::prometheus::advertise_ip: 192.168.0.51:9093
 network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
-  enp0s1:
+  enp0s03:
     ipaddress: '192.168.10.22'
     netmask: '255.255.255.0'
     dns1: "192.168.0.1"
