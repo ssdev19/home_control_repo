@@ -6,6 +6,7 @@ class profile::default {
   include timezone
   include accounts
   include network
+  include firewall
   # include prometheus::node_exporter
 class { 'prometheus::node_exporter':
   version            => '1.1.2',
