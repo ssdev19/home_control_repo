@@ -7,7 +7,7 @@ $server_ip,
 $advertise_ip,
 ) {
   # include prometheus::node_exporter
-  include firewall # being tested on prometheus
+  include firewalld # being tested on prometheus
   include prometheus
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
@@ -75,10 +75,15 @@ class { 'prometheus::alertmanager':
     },
   ],
 }
-
-firewall { '100 allow prometheus ports':
-  dport  => [9090, 9093, 9094, 9100, 9797],
-  proto  => 'tcp',
-  action => 'accept',
-}
+  firewalld_port { 'Open prometheus ports in the public zone':
+    ensure   => present,
+    zone     => 'public',
+    port     => [9090, 9093, 9094, 9100, 9797],
+    protocol => 'tcp',
+  }
+# firewall { '100 allow prometheus ports':
+#   dport  => [9090, 9093, 9094, 9100, 9797],
+#   proto  => 'tcp',
+#   action => 'accept',
+# }
 }
