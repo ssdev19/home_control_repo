@@ -16,7 +16,7 @@ network::interfaces_hash:
     bootproto: 'static'
     onboot: 'no'
     name: 'eth1'
-network::mroutes_hash:
-  eth1:
-    routes:
-      192.168.10.0/24: eth0
+# network::mroutes_hash:
+#   eth1:
+#     routes:
+#       192.168.10.0/24: eth0
