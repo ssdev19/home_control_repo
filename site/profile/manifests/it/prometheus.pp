@@ -74,4 +74,10 @@ class { 'prometheus::alertmanager':
     },
   ],
 }
+
+firewall { 'Allow Prometheus ports':
+  dport  => [9090, 9093, 9094, 9797],
+  proto  => 'tcp',
+  action => 'accept',
+}
 }
