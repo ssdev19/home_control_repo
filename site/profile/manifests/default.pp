@@ -5,6 +5,7 @@ class profile::default {
   include ssh
   include timezone
   include accounts
+  include network
   # include prometheus::node_exporter
 class { 'prometheus::node_exporter':
   version            => '1.1.2',
