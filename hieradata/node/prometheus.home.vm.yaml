@@ -14,3 +14,9 @@ network::interfaces_hash:
     dns_nameservers: "192.168.0.1"
     peerdns: 'yes'
     bootproto: 'static'
+    onboot: 'no'
+    name: 'eth1'
+network::mroutes_hash:
+  eth1:
+    routes:
+      192.168.10.0/24: eth0
