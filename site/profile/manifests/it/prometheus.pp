@@ -78,7 +78,7 @@ class { 'prometheus::alertmanager':
   firewalld_port { 'Open prometheus ports in the public zone':
     ensure   => present,
     zone     => 'public',
-    port     => [9090, 9093, 9094, 9100, 9797],
+    port     => '9093:9090:9094:9100:9797',
     protocol => 'tcp',
   }
 # firewall { '100 allow prometheus ports':
