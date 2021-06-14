@@ -126,6 +126,7 @@ prometheus::scrape_configs:
         labels:
           alias: 'win'
   - job_name: 'https'
+    preferred_ip_protocol: ip4
     metrics_path: /probe
     params:
       module: [http_2xx]
@@ -150,7 +151,7 @@ prometheus::scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115
-        preferred_ip_protocol: ip4
+
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
 #   group_by:
