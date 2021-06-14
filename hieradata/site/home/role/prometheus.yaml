@@ -150,8 +150,7 @@ prometheus::scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115
-    tls_config:
-        insecure_skip_verify: true
+        preferred_ip_protocol: ip4
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
 #   group_by:
