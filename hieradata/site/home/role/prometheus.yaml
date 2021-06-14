@@ -22,7 +22,7 @@ prometheus::alerts:
           labels:
             severity: "critical"
           annotations:
-            summary: "Endpoint  down"
+            summary: "Endpoint down"
         - alert: PrometheusJobMissing
           expr: absent(up{job="prometheus"})
           for: 0m
@@ -150,7 +150,8 @@ prometheus::scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115
-
+    tls_config:
+        insecure_skip_verify: true
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
 #   group_by:
