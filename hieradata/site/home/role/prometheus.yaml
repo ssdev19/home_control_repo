@@ -135,6 +135,7 @@ prometheus::scrape_configs:
         - https://pwdreset.lsst.org
         - http://192.168.0.1
         - http://northpimabahai.org
+        - https://w3.fakesite456.io
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
