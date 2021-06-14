@@ -16,6 +16,13 @@ prometheus::alerts:
             summary: 'Instance {{ .Labels.instance }} {{ .Value }} down'
             description: '{{ $labels.instance }} of job {{ $labels.job }} has been
               down for more than 1 minutes.'
+        - alert: EndpointDown
+          expr: probe_success == 0
+          for: 10s
+          labels:
+            severity: "critical"
+          annotations:
+            summary: "Endpoint  down"
         - alert: PrometheusJobMissing
           expr: absent(up{job="prometheus"})
           for: 0m
