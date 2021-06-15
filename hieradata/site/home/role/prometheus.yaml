@@ -152,14 +152,15 @@ prometheus::scrape_configs:
         replacement: localhost:9115
 # prometheus::alertmanager::version: '0.22.2'          
 prometheus::alertmanager::route:
-  group_by:
-    - 'alertname'
-    - 'cluster'
-    - 'service'
-  group_wait: '30s'
-  group_interval: '5m'
-  repeat_interval: '3h'
-  receiver: 'slack' # email it to me
+  routes:
+    group_by:
+      - 'alertname'
+      - 'cluster'
+      - 'service'
+    group_wait: '30s'
+    group_interval: '5m'
+    repeat_interval: '3h'
+    receiver: 'slack' # email it to me
 
 #   receivers:
 #     - name: email-me
