@@ -22,7 +22,7 @@ prometheus::alerts:
           labels:
             severity: "critical"
           annotations:
-            summary: 'Instance {{ .Labels.instance }} {{ .Value }} down' #"Endpoint down"
+            summary: 'Instance {{ .Labels.instance }} {{ .Value }} - {{ $labels.owner }} down'
         - alert: PrometheusJobMissing
           expr: absent(up{job="prometheus"})
           for: 0m
