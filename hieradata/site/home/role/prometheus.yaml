@@ -18,7 +18,7 @@ prometheus::alerts:
               down for more than 1 minutes.'
         - alert: EndpointDown
           expr: probe_success == 0
-          for: 10s
+          for: 1m
           labels:
             severity: "critical"
           annotations:
