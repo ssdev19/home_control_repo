@@ -151,16 +151,22 @@ prometheus::scrape_configs:
       - target_label: __address__
         replacement: localhost:9115
 prometheus::alertmanager::route:
-  group_by:
-    - 'alertname'
-    - 'cluster'
-    - 'service'
-  group_wait: '30s'
-  group_interval: '5m'
-  repeat_interval: '3h'
-  receiver: 
-    - 'slack'
-    - 'email'
+  - receiver: 'slack'
+    group_by:
+      - 'alertname'
+      - 'cluster'
+      - 'service'
+    group_wait: '30s'
+    group_interval: '5m'
+    repeat_interval: '3h'
+  - receiver: 'email'
+    group_by:
+      - 'alertname'
+      - 'cluster'
+      - 'service'
+    group_wait: '30s'
+    group_interval: '5m'
+    repeat_interval: '3h'
 # prometheus::alertmanager::version: '0.22.2'          
 # prometheus::alertmanager::route:
 #   group_by:
