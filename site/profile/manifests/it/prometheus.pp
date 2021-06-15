@@ -45,7 +45,7 @@ class { 'prometheus::alertmanager':
     'group_wait'      => '30s',
     'group_interval'  => '1m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slack',
+    'receiver'        => 'slack, email',
   },
   receivers     => [
     { 'name'          => 'email',
