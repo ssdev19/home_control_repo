@@ -45,7 +45,7 @@ class { 'prometheus::alertmanager':
     'group_wait'      => '30s',
     'group_interval'  => '1m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slack',
+    'receiver'        => ['slack', 'email'],
   },
   receivers     => [
     { 'name'          => 'email',
@@ -69,7 +69,7 @@ class { 'prometheus::alertmanager':
           'channel'       => '#monitoring',
           'send_resolved' => true,
           'username'      => unwrap($slackuser_hide),
-          'text'          => '@channel {{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
+          'text'          => '{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
         },
       ],
     },
