@@ -40,12 +40,19 @@ class { 'prometheus::alertmanager':
   #   'auth_identity'   => $gmail_account,
   #   'auth_password'   => $gmail_auth_token,
   #   },
-  route         => {
+  route         => {[
     'group_by'        => ['alertname', 'job'],
     'group_wait'      => '30s',
     'group_interval'  => '1m',
     'repeat_interval' => '3h',
-    'receiver'        => 'slack, email',
+    'receiver'        => 'slack',
+]
+  {
+    'group_by'        => ['alertname', 'job'],
+    'group_wait'      => '30s',
+    'group_interval'  => '1m',
+    'repeat_interval' => '3h',
+    'receiver'        => 'email',
   },
   receivers     => [
     { 'name'          => 'email',
