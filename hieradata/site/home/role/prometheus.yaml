@@ -103,55 +103,6 @@ prometheus::alerts:
             summary: SQL Server down (instance {{ $labels.instance }})
             description: "SQL server instance is down\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-prometheus::scrape_configs:
-  - job_name: 'prometheus'
-    scrape_interval: '10s'
-    scrape_timeout: '10s'
-    static_configs:
-      - targets:
-          - 'prometheus.home.vm:9100'
-          - 'prometheus2.home.vm:9100'
-          - 'foreman.home.vm:9100'
-          - 'grafana.home.vm:9100'
-          - '192.168.0.118:9100' #'raspberrypi.PK5001Z:9100'
-        labels:
-          alias: 'linux'
-  - job_name: 'node'
-    scrape_interval: '10s'
-    scrape_timeout: '10s'
-    static_configs:
-      - targets:
-          # - 'prometheus.home.vm:9100'
-          - '192.168.0.107:9182'
-        labels:
-          alias: 'win'
-  - job_name: 'https'
-    metrics_path: /probe
-    params:
-      module: [http_2xx]
-    static_configs:
-      - targets:
-        - https://www.belldex.com
-        - https://w3.belldex.com
-        - https://jira.lsstcorp.org
-        - https://atlantis.lsst.org
-        - https://endeavour.lsst.org
-        - https://www.noao.edu
-        - https://ls.st
-        - http://confluence.lsstcorp.org
-        - http://www.lsst.org
-        - https://docushare.lsstcorp.org/docushare/dsweb/HomePage
-        - https://pwdreset.lsst.org
-        - http://192.168.0.1
-        - http://northpimabahai.org
-        - https://www.google.com
-    relabel_configs:
-      - source_labels: [__address__]
-        target_label: __param_target
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: localhost:9115
 # prometheus::alertmanager::version: '0.22.2'          
 prometheus::alertmanager::route:
   group_by:
