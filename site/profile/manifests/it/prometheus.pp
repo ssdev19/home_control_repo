@@ -10,7 +10,7 @@ $advertise_ip,
   # Firewall rules configured in hiera
   include prometheus
   include firewalld
-  include prometheus::nginx_vts_exporter
+  # include prometheus::nginx_vts_exporter
   # include prometheus::blackbox_exporter
   class { 'prometheus::blackbox_exporter':
     version => '0.19.0',
