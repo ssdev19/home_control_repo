@@ -135,6 +135,7 @@ prometheus::scrape_configs:
         - https://w3.belldex.com
         - https://jira.lsstcorp.org
         - https://atlantis.lsst.org
+        - https://endeavour.lsst.org
         - https://ls.st
         - http://confluence.lsstcorp.org
         - http://www.lsst.org
