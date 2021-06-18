@@ -21,13 +21,6 @@ $ldaphost_hide,
         url       => 'http://prometheus.home.vm:9090/',
         isDefault => true,
       },
-      {
-        name      => 'Prometheus2',
-        type      => 'prometheus',
-        access    => 'proxy',
-        url       => 'http://prometheus2.home.vm:9090/',
-        isDefault => true,
-      },
     ],
   'auth.ldap'   => {
     enabled     => 'true',
