@@ -6,7 +6,9 @@ class profile::default {
   include timezone
   include accounts
   include network
-
+class { 'ntp':
+  servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
+}
   # include prometheus::node_exporter
 class { 'prometheus::node_exporter':
   version            => '1.1.2',
