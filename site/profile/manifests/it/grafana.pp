@@ -10,12 +10,7 @@ $ldaphost_hide,
 #   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 # }
   class { 'grafana':
-    version => '7.5.3',
-    cfg     => {
-      'auth.ldap'            => {
-      enabled     => true,
-      config_file => '/etc/grafana/ldap.toml',
-      },
+    version                  => '7.5.3',
     provisioning_datasources => {
     apiVersion  => 1,
     datasources => [
@@ -35,25 +30,11 @@ $ldaphost_hide,
       },
     ],
   },
-#     ldap_cfg                 => {
-#       servers          => [
-#       { host            => unwrap($ldaphost_hide),
-#         port            => 636+0,
-#         use_ssl         => true,
-#         search_filter   => '(sAMAccountName=%s)',
-#         search_base_dns => [ 'dc=domain1,dc=com' ],
-#         bind_dn         => unwrap($binddns_hide),
-#         bind_password   => unwrap($basedns_hide),
-#       },
-#   ],
-#   'servers.attributes' => {
-#     name      => 'givenName',
-#     surname   => 'sn',
-#     username  => 'sAMAccountName',
-#     member_of => 'memberOf',
-#     email     => 'email',
-#   }
-# },
+    cfg                      => {
+      'auth.ldap' => {
+        enabled     => true,
+        config_file => '/etc/grafana/ldap.toml',
+      },
   }
   # firewalld_port { 'Grafana Main Port':
   #   ensure   => present,
