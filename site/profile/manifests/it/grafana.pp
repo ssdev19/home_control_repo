@@ -9,9 +9,13 @@ $ldaphost_hide,
 #   collectors_disable => ['loadavg', 'mdadm'],
 #   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 # }
-include grafana::auth.ldap
   class { 'grafana':
-    version                  => '7.5.3',
+    version => '7.5.3',
+    cfg     => {
+      'auth.ldap'            => {
+      enabled     => true,
+      config_file => '/etc/grafana/ldap.toml',
+      },
     provisioning_datasources => {
     apiVersion  => 1,
     datasources => [
