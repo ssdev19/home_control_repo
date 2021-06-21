@@ -22,28 +22,6 @@ $ldaphost_hide,
         isDefault => true,
       },
     ],
-    'auth.ldap' => {
-      enabled     => 'false',
-      config_file => '/etc/grafana/ldap.toml',
-    },
-      ldap_cfg  => {
-        servers              => [
-          { host            => unwrap($ldaphost_hide),
-            port            => 389+0,
-            use_ssl         => true,
-            search_filter   => '(sAMAccountName=%s)',
-            search_base_dns => [ unwrap($basedns_hide) ],
-            bind_dn         => unwrap($binddns_hide),
-          },
-        ],
-        'servers.attributes' => {
-          name      => 'givenName',
-          surname   => 'sn',
-          username  => 'sAMAccountName',
-          member_of => 'memberOf',
-          email     => 'email',
-        }
-},
   }
   }
 
