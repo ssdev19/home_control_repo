@@ -43,3 +43,4 @@ $ldaphost_hide,
   #   require  => Service['firewalld'],
   # }
 }
+}
