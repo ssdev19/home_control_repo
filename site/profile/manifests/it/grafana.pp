@@ -30,25 +30,25 @@ $ldaphost_hide,
       },
     ],
   },
-    ldap_cfg                 => {
-      servers          => [
-      { host            => unwrap($ldaphost_hide),
-        port            => 636+0,
-        use_ssl         => true,
-        search_filter   => '(sAMAccountName=%s)',
-        search_base_dns => [ 'dc=domain1,dc=com' ],
-        bind_dn         => unwrap($binddns_hide),
-        bind_password   => unwrap($basedns_hide),
-      },
-  ],
-  'servers.attributes' => {
-    name      => 'givenName',
-    surname   => 'sn',
-    username  => 'sAMAccountName',
-    member_of => 'memberOf',
-    email     => 'email',
-  }
-},
+#     ldap_cfg                 => {
+#       servers          => [
+#       { host            => unwrap($ldaphost_hide),
+#         port            => 636+0,
+#         use_ssl         => true,
+#         search_filter   => '(sAMAccountName=%s)',
+#         search_base_dns => [ 'dc=domain1,dc=com' ],
+#         bind_dn         => unwrap($binddns_hide),
+#         bind_password   => unwrap($basedns_hide),
+#       },
+#   ],
+#   'servers.attributes' => {
+#     name      => 'givenName',
+#     surname   => 'sn',
+#     username  => 'sAMAccountName',
+#     member_of => 'memberOf',
+#     email     => 'email',
+#   }
+# },
   }
   # firewalld_port { 'Grafana Main Port':
   #   ensure   => present,
