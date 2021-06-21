@@ -32,13 +32,13 @@ $ldaphost_hide,
   },
     ldap_cfg                 => {
       servers          => [
-      { host            => 'ldapserver1.domain1.com',
+      { host            => unwrap($ldaphost_hide),
         port            => 636+0,
         use_ssl         => true,
         search_filter   => '(sAMAccountName=%s)',
         search_base_dns => [ 'dc=domain1,dc=com' ],
-        bind_dn         => 'user@domain1.com',
-        bind_password   => 'passwordhere',
+        bind_dn         => unwrap($binddns_hide),
+        bind_password   => unwrap($basedns_hide),
       },
   ],
   'servers.attributes' => {
