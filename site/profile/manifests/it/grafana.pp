@@ -29,9 +29,27 @@ $ldaphost_hide,
         isDefault => false,
       },
     ],
+  },
+    ldap_cfg                 => {
+      servers          => [
+      { host            => 'ldapserver1.domain1.com',
+        port            => 636+0,
+        use_ssl         => true,
+        search_filter   => '(sAMAccountName=%s)',
+        search_base_dns => [ 'dc=domain1,dc=com' ],
+        bind_dn         => 'user@domain1.com',
+        bind_password   => 'passwordhere',
+      },
+  ],
+  'servers.attributes' => {
+    name      => 'givenName',
+    surname   => 'sn',
+    username  => 'sAMAccountName',
+    member_of => 'memberOf',
+    email     => 'email',
   }
+},
   }
-
   # firewalld_port { 'Grafana Main Port':
   #   ensure   => present,
   #   port     => '3000',
