@@ -18,8 +18,15 @@ $ldaphost_hide,
         name      => 'Prometheus',
         type      => 'prometheus',
         access    => 'proxy',
-        url       => ['http://prometheus.home.vm:9090/', 'http://prometheus3.home.vm:9090/']
+        url       => 'http://prometheus.home.vm:9090/',
         isDefault => true,
+      },
+      {
+        name      => 'Prometheus',
+        type      => 'prometheus',
+        access    => 'proxy',
+        url       => 'http://prometheus3.home.vm:9090/',
+        isDefault => false,
       },
     ],
   }
