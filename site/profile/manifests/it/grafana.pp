@@ -23,7 +23,7 @@ $ldaphost_hide,
       },
     ],
     'auth.ldap' => {
-      enabled     => 'true',
+      enabled     => 'false',
       config_file => '/etc/grafana/ldap.toml',
     },
       ldap_cfg  => {
