@@ -22,7 +22,7 @@ $ldaphost_hide,
         isDefault => true,
       },
       {
-        name      => 'Prometheus',
+        name      => 'Prometheus-2',
         type      => 'prometheus',
         access    => 'proxy',
         url       => 'http://prometheus3.home.vm:9090/',
