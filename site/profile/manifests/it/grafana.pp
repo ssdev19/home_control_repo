@@ -22,10 +22,10 @@ $ldaphost_hide,
         isDefault => true,
       },
     ],
-  'auth.ldap'   => {
-    enabled     => 'true',
-    config_file => '/etc/grafana/ldap.toml',
-  },
+    'auth.ldap' => {
+      enabled     => 'true',
+      config_file => '/etc/grafana/ldap.toml',
+    },
       ldap_cfg  => {
         servers              => [
           { host            => unwrap($ldaphost_hide),
