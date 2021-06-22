@@ -5,9 +5,10 @@ $pwd_encrypt,
 ){
   # include node_exporter
   include prometheus::node_exporter
-  class { 'prometheus_reporter':
-    textfile_directory => '/etc/puppetlabs/puppet'
-  }
+  include prometheus::prometheus_reporter
+  # class { 'prometheus_reporter':
+  #   textfile_directory => '/etc/puppetlabs/puppet'
+  # }
   class { 'firewalld':
     service_ensure => stopped,
   }
