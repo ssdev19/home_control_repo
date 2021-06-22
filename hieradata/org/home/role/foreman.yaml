@@ -75,4 +75,3 @@ r10k::sources:
 # r10k::webhook::group: "root"
 # r10k::deploy_settings:
 #   generate_types: true
-textfile_directory: /var/lib/prometheus-dropzone
