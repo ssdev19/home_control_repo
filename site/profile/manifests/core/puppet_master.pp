@@ -5,7 +5,7 @@ $pwd_encrypt,
 ){
   # include node_exporter
   include prometheus::node_exporter
-
+  include prometheus_reporter
   class { 'firewalld':
     service_ensure => stopped,
   }
