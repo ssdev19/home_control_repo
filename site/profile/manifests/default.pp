@@ -32,7 +32,7 @@ file { '/etc/hosts' :
   content => $hosts,
 }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'ntp', 'screen', 'vim', 'openssl', 'openssl-devel',
+'bash-completion', 'sudo', 'ntpd', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
 ensure => installed,
 }
