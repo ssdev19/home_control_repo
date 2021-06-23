@@ -102,6 +102,14 @@ prometheus::alerts:
           annotations:
             summary: SQL Server down (instance {{ $labels.instance }})
             description: "SQL server instance is down\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: HostSwapIsFillingUp
+          expr: (1 - (node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes)) * 100 > 80
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host swap is filling up (instance {{ $labels.instance }})
+            description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 # prometheus::alertmanager::version: '0.22.2'          
 prometheus::alertmanager::route:
