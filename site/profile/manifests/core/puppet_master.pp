@@ -5,6 +5,10 @@ $pwd_encrypt,
 ){
   # include node_exporter
   include prometheus::node_exporter
+    package { 'toml-rb':
+    provider => 'puppetserver_gem',
+    notify   => Service['puppetserver'],
+  }
 # firewall config
   class { 'firewalld':
     service_ensure => stopped,
