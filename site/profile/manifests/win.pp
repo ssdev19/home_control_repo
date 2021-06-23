@@ -6,15 +6,17 @@ $nagioscfg,
 ){
   include chocolatey
   include facter
-
+class { 'prometheus::node_exporter':
+  version            => '1.1.2',
+}
 facter::fact { 'symantec_defenition_version':
   value => 'test',
 }
 
-package { 'windows_exporter':
-    ensure => '0.16.0',
-    source => 'https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi'
-}
+# package { 'windows_exporter':
+#     ensure => '0.16.0',
+#     source => 'https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi'
+# }
 ##### Note: This process could take over 20 minutes so be patient. #####
 class {'::puppet_agent':
   package_version => '7.6.1',

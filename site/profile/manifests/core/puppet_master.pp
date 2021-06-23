@@ -37,15 +37,15 @@ file {
 #     password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
 #     managehome => true,
 # }
-file {'/root/enctryp2':
-    ensure  => file,
-    owner   => 'root',
-    content => unwrap($psswrd_encrypt).node_encrypt::secret,
-  }
-ini_setting { "testfilecomment":
-  path => "/root/nagiostest.cfg",
-  section => 'test',
-  setting => 'cfg_file',
-  value => "/usr/local/nagios/etc/objects/${::hostname}.cfg"
-}
+# file {'/root/enctryp2':
+#     ensure  => file,
+#     owner   => 'root',
+#     content => unwrap($psswrd_encrypt).node_encrypt::secret,
+#   }
+# ini_setting { "testfilecomment":
+#   path => "/root/nagiostest.cfg",
+#   section => 'test',
+#   setting => 'cfg_file',
+#   value => "/usr/local/nagios/etc/objects/${::hostname}.cfg"
+# }
 }
