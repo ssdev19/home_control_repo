@@ -7,8 +7,8 @@ class profile::it::rasbianos {
   include network
   include '::php'
   include '::mysql::server'
-class { 'wordpress': 
-  
+class { 'wordpress':
+
 }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
