@@ -6,6 +6,7 @@ class profile::it::rasbianos {
   include accounts
   include network
   include '::php'
+  include '::mysql::server'
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
 'acpid', 'wget', 'nmap', 'ifupdown-extra']:

@@ -70,7 +70,7 @@ mod 'simp/gnome', '8.1.1'
 mod 'simp/polkit', '6.2.0'
 mod 'simp/simplib', '3.15.3'
 
-mod 'puppetlabs/mysql', '10.4.0'
+mod 'puppetlabs-mysql', '11.0.3'
 mod 'puppetlabs-apache', '6.3.0'
 mod 'puppet-php', '7.1.0'
 mod 'puppetlabs/apt', '7.0.1'
