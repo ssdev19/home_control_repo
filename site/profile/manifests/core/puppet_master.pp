@@ -6,6 +6,7 @@ $pwd_encrypt,
   # include node_exporter
   include prometheus::node_exporter
   include prometheus::process_exporter
+  include prometheus::foreman_exporter
     package { 'toml-rb':
     provider => 'puppetserver_gem',
   }
