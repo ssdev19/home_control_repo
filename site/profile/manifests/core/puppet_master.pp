@@ -11,9 +11,9 @@ $pwd_encrypt,
     provider => 'puppetserver_gem',
     }
 # firewall config
-  class { 'firewalld':
-    service_ensure => stopped,
-  }
+  # class { 'firewalld':
+  #   service_ensure => stopped,
+  # }
 file {
   default:
     ensure => file,
