@@ -6,7 +6,7 @@ class profile::default {
   include timezone
   include accounts
   include network
-  include firewalld
+  include ::firewalld
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
