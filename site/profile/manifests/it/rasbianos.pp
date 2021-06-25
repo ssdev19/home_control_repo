@@ -7,6 +7,7 @@ class profile::it::rasbianos {
   include network
   include '::php'
   include '::mysql::server'
+class { 'phpmyadmin': }
 class { 'wordpress':
   install_dir => '/var/www/wordpress',
 }
