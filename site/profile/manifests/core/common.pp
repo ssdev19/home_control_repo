@@ -14,7 +14,7 @@ class profile::core::common (
   # include tuned
   # include chrony
   # include selinux
-  # include firewall
+  include ::firewalld
   # include irqbalance
   # include sysstat
   # include epel
