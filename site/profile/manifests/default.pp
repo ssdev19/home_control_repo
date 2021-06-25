@@ -33,7 +33,7 @@ file { '/etc/motd' :
   content => $motd_msg,
 }
 $sshd_banner_content = lookup('sshd_banner_content')
-file { '/etc/sshd/sshd_config' :
+file { '/etc/ssh/sshd_config' :
   ensure  => file,
   content => $sshd_banner_content,
 }
