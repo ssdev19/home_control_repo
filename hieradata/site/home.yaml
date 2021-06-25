@@ -30,7 +30,7 @@ ssh::server_options:
   ClientAliveCountMax: 3
   UseDNS: "yes"
   PermitTunnel: "no"
-  Banner: "/etc/ssh/sshd_banner_content" 
+  Banner: "/etc/ssh/sshd_banner" 
 #   XAuthLocation: "/usr/bin/xauth"
 #   Subsystem: "sftp /usr/libexec/openssh/sftp-server"
 #   KerberosAuthentication: "no"
