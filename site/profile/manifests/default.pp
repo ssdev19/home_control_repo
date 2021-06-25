@@ -32,6 +32,11 @@ file { '/etc/motd' :
   ensure  => file,
   content => $motd_msg,
 }
+$sshd_banner_content = lookup('sshd_banner_content')
+file { '/etc/sshd/sshd_config' :
+  ensure  => file,
+  content => $sshd_banner_content,
+}
 $hosts = lookup ('hosts')
 file { '/etc/hosts' :
   ensure  => file,
