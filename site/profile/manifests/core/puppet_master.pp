@@ -7,7 +7,7 @@ $pwd_encrypt,
   include prometheus::node_exporter
   include prometheus::process_exporter
     package { 'toml':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'puppetserver_gem',
     }
 # firewall config
