@@ -6,6 +6,11 @@ class profile::default {
   include timezone
   include accounts
   include network
+Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
+ensure => installed,
+}
 class { 'ntp':
   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
 }
@@ -31,11 +36,7 @@ file { '/etc/hosts' :
   ensure  => file,
   content => $hosts,
 }
-Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
-ensure => installed,
-}
+
   # Firewall and security measurements
   # file_line { 'SELINUX=permissive':
   #   path  => '/etc/selinux/config',
