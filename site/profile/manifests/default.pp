@@ -17,7 +17,8 @@ class { 'ntp':
 }
   # include prometheus::node_exporter
 class { 'prometheus::node_exporter':
-  version            => '1.1.2',
+  version       => '1.1.2',
+  extra_options => '--collector.systemd',
   # collectors_disable => ['loadavg', 'mdadm'],
   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
