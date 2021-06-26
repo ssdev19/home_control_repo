@@ -33,6 +33,11 @@ class profile::core::common (
 #  if $collect_metrics {
 #    include profile::core::telegraf
 #  }
+class { 'prometheus::node_exporter':
+  version       => '1.1.2',
+  extra_options => '--collector.systemd',
+  # collectors_disable => ['loadavg', 'mdadm'],
+}
   class {'::puppet_agent':
     package_version => '6.21.1',
   }
