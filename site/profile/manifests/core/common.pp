@@ -35,7 +35,7 @@ class profile::core::common (
 #  }
 class { 'prometheus::node_exporter':
   version       => '1.1.2',
-  extra_options => '--collector.systemd \ --collector.process',
+  extra_options => '--collector.systemd \ --collector.processes',
   # collectors_disable => ['loadavg', 'mdadm'],
 }
   class {'::puppet_agent':
