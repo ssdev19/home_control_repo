@@ -1,0 +1,5 @@
+.env
+/.vscode/
+/modules
+.env_sample
+.travis.yaml

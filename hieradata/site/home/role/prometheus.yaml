@@ -1,0 +1,175 @@
+---
+prometheus::manage_prometheus_server: true
+
+prometheus::version: '2.27.0'
+
+prometheus::alerts:
+  groups:
+    - name: 'alert.rules'
+      rules:
+        - alert: 'InstanceDown'
+          expr: 'up == 0'
+          for: '1m'
+          labels:
+            severity: 'page'
+          annotations:
+            summary: 'Instance {{ .Labels.instance }} {{ .Value }} down'
+            description: '{{ $labels.instance }} of job {{ $labels.job }} has been
+              down for more than 1 minutes.'
+        - alert: EndpointDown
+          expr: probe_success == 0
+          for: 1m
+          labels:
+            severity: "critical"
+          annotations:
+            summary: 'Instance {{ .Labels.instance }} {{ .Value }} down'
+        - alert: PrometheusJobMissing
+          expr: absent(up{job="prometheus"})
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Prometheus job missing (instance {{ $labels.instance }})
+            description: "A Prometheus job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: WindowsServerServiceStatus
+          expr: windows_service_status{status="ok"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Server service Status (instance {{ $labels.instance }})
+            description: "Windows Service state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: WindowsServerDiskSpaceUsage
+          expr: 100.0 - 100 * (((windows_logical_disk_free_bytes{volume!="HarddiskVolume2"}) / 1024 / 1024 ) / ((windows_logical_disk_size_bytes{volume!="HarddiskVolume2"}) / 1024 / 1024)) > 80
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Server disk Space Usage (instance {{ $labels.instance }})
+            description: "Disk usage is more than 80%\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Clock skew detected
+        - alert: HostClockSkew
+          expr: (node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m]) <= 0)
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host clock skew (instance {{ $labels.instance }})
+            description: "Clock skew detected. Clock is out of sync.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+# Hyperv managemnt service
+        - alert: WindowsHypervServiceStatus
+          expr: windows_service_state{name="vmms", state="running"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Hyperv service Status (instance {{ $labels.instance }})
+            description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# windows_service_state service
+        - alert: windows_exporterServiceStatus
+          expr: windows_service_state{name="windows_exporter", state="running"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows W32Time service Status (instance {{ $labels.instance }})
+            description: "Windows windows_exporter state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Audio
+        - alert: WindowsAudioServiceStatus
+          expr: windows_service_state{name="audiosrv", state="running"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: Windows Audio service Status (instance {{ $labels.instance }})
+            description: "Windows Audio state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# 80% of mysql connections in use
+        - alert: MysqlTooManyConnections(>80%)
+          expr: avg by (instance) (rate(mysql_global_status_threads_connected[1m])) / avg by (instance) (mysql_global_variables_max_connections) * 100 > 80
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: MySQL too many connections (> 80%) (instance {{ $labels.instance }})
+            description: "More than 80% of MySQL connections are in use on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# SQL server down
+        - alert: SqlServerDown
+          expr: mssql_up == 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: SQL Server down (instance {{ $labels.instance }})
+            description: "SQL server instance is down\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: HostSwapIsFillingUp
+          expr: (1 - (node_memory_SwapFree_bytes / node_memory_SwapTotal_bytes)) * 100 > 80
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host swap is filling up (instance {{ $labels.instance }})
+            description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: HostSystemdServiceCrashed
+          expr: node_systemd_unit_state{state="failed"} == 1
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host systemd service crashed (instance {{ $labels.instance }})
+            description: "systemd service crashed\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: HostKernelVersionDeviations
+          expr: count(sum(label_replace(node_uname_info, "kernel", "$1", "release", "([0-9]+.[0-9]+.[0-9]+).*")) by (kernel)) > 1
+          for: 6h
+          labels:
+            severity: warning
+          annotations:
+            summary: Host kernel version deviations (instance {{ $labels.instance }})
+            description: "Different kernel versions are running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: HostClockNotSynchronising
+          expr: min_over_time(node_timex_sync_status[1m]) == 0 and node_timex_maxerror_seconds >= 16
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: Host clock not synchronising (instance {{ $labels.instance }})
+            description: "Clock not synchronising.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# MySQLD down
+        - alert: MysqlDown
+          expr: mysql_up == 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: MySQL down (instance {{ $labels.instance }})
+            description: "MySQL instance is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Jira down
+        - alert: Jira
+          expr: jira_up == 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: Jira down (instance {{ $labels.instance }})
+            description: "Jira service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+# prometheus::alertmanager::version: '0.22.2'          
+prometheus::alertmanager::route:
+  group_by:
+    - 'alertname'
+    - 'cluster'
+    - 'service'
+  group_wait: '30s'
+  group_interval: '1m'
+  repeat_interval: '3h'
+  receiver: 'slack' # email it to me
+
+#   receivers:
+#     - name: email-me
+#       email_configs:
+#       - to: "%{lookup('$GMAIL_ACCOUNT')}"
+#         from: "%{lookup('$GMAIL_ACCOUNT')}"
+#         smarthost: smtp.gmail.com:587
+#         auth_username: "%{lookup('$GMAIL_ACCOUNT')}"
+#         auth_identity: "$GMAIL_ACCOUNT"
+#         auth_password: "%{lookup('$GMAIL_AUTH_TOKEN')}"

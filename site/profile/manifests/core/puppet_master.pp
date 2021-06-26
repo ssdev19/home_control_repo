@@ -1,8 +1,56 @@
-class profile::core::puppet_master {
-  file{ '/root/README':
+# foreman
+class profile::core::puppet_master (Sensitive[String]
+$psswrd_encrypt,
+$pwd_encrypt,
+){
+  # include node_exporter
+  include prometheus::node_exporter
+  include prometheus::process_exporter
+    package { 'toml':
+    ensure   => present,
+    provider => 'puppetserver_gem',
+    }
+# firewall config
+  # class { 'firewalld':
+  #   service_ensure => stopped,
+  # }
+file {
+  default:
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+  ;
+  '/root/README':
     ensure  => file,
-    content => "Welcome to the ${fqdn},\n BIOS release date:${bios_release_date} \nthis is a Puppet Master Server\n
-    This file is created because profile::core::foreman includes this class and in foreman role is set to foreman",
+    content => "\nWelcome to ${::fqdn},\nBIOS release date:${::bios_release_date} \nThis is The Puppet Master Server\n
+  This file is created because profile::core::puppet_master includes this class and in forpuppet_master role is set to puppet_master.\n",
+  ;
+  '/etc/puppetlabs/puppet/eyaml':
+    ensure => directory,
+    mode   => '0755',
+  ;
+  '/root/encrypt':
+    ensure  => file,
+    mode    => '0755',
+    content => unwrap($pwd_encrypt).node_encrypt::secret,
+  ;
   }
-include r10k
+# user {'erwin':
+#     ensure     => present,
+#     name       => 'erwin',
+#     groups     => ['wheel'],
+#     password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
+#     managehome => true,
+# }
+# file {'/root/enctryp2':
+#     ensure  => file,
+#     owner   => 'root',
+#     content => unwrap($psswrd_encrypt).node_encrypt::secret,
+#   }
+# ini_setting { "testfilecomment":
+#   path => "/root/nagiostest.cfg",
+#   section => 'test',
+#   setting => 'cfg_file',
+#   value => "/usr/local/nagios/etc/objects/${::hostname}.cfg"
+# }
 }

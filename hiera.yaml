@@ -1,31 +1,39 @@
 ---
 version: 5
 defaults:
-  data_hash: "yaml_data"
+
 hierarchy:
+  - name: "public hiera"
+    lookup_key: eyaml_lookup_key # eyaml backend
+    datadir: "/etc/puppetlabs/code/environments/%{environment}"
+    paths:
+      - "hieradata/%{hieradata}/node/%{fqdn}.yaml"
+      # - "site/%{site}/cluster/%{cluster}/role/%{role}.yaml"
+      # - "site/%{site}/cluster/%{cluster}.yaml"
+      # - "cluster/%{cluster}/role/%{role}.yaml"
+      # - "cluster/%{cluster}.yaml"
+      - "hieradata/%{hieradata}/site/%{site}/role/%{role}.yaml"
+      - "hieradata/%{hieradata}/site/%{site}.yaml"
+      - "hieradata/%{hieradata}/org/%{org}/role/%{role}.yaml"
+      - "role/%{role}.yaml"
+      - "org/%{org}.yaml"
+      - "common.yaml"
+    options:
+      pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
+      pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
   - name: "private hiera"
+    data_hash: "yaml_data"
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
     paths:
       - "node/%{fqdn}.yaml"
-      - "site/%{site}/cluster/%{cluster}/role/%{role}.yaml"
-      - "site/%{site}/cluster/%{cluster}.yaml"
-      - "cluster/%{cluster}/role/%{role}.yaml"
-      - "cluster/%{cluster}.yaml"
+      # - "site/%{site}/cluster/%{cluster}/role/%{role}.yaml"
+      # - "site/%{site}/cluster/%{cluster}.yaml"
+      # - "cluster/%{cluster}/role/%{role}.yaml"
+      # - "cluster/%{cluster}.yaml"
       - "site/%{site}/role/%{role}.yaml"
       - "site/%{site}.yaml"
       - "org/%{org}/role/%{role}.yaml"
       - "role/%{role}.yaml"
       - "org/%{org}.yaml"
-  - name: "public hiera"
-    datadir: "/etc/puppetlabs/code/environments/%{environment}/hieradata"
-    paths:
-      - "node/%{fqdn}.yaml"
-      - "site/%{site}/cluster/%{cluster}/role/%{role}.yaml"
-      - "site/%{site}/cluster/%{cluster}.yaml"
-      - "cluster/%{cluster}/role/%{role}.yaml"
-      - "cluster/%{cluster}.yaml"
-      - "site/%{site}/role/%{role}.yaml"
-      - "site/%{site}.yaml"
-      - "org/%{org}/role/%{role}.yaml"
-      - "role/%{role}.yaml"
-      - "org/%{org}.yaml"
+  # - name: "eyaml"
+  #   datadir: '/etc/puppetlabs/code/environments/%{environment}/hieradata'

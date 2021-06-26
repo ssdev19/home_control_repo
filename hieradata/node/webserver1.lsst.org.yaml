@@ -1,5 +1,0 @@
----
-classes:
-     - profile::core::common
-     - profile::it::web
-#   - profile::it::graylog
