@@ -44,7 +44,7 @@ file { '/root/secretfile.cfg':
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap' ]:
+'acpid', 'wget', 'nmap', 'foreman-telemetry' ]:
 ensure => installed,
 }
 }
