@@ -15,10 +15,10 @@ ensure => installed,
 class { 'ntp':
   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
 }
-  # include prometheus::node_exporter
+# config: /etc/systemd/system/node_exporter.service
 class { 'prometheus::node_exporter':
   version       => '1.1.2',
-  extra_options => '--collector.systemd \--collector.processes',
+  extra_options => '--collector.systemd \--collector.processes \--collector.meminfo_numa',
   # collectors_disable => ['loadavg', 'mdadm'],
   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
