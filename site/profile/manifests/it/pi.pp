@@ -21,7 +21,7 @@ class profile::it::pi {
 # }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
-'acpid', 'wget', 'nmap', 'ifupdown-extra']:
+'acpid', 'wget', 'nmap', 'ifupdown-extra', 'john']:
 ensure => installed,
 }
 }
