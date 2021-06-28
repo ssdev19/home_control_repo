@@ -11,7 +11,7 @@ ssh::server_options:
   SyslogFacility: "AUTHPRIV"
   # LogLevel: "INFO"
   LoginGraceTime: 195
-  PermitRootLogin: "no"
+  PermitRootLogin: "yes"
   PubkeyAuthentication: "yes"
   AuthorizedKeysFile: ".ssh/authorized_keys"
   PasswordAuthentication: "yes"
