@@ -17,7 +17,7 @@ $advertise_ip,
     modules => {
       'http_2xx' => {
         'prober'  => 'http',
-        'timeout' => '5s',
+        'timeout' => '7s',
         'http'    => {
           'valid_status_codes'    => [],
           'method'                => 'GET',
