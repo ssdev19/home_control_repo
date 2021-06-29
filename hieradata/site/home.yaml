@@ -62,6 +62,7 @@ accounts::user_list:
     # gid: 1122
     password: ''
     ignore_password_if_empty: true
+    locked: true
   # remove_users: &remove_user
   #   ensure: "absent"
   #   managehome: true
