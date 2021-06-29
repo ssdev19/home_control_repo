@@ -58,8 +58,8 @@ accounts::user_list:
   shahramdel:
     groups:
       - "wheel"
-    uid: 1000
-    gid: 1000
+    uid: 1122
+    gid: 1122
   # remove_users: &remove_user
   #   ensure: "absent"
   #   managehome: true
