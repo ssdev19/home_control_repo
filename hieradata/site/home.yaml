@@ -60,7 +60,7 @@ accounts::user_list:
       - "wheel"
     uid: 1122
     gid: 1122
-    replace: false
+    password: ''
   # remove_users: &remove_user
   #   ensure: "absent"
   #   managehome: true
