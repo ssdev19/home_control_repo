@@ -60,7 +60,7 @@ accounts::user_list:
       - "wheel"
     # uid: 1122
     # gid: 1122
-    password: ''
+    password: 
     ignore_password_if_empty: true
   # remove_users: &remove_user
   #   ensure: "absent"
