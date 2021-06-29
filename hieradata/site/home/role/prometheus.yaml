@@ -112,7 +112,7 @@ prometheus::alerts:
             description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
         - alert: HostSystemdServiceCrashed
           expr: node_systemd_unit_state{state="failed"} == 1
-          for: 0m
+          for: 10m
           labels:
             severity: warning
           annotations:
