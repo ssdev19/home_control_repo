@@ -48,6 +48,11 @@ file { '/etc/hosts.deny' :
   ensure  => file,
   content => $denyhosts,
 }
+$allowhosts = lookup ('allowhosts')
+file { '/etc/hosts.allow' :
+  ensure  => file,
+  content => $allowhosts,
+}
 
   # Firewall and security measurements
   # file_line { 'SELINUX=permissive':
