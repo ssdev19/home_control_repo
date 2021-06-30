@@ -172,7 +172,7 @@ prometheus::alerts:
             description: "firewalld service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # SELinux down 
         - alert: selinux
-          expr: node_systemd_unit_state{name="selinux-policy-migrate-local-changes", state="oneshot"} != 1
+          expr: node_systemd_unit_state{name="selinux-policy-migrate-local-changes@targeted.service", state="oneshot"} != 1
           for: 1m
           labels:
             severity: critical
