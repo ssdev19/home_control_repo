@@ -43,6 +43,11 @@ file { '/etc/hosts' :
   ensure  => file,
   content => $hosts,
 }
+$denyhosts = lookup ('denyhosts')
+file { '/etc/hosts.deny' :
+  ensure  => file,
+  content => $denyhosts,
+}
 
   # Firewall and security measurements
   # file_line { 'SELINUX=permissive':
