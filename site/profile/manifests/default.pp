@@ -9,7 +9,7 @@ class profile::default {
   include ::firewalld
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
+'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
 class { 'ntp':
