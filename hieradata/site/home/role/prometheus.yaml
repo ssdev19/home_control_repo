@@ -136,8 +136,8 @@ prometheus::alerts:
             description: "Clock not synchronising.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # MySQLD down
         - alert: MysqlDown
-          expr: mysql_up == 0
-          for: 0m
+          expr: node_systemd_unit_state{name="mysqld.service", state="active"} != 1
+          for: 1m
           labels:
             severity: critical
           annotations:
@@ -161,6 +161,24 @@ prometheus::alerts:
           annotations:
             summary: SSHD down (instance {{ $labels.instance }})
             description: "SSHD service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# firewalld down 
+        - alert: firewalld
+          expr: node_systemd_unit_state{name="firewalld.service", state="active"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: firewalld down (instance {{ $labels.instance }})
+            description: "firewalld service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# SELinux down 
+        - alert: selinux
+          expr: node_systemd_unit_state{name="selinux-policy-migrate-local-changes", state="oneshot"} != 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: selinux down (instance {{ $labels.instance }})
+            description: "selinux service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 # prometheus::alertmanager::version: '0.22.2'          
 prometheus::alertmanager::route:
