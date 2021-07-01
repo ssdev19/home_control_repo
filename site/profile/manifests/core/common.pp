@@ -33,6 +33,9 @@ class profile::core::common (
 #  if $collect_metrics {
 #    include profile::core::telegraf
 #  }
+class { 'ntp':
+  servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
+}
 class { 'prometheus::node_exporter':
   version       => '1.1.2',
   extra_options => '--collector.systemd \--collector.processes',
