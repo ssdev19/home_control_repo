@@ -23,7 +23,7 @@ ssh::server_options:
   X11Forwarding: "yes"
   X11UseLocalhost: "yes"
   UsePrivilegeSeparation: "no"
-  PrintMotd: "no"
+  PrintMotd: "yes"
   TCPKeepAlive: "yes"
   KbdInteractiveAuthentication: "no"
   # ClientAliveInterval: 0
