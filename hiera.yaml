@@ -22,8 +22,8 @@ hierarchy:
       pkcs7_private_key: /etc/puppetlabs/puppet/eyaml/private_key.pkcs7.pem
       pkcs7_public_key: /etc/puppetlabs/puppet/eyaml/public_key.pkcs7.pem
   - name: "private hiera"
-    lookup_key: eyaml_lookup_key # eyaml backend
-    # data_hash: "yaml_data"
+    # lookup_key: eyaml_lookup_key # eyaml backend
+    data_hash: "yaml_data"
     datadir: "/etc/puppetlabs/code/hieradata/private/%{environment}"
     paths:
       - "node/%{fqdn}.yaml"
