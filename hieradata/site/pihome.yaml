@@ -41,3 +41,17 @@ ssh::server_options:
 #   PubkeyAuthentication: "yes"
 #   ProxyCommand: "/usr/bin/sss_ssh_knownhostsproxy -p %p %h"
 ##########################################################
+---
+cron::job:
+  'goddayddns':
+    command: 'sh /root/GoDaddy_Bash_DDNS.sh -u root'
+    minute: 0
+    hour: 0
+    date: '*'
+    month: '*'
+    weekday: '*'
+    user: root
+    environment:
+      - 'MAILTO=root'
+      - 'PATH="/usr/bin:/bin"'
+    description: 'godaddy ddns update'

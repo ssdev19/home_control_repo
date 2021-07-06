@@ -5,6 +5,7 @@ class profile::it::pi {
   include timezone
   include accounts
   include network
+  include cron
   # include prometheus::node_exporter
   # class {'::puppet_agent':
   # package_version => '6.21.1',
