@@ -45,8 +45,8 @@ ssh::server_options:
 cron::job:
   'goddayddns':
     command: 'sh /root/GoDaddy_Bash_DDNS.sh -u root'
-    minute: 0
-    hour: 0
+    minute: 12
+    hour: 11
     date: '*'
     month: '*'
     weekday: '*'
