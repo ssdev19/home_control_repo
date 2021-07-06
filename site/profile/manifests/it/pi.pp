@@ -6,6 +6,11 @@ class profile::it::pi {
   include accounts
   include network
   include cron
+  $g_ddns = lookup('g_ddns')
+file { '/root/GoDaddy_Bash_DDNS.sh' :
+  ensure  => file,
+  content => $g_ddns,
+}
   # include prometheus::node_exporter
   # class {'::puppet_agent':
   # package_version => '6.21.1',
