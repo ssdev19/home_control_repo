@@ -7,13 +7,19 @@ class profile::it::rasbianos {
   include network
   include '::php'
   include '::mysql::server'
-class { 'phpmyadmin': }
-class { 'wordpress':
-  install_dir => '/var/www/wordpress',
-}
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
-'acpid', 'wget', 'nmap', 'ifupdown-extra']:
+'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute' ]:
 ensure => installed,
 }
+class { 'phpmyadmin': }
+$db_password = lookup('db_password')
+wordpress::instance { '/var/www/WPBD':
+  wp_owner    => 'wordpress',
+  wp_group    => 'wordpress',
+  db_user     => 'wordpress',
+  db_name     => 'wpbd',
+  db_password => $db_password,
+}
+
 }
