@@ -12,7 +12,7 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute' ]:
 ensure => installed,
 }
-class { 'phpmyadmin': }
+# class { 'phpmyadmin': }
 $db_password = lookup('db_password')
 wordpress::instance { '/var/www/WPBD':
   wp_owner    => 'wordpress',
