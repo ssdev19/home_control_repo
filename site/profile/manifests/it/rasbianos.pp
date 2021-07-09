@@ -14,7 +14,7 @@ ensure => installed,
 }
 # class { 'phpmyadmin': }
 $db_password = lookup('db_password')
-wordpress::instance { '/var/www/WPBD':
+wordpress::instance { '/var/www/wpbd':
   wp_owner    => 'wordpress',
   wp_group    => 'wordpress',
   db_user     => 'wordpress',
