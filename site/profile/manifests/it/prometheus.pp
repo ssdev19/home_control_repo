@@ -28,6 +28,9 @@ $advertise_ip,
       'tcp_connect' => {
         'prober'  => 'tcp',
       },
+      'icmp'        => {
+        'prober'  => 'icmp'
+        }
     }
   }
 $gmail_auth_token = lookup('gmail_auth_token')
