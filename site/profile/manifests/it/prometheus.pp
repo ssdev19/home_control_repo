@@ -28,8 +28,7 @@ $advertise_ip,
       'tcp_connect' => {
         'proper'  => 'tcp',
         'timeout' => '7s',
-        'tcp'     => {}
-      }
+      },
     }
   }
 $gmail_auth_token = lookup('gmail_auth_token')
