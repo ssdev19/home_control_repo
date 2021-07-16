@@ -109,14 +109,14 @@ prometheus::alerts:
           annotations:
             summary: Host swap is filling up (instance {{ $labels.instance }})
             description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-        - alert: DiskSpace1%Free
-          expr: node_exporter:node_filesystem_free:fs_used_percents >= 1
+        - alert: DiskSpace10%Free
+          expr: 100 - (100 * node_filesystem_avail_bytes / node_filesystem_size_bytes) > 90
           for: 1m
           labels:
             severity: moderate
           annotations:
             summary: "Instance {{ $labels.instance }} is low on disk space"
-            description: "{{ $labels.instance }} has only {{ $value }}% free."
+            description: "diskspace on {{ $labels.instance }} is used over {{ $value }}% ."
         - alert: HostSystemdServiceCrashed
           expr: node_systemd_unit_state{state="failed"} == 1
           for: 10m
