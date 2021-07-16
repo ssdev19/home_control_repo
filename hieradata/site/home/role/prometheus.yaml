@@ -56,7 +56,6 @@ prometheus::alerts:
           annotations:
             summary: Host clock skew (instance {{ $labels.instance }})
             description: "Clock skew detected. Clock is out of sync.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-
 # Hyperv managemnt service
         - alert: WindowsHypervServiceStatus
           expr: windows_service_state{name="vmms", state="running"} == 0
@@ -110,6 +109,13 @@ prometheus::alerts:
           annotations:
             summary: Host swap is filling up (instance {{ $labels.instance }})
             description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+        - alert: DiskSpace10%Free
+          expr: node_exporter:node_filesystem_free:fs_used_percents >= 90
+          labels:
+            severity: moderate
+          annotations:
+            summary: "Instance {{ $labels.instance }} is low on disk space"
+            description: "{{ $labels.instance }} has only {{ $value }}% free."
         - alert: HostSystemdServiceCrashed
           expr: node_systemd_unit_state{state="failed"} == 1
           for: 10m
