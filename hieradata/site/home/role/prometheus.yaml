@@ -111,6 +111,7 @@ prometheus::alerts:
             description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
         - alert: DiskSpace99%Free
           expr: node_exporter:node_filesystem_free:fs_used_percents >= 99
+          for: 1m
           labels:
             severity: moderate
           annotations:
