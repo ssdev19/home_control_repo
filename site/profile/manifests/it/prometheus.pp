@@ -20,15 +20,14 @@ $advertise_ip,
         'prober'  => 'http',
         'timeout' => '7s',
         'http'    => {
-          'valid_status_codes'    => [200],
+          'valid_status_codes'    => [],
           'method'                => 'GET',
           'preferred_ip_protocol' => 'ipv4',
         }
       },
-      # 'tcp_connect' => {
-      #   'proper'  => 'tcp',
-      #   'timeout' => '7s',
-      # },
+      'tcp_connect' => {
+        'prober'  => 'tcp',
+      },
     }
   }
 $gmail_auth_token = lookup('gmail_auth_token')
