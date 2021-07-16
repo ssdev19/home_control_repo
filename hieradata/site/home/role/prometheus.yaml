@@ -109,8 +109,8 @@ prometheus::alerts:
           annotations:
             summary: Host swap is filling up (instance {{ $labels.instance }})
             description: "Swap is filling up (>80%)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-        - alert: DiskSpace98%Free
-          expr: 100 - (100 * node_filesystem_avail_bytes / node_filesystem_size_bytes) > 2
+        - alert: DiskSpace10%Free
+          expr: 100 - (100 * node_filesystem_avail_bytes / node_filesystem_size_bytes) > 90
           for: 1m
           labels:
             severity: moderate
