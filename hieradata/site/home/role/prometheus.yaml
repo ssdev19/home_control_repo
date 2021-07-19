@@ -186,6 +186,15 @@ prometheus::alerts:
           annotations:
             summary: selinux down (instance {{ $labels.instance }})
             description: "selinux service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# Apache down 
+        - alert: Apache
+          expr: node_systemd_unit_state{name="apache2.service", state="active"} != 1
+          for: 3m
+          labels:
+            severity: critical
+          annotations:
+            summary: Apache down (instance {{ $labels.instance }})
+            description: "Apache service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 # prometheus::alertmanager::version: '0.22.2'          
 prometheus::alertmanager::route:
