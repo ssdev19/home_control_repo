@@ -189,7 +189,7 @@ prometheus::alerts:
 # Apache down 
         - alert: Apache
           expr: node_systemd_unit_state{name="apache2.service", state="active"} != 1
-          for: 3m
+          for: 1m
           labels:
             severity: critical
           annotations:
