@@ -16,6 +16,7 @@ file { '/root/GoDaddy_Bash_DDNS.sh' :
   # package_version => '6.21.1',
   # }
 class { 'prometheus::node_exporter':
+  init_style         => 'systemd',
   version            => '0.15.0',
   collectors_disable => ['loadavg', 'mdadm'],
   extra_options      => '--collector.systemd \--collector.processes \--collector.meminfo_numa',
