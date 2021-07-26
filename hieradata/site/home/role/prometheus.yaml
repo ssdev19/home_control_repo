@@ -196,7 +196,7 @@ prometheus::alerts:
             summary: Apache down (instance {{ $labels.instance }})
             description: "Apache service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # Jira mail queue error
-        - alert: jira_mail_queue_error_gauge
+        - alert: jira mail queue error
           expr: jira_mail_queue_error_gauge == 1
           for: 0m
           labels:
