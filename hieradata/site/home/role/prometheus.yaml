@@ -9,7 +9,7 @@ prometheus::alerts:
       rules:
         - alert: 'InstanceDown'
           expr: 'up == 0'
-          for: '1m'
+          for: '5m'
           labels:
             severity: 'page'
           annotations:
@@ -18,7 +18,7 @@ prometheus::alerts:
               down for more than 1 minutes.'
         - alert: EndpointDown
           expr: probe_success == 0
-          for: 1m
+          for: 5m
           labels:
             severity: "critical"
           annotations:
@@ -50,7 +50,7 @@ prometheus::alerts:
 # Clock skew detected
         - alert: HostClockSkew
           expr: (node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m]) <= 0)
-          for: 12s
+          for: 10m
           labels:
             severity: warning
           annotations:
@@ -153,7 +153,7 @@ prometheus::alerts:
 # Jira down
         - alert: Jira
           expr: jira_up == 0
-          for: 0m
+          for: 10m
           labels:
             severity: critical
           annotations:
@@ -162,7 +162,7 @@ prometheus::alerts:
 # SSH down 
         - alert: SSH
           expr: node_systemd_unit_state{name="sshd.service", state="active"} != 1
-          for: 1m
+          for: 5m
           labels:
             severity: critical
           annotations:
@@ -189,7 +189,7 @@ prometheus::alerts:
 # Apache down 
         - alert: Apache
           expr: node_systemd_unit_state{name="apache2.service", state="active"} != 1
-          for: 1m
+          for: 5m
           labels:
             severity: critical
           annotations:
