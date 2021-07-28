@@ -55,4 +55,10 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
+augeas { 'augeas_rsyslog.conf':
+    context => '/etc/rsyslog.conf',
+    changes => [
+        '*.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format',
+    ]
+}
 }
