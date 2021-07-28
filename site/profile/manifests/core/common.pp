@@ -55,13 +55,14 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
+# *.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format
 syslog { "my test":
   ensure          => present,
-  facility        => "local2",
-  level           => "*",
-  action_type     => "hostname",
-  action_port     => "5514",
-  action_protocol => "tcp",
-  action          => "centralserver",
+  facility        => '*',
+  level           => '*',
+  action_type     => '',
+  action_port     => '5514',
+  action_protocol => 'tcp',
+  action          => 'graylog.lsst.org',
 }
 }
