@@ -58,7 +58,7 @@ ensure => installed,
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
 syslog { "my test":
   ensure          => present,
-  facility        => "local2",
+  facility        => "*",
   level           => "*",
   action_type     => "hostname",
   action_port     => "514",
