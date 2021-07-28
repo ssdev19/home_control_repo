@@ -64,6 +64,5 @@ syslog { "my test":
   action_port     => "514",
   action_protocol => "tcp",
   action          => "tuc.lsst.org",
-  action          +> ";RSYSLOG_SyslogProtocol23Format"
 }
 }
