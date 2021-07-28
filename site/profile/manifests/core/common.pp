@@ -24,7 +24,7 @@ class profile::core::common (
   # include resolv_conf
   include ssh
   # include easy_ipa
-  include augeas
+  # include augeas
   # include rsyslog
 #  include rsyslog::config
 #  include profile::core::hardware
@@ -55,9 +55,9 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
-augeas { 'augeas_rsyslog.conf':
-    context => '/etc/rsyslog.conf',
-    changes => [
+augeas::lens { 'augeas_rsyslog.conf':
+    lens_content => '/etc/rsyslog.conf',
+    changes      => [
         '*.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format',
     ]
 }
