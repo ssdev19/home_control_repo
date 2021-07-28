@@ -57,7 +57,7 @@ ensure => installed,
 }
 augeas::lens { 'augeas_rsyslog.conf':
     lens_content => '/etc/rsyslog.conf',
-    changes      => [
+    lens_changes => [
         '*.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format',
     ]
 }
