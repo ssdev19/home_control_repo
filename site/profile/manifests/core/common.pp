@@ -55,10 +55,13 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
-augeas::lens { 'augeas_rsyslog.conf':
-    lens_content => '/etc/rsyslog.conf',
-    lens_changes => [
-        '*.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format',
-    ]
+syslog { "my test":
+  ensure          => present,
+  facility        => "local2",
+  level           => "*",
+  action_type     => "hostname",
+  action_port     => "5514",
+  action_protocol => "tcp",
+  action          => "centralserver",
 }
 }
