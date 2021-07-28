@@ -56,9 +56,9 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 ensure => installed,
 }
 # *.* @140.252.32.157:5514;RSYSLOG_SyslogProtocol23Format
-syslog { "my test":
+syslog { 'my test':
   ensure          => present,
-  facility        => '*',
+  facility        => 'local2',
   level           => '*',
   action_type     => 'acttest',
   action_port     => '5514',
