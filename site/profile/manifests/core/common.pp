@@ -60,7 +60,7 @@ syslog { "my test":
   ensure          => present,
   facility        => '*',
   level           => '*',
-  action_type     => '',
+  action_type     => 'acttest',
   action_port     => '5514',
   action_protocol => 'tcp',
   action          => 'graylog.lsst.org',
