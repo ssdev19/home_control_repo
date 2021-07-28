@@ -62,7 +62,7 @@ syslog { "my test":
   level           => "*",
   action_type     => "hostname",
   action_port     => "514",
-  action_protocol => "RSYSLOG_SyslogProtocol23Format",
+  action_protocol => "tcp",
   action          => "tuc.lsst.org",
 }
 }
