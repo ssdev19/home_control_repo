@@ -61,7 +61,7 @@ syslog { "my test":
   facility        => "*",
   level           => "*",
   action_type     => "hostname",
-  action_port     => "514",
+  action_port     => "514"+";sdd",
   action_protocol => "udp",
   action          => "tuc.lsst.org",
 }
