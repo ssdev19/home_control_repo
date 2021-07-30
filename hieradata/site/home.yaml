@@ -69,10 +69,11 @@ accounts::user_list:
   shahramdel:
     <<: *remove_user
 # graylog
-graylogAWS:
-  type: "omfwd"
-  facility: "*.*"
-  config:
-    Target: "tu.lsst.org"
-    Port: 5514
-    Protocol: "udp"
+rsyslog::config::global_config:
+  graylogAWS:
+    type: "omfwd"
+    facility: "*.*"
+    config:
+      Target: "tu.lsst.org"
+      Port: 5514
+      Protocol: "udp"
