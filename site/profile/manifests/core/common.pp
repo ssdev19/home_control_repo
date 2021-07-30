@@ -26,7 +26,7 @@ class profile::core::common (
   # include easy_ipa
   # include augeas
   # include rsyslog
-#  include rsyslog::config
+ include rsyslog::config
 #  include profile::core::hardware
 #  include profile::core::dielibwrapdie
 
@@ -56,13 +56,5 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 ensure => installed,
 }
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
-syslog { "my test":
-  ensure          => absent,
-  facility        => "*",
-  level           => "*",
-  action_type     => "hostname",
-  action_port     => "514",
-  action_protocol => "udp",
-  action          => "tuc.lsst.org",
-}
+
 }
