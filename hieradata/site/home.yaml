@@ -69,7 +69,7 @@ accounts::user_list:
   shahramdel:
     <<: *remove_user
 # graylog
-rsyslog::config::inputs:
+rsyslog::config::actions:
   graylogAWS:
     type: "omfwd"
     facility: "*.*"
