@@ -68,3 +68,11 @@ accounts::user_list:
     purge_user_home: true
   shahramdel:
     <<: *remove_user
+# graylog
+  graylogAWS:
+    type: "omfwd"
+    facility: "*.*"
+    config:
+      Target: "tu.lsst.org"
+      Port: 5514
+      Protocol: "udp"

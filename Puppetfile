@@ -53,7 +53,7 @@ mod 'puppetlabs-inifile', '5.0.1'
 mod 'puppetlabs/java', '6.2.0'
 mod 'puppetlabs-stdlib', '7.0.1'
 mod 'puppetlabs/vcsrepo', '3.0.0'
-mod 'puppet/rsyslog', '4.0.0'
+mod 'puppet-rsyslog', '5.2.0'
 mod 'puppet/ssh_keygen', '4.0.0'
 
 # This requires toml-rb, which should be installed on the puppet master.
