@@ -65,3 +65,6 @@ cron::job:
     weekday: '*'
     user: root
     description: 'Restart apache2 every hour'
+    environment:
+      - 'MAILTO=root'
+      - 'PATH="/usr/bin:/bin"'
