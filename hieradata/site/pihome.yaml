@@ -58,13 +58,10 @@ cron::job:
   # Restart Apache
   'apache':
     command: 'systemctl stop apache2 -u root'
-    minute: 0 # every hour on the hour
+    minute: 9 # every hour on the hour
     hour: '*'
     date: '*'
     month: '*'
     weekday: '*'
     user: root
-    environment:
-      - 'MAILTO=root'
-      - 'PATH="/usr/bin:/bin"'
     description: 'Restart apache2 every hour'
