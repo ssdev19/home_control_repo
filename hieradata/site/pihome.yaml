@@ -53,7 +53,7 @@ cron::job:
     description: 'godaddy ddns update'
   # Restart Apache
   'apache':
-    command: 'systemctl stop apache2'
+    command: 'systemctl restart apache2'
     minute: 30 # every hour on the hour
     user: root
     environment:
