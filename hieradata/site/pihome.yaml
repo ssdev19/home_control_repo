@@ -58,7 +58,7 @@ cron::job:
   # Restart Apache
   'apache':
     command: 'systemctl stop apache2 -u root'
-    minute: 9 # every hour on the hour
+    minute: 14 # every hour on the hour
     hour: '*'
     date: '*'
     month: '*'
