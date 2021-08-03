@@ -55,3 +55,12 @@ cron::job:
       - 'MAILTO=root'
       - 'PATH="/usr/bin:/bin"'
     description: 'godaddy ddns update'
+  # Restart Apache
+  'apache':
+    command: 'systemctl restart apache2 -u root'
+    minute: 0 # every hour on the hour
+    hour: '*'
+    date: '*'
+    month: '*'
+    weekday: '*'
+    user: root
