@@ -64,3 +64,4 @@ cron::job:
     month: '*'
     weekday: '*'
     user: root
+    description: 'Restart apache2 every hour'
