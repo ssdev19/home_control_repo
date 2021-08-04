@@ -66,4 +66,4 @@ cron::job:
     user: root
     environment:
       - 'MAILTO=root'
-      - 'PATH="/usr/bin:/bin"'
+      - 'PATH="/usr/bin:/sbin:/bin"'
