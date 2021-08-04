@@ -61,8 +61,8 @@ cron::job:
       - 'PATH="/usr/bin:/bin"'
   'reboot':
     command: 'reboot'
-    minute: 0 # every day at 1 AM
-    hour: 1
+    minute: 10 # every day at 1 AM
+    hour: 7
     user: root
     environment:
       - 'MAILTO=root'
