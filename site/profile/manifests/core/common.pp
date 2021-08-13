@@ -52,7 +52,7 @@ class { 'prometheus::node_exporter':
   }
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl-devel',
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => latest,
 }
@@ -66,9 +66,8 @@ ensure => latest,
 #                   'creates'      => '/usr/local/ssl/openssl-1.1.1',
 #                   }, }
 #   }
-  class { '::openssl':
-    version => 'OpenSSL 1.1.1c FIPS  28 May 2019',
-    package_ensure         => present,
-    ca_certificates_ensure => present,
-  }
+  # class { '::openssl':
+  #   package_ensure         => present,
+  #   ca_certificates_ensure => present,
+  # }
 }
