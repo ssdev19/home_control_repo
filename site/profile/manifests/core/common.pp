@@ -11,6 +11,7 @@ class profile::core::common (
   include timezone
   include node_encrypt::certificates
   include network
+  include ::openssl
   # include tuned
   # include chrony
   # include selinux
@@ -51,7 +52,7 @@ class { 'prometheus::node_exporter':
   }
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => latest,
 }
