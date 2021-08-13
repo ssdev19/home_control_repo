@@ -67,7 +67,8 @@ ensure => latest,
 #                   }, }
 #   }
   class { '::openssl':
-    package_ensure         => 'OpenSSL 1.1.1c FIPS  28 May 2019',
+    version => 'OpenSSL 1.1.1c FIPS  28 May 2019',
+    package_ensure         => present,
     ca_certificates_ensure => present,
   }
 }
