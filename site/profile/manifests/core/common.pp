@@ -56,5 +56,10 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 ensure => installed,
 }
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
-
+class { 'archive':
+  archives => { '/tmp/openssl-1.1.1c' => {
+                  'ensure' => 'present',
+                  'source' => 'https://www.openssl.org/source/openssl-1.1.1c.tar.gz',
+                  }, }
+}
 }
