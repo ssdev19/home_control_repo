@@ -53,16 +53,16 @@ class { 'prometheus::node_exporter':
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
-ensure => installed,
+ensure => latest,
 }
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
-class { 'archive':
-  archives => { '/tmp/openssl-1.1.1k.tar.gz' => {
-                  'ensure'  => 'present',
-                  'source'  => 'https://www.openssl.org/source/openssl-1.1.1k.tar.gz',
-                  'extract' => true,                  
-                  'extract_path' => '/usr/local/',
-                  'creates'      => "/usr/local/ssl/openssl-1.1.1",
-                  }, }
-  }
+# class { 'archive':
+#   archives => { '/tmp/openssl-1.1.1k.tar.gz' => {
+#                   'ensure'  => 'present',
+#                   'source'  => 'https://www.openssl.org/source/openssl-1.1.1k.tar.gz',
+#                   'extract' => true,
+#                   'extract_path' => '/usr/local/',
+#                   'creates'      => '/usr/local/ssl/openssl-1.1.1',
+#                   }, }
+#   }
 }
