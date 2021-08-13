@@ -59,7 +59,7 @@ ensure => installed,
 class { 'archive':
   archives => { '/tmp/openssl-1.1.1c' => {
                   'ensure' => 'present',
-                  'source' => 'https://www.openssl.org/source/openssl-1.1.1c.tar.gz',
+                  'source' => 'https://www.openssl.org/source/openssl-1.1.1k.tar.gz',
                   }, }
 }
 }
