@@ -60,6 +60,9 @@ class { 'archive':
   archives => { '/tmp/openssl-1.1.1k.tar.gz' => {
                   'ensure'  => 'present',
                   'source'  => 'https://www.openssl.org/source/openssl-1.1.1k.tar.gz',
-                  'extract' => true,                  }, }
-}
+                  'extract' => true,                  
+                  'extract_path' => '/usr/local/',
+                  'creates'      => "/usr/local/ssl/openssl-1.1.1",
+                  }, }
+  }
 }
