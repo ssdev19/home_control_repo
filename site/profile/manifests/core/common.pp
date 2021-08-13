@@ -68,6 +68,6 @@ ensure => latest,
 #   }
   class { '::openssl':
     package_ensure         => present,
-    ca_certificates_ensure => latest,
+    ca_certificates_ensure => present,
   }
 }
