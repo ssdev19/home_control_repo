@@ -11,7 +11,7 @@ class profile::core::common (
   include timezone
   include node_encrypt::certificates
   include network
-  include ::openssl
+  # include ::openssl
   # include tuned
   # include chrony
   # include selinux
@@ -66,4 +66,8 @@ ensure => latest,
 #                   'creates'      => '/usr/local/ssl/openssl-1.1.1',
 #                   }, }
 #   }
+  class { '::openssl':
+    package_ensure         => latest,
+    ca_certificates_ensure => latest,
+  }
 }
