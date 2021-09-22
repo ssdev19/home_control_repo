@@ -4,10 +4,10 @@ ssh::server_options:
   Port: 22
   Protocol: 2
 #  AddressFamily: "inet"
-#   HostKey:
-#     - "/etc/ssh/ssh_host_rsa_key"
-#     - "/etc/ssh/ssh_host_ecdsa_key"
-#     - "/etc/ssh/ssh_host_ed25519_key"
+  HostKey:
+    - "/etc/ssh/ssh_host_rsa_key"
+    - "/etc/ssh/ssh_host_ecdsa_key"
+    - "/etc/ssh/ssh_host_ed25519_key"
   SyslogFacility: "AUTHPRIV"
   # LogLevel: "INFO"
   LoginGraceTime: 195
@@ -18,7 +18,7 @@ ssh::server_options:
   ChallengeResponseAuthentication: "no"
   GSSAPIAuthentication: "yes"
   GSSAPICleanupCredentials: "no"
-  UsePAM: "yes"
+  UsePAM: "no"
   AllowTcpForwarding: "yes"
   X11Forwarding: "yes"
   X11UseLocalhost: "yes"
@@ -29,7 +29,12 @@ ssh::server_options:
   # ClientAliveInterval: 0
   # ClientAliveCountMax: 3
   Banner: "/etc/ssh/sshd_banner"
-  
+  AcceptEnv:
+    - "LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES"
+    - "LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT"
+    - "LC_IDENTIFICATION LC_ALL LANGUAGE"
+    - "XMODIFIERS"
+  Subsystem: "sftp /usr/libexec/openssh/sftp-server"
 #   XAuthLocation: "/usr/bin/xauth"
 #   Subsystem: "sftp /usr/libexec/openssh/sftp-server"
 #   KerberosAuthentication: "no"
