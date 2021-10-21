@@ -7,7 +7,7 @@ class profile::default {
   include accounts
   include network
   include ::firewalld
-Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
