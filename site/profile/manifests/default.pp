@@ -22,9 +22,9 @@ class { 'prometheus::node_exporter':
   # collectors_disable => ['loadavg', 'mdadm'],
   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
-  class {'::puppet_agent':
-    package_version => '6.24.0',
-  }
+  # class {'::puppet_agent':
+  #   package_version => '6.24.0',
+  # }
   #   $fqdn = $::fqdn
   # profile::it::prometheus::target: { "${fqdn} - node_exporter":
   #   job  => 'node',
