@@ -43,7 +43,7 @@ class { 'prometheus::node_exporter':
   # collectors_disable => ['loadavg', 'mdadm'],
 }
   class {'::puppet_agent':
-    package_version => '6.24.0',
+    package_version => '6.25.0',
   }
 
   file { '/root/secretfile.cfg':
