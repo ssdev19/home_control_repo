@@ -5,17 +5,11 @@ $pwd_encrypt,
 ){
   # include node_exporter
   # include prometheus::node_exporter
-  # include prometheus::process_exporter
-  #   package { 'toml':
-  #   ensure   => present,
-  #   provider => 'puppetserver_gem',
-  #   }
-class { 'prometheus::node_exporter':
-  version       => '1.1.2',
-  extra_options => '--collector.systemd \--collector.processes \--collector.meminfo_numa',
-  # collectors_disable => ['loadavg', 'mdadm'],
-  # extra_options      => '--collector.ntp.server ntp1.orange.intra',
-}
+  include prometheus::process_exporter
+    package { 'toml':
+    ensure   => present,
+    provider => 'puppetserver_gem',
+    }
 # firewall config
   # class { 'firewalld':
   #   service_ensure => stopped,
