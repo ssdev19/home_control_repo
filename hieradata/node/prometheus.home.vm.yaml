@@ -15,6 +15,15 @@ network::interfaces_hash:
     peerdns: 'yes'
     bootproto: 'none'
     onboot: 'yes'
+  eth0:
+    ipaddress: '192.168.0.49'
+    netmask: '255.255.255.0'
+    gateway: '192.168.0.1'
+    dns1: 192.168.0.1
+    dns2: 8.8.8.8
+    peerdns: yes
+    bootproto: none
+    onboot: yes
 
 # network::mroutes_hash:
 #   eth1:
