@@ -10,12 +10,12 @@ profile::it::prometheus::advertise_ip: 192.168.0.51:9093
 # network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
   eth1:
-    ipaddress: '192.168.10.22'
-    netmask: '255.255.255.0'
-    dns1: "192.168.0.1"
-    peerdns: 'yes'
-    bootproto: 'none'
-    onboot: 'yes'
+    ipaddress: 192.168.10.22
+    netmask: 255.255.255.0
+    dns1: 192.168.0.1
+    peerdns: yes
+    bootproto: none
+    onboot: yes
   eth0:
     ipaddress: '192.168.0.51'
     netmask: '255.255.255.0'
