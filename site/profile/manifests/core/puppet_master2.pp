@@ -10,9 +10,9 @@ $pwd_encrypt,
   # include foreman::plugin::remote_execution
   # include foreman::plugin::tasks
   include foreman_proxy
-  include foreman_proxy::plugin::dns::route53
-  include foreman_proxy::plugin::dynflow
-  include foreman_proxy::plugin::remote_execution::ssh
+  # include foreman_proxy::plugin::dns::route53
+  # include foreman_proxy::plugin::dynflow
+  # include foreman_proxy::plugin::remote_execution::ssh
   # include node_exporter
   # include prometheus::node_exporter
   include prometheus::process_exporter
