@@ -9,7 +9,7 @@ $pwd_encrypt,
   # include foreman::compute::vmware
   # include foreman::plugin::remote_execution
   # include foreman::plugin::tasks
-  include foreman_proxy
+  # include foreman_proxy
   # include foreman_proxy::plugin::dns::route53
   # include foreman_proxy::plugin::dynflow
   # include foreman_proxy::plugin::remote_execution::ssh
