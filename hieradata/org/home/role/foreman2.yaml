@@ -75,3 +75,4 @@
 # r10k::webhook::group: "root"
 # r10k::deploy_settings:
 #   generate_types: true
+foreman::apache: true
