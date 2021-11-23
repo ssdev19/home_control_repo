@@ -3,10 +3,6 @@ class profile::core::puppet_master2 (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
-  Package { [ 'devtoolset-101',
-    'rh-ruby26-ruby-devel', ]:
-ensure => present,
-}
   include foreman
   include foreman::cli
   # include foreman::compute::libvirt
