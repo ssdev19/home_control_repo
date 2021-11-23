@@ -3,7 +3,7 @@ class profile::core::puppet_master2 (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
-  Package { [    'devtoolset-10',
+  Package { [ 'devtoolset-7',
     'rh-ruby26-ruby-devel', ]:
 ensure => latest,
 }
