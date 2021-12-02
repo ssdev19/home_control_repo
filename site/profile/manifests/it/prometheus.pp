@@ -83,7 +83,7 @@ class { 'prometheus::alertmanager':
           'icon_url'      => 'https://avatars3.githubusercontent.com/u/3380462',
           'username'      => unwrap($slackuser_hide),
           'title'         => '{{ template "custom_title" . }}',
-          'text'          => '<!channel> \n {{ template "custom_slack_message" . }}',
+          'text'          => '<!channel>  {{ template "custom_slack_message" . }}',
           'send_resolved' => true,
           # 'text'          => '{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
         },
