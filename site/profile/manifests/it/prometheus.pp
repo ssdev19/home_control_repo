@@ -13,6 +13,11 @@ $advertise_ip,
   include prometheus::snmp_exporter
   # include prometheus::nginx_vts_exporter
   # include prometheus::blackbox_exporter
+  file { '/etc/alertmanager/notifications.tmpl':
+  ensure  => file,
+  content => epp('profile/it/prometheus_alerts.epp'),
+  }
+
   class { 'prometheus::blackbox_exporter':
     version => '0.19.0',
     modules => {
@@ -78,7 +83,9 @@ class { 'prometheus::alertmanager':
           'icon_url'      => 'https://avatars3.githubusercontent.com/u/3380462',
           'send_resolved' => true,
           'username'      => unwrap($slackuser_hide),
-          'text'          => '{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
+          'title'         => '{{ template "custom_title" . }}',
+          'text'          => '{{ template "custom_slack_message" . }}',
+          # 'text'          => '{{ .GroupLabels.app }}/{{ .GroupLabels.alertname }}',
         },
       ],
     },
