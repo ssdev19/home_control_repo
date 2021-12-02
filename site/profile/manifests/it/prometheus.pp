@@ -15,7 +15,7 @@ $advertise_ip,
   # include prometheus::blackbox_exporter
   file { '/etc/alertmanager/notifications.tmpl':
   ensure  => file,
-  content => epp('profile/it/prometheus_alerts.epp'),
+  content => epp('profile/it/alertmanager_custom.epp'),
   }
 
   class { 'prometheus::blackbox_exporter':
