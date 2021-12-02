@@ -67,6 +67,7 @@ prometheus::alerts:
             severity: critical
           annotations:
             summary: Windows Hyperv service Status (instance {{ $labels.instance }})
+            identifier: '{{ $labels.instance }}'
             description: "Windows Hyperv state is not OK\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 # windows_service_state service
         - alert: windows_exporterServiceStatus
