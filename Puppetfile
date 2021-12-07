@@ -113,7 +113,7 @@ mod 'theforeman-foreman_proxy', '20.1.0'
 mod 'puppetlabs-postgresql', '7.5.0'
 mod 'puppet-extlib', '5.3.0'
 # pwm
-mod 'puppetfinland-pwm', '0.1.3'
-mod 'puppetfinland-os', '1.1.3'
-mod 'puppetfinland-tomcat', '1.1.0'
+# mod 'puppetfinland-pwm', '0.1.3'
+# mod 'puppetfinland-os', '1.1.3'
+# mod 'puppetfinland-tomcat', '1.1.0'
 # end pwm
