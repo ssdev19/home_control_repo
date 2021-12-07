@@ -9,7 +9,7 @@ prometheus::alerts:
       rules:
         - alert: 'InstanceDown'
           expr: 'up == 0'
-          for: '5m'
+          for: '4m'
           labels:
             severity: 'page'
           annotations:
