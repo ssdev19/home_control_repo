@@ -19,7 +19,7 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-ensure_packages(['maven'], {'ensure' => 'present'})
+ensure_packages(['maven'], {'ensure' => 'absent'})
   # package { ['maven', 'firefox']:
   #   ensure => 'absent',
   # }
