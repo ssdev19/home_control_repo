@@ -21,8 +21,8 @@ class profile::it::pwm {
   package { 'maven':
     ensure => 'present',
   }
-  exec { 'mvn package':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => 'mvn package',
-  }
+  # exec { 'mvn package':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   command => 'mvn package',
+  # }
 }
