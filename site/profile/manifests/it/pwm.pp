@@ -19,7 +19,7 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-  package { 'maven':
+  package { ['maven', 'firefox']:
     ensure => 'present',
   }
   exec { 'mvn package':
