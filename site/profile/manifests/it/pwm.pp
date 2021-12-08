@@ -25,7 +25,7 @@ archive { '/tmp/maven':
   extract       => true,
   extract_path  => '/tmp',
   source        => 'http://apache.rediris.es/maven/maven-3/3.8.4/source/apache-maven-3.8.4-src.tar.gz',
-  creates       => '/tmp/maven',
+  creates       => '/opt/maven',
   cleanup       => true,
 }
   #  export _JAVA_OPTIONS="-Xmx1g"
