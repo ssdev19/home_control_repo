@@ -31,7 +31,7 @@ class profile::it::pwm {
 $install_path        = '/opt/maven'
 $package_name        = 'apache-maven-3.8.4-src.tar.gz'
 $package_ensure      = '3.8.4'
-$repository_url      = 'http://apache.rediris.es/maven/maven-3'
+$repository_url      = 'https://dlcdn.apache.org/maven/maven-3/'
 $archive_name        = "${package_name}-${package_ensure}.tgz"
 $maven_package_source = "${repository_url}/${archive_name}"
 
@@ -42,7 +42,7 @@ archive { $archive_name:
   extract_path => $install_path,
   creates      => "${install_path}/${package_name}-${package_ensure}",
   cleanup      => true,
-  # require      => File['maven'],
+  require      => File[$install_path],
 }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
