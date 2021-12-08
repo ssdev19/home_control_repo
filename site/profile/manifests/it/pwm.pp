@@ -31,7 +31,7 @@ class profile::it::pwm {
 $install_path        = '/opt/maven'
 $package_name        = 'apache-maven-3.8.4-src.tar.gz'
 $package_ensure      = '3.8.4'
-$repository_url      = 'https://dlcdn.apache.org/maven/maven-3'
+$repository_url      = 'https://dlcdn.apache.org/maven/maven-3/3.8.4/source'
 $archive_name        = "${package_name}-${package_ensure}.tgz"
 $maven_package_source = "${repository_url}/${archive_name}"
 
