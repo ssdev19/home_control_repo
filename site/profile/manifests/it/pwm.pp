@@ -20,16 +20,16 @@ class profile::it::pwm {
     # keep_local_changes => true,
   }
   package { ['maven', 'firefox']:
-    ensure => 'present',
+    ensure => 'absent',
   }
   #  export _JAVA_OPTIONS="-Xmx1g"
   exec { 'set java heap size ':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => 'export _JAVA_OPTIONS="-Xmx1g"',
   }
-  exec { 'mvn package':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    cwd     => '/opt/tomcat10/webapps/pwm',
-    command => 'mvn package',
-  }
+  # exec { 'mvn package':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   cwd     => '/opt/tomcat10/webapps/pwm',
+  #   command => 'mvn package',
+  # }
 }
