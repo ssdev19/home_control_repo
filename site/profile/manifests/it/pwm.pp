@@ -20,7 +20,7 @@ class profile::it::pwm {
     # keep_local_changes => true,
   }
 
-archive { '/tmp/maven':
+archive { '/tmp/apache-maven-3.8.4-src.tar.gz':
   ensure        => present,
   extract       => true,
   extract_path  => '/tmp',
