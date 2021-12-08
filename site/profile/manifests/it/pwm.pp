@@ -19,10 +19,15 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-ensure_packages(['maven'], {'ensure' => 'absent'})
-  # package { ['maven', 'firefox']:
-  #   ensure => 'absent',
-  # }
+
+archive { '/tmp/maven':
+  ensure        => present,
+  extract       => true,
+  extract_path  => '/tmp',
+  source        => 'http://apache.rediris.es/maven/maven-3/3.8.4/source/apache-maven-3.8.4-src.tar.gz',
+  creates       => '/tmp/maven',
+  cleanup       => true,
+}
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
