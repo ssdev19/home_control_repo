@@ -19,9 +19,11 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-  class { 'maven::maven':
-    version => '3.8.4', # version to install
-  }
+    class { 'maven::maven':
+      version => '3.8.4', # version to install
+      ensure_packages => ('maven'),
+      ensure => 'present',
+    }
   # package { ['maven', 'firefox']:
   #   ensure => 'absent',
   # }
