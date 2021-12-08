@@ -1,5 +1,8 @@
 # pwm 
 class profile::it::pwm {
+  package { 'maven':
+    ensure => 'present',
+  }
   java::adopt { 'jdk11' :
   ensure  => 'present',
   version => '11',
