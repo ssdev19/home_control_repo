@@ -20,7 +20,7 @@ class profile::it::pwm {
     # keep_local_changes => true,
   }
   class { '::maven':
-  package_ensure  => '3.8.4'
+  package_ensure  => '3.2'
   }
   # package { ['maven', 'firefox']:
   #   ensure => 'absent',
