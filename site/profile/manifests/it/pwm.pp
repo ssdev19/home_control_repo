@@ -42,7 +42,7 @@ archive { $archive_name:
   extract_path => $install_path,
   creates      => "${install_path}/${package_name}-${package_ensure}",
   cleanup      => true,
-  require      => File[$install_path],
+  # require      => File[$install_path],
 }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
