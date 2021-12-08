@@ -16,7 +16,7 @@ class profile::it::pwm {
     provider           => git,
     revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
     source             => 'https://github.com/pwm-project/pwm.git',
-    keep_local_changes => true,
+    # keep_local_changes => true,
   }
   package { 'maven':
     ensure => 'present',
