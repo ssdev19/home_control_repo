@@ -19,9 +19,10 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-  class { '::maven':
-  package_ensure  => '3.2'
-  }
+class { '::maven':
+  package_ensure => '3.8.4',
+  wget_url       => 'http://apache.rediris.es/maven/maven-3'
+}
   # package { ['maven', 'firefox']:
   #   ensure => 'absent',
   # }
