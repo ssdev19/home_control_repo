@@ -20,13 +20,29 @@ class profile::it::pwm {
     # keep_local_changes => true,
   }
 
-archive { '/tmp/apache-maven-3.8.4-src.tar.gz':
-  ensure        => present,
-  extract       => true,
-  extract_path  => '/tmp',
-  source        => 'http://apache.rediris.es/maven/maven-3/3.8.4/source/apache-maven-3.8.4-src.tar.gz',
-  creates       => '/opt/maven',
-  cleanup       => true,
+# archive { '/tmp/apache-maven-3.8.4-src.tar.gz':
+#   ensure        => present,
+#   extract       => true,
+#   extract_path  => '/tmp',
+#   source        => 'http://apache.rediris.es/maven/maven-3/3.8.4/source/apache-maven-3.8.4-src.tar.gz',
+#   creates       => '/opt/maven',
+#   cleanup       => true,
+# }
+$install_path        = '/opt/maven'
+$package_name        = 'apache-maven-3.8.4-src.tar.gz'
+$package_ensure      = '3.8.4'
+$repository_url      = 'http://apache.rediris.es/maven/maven-3'
+$archive_name        = "${package_name}-${package_ensure}.tgz"
+$maven_package_source = "${repository_url}/${archive_name}"
+
+archive { $archive_name:
+  path         => "/tmp/${archive_name}",
+  source       => $maven_package_source,
+  extract      => true,
+  extract_path => $install_path,
+  creates      => "${install_path}/${package_name}-${package_ensure}",
+  cleanup      => true,
+  require      => File['maven'],
 }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
