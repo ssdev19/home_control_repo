@@ -19,8 +19,8 @@ class profile::it::pwm {
   package { 'maven':
     ensure => 'present',
   }
-  # exec { 'mvn package':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => 'mvn /opt/tomcat10/',
-  # }
+  exec { 'mvn package':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'mvn /opt/tomcat10/webapps/package',
+  }
 }
