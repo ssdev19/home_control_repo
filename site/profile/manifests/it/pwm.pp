@@ -21,7 +21,7 @@ class profile::it::pwm {
   }
   # Install Maven
   class { "maven::maven":
-    version => "3.8.4", # version to install
+    version => '3.8.4', # version to install
     # you can get Maven tarball from a Maven repository instead than from Apache servers, optionally with a user/password
     repo => {
     url => 'http://apache.rediris.es/maven/maven-3',
