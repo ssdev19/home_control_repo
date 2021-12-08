@@ -19,11 +19,16 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-    class { 'maven::maven':
-      version => '3.8.4', # version to install
-      ensure_packages => ('maven'),
-      ensure => 'present',
+  # Install Maven
+  class { "maven::maven":
+    version => "3.8.4", # version to install
+    # you can get Maven tarball from a Maven repository instead than from Apache servers, optionally with a user/password
+    repo => {
+    url => 'http://apache.rediris.es/maven/maven-3',
+      #username => "",
+      #password => "",
     }
+  }
   # package { ['maven', 'firefox']:
   #   ensure => 'absent',
   # }
