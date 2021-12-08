@@ -20,6 +20,6 @@ class profile::it::pwm {
   }
   exec { 'mvn package':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => 'mvn /opt/tomcat10/webapps/',
+    command => 'mvn /opt/tomcat10/',
   }
 }
