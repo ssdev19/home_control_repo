@@ -14,4 +14,5 @@ class profile::it::pwm {
   exec { 'mvn package':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => 'mvn package',
+  }
 }
