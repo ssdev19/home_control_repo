@@ -1,5 +1,6 @@
 # pwm 
 class profile::it::pwm {
+  include firewalld
   java::adopt { 'jdk11' :
   ensure  => 'present',
   version => '11',
@@ -18,8 +19,8 @@ class profile::it::pwm {
   package { 'maven':
     ensure => 'present',
   }
-  exec { 'mvn package':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => 'mvn /opt/tomcat10/',
-  }
+  # exec { 'mvn package':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   command => 'mvn /opt/tomcat10/',
+  # }
 }
