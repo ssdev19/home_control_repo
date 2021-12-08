@@ -19,9 +19,12 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-  package { ['maven', 'firefox']:
-    ensure => 'absent',
+  class { '::maven':
+  package_ensure  => '3.8.4'
   }
+  # package { ['maven', 'firefox']:
+  #   ensure => 'absent',
+  # }
   #  export _JAVA_OPTIONS="-Xmx1g"
   exec { 'set java heap size ':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
