@@ -6,11 +6,11 @@ class profile::it::pwm {
   version => '11',
   java    => 'jdk',
   }
-  tomcat::install { '/opt/tomcat10':
+  tomcat::install { '/opt/tomcat':
   source_url => 'https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat-10.0.4.tar.gz'
   }
   tomcat::instance { 'default':
-  catalina_home => '/opt/tomcat10',
+  catalina_home => '/opt/tomcat',
   }
     vcsrepo { '/opt/tomcat10/webapps/pwm/':
     ensure             => present,
@@ -69,9 +69,9 @@ archive { $archive_name:
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => 'export _JAVA_OPTIONS="-Xmx1g"',
   # }
-  exec { 'mvn package':
-    path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
-    cwd     => '/opt/tomcat10/webapps/pwm',
-    command => 'mvn package',
-  }
+  # exec { 'mvn package':
+  #   path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
+  #   cwd     => '/opt/tomcat10/webapps/pwm',
+  #   command => '/opt/maven/bin/mvn package',
+  # }
 }
