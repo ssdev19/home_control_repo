@@ -55,8 +55,8 @@ archive { $archive_name:
     command => 'chmod +x /etc/profile.d/maven.sh',
   }
   exec { 'Load the environment variable':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
-    command => 'sudo source /etc/profile.d/maven.sh',
+    path    => [ '/bin/sh, /usr/bin', '/bin', '/usr/sbin', '/sbin' ],
+    command => 'source /etc/profile.d/maven.sh',
   }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
