@@ -45,6 +45,10 @@ archive { $archive_name:
   cleanup      => true,
   # require      => File[$install_path],
 }
+  exec { 'create symbolic link for maven':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
+    command => 'ln –s apache-maven-3.8.4 /opt/maven',
+  }
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
   content => epp('profile/it/maven.epp'),
