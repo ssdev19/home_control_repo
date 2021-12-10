@@ -70,7 +70,7 @@ archive { $archive_name:
   #   command => 'export _JAVA_OPTIONS="-Xmx1g"',
   # }
   exec { 'mvn package':
-    path    => [ '/opt/maven/bin' ],
+    path    => [ '/opt/apache-maven-3.8.4/bin/' ],
     cwd     => '/opt/tomcat10/webapps/pwm',
     command => 'mvn package',
   }
