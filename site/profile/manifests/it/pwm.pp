@@ -64,14 +64,14 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-  #  export _JAVA_OPTIONS="-Xmx1g"
-  # exec { 'set java heap size ':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => 'export _JAVA_OPTIONS="-Xmx1g"',
-  # }
-  # exec { 'mvn package':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   cwd     => '/opt/tomcat10/webapps/pwm',
-  #   command => 'mvn package',
-  # }
+   export _JAVA_OPTIONS="-Xmx1g"
+  exec { 'set java heap size ':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'export _JAVA_OPTIONS="-Xmx1g"',
+  }
+  exec { 'mvn package':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    cwd     => '/opt/tomcat10/webapps/pwm',
+    command => 'mvn package',
+  }
 }
