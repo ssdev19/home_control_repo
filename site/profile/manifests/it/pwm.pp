@@ -44,6 +44,19 @@ archive { $archive_name:
   cleanup      => true,
   # require      => File[$install_path],
 }
+  file { '/etc/profile.d/maven.sh':
+  ensure  => file,
+  content => epp('profile/it/maven.epp'),
+  }
+  # Make maven.sh executable
+  exec { 'make maven.sh executable':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'chmod +x /etc/profile.d/maven.sh',
+  }
+  exec { 'Load the environment variable':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'source /etc/profile.d/maven.sh',
+  }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
