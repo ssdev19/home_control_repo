@@ -72,6 +72,6 @@ archive { $archive_name:
   exec { 'mvn package':
     path    => [ '/opt/maven/bin' ],
     cwd     => '/opt/tomcat10/webapps/pwm',
-    command => 'sudo mvn package',
+    command => 'mvn package',
   }
 }
