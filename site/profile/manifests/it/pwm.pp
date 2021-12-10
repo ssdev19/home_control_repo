@@ -40,7 +40,7 @@ archive { $archive_name:
   source       => $maven_package_source,
   extract      => true,
   extract_path => $install_path,
-  creates      => "${install_path}/${package_name}-${package_ensure}",
+  creates      => $install_path,
   cleanup      => true,
   # require      => File[$install_path],
 }
