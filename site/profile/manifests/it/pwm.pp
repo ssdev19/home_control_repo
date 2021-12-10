@@ -28,6 +28,7 @@ class profile::it::pwm {
 #   creates       => '/opt/maven',
 #   cleanup       => true,
 # }
+
 $install_path        = '/opt'
 $package_name        = 'apache-maven'
 $package_ensure      = '3.8.4'
@@ -50,7 +51,7 @@ archive { $archive_name:
   }
   # Make maven.sh executable
   exec { 'make maven.sh executable':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'chmod +x /etc/profile.d/maven.sh',
   }
   exec { 'Load the environment variable':
