@@ -48,7 +48,7 @@ archive { $archive_name:
   exec { 'create symbolic link for maven':
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'ln –s apache-maven-3.8.4 /opt/maven',
-    unless  => 'test -f /opt/maven'
+    onlyif  => 'test ! -f /opt/maven/README.txt'
   }
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
