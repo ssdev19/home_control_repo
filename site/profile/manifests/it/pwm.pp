@@ -29,10 +29,10 @@ class profile::it::pwm {
 #   cleanup       => true,
 # }
 $install_path        = '/opt/maven'
-$package_name        = '/apache-maven-3.8.4-src.tar.gz'
+$package_name        = 'apache-maven-bin.tar.gz'
 $package_ensure      = '3.8.4'
-$repository_url      = 'https://dlcdn.apache.org/maven/maven-3/3.8.4/source'
-$archive_name        = "${package_name}"
+$repository_url      = 'https://dlcdn.apache.org/maven/maven-3'
+$archive_name        = "${package_name}-${package_ensure}-bin.tar.gz"
 $maven_package_source = "${repository_url}/${archive_name}"
 
 archive { $archive_name:
