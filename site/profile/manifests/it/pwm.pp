@@ -12,7 +12,7 @@ class profile::it::pwm {
   tomcat::instance { 'default':
   catalina_home => '/opt/tomcat',
   }
-    vcsrepo { '/opt/tomcat10/webapps/pwm/':
+    vcsrepo { '/opt/tomcat/webapps/pwm/':
     ensure             => present,
     provider           => git,
     revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
