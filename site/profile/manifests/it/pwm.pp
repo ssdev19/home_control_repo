@@ -56,7 +56,7 @@ archive { $archive_name:
   }
   exec { 'Load the environment variable':
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
-    command => 'sudo -s source /etc/profile.d/maven.sh',
+    command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
   #  export _JAVA_OPTIONS="-Xmx1g"
   # exec { 'set java heap size ':
