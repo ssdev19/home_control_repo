@@ -64,7 +64,7 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-   export _JAVA_OPTIONS="-Xmx1g"
+  # export _JAVA_OPTIONS="-Xmx1g"
   exec { 'set java heap size ':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => 'export _JAVA_OPTIONS="-Xmx1g"',
