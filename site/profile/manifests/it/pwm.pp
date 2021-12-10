@@ -28,7 +28,7 @@ class profile::it::pwm {
 #   creates       => '/opt/maven',
 #   cleanup       => true,
 # }
-$install_path        = '/opt/maven'
+$install_path        = '/opt'
 $package_name        = 'apache-maven'
 $package_ensure      = '3.8.4'
 $repository_url      = 'https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries'
@@ -40,7 +40,7 @@ archive { $archive_name:
   source       => $maven_package_source,
   extract      => true,
   extract_path => $install_path,
-  creates      => $install_path,
+  creates      => "${install_path}/${package_name}-${package_ensure}",
   cleanup      => true,
   # require      => File[$install_path],
 }
