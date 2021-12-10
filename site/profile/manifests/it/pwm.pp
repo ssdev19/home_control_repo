@@ -48,6 +48,7 @@ archive { $archive_name:
   exec { 'create symbolic link for maven':
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'ln –s apache-maven-3.8.4 /opt/maven',
+    onlyif  => 'test ! -f /opt/maven'
   }
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
@@ -58,6 +59,7 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'chmod +x /etc/profile.d/maven.sh',
   }
+  # If puppet fails to execute run this manually: source /etc/profile.d/maven.sh
   exec { 'Load the environment variable':
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
