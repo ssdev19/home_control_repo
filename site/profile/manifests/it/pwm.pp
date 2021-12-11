@@ -50,7 +50,7 @@ archive { $archive_name:
   #   command => 'sudo ln –s /opt/apache-maven-3.8.4 /opt/maven',
   #   onlyif  => 'test ! -f /opt/maven/README.txt'
   # }
-    file { '/opt/apache-maven-3.8.4':
+    file { '/opt/apache-maven-3.8.4/':
     ensure => 'link',
     target => '/opt/maven',
   }
