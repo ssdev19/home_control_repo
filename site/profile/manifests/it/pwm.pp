@@ -45,10 +45,14 @@ archive { $archive_name:
   cleanup      => true,
   # require      => File[$install_path],
 }
-  exec { 'create symbolic link for maven':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
-    command => 'sudo ln –s /opt/apache-maven-3.8.4 /opt/maven',
-    onlyif  => 'test ! -f /opt/maven/README.txt'
+  # exec { 'create symbolic link for maven':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
+  #   command => 'sudo ln –s /opt/apache-maven-3.8.4 /opt/maven',
+  #   onlyif  => 'test ! -f /opt/maven/README.txt'
+  # }
+    file { '/opt/apache-maven-3.8.4':
+    ensure => 'link',
+    target => '/opt/maven',
   }
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
