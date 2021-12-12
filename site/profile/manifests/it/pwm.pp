@@ -3,9 +3,9 @@ class profile::it::pwm {
   include firewalld
 
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
-  class { 'java' :
-  # package => 'java-1.8.0-openjdk-devel',
-  }
+class { 'java':
+  distribution => 'jdk',
+}
   # java::adopt { 'jdk11' :
   # ensure  => 'present',
   # version => '11',
