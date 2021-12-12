@@ -24,13 +24,13 @@ class { 'java':
   tomcat::instance { 'default':
   catalina_home => '/opt/tomcat10',
   }
-    vcsrepo { '/opt/tomcat10/webapps/pwm/':
-    ensure             => present,
-    provider           => git,
-    revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
-    source             => 'https://github.com/pwm-project/pwm.git',
-    # keep_local_changes => true,
-  }
+  #   vcsrepo { '/opt/tomcat10/webapps/pwm/':
+  #   ensure             => present,
+  #   provider           => git,
+  #   revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
+  #   source             => 'https://github.com/pwm-project/pwm.git',
+  #   # keep_local_changes => true,
+  # }
 # Maven installation
 $install_path        = '/opt'
 $package_name        = 'apache-maven'
