@@ -51,12 +51,12 @@ archive { $archive_name:
   #   onlyif  => 'test ! -f /opt/maven/README.txt'
   # }
 
-  file { '/opt/maven/':
-    ensure  => 'directory',
-    source  => '/opt/apache-maven-3.8.4/',
-    recurse => true,
-    links   => follow,
-  }
+  # file { '/opt/maven/':
+  #   ensure  => 'directory',
+  #   source  => '/opt/apache-maven-3.8.4/',
+  #   recurse => true,
+  #   links   => follow,
+  # }
   ->  file { '/opt/maven/':
         ensure => 'link',
         target => '/opt/apache-maven-3.8.4/',
