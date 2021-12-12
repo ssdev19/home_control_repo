@@ -66,9 +66,9 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => "sudo -s export _JAVA_OPTIONS=${mem}",
   }
-  # exec { 'mvn package':
-  #   path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
-  #   cwd     => '/opt/tomcat/webapps/pwm',
-  #   command => 'mvn package',
-  # }
+  exec { 'mvn package':
+    path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
+    cwd     => '/opt/tomcat/webapps/pwm',
+    command => 'mvn package',
+  }
 }
