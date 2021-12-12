@@ -50,17 +50,19 @@ archive { $archive_name:
   #   command => 'sudo ln –s /opt/apache-maven-3.8.4 /opt/maven',
   #   onlyif  => 'test ! -f /opt/maven/README.txt'
   # }
-  file { '/opt/maven/':
-    ensure  => 'directory',
-    source  => '/opt/apache-maven-3.8.4/',
-    recurse => true,
-    links   => follow,
-  }
+
+  # file { '/opt/maven/':
+  #   ensure  => 'directory',
+  #   source  => '/opt/apache-maven-3.8.4/',
+  #   recurse => true,
+  #   links   => follow,
+  # }
   ->  file { '/opt/apache-maven-3.8.4/':
         ensure => 'link',
         target => '/opt/maven/',
         force  => true,
       }
+# Creates maven.sh file
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
   content => epp('profile/it/maven.epp'),
