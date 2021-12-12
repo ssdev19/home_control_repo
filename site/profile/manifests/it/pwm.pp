@@ -57,9 +57,9 @@ archive { $archive_name:
   #   recurse => true,
   #   links   => follow,
   # }
-  ->  file { '/opt/maven/':
+  ->  file { '/opt/apache-maven-3.8.4/':
         ensure => 'link',
-        target => '/opt/apache-maven-3.8.4/',
+        target => '/opt/maven/',
         # force  => true,
       }
 # Creates maven.sh file
