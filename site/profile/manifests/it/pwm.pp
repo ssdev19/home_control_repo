@@ -4,7 +4,7 @@ class profile::it::pwm {
 
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java' :
-  package => 'java-1.8.0-openjdk-devel',
+  # package => 'java-1.8.0-openjdk-devel',
   }
   # java::adopt { 'jdk11' :
   # ensure  => 'present',
@@ -69,11 +69,11 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-# mvn package should be run from '/opt/tomcat/webapps/pwm' manually
+# mvn package should be run from '/opt/tomcat10/webapps/pwm' manually
 # Having puppet execute, times out.
   # exec { 'mvn package':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
-  #   cwd     => '/opt/tomcat/webapps/pwm',
+  #   cwd     => '/opt/tomcat10/webapps/pwm',
   #   command => 'mvn package',
   #   user    => root
   # }
