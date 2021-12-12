@@ -60,7 +60,7 @@ archive { $archive_name:
   ->  file { '/opt/maven/':
         ensure => 'link',
         target => '/opt/apache-maven-3.8.4/',
-        force  => true,
+        # force  => true,
       }
 # Creates maven.sh file
   file { '/etc/profile.d/maven.sh':
