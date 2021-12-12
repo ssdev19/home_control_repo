@@ -1,10 +1,13 @@
 # pwm 
 class profile::it::pwm {
   include firewalld
-  java::adopt { 'jdk11' :
-  ensure  => 'present',
-  version => '11',
-  java    => 'jdk',
+  # java::adopt { 'jdk11' :
+  # ensure  => 'present',
+  # version => '11',
+  # java    => 'jdk',
+  # }
+  class { 'java' :
+  package => 'java-1.8.0-openjdk-devel',
   }
   tomcat::install { '/opt/tomcat':
   source_url => 'https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat-10.0.4.tar.gz'
