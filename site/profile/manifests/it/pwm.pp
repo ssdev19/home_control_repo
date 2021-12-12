@@ -37,11 +37,11 @@ archive { $archive_name:
   # require      => File[$install_path],
 }
 # Creates maven symlink
-    file { '/opt/maven/':
-        ensure => 'link',
-        target => '/opt/apache-maven-3.8.4/',
-        # force  => true,
-      }
+  file { '/opt/maven/':
+    ensure => 'link',
+    target => '/opt/apache-maven-3.8.4/',
+    # force  => true,
+  }
 # Creates maven.sh file
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
