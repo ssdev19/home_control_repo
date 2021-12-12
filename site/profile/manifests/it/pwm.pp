@@ -69,7 +69,7 @@ archive { $archive_name:
   }
 
   exec { 'mvn package':
-    path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
+    path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
     cwd     => '/opt/tomcat/webapps/pwm',
     command => 'sudo mvn package',
   }
