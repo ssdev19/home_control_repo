@@ -6,11 +6,11 @@ class profile::it::pwm {
   class { 'java' :
   package => 'java-1.8.0-openjdk-devel',
   }
-  java::adopt { 'jdk11' :
-  ensure  => 'present',
-  version => '11',
-  java    => 'jdk',
-  }
+  # java::adopt { 'jdk11' :
+  # ensure  => 'present',
+  # version => '11',
+  # java    => 'jdk',
+  # }
   # export _JAVA_OPTIONS="-Xmx1g"
   $mem = '-Xmx1g'
   exec { 'set java heap size ':
@@ -21,7 +21,7 @@ class profile::it::pwm {
   tomcat::install { '/opt/tomcat':
   source_url => 'https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat-10.0.4.tar.gz'
   }
-  tomcat::instance { 'default':
+  tomcat::instance { 'tomcat':
   catalina_home => '/opt/tomcat',
   }
     vcsrepo { '/opt/tomcat/webapps/pwm/':
