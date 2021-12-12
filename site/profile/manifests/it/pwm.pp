@@ -56,11 +56,11 @@ archive { $archive_name:
     recurse => true,
     links   => follow,
   }
-  # ->  file { '/opt/maven/':
-  #       ensure => 'link',
-  #       target => '/opt/maven/',
-  #       force  => true,
-  #     }
+  ->  file { '/opt/apache-maven-3.8.4/':
+        ensure => 'link',
+        target => '/opt/maven/',
+        force  => true,
+      }
   file { '/etc/profile.d/maven.sh':
   ensure  => file,
   content => epp('profile/it/maven.epp'),
