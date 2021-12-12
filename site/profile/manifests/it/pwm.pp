@@ -18,13 +18,13 @@ class profile::it::pwm {
     command => "sudo -s export _JAVA_OPTIONS=${mem}",
   }
   #Install tomcat
-  tomcat::install { '/opt/tomcat':
+  tomcat::install { '/opt/tomcat10':
   source_url => 'https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat-10.0.4.tar.gz'
   }
   tomcat::instance { 'default':
-  catalina_home => '/opt/tomcat/',
+  catalina_home => '/opt/tomcat10',
   }
-    vcsrepo { '/opt/tomcat/webapps/pwm/':
+    vcsrepo { '/opt/tomcat10/webapps/pwm/':
     ensure             => present,
     provider           => git,
     revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
