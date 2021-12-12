@@ -23,7 +23,7 @@ class { 'java':
   }
   tomcat::instance { 'default':
   catalina_home  => '/opt/tomcat9',
-  manage_service => false,
+  # manage_service => false,
   }
   #   vcsrepo { '/opt/tomcat10/webapps/pwm/':
   #   ensure             => present,
