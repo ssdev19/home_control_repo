@@ -56,7 +56,7 @@ archive { $archive_name:
     recurse => true,
     links   => follow,
   }
-  ->  file { '/opt/apache-maven-3.8.4/':
+  ->  file { '/opt/maven/':
         ensure => 'link',
         target => '/opt/maven/',
         force  => true,
