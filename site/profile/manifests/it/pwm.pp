@@ -19,16 +19,7 @@ class profile::it::pwm {
     source             => 'https://github.com/pwm-project/pwm.git',
     # keep_local_changes => true,
   }
-
-# archive { '/tmp/apache-maven-3.8.4-src.tar.gz':
-#   ensure        => present,
-#   extract       => true,
-#   extract_path  => '/tmp',
-#   source        => 'http://apache.rediris.es/maven/maven-3/3.8.4/source/apache-maven-3.8.4-src.tar.gz',
-#   creates       => '/opt/maven',
-#   cleanup       => true,
-# }
-
+# Maven installation
 $install_path        = '/opt'
 $package_name        = 'apache-maven'
 $package_ensure      = '3.8.4'
@@ -45,18 +36,7 @@ archive { $archive_name:
   cleanup      => true,
   # require      => File[$install_path],
 }
-  # exec { 'create symbolic link for maven':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
-  #   command => 'sudo ln –s /opt/apache-maven-3.8.4 /opt/maven',
-  #   onlyif  => 'test ! -f /opt/maven/README.txt'
-  # }
-
-  # file { '/opt/maven/':
-  #   ensure  => 'directory',
-  #   source  => '/opt/apache-maven-3.8.4/',
-  #   recurse => true,
-  #   links   => follow,
-  # }
+# Creates maven symlink
     file { '/opt/maven/':
         ensure => 'link',
         target => '/opt/apache-maven-3.8.4/',
@@ -78,10 +58,10 @@ archive { $archive_name:
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
   # export _JAVA_OPTIONS="-Xmx1g"
-  # exec { 'set java heap size ':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => 'export _JAVA_OPTIONS="-Xmx1g"',
-  # }
+  exec { 'set java heap size ':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'export _JAVA_OPTIONS="-Xmx1g"',
+  }
   # exec { 'mvn package':
   #   path    => [ '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven' ],
   #   cwd     => '/opt/tomcat10/webapps/pwm',
