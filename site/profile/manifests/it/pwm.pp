@@ -18,11 +18,12 @@ class { 'java':
     command => "sudo -s export _JAVA_OPTIONS=${mem}",
   }
   #Install tomcat
-  tomcat::install { '/opt/tomcat10':
-  source_url => 'https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.4/bin/apache-tomcat-10.0.4.tar.gz'
+  tomcat::install { '/opt/tomcat9':
+  source_url => 'https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz'
   }
   tomcat::instance { 'default':
-  catalina_home => '/opt/tomcat10',
+  catalina_home  => '/opt/tomcat9',
+  manage_service => false,
   }
   #   vcsrepo { '/opt/tomcat10/webapps/pwm/':
   #   ensure             => present,
@@ -69,11 +70,11 @@ archive { $archive_name:
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-# mvn package should be run from '/opt/tomcat10/webapps/pwm' manually
+# mvn package should be run from '/opt/tomcat9/webapps/pwm' manually
 # Having puppet execute, times out.
   # exec { 'mvn package':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
-  #   cwd     => '/opt/tomcat10/webapps/pwm',
+  #   cwd     => '/opt/tomcat9/webapps/pwm',
   #   command => 'mvn package',
   #   user    => root
   # }
