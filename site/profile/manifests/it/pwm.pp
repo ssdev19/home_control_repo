@@ -27,9 +27,9 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-  tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
-    password => 'tomcatpass',
-  }
+  # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
+  #   password => 'tomcatpass',
+  # }
   # https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war
   #   vcsrepo { '/opt/tomcat9/webapps/pwm/': # v1.9.2
   #   ensure             => present,
