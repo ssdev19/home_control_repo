@@ -22,6 +22,7 @@ ssh::server_options:
   AllowTcpForwarding: "yes"
   X11Forwarding: "yes"
   X11UseLocalhost: "yes"
+  X11DisplayOffset: 10
   UsePrivilegeSeparation: "no"
   PrintMotd: "yes"
   TCPKeepAlive: "yes"
