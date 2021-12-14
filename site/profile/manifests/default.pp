@@ -10,7 +10,7 @@ class profile::default {
   include ::firewalld
     yum::group { 'X Window System':
     ensure  => present,
-    timeout => 300,
+    # timeout => 300,
   }
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
