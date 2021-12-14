@@ -39,8 +39,9 @@ ensure => installed,
   #   # keep_local_changes => true,
   # }
   archive { '/opt/tomcat9/webapps/pwm.war':
-  ensure => present,
-  source => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+  ensure   => present,
+  source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+  provider => 'wget',
   }
 # Maven installation
   $install_path        = '/opt'
