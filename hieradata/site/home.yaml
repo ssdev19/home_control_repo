@@ -21,7 +21,7 @@ ssh::server_options:
   UsePAM: "yes"
   AllowTcpForwarding: "yes"
   X11Forwarding: "yes"
-  X11UseLocalhost: "yes"
+  X11UseLocalhost: "no"
   X11DisplayOffset: 10
   UsePrivilegeSeparation: "no"
   PrintMotd: "yes"
