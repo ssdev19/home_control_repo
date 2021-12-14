@@ -30,13 +30,18 @@ ensure => installed,
   tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
     password => 'tomcatpass',
   }
-    vcsrepo { '/opt/tomcat9/webapps/pwm/':
-    ensure             => present,
-    provider           => git,
-    revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
-    source             => 'https://github.com/pwm-project/pwm.git',
-    # keep_local_changes => true,
-  }
+  # https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war
+  #   vcsrepo { '/opt/tomcat9/webapps/pwm/': # v1.9.2
+  #   ensure             => present,
+  #   provider           => git,
+  #   revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
+  #   source             => 'https://github.com/pwm-project/pwm.git',
+  #   # keep_local_changes => true,
+  # }
+      download_file { 'Download pwm.war' :
+      url                   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+      destination_directory => '/opt/tomcat9/webapps/'
+    }
 # Maven installation
   $install_path        = '/opt'
   $package_name        = 'apache-maven'
