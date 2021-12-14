@@ -25,7 +25,7 @@ class profile::it::pwm {
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-    vcsrepo { '/opt/tomcat10/webapps/pwm/':
+    vcsrepo { '/opt/tomcat9/webapps/pwm/':
     ensure             => present,
     provider           => git,
     revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
@@ -70,7 +70,7 @@ class profile::it::pwm {
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-# mvn package should be run from '/opt/tomcat9/webapps/pwm' manually
+# "mvn package" should be run from '/opt/tomcat9/webapps/pwm' manually
 # Having puppet execute, times out.
   # exec { 'mvn package':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
