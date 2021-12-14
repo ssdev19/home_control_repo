@@ -27,6 +27,9 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
+  tomcat::config::server::tomcat_users {'tomcatuser':
+    password => 'tomcatpass',
+   }
     vcsrepo { '/opt/tomcat9/webapps/pwm/':
     ensure             => present,
     provider           => git,
