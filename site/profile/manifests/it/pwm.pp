@@ -25,30 +25,30 @@ class profile::it::pwm {
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-  #   vcsrepo { '/opt/tomcat10/webapps/pwm/':
-  #   ensure             => present,
-  #   provider           => git,
-  #   revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
-  #   source             => 'https://github.com/pwm-project/pwm.git',
-  #   # keep_local_changes => true,
-  # }
+    vcsrepo { '/opt/tomcat10/webapps/pwm/':
+    ensure             => present,
+    provider           => git,
+    revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
+    source             => 'https://github.com/pwm-project/pwm.git',
+    # keep_local_changes => true,
+  }
 # Maven installation
-$install_path        = '/opt'
-$package_name        = 'apache-maven'
-$package_ensure      = '3.8.4'
-$repository_url      = 'https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries'
-$archive_name        = "${package_name}-${package_ensure}-bin.tar.gz"
-$maven_package_source = "${repository_url}/${archive_name}"
+  $install_path        = '/opt'
+  $package_name        = 'apache-maven'
+  $package_ensure      = '3.8.4'
+  $repository_url      = 'https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries'
+  $archive_name        = "${package_name}-${package_ensure}-bin.tar.gz"
+  $maven_package_source = "${repository_url}/${archive_name}"
 
-archive { $archive_name:
-  path         => "/tmp/${archive_name}",
-  source       => $maven_package_source,
-  extract      => true,
-  extract_path => $install_path,
-  creates      => "${install_path}/${package_name}-${package_ensure}",
-  cleanup      => true,
-  # require      => File[$install_path],
-}
+  archive { $archive_name:
+    path         => "/tmp/${archive_name}",
+    source       => $maven_package_source,
+    extract      => true,
+    extract_path => $install_path,
+    creates      => "${install_path}/${package_name}-${package_ensure}",
+    cleanup      => true,
+    # require      => File[$install_path],
+  }
 # Creates maven symlink that points to '/opt/apache-maven-3.8.4/'
   file { '/opt/maven/':
     ensure => 'link',
