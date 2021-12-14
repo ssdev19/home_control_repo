@@ -25,6 +25,9 @@ class profile::it::pwm {
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
+  tomcat::instance { 'pwm':
+  catalina_home  => '/opt/tomcat9/webapp/pwm',
+  }
     vcsrepo { '/opt/tomcat9/webapps/pwm/':
     ensure             => present,
     provider           => git,
