@@ -100,11 +100,12 @@ ensure => installed,
     command => "sudo -s export PWM_APPLICATIONPATH=${pwm_applicationpath}",
   }
 # "mvn package" should be run from '/opt/tomcat9/webapps/pwm' manually
-# Having puppet execute, times out.
+# to see errors.
   # exec { 'mvn package':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
   #   cwd     => '/opt/tomcat9/webapps/pwm',
   #   command => 'mvn package',
-  #   user    => root
+  #   timeout => 3600,
+  #   user    => root,
   # }
 }
