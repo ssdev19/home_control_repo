@@ -27,14 +27,14 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-  tomcat::service {'tomcat service':
-    catalina_home  => '/opt/tomcat9/',
-    # catalina_base => '/opt/tomcat9/',
-    use_init       => true,
-    service_enable => true,
-    service_name   => 'tomcat',
-    # start_command  => 'use_init'
-  }
+  # tomcat::service {'tomcat service':
+  #   catalina_home  => '/opt/tomcat9/',
+  #   # catalina_base => '/opt/tomcat9/',
+  #   use_init       => true,
+  #   service_enable => true,
+  #   service_name   => 'tomcat',
+  #   # start_command  => 'use_init'
+  # }
   # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
   #   password => 'tomcatpass',
   # }
