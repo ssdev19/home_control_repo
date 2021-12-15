@@ -27,6 +27,10 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
+  tomcat::war { 'pwm.war':
+  catalina_base => '/opt/tomcat9/pwm',
+  war_source    => '/opt/tomcat9/webapps/pwm.war',
+}
   # tomcat::service {'tomcat service':
   #   catalina_home  => '/opt/tomcat9/',
   #   # catalina_base => '/opt/tomcat9/',
