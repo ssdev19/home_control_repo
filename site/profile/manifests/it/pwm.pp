@@ -31,7 +31,7 @@ ensure => installed,
     catalina_home  => '/opt/tomcat9/',
     # catalina_base => '/opt/tomcat9/',
     use_init       => true,
-    service_enable => true,
+    service_enable => 'running',
     service_name   => 'tomcat',
     start_command  => 'use_init'
   }
