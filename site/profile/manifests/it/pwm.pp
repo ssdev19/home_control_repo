@@ -25,15 +25,16 @@ ensure => installed,
     command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
   }
   #Install tomcat
-  tomcat::install { 'tomcat9':
+  tomcat::install { '/opt/tomcat9':
   source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz',
   allow_insecure => true,
   # user           => 'tomcatuser',
   }
-  # tomcat::instance { 'default':
-  # catalina_home  => '/opt/tomcat9',
-  # manage_service => false,
-  # }
+  tomcat::instance { 'testinstance':
+  catalina_home  => '/opt/tomcat9',
+  catalina_base  => '/opt/tomcat9/testinstance',
+  manage_service => false,
+  }
   # tomcat::config::server::tomcat_users { 'admin':
   #   password      => 'tomcatpass',
   #   roles         => ['admin-gui, manager-gui, manager-script'],
