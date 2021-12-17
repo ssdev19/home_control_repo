@@ -64,11 +64,11 @@ ensure => installed,
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-#   archive { '/opt/tomcat9/webapps/pwm.war':
-#     ensure   => present,
-#     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-#     provider => 'wget',
-#   }
+  archive { '/opt/tomcat9/webapps/pwm.war':
+    ensure   => present,
+    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+    provider => 'wget',
+  }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
