@@ -20,6 +20,10 @@ ensure => installed,
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => "sudo -s export _JAVA_OPTIONS=${mem}",
   }
+  exec { 'set java path':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
+  }
   #Install tomcat
   tomcat::install { '/opt/tomcat9':
   source_url => 'https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz'
