@@ -34,7 +34,7 @@ ensure => installed,
   }
   tomcat::config::server::tomcat_users { 'admin':
     password      => 'tomcatpass',
-    roles         => ['manager-gui, manager-script'],
+    roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat9',
   }
 #   tomcat::war { 'pwm.war':
