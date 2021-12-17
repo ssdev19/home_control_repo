@@ -34,7 +34,7 @@ ensure => installed,
   }
   tomcat::config::server::tomcat_users { 'tomcat':
     password      => 'tomcatpass',
-    roles         => 'role1',
+    roles         => 'role1, tomcat',
     catalina_base => '/opt/tomcat9',
   }
 #   tomcat::war { 'pwm.war':
