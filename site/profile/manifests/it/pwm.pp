@@ -32,9 +32,10 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-  tomcat::config::server::tomcat_users { 'admin':
-    password => 'tomcatpass',
-    catalina_base  => '/opt/tomcat9',
+  tomcat::config::server::tomcat_users { 'tomcat':
+    password      => 'tomcatpass',
+    role          => 'role1',
+    catalina_base => '/opt/tomcat9',
   }
 #   tomcat::war { 'pwm.war':
 #   catalina_base => '/opt/tomcat9/webapps/',
