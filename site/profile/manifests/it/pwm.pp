@@ -104,7 +104,7 @@ ensure => installed,
     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
   }
-  $pwm_applicationpath = '/opt/tomcat9/webapps/pwm/'
+  $pwm_applicationpath = '/opt/tomcat9/webapps/'
   exec { 'set pwm application path':
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => "sudo -s export PWM_APPLICATIONPATH=${pwm_applicationpath}",
