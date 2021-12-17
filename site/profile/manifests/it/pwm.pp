@@ -54,7 +54,7 @@ ensure => installed,
     # use_init       => true,
     service_enable => true,
     service_name   => 'tomcat9',
-    start_command  => 'use_jsvc',
+    start_command  => use_jsvc,
   }
   # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
   #   password => 'tomcatpass',
