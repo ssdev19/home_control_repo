@@ -48,12 +48,13 @@ ensure => installed,
   tomcat::service {'tomcat9':
     # catalina_home  => '/opt/tomcat9/',
     catalina_base  => '/opt/tomcat9/',
-    class_name_ensure     => absent,
-    address_ensure => absent,
-    use_init       => true,
+    catalina_home  => '/opt/tomcat9/',
+    use_jsvc       => true,
+    java_home      => '/usr/java/jdk-11.0.2+9',
+    # use_init       => true,
     service_enable => true,
     service_name   => 'tomcat9',
-    # start_command  => 'use_init'
+    start_command  => 'use_jsvc',
   }
   # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
   #   password => 'tomcatpass',
