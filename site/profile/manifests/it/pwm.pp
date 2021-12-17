@@ -54,6 +54,7 @@ ensure => installed,
     user           => 'tomcat',
     service_enable => true,
     service_name   => 'tomcat9',
+    service_ensure => running,
     start_command  => 'use_init',
   }
   # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
