@@ -32,7 +32,7 @@ ensure => installed,
   catalina_home  => '/opt/tomcat9',
   # manage_service => false,
   }
-  tomcat::config::server::tomcat_users { 'user':
+  tomcat::config::server::tomcat_users { 'admin':
     password => 'tomcatpass',
     catalina_base  => '/opt/tomcat9',
   }
