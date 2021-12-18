@@ -23,59 +23,58 @@ class profile::it::pwm3 {
   #   command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
   # }
   #Install tomcat
-  tomcat::install { '/opt/tomcat8':
+  tomcat::install { '/opt/tomcat9':
   source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
-  allow_insecure => true,
   }
-  # tomcat::instance { 'testinstance':
-  # catalina_home  => '/opt/tomcat8',
-  # catalina_base  => '/opt/tomcat8/testinstance',
-  # manage_service => false,
-  # }
+  tomcat::instance { 'default':
+  catalina_home  => '/opt/tomcat9',
+  catalina_base  => '/opt/tomcat9',
+  manage_service => false,
+  }
   tomcat::config::server::tomcat_users { 'tomcatuser':
     password      => 'tomcatpass',
     roles         => ['admin-gui, manager-gui, manager-script'],
-    catalina_base => '/opt/tomcat8',
+    catalina_base => '/opt/tomcat9',
   }
-  # Removes entry in: /opt/tomcat8/webapps/manager/META-INF/context.xml
+  # Removes entry in: /opt/tomcat9/webapps/manager/META-INF/context.xml
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
-  catalina_base => '/opt/tomcat8/',
+  catalina_base => '/opt/tomcat9/',
   }
 #   tomcat::war { 'pwm.war':
-#   catalina_base => '/opt/tomcat8/webapps/',
-#   war_source    => '/opt/tomcat8/webapps/pwm.war',
-#   app_base      => '/opt/tomcat8/webapps/pwm/'
+#   catalina_base => '/opt/tomcat9/webapps/',
+#   war_source    => '/opt/tomcat9/webapps/pwm.war',
+#   app_base      => '/opt/tomcat9/webapps/pwm/'
 # }
-  # tomcat::service {'tomcat8':
-  #   # catalina_home  => '/opt/tomcat8/',
-  #   catalina_base  => '/opt/tomcat8/',
-  #   catalina_home  => '/opt/tomcat8/',
+  # tomcat::service {'tomcat9':
+  #   # catalina_home  => '/opt/tomcat9/',
+  #   catalina_base  => '/opt/tomcat9/',
+  #   catalina_home  => '/opt/tomcat9/',
   #   use_init       => true,
   #   java_home      => '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.el7_9.x86_64/jre/',
   #   user           => 'tomcat',
   #   service_enable => true,
-  #   service_name   => 'tomcat8',
+  #   service_name   => 'tomcat9',
   #   service_ensure => running,
   #   start_command  => 'use_init',
   # }
-  # tomcat::config::server::tomcat_users {'/opt/tomcat8/conf/tomcat-users.xml':
+  # tomcat::config::server::tomcat_users {'/opt/tomcat9/conf/tomcat-users.xml':
   #   password => 'tomcatpass',
   # }
   # https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war
-  #   vcsrepo { '/opt/tomcat8/webapps/pwm/': # v1.9.2
+  #   vcsrepo { '/opt/tomcat9/webapps/pwm/': # v1.9.2
   #   ensure             => present,
   #   provider           => git,
   #   revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  archive { '/opt/tomcat8/webapps/pwm.war':
-    ensure   => present,
-    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-    provider => 'wget',
-  }
+  # archive { '/opt/tomcat9/webapps/pwm.war':
+  #   ensure   => present,
+  #   source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+  #   provider => 'wget',
+  # }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
@@ -114,16 +113,16 @@ class profile::it::pwm3 {
 #     path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
 #     command => 'sudo -s source /etc/profile.d/maven.sh', # Source needs to run in shell
 #   }
-  # $pwm_applicationpath = '/opt/tomcat8/webapps/pwm'
+  # $pwm_applicationpath = '/opt/tomcat9/webapps/pwm'
   # exec { 'set pwm application path':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => "sudo -s export PWM_APPLICATIONPATH=${pwm_applicationpath}",
   # }
-# "mvn package" should be run from '/opt/tomcat8/webapps/pwm' manually
+# "mvn package" should be run from '/opt/tomcat9/webapps/pwm' manually
 # to see errors.
   # exec { 'mvn package':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin', '/opt/apache-maven-3.8.4/bin/', '/opt/maven/bin/mvn', '/opt/maven/bin' ],
-  #   cwd     => '/opt/tomcat8/webapps/pwm',
+  #   cwd     => '/opt/tomcat9/webapps/pwm',
   #   command => 'mvn package',
   #   timeout => 3600,
   #   user    => root,
