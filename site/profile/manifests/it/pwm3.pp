@@ -35,7 +35,7 @@ class profile::it::pwm3 {
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
-  catalina_base => '/opt/tomcat9',
+  catalina_base => '/opt/tomcat9/webapps/manager/META-INF',
   }
   tomcat::config::server::tomcat_users { 'tomcatuser':
     password      => 'tomcatpass',
