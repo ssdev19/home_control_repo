@@ -73,7 +73,7 @@ ensure => installed,
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  archive { '/opt/tomcat8/webapps/pwm-1.9.2.war':
+  archive { '/opt/tomcat8/webapps/pwm.war':
     ensure   => present,
     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
     provider => 'wget',
