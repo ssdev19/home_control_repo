@@ -41,7 +41,7 @@ class profile::it::pwm3 {
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
-  # catalina_base => '/opt/tomcat8',
+  catalina_base => '/opt/tomcat8/',
   }
 #   tomcat::war { 'pwm.war':
 #   catalina_base => '/opt/tomcat8/webapps/',
