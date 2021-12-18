@@ -5,21 +5,21 @@ Package { [ 'firefox' ]:
 ensure => installed,
 }
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
-  class { 'java':
-    distribution => 'jdk',
-    java_home    => '/usr/java/jdk-11.0.2+9/',
-  }
-  java::adopt { 'jdk11' :
-  ensure  => 'present',
-  version => '11',
-  java    => 'jdk',
-  }
+  # class { 'java':
+  #   distribution => 'jdk',
+  #   java_home    => '/usr/java/jdk-11.0.2+9/',
+  # }
+  # java::adopt { 'jdk11' :
+  # ensure  => 'present',
+  # version => '11',
+  # java    => 'jdk',
+  # }
   # export _JAVA_OPTIONS="-Xmx1g"
-  $mem = '-Xmx1g'
-  exec { 'set java heap size ':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => "sudo -s export _JAVA_OPTIONS=${mem}",
-  }
+  # $mem = '-Xmx1g'
+  # exec { 'set java heap size ':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   command => "sudo -s export _JAVA_OPTIONS=${mem}",
+  # }
   # exec { 'set java path':
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
@@ -75,7 +75,7 @@ ensure => installed,
   # }
   archive { '/opt/tomcat8/webapps/pwm.war':
     ensure   => present,
-    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_1/pwm-1.9.1.war',
+    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
     provider => 'wget',
   }
 # # Maven installation
