@@ -8,10 +8,10 @@ class profile::default {
   include network
   include ::network
   include ::firewalld
-    yum::group { 'X Window System':
-    ensure  => present,
-    timeout => 3300,
-  }
+  #   yum::group { 'X Window System':
+  #   ensure  => present,
+  #   timeout => 3300,
+  # }
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:

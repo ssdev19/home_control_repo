@@ -1,7 +1,7 @@
 ---
 classes:
   - profile::default
-  - profile::it::pwm2
+  # - profile::it::pwm2
 # network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
   eth0:
