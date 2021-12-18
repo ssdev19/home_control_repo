@@ -34,11 +34,11 @@ ensure => installed,
   # catalina_base  => '/opt/tomcat8/testinstance',
   # manage_service => false,
   # }
-  # tomcat::config::server::tomcat_users { 'admin':
-  #   password      => 'tomcatpass',
-  #   roles         => ['admin-gui, manager-gui, manager-script'],
-  #   catalina_base => '/opt/tomcat8',
-  # }
+  tomcat::config::server::tomcat_users { 'tomcatuser':
+    password      => 'tomcatpass',
+    roles         => ['admin-gui, manager-gui, manager-script'],
+    catalina_base => '/opt/tomcat8',
+  }
 #   tomcat::war { 'pwm.war':
 #   catalina_base => '/opt/tomcat8/webapps/',
 #   war_source    => '/opt/tomcat8/webapps/pwm.war',
