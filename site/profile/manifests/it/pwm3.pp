@@ -39,6 +39,7 @@ ensure => installed,
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat8',
   }
+  # Removes entry in: /opt/tomcat8/webapps/manager/META-INF/context.xml
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
   catalina_base => '/opt/tomcat8',
