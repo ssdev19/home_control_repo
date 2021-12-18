@@ -1,9 +1,7 @@
 # pwm 
 class profile::it::pwm {
   include firewalld
-Package { [ 'firefox' ]:
-ensure => installed,
-}
+
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java':
     distribution => 'jdk',
