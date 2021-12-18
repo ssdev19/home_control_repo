@@ -39,6 +39,10 @@ ensure => installed,
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat8',
   }
+  tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
+  ensure        => 'absent',
+  catalina_base => '/opt/tomcat8',
+  }
 #   tomcat::war { 'pwm.war':
 #   catalina_base => '/opt/tomcat8/webapps/',
 #   war_source    => '/opt/tomcat8/webapps/pwm.war',
