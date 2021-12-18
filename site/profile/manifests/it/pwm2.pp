@@ -1,5 +1,5 @@
 # pwm 
-class profile::it::pwm {
+class profile::it::pwm2 {
   include firewalld
 
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
