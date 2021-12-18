@@ -1,0 +1,15 @@
+---
+classes:
+  - profile::default
+  # - profile::it::pwm2
+# network::hostname: "%{facts.fqdn}"
+network::interfaces_hash:
+  eth0:
+    type: Ethernet
+    ipaddress: '192.168.0.54'
+    netmask: '255.255.255.0'
+    gateway: 192.168.0.1
+    dns1: 192.168.0.1
+    peerdns: 'yes'
+    bootproto: 'none'
+    onboot: 'yes'
