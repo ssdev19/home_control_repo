@@ -31,16 +31,16 @@ class profile::it::pwm3 {
   catalina_base  => '/opt/tomcat9',
   manage_service => false,
   }
-  tomcat::config::server::tomcat_users { 'tomcatuser':
-    password      => 'tomcatpass',
-    roles         => ['admin-gui, manager-gui, manager-script'],
-    catalina_base => '/opt/tomcat9',
-  }
   # Removes entry in: /opt/tomcat9/webapps/manager/META-INF/context.xml
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
   catalina_base => '/opt/tomcat9/',
+  }
+  tomcat::config::server::tomcat_users { 'tomcatuser':
+    password      => 'tomcatpass',
+    roles         => ['admin-gui, manager-gui, manager-script'],
+    catalina_base => '/opt/tomcat9',
   }
 #   tomcat::war { 'pwm.war':
 #   catalina_base => '/opt/tomcat9/webapps/',
