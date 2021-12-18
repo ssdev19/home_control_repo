@@ -40,6 +40,7 @@ ensure => installed,
     catalina_base => '/opt/tomcat8',
   }
   # Removes entry in: /opt/tomcat8/webapps/manager/META-INF/context.xml
+  # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
   # catalina_base => '/opt/tomcat8',
