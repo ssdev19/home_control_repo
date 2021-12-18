@@ -20,10 +20,10 @@ ensure => installed,
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => "sudo -s export _JAVA_OPTIONS=${mem}",
   }
-  exec { 'set java path':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
-  }
+  # exec { 'set java path':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
+  # }
   #Install tomcat
   tomcat::install { '/opt/tomcat8':
   source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
