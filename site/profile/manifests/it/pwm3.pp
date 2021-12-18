@@ -29,7 +29,7 @@ class profile::it::pwm3 {
   tomcat::instance { 'default':
   catalina_home  => '/opt/tomcat9',
   catalina_base  => '/opt/tomcat9',
-  manage_service => true,
+  # manage_service => true,
   }
   # Removes entry in: /opt/tomcat9/webapps/manager/META-INF/context.xml
   # For some reason it does not remove it, had to do it manually
