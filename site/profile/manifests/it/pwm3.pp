@@ -3,15 +3,15 @@ class profile::it::pwm3 {
   include firewalld
 
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
-  # class { 'java':
-  #   distribution => 'jdk',
-  #   java_home    => '/usr/java/jdk-11.0.2+9/',
-  # }
-  # java::adopt { 'jdk11' :
-  # ensure  => 'present',
-  # version => '11',
-  # java    => 'jdk',
-  # }
+  class { 'java':
+    distribution => 'jdk',
+    java_home    => '/usr/java/jdk-11.0.2+9/',
+  }
+  java::adopt { 'jdk11' :
+  ensure  => 'present',
+  version => '11',
+  java    => 'jdk',
+  }
   # export _JAVA_OPTIONS="-Xmx1g"
   # $mem = '-Xmx1g'
   # exec { 'set java heap size ':
