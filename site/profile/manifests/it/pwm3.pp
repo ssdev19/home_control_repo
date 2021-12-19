@@ -4,8 +4,8 @@ class profile::it::pwm3 {
 
   # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java':
-    distribution => 'jre',
-    java_home    => '/usr/java/jre-11.0.2+9/',
+    distribution => 'jdk',
+    java_home    => '/usr/java/jdk-11.0.2+9/',
   }
   java::adopt { 'jdk11' :
   ensure  => 'present',
