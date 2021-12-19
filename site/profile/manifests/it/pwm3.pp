@@ -22,6 +22,7 @@ class profile::it::pwm3 {
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
   # }
+  # give permission first: chmod 777 /opt/tomcat9/
   #Install tomcat
   tomcat::install { '/opt/tomcat9':
   source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
@@ -35,7 +36,7 @@ class profile::it::pwm3 {
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
-  catalina_base => '/opt/tomcat9/webapps/manager/META-INF',
+  catalina_base => '/opt/tomcat9',
   }
   tomcat::config::server::tomcat_users { 'tomcatuser':
     password      => 'tomcatpass',
@@ -70,11 +71,11 @@ class profile::it::pwm3 {
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  # archive { '/opt/tomcat9/webapps/pwm.war':
-  #   ensure   => present,
-  #   source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-  #   provider => 'wget',
-  # }
+  archive { '/opt/tomcat9/webapps/pwm.war':
+    ensure   => present,
+    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+    provider => 'wget',
+  }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
