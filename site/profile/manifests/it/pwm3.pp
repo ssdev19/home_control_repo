@@ -19,14 +19,14 @@ class profile::it::pwm3 {
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => "sudo -s export _JAVA_OPTIONS=${mem}",
   # }
-  exec { 'set java path':
-    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
-  }
+  # exec { 'set java path':
+  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  #   command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
+  # }
   # give permission first: chmod 777 /opt/tomcat9/
   #Install tomcat
   tomcat::install { '/opt/tomcat9':
-  source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
+  source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz',
   }
   tomcat::instance { 'default':
   catalina_home  => '/opt/tomcat9',
@@ -72,11 +72,11 @@ class profile::it::pwm3 {
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  archive { '/opt/tomcat9/webapps/pwm.war':
-    ensure   => present,
-    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-    provider => 'wget',
-  }
+  # archive { '/opt/tomcat9/webapps/pwm.war':
+  #   ensure   => present,
+  #   source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+  #   provider => 'wget',
+  # }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
