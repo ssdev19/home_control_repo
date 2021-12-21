@@ -44,11 +44,6 @@ class profile::it::pwm3 {
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat9',
   }
-#   tomcat::war { 'pwm.war':
-#   catalina_base => '/opt/tomcat9/webapps/',
-#   war_source    => '/opt/tomcat9/webapps/pwm.war',
-#   app_base      => '/opt/tomcat9/webapps/pwm/'
-# }
   # tomcat::service {'tomcat9':
   #   # catalina_home  => '/opt/tomcat9/',
   #   catalina_base  => '/opt/tomcat9/',
@@ -72,11 +67,11 @@ class profile::it::pwm3 {
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  # archive { '/opt/tomcat9/webapps/pwm.war':
-  #   ensure   => present,
-  #   source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-  #   provider => 'wget',
-  # }
+  archive { '/opt/tomcat9/webapps/pwm.war':
+    ensure   => present,
+    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+    provider => 'wget',
+  }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
