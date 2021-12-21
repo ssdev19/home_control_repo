@@ -24,16 +24,16 @@ class profile::it::tomcat {
   version => '8',
   java    => 'jre',
   }
-  # export _JAVA_OPTIONS="-Xmx1g"
-  # $mem = '-Xmx1g'
-  # exec { 'set java heap size ':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => "sudo -s export _JAVA_OPTIONS=${mem}",
-  # }
-  # exec { 'set java path':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
-  # }
+  export _JAVA_OPTIONS="-Xmx1g"
+  $mem = '-Xmx1g'
+  exec { 'set java heap size ':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => "sudo -s export _JAVA_OPTIONS=${mem}",
+  }
+  exec { 'set java path':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
+  }
 
   # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
   # For some reason it does not remove it, had to do it manually
