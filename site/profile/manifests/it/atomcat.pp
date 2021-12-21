@@ -1,5 +1,5 @@
 # tomcat 
-class profile::it::tomcat {
+class profile::it::atomcat {
   tomcat::install { '/opt/tomcat':
   source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.tar.gz',
   }
