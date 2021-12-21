@@ -10,12 +10,14 @@ class profile::it::pwm3 {
   # open file /opt/tomcat/webapps/pwm/WEB-INF/web.xml
   # Set ApplicationPath to /opt/tomcat/webapps/pwm/WEB-INF
   ########################
+  $applicationpath = lookup('application_path')
+  $webpath = lookup('web_path')
   file { '/opt/tomcat/webapps/pwm/WEB-INF/web.xml':
     ensure => present,
   }
-  ~> file_line { 'Append a line to /opt/tomcat/webapps/pwm/WEB-INF/web.xml':
-      path  => '/opt/tomcat/webapps/pwm/WEB-INF/web.xml',
-      line  => '<param-value>/opt/tomcat/webapps/pwm/WEB-INF</param-value>',
+  -> file_line { 'Append a line to pwm/WEB-INF/web.xml':
+      path  => $webpath,
+      line  => "<param-value>${applicationpath}</param-value>",
       match => '<param-value>unspecified</param-value>', # "^unspecified.*$" can be used for string
     }
 # # Maven installation
