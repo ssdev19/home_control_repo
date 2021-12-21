@@ -1,16 +1,6 @@
-# pwm 
+## Reboot will be required following the installation of this
 class profile::it::pwm3 {
   include firewalld
-
-
-  # https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war
-  #   vcsrepo { '/opt/tomcat/webapps/pwm/': # v1.9.2
-  #   ensure             => present,
-  #   provider           => git,
-  #   revision           => 'b06b257c6fa13049a72e2c915017996bbdb43d11',
-  #   source             => 'https://github.com/pwm-project/pwm.git',
-  #   # keep_local_changes => true,
-  # }
   archive { '/opt/tomcat/webapps/pwm.war':
     ensure   => present,
     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
@@ -20,6 +10,14 @@ class profile::it::pwm3 {
   # open file /opt/tomcat/webapps/pwm/WEB-INF/web.xml
   # Set ApplicationPath to /opt/tomcat/webapps/pwm/WEB-INF
   ########################
+  file { '/opt/tomcat/webapps/pwm/WEB-INF/web.xml':
+    ensure => present,
+  }
+  -> file_line { 'Append a line to /opt/tomcat/webapps/pwm/WEB-INF/web.xml':
+      path  => '/opt/tomcat/webapps/pwm/WEB-INF/web.xml',
+      line  => '<param-value>/opt/tomcat/webapps/pwm/WEB-INF</param-value>',
+      match => "<param-value>unspecified</param-value>",
+}
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
