@@ -1,7 +1,7 @@
 ---
 classes:
   - profile::default
-  - profile::it::tomcat
+  - profile::it::1tomcat
   - profile::it::pwm3
 # network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
