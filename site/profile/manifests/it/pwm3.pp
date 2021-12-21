@@ -8,11 +8,11 @@ class profile::it::pwm3 {
     version      => 'latest',
     java_home    => '/usr/java/java-1.8.0-openjdk/',
   }
-  # java::adopt { 'jdk11' :
-  # ensure  => 'present',
-  # version => '11',
-  # java    => 'jdk',
-  # }
+  java::adopt { 'jre' :
+  ensure  => 'present',
+  version => '8',
+  java    => 'jre',
+  }
   # export _JAVA_OPTIONS="-Xmx1g"
   # $mem = '-Xmx1g'
   # exec { 'set java heap size ':
