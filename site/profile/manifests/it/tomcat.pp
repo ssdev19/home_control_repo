@@ -1,10 +1,23 @@
 # tomcat 
 class profile::it::tomcat {
-  # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
+  tomcat::install { '/opt/tomcat':
+  source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
+  }
+  tomcat::instance { 'default':
+  catalina_home  => '/opt/tomcat',
+  catalina_base  => '/opt/tomcat',
+  # manage_service => true,
+  }
+    # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java':
     distribution => 'jre',
     version      => 'latest',
     java_home    => '/usr/java/jdk8u202-b08-jre',
+  }
+  java::adopt { 'jdk' :
+  ensure  => 'present',
+  version => '11',
+  java    => 'jdk',
   }
   java::adopt { 'jre' :
   ensure  => 'present',
@@ -21,16 +34,7 @@ class profile::it::tomcat {
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
   # }
-  # give permission first: chmod 777 /opt/tomcat/
-  #Install tomcat
-  tomcat::install { '/opt/tomcat':
-  source_url     => 'https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz',
-  }
-  tomcat::instance { 'default':
-  catalina_home  => '/opt/tomcat',
-  catalina_base  => '/opt/tomcat',
-  # manage_service => true,
-  }
+
   # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
   # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
