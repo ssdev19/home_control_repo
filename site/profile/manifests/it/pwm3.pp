@@ -19,10 +19,10 @@ class profile::it::pwm3 {
   #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
   #   command => "sudo -s export _JAVA_OPTIONS=${mem}",
   # }
-  # exec { 'set java path':
-  #   path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
-  #   command => 'sudo -s export PATH=/usr/java/jdk-11.0.2+9/bin:$PATH',
-  # }
+  exec { 'set java path':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
+  }
   # give permission first: chmod 777 /opt/tomcat9/
   #Install tomcat
   tomcat::install { '/opt/tomcat9':
