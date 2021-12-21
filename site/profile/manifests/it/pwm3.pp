@@ -39,11 +39,11 @@ class profile::it::pwm3 {
   ensure        => 'absent',
   catalina_base => '/opt/tomcat',
   }
-  # tomcat::config::server::tomcat_users { 'tomcatuser':
-  #   password      => 'tomcatpass',
-  #   roles         => ['admin-gui, manager-gui, manager-script'],
-  #   catalina_base => '/opt/tomcat',
-  # }
+  tomcat::config::server::tomcat_users { 'tomcatuser':
+    password      => 'tomcatpass',
+    roles         => ['admin-gui, manager-gui, manager-script'],
+    catalina_base => '/opt/tomcat',
+  }
   # tomcat::service {'tomcat':
   #   # catalina_home  => '/opt/tomcat/',
   #   catalina_base  => '/opt/tomcat/',
@@ -67,11 +67,11 @@ class profile::it::pwm3 {
   #   source             => 'https://github.com/pwm-project/pwm.git',
   #   # keep_local_changes => true,
   # }
-  # archive { '/opt/tomcat/webapps/pwm.war':
-  #   ensure   => present,
-  #   source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
-  #   provider => 'wget',
-  # }
+  archive { '/opt/tomcat/webapps/pwm.war':
+    ensure   => present,
+    source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
+    provider => 'wget',
+  }
   ########################
   # open file /opt/tomcat/webapps/pwm/WEB-INF/web.xml
   # Set ApplicationPath to /opt/tomcat/webapps/pwm/WEB-INF
