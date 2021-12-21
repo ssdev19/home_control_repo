@@ -12,7 +12,7 @@ class profile::it::tomcat {
   class { 'java':
     distribution => 'jre',
     version      => 'latest',
-    java_home    => '/usr/java/jdk8u202-b08-jre',
+    java_home    => '/usr/java/jdk-11.0.2+9',
   }
   java::adopt { 'jdk' :
   ensure  => 'present',
