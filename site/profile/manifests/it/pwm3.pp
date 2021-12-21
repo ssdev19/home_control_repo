@@ -6,7 +6,7 @@ class profile::it::pwm3 {
   class { 'java':
     distribution => 'jre',
     version      => 'latest',
-    java_home    => '/usr/java/jdk8u202-b08-jre/',
+    java_home    => '/usr/java/jdk8u202-b08-jre',
   }
   java::adopt { 'jre' :
   ensure  => 'present',
