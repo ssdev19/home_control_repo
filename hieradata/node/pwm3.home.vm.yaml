@@ -3,6 +3,10 @@ classes:
   - profile::default
   - profile::it::tomcat
   - profile::it::pwm3
+profile::it::tomcat::catalina_home: '/opt/tomcat'
+profile::it::tomcat::catalina_base: '/opt/tomcat'
+profile::it::tomcat::distribution: 'jre'
+profile::it::tomcat::version: '9.0.56'
 # network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
   eth0:
