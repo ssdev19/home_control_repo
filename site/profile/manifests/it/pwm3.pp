@@ -5,6 +5,7 @@ class profile::it::pwm3 {
     ensure   => present,
     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
     provider => 'wget',
+    cleanup  => false,
   }
   ########################
   # open file /opt/tomcat/webapps/pwm/WEB-INF/web.xml
