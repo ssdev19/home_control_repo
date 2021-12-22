@@ -1,6 +1,6 @@
 ## Reboot will be required following the installation of this
 class profile::it::pwm3 {
-  include firewalld
+  # include firewalld
   archive { '/opt/tomcat/webapps/pwm.war':
     ensure   => present,
     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
