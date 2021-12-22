@@ -1,5 +1,5 @@
 # tomcat 
-class profile::it::tomcat (Sensitive[String]
+class profile::it::tomcat ( String
 $catalina_home,
 $catalina_base,
 $version,
