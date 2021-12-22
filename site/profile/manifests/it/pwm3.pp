@@ -1,7 +1,7 @@
 ## Reboot will be required following the installation of this
 class profile::it::pwm3 {
   # include firewalld
-  archive { '/temp/pwm.war':
+  archive { '/tmp/pwm.war':
     ensure   => present,
     source   => 'https://github.com/pwm-project/pwm/releases/download/v1_9_2/pwm-1.9.2.war',
     provider => 'wget',
