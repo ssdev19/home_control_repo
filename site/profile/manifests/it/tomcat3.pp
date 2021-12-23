@@ -89,7 +89,7 @@ $distribution,
   systemd::unit_file { 'tomcat.service':
     content => $tomcat_service,
   }
-  ~> service { 'tomcat':
+  -> service { 'tomcat':
   ensure    => 'running',
   enable    => true,
   subscribe => Tomcat::Instance['default'],

@@ -9,8 +9,8 @@ $distribution,
   source_url     => "https://dlcdn.apache.org/tomcat/${version}.tar.gz",
   }
   tomcat::instance { 'default':
-  catalina_home  => '/opt/tomcat',
-  catalina_base  => '/opt/tomcat',
+  catalina_home  => $catalina_home,
+  catalina_base  => $catalina_base,
   # manage_service => true,
   }
     # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
@@ -40,12 +40,12 @@ $distribution,
     command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
   }
 
-  # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
-  # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
   catalina_base => '/opt/tomcat',
   }
+  # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
+  # For some reason it does not remove it, had to do it manually
   file { '/opt/tomcat/webapps/manager/META-INF/context.xml':
     ensure => present,
   }
@@ -59,7 +59,41 @@ $distribution,
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat',
   }
+# Getting tomcat::service to work was to painful
+  $tomcat_service = @("EOT")
+    [Unit]
+    Description=Apache Tomcat Web Application Container
+    After=syslog.target network.target
 
+    [Service]
+    Type=forking
+    SuccessExitStatus=143
+
+    Environment=JAVA_HOME=/usr/java/jdk-11.0.2+9
+    Environment=CATALINA_PID=${catalina_home}/temp/tomcat.pid
+    Environment=CATALINA_HOME=${catalina_home}
+    Environment=CATALINA_BASE=${catalina_base}
+    Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+    Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+    ExecStart=${catalina_home}/bin/startup.sh
+    ExecStop=${catalina_home}/bin/shutdown.sh
+
+    User=tomcat
+    Group=tomcat
+
+    [Install]
+    WantedBy=multi-user.target
+    | EOT
+
+  systemd::unit_file { 'tomcat.service':
+    content => $tomcat_service,
+  }
+  -> service { 'tomcat':
+  ensure    => 'running',
+  enable    => true,
+  subscribe => Tomcat::Instance['default'],
+  }
   # tomcat::service {'tomcat':
   #   # catalina_home  => '/opt/tomcat/',
   #   catalina_base  => '/opt/tomcat/',
