@@ -25,7 +25,7 @@ $distribution,
   java    => 'jdk',
   }
   java::adopt { 'jre' :
-  ensure  => 'present',
+  ensure  => 'present'
   version => '8',
   java    => 'jre',
   }
@@ -46,11 +46,20 @@ $distribution,
   ensure        => 'absent',
   catalina_base => '/opt/tomcat',
   }
+  file { '/opt/tomcat/webapps/manager/META-INF/context.xml':
+    ensure => present,
+  }
+  -> file_line{ 'org.apache.catalina.valves.RemoteAddrValve':
+      match => 'org.apache.catalina.valves.RemoteAddrValve',
+      line  => ' ',
+      path  => '/opt/tomcat/webapps/manager/META-INF/context.xml',
+    }
   tomcat::config::server::tomcat_users { 'tomcatuser':
     password      => 'tomcatpass',
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat',
   }
+
   # tomcat::service {'tomcat':
   #   # catalina_home  => '/opt/tomcat/',
   #   catalina_base  => '/opt/tomcat/',
