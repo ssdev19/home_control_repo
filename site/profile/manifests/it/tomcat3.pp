@@ -74,7 +74,7 @@ $distribution,
     Environment=CATALINA_HOME=${catalina_home}
     Environment=CATALINA_BASE=${catalina_base}
     Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
-    Environment='JAVA_OPTS=-Djava.awt.headless=true -  Djava.security.egd=file:/dev/./urandom'
+    Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
 
     ExecStart=${catalina_home}/bin/startup.sh
     ExecStop=${catalina_home}/bin/shutdown.sh
