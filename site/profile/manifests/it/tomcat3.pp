@@ -1,0 +1,75 @@
+# tomcat 
+class profile::it::tomcat3 ( String
+$catalina_home,
+$catalina_base,
+$version,
+$distribution,
+){
+  tomcat::install { '/opt/tomcat':
+  source_url     => "https://dlcdn.apache.org/tomcat/${version}.tar.gz",
+  }
+  tomcat::instance { 'default':
+  catalina_home  => '/opt/tomcat',
+  catalina_base  => '/opt/tomcat',
+  # manage_service => true,
+  }
+    # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
+  class { 'java':
+    distribution => 'jre',
+    version      => 'latest',
+    java_home    => '/usr/java/jdk-11.0.2+9',
+  }
+  java::adopt { 'jdk' :
+    ensure  => 'present',
+    version => '11',
+    java    => 'jdk',
+  }
+  java::adopt { 'jre' :
+    ensure  => 'present',
+    version => '8',
+    java    => 'jre',
+  }
+  ### export _JAVA_OPTIONS="-Xmx1g"
+  $mem = '-Xmx1g'
+  exec { 'set java heap size ':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => "sudo -s export _JAVA_OPTIONS=${mem}",
+  }
+  exec { 'set java path':
+    path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
+  }
+
+  # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
+  # For some reason it does not remove it, had to do it manually
+  tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
+  ensure        => 'absent',
+  catalina_base => '/opt/tomcat',
+  }
+  file { '/opt/tomcat/webapps/manager/META-INF/context.xml':
+    ensure => present,
+  }
+  -> file_line{ 'org.apache.catalina.valves.RemoteAddrValve':
+      match => 'org.apache.catalina.valves.RemoteAddrValve',
+      line  => ' ',
+      path  => '/opt/tomcat/webapps/manager/META-INF/context.xml',
+    }
+  tomcat::config::server::tomcat_users { 'tomcatuser':
+    password      => 'tomcatpass',
+    roles         => ['admin-gui, manager-gui, manager-script'],
+    catalina_base => '/opt/tomcat',
+  }
+
+  tomcat::service {'tomcat':
+    catalina_base  => $catalina_base,
+    catalina_home  => $catalina_home,
+    use_init       => true,
+    java_home      => '/usr/java/jdk-11.0.2+9',
+    user           => 'tomcat',
+    service_enable => true,
+    service_name   => 'tomcat',
+    service_ensure => running,
+    start_command  => 'use_init',
+  }
+
+}
