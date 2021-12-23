@@ -69,8 +69,7 @@ $distribution,
     Type=forking
     SuccessExitStatus=143
 
-    Environment=TOMCAT_JAVA_HOME=/usr/java/jdk-11.0.2+9
-    Environment=JAVA_HOME=/usr/java/latest/jre
+    Environment=JAVA_HOME=/usr/java/jdk-11.0.2+9
     Environment=CATALINA_PID=${catalina_home}/temp/tomcat.pid
     Environment=CATALINA_HOME=${catalina_home}
     Environment=CATALINA_BASE=${catalina_base}
