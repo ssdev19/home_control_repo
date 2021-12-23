@@ -7,6 +7,10 @@ class profile::it::pwm2 {
     provider => 'wget',
     cleanup  => false,
   }
+    file { '/opt/tomcat/webapps/pwm.war':
+    ensure => present,
+    source => '/tmp/pwm.war',
+    }
   ########################
   # open file /opt/tomcat/webapps/pwm/WEB-INF/web.xml
   # Set ApplicationPath to /opt/tomcat/webapps/pwm/WEB-INF
