@@ -1,7 +1,7 @@
 ---
 classes:
   - profile::default
-  # - profile::it::tomcat
+  - profile::it::tomcat
   - profile::it::pwm3
 profile::it::tomcat::catalina_home: '/opt/tomcat'
 profile::it::tomcat::catalina_base: '/opt/tomcat'
