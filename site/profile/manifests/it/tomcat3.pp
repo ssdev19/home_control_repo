@@ -39,13 +39,12 @@ $distribution,
     path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
     command => 'sudo -s export PATH=/usr/java/jdk8u202-b08-jre/bin:$PATH',
   }
-
-  # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
-  # For some reason it does not remove it, had to do it manually
   tomcat::config::context::manager { 'org.apache.catalina.valves.RemoteAddrValve':
   ensure        => 'absent',
   catalina_base => '/opt/tomcat',
   }
+  # Removes entry in: /opt/tomcat/webapps/manager/META-INF/context.xml
+  # For some reason it does not remove it, had to do it manually
   file { '/opt/tomcat/webapps/manager/META-INF/context.xml':
     ensure => present,
   }
@@ -60,16 +59,56 @@ $distribution,
     catalina_base => '/opt/tomcat',
   }
 
-  tomcat::service {'tomcat':
-    catalina_base  => $catalina_base,
-    catalina_home  => $catalina_home,
-    use_init       => true,
-    # java_home      => '/usr/java/jdk-11.0.2+9',
-    user           => 'tomcat',
-    service_enable => true,
-    service_name   => 'tomcat',
-    # service_ensure => running,
-    start_command  => 'use_init',
-  }
+# Getting tomcat::service to work was to painful
+  $tomcat_service = @("EOT")
+    [Unit]
+    Description=Tomcat 9 servlet container
+    After=network.target
 
+    [Service]
+    Type=forking
+
+    User=tomcat
+    Group=tomcat
+
+    Environment="JAVA_HOME=/usr/java/jdk-11.0.2+9"
+    Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
+
+    Environment="CATALINA_BASE=${catalina_base}"
+    Environment="CATALINA_HOME=${catalina_home}"
+    Environment="CATALINA_PID=${catalina_home}/temp/tomcat.pid"
+    Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+    ExecStart=${catalina_home}/bin/startup.sh
+    ExecStop=${catalina_home}/bin/shutdown.sh
+
+    [Install]
+    WantedBy=multi-user.target
+    | EOT
+
+  systemd::unit_file { 'tomcat.service':
+    content => $tomcat_service,
+  }
+  ~> service { 'tomcat':
+  ensure    => 'running',
+  enable    => true,
+  subscribe => Tomcat::Instance['default'],
+  }
+  # tomcat::service {'tomcat':
+  #   catalina_base  => $catalina_base,
+  #   catalina_home  => $catalina_home,
+  #   use_init       => true,
+  #   # java_home      => '/usr/java/jdk-11.0.2+9',
+  #   user           => 'tomcat',
+  #   service_enable => true,
+  #   service_name   => 'tomcat',
+  #   # service_ensure => running,
+  #   start_command  => 'use_init',
+  # }
+
+  ~> service { 'tomcat':
+    ensure    => 'running',
+    enable    => true,
+    subscribe => Tomcat::Instance['latest'],
+  }
 }
