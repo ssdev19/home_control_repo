@@ -62,25 +62,26 @@ $distribution,
 # Getting tomcat::service to work was to painful
   $tomcat_service = @("EOT")
     [Unit]
-    Description=Tomcat 9 servlet container
-    After=network.target
+    Description=Apache Tomcat Web Application Container
+    After=syslog.target network.target
 
     [Service]
     Type=forking
+    SuccessExitStatus=143
+
+    Environment=TOMCAT_JAVA_HOME=/usr/java/jdk-11.0.2+9
+    Environment=JAVA_HOME=/usr/java/latest/jre
+    Environment=CATALINA_PID=${catalina_home}/temp/tomcat.pid
+    Environment=CATALINA_HOME=${catalina_home}
+    Environment=CATALINA_BASE=${catalina_base}
+    Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+    Environment='JAVA_OPTS=-Djava.awt.headless=true -  Djava.security.egd=file:/dev/./urandom'
+
+    ExecStart=${catalina_home}/bin/startup.sh
+    ExecStop=/bin/kill -15 $MAINPID
 
     User=tomcat
     Group=tomcat
-
-    Environment="JAVA_HOME=/usr/java/jdk-11.0.2+9"
-    Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
-
-    Environment="CATALINA_BASE=${catalina_base}"
-    Environment="CATALINA_HOME=${catalina_home}"
-    Environment="CATALINA_PID=${catalina_home}/temp/tomcat.pid"
-    Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
-
-    ExecStart=${catalina_home}/bin/startup.sh
-    ExecStop=${catalina_home}/bin/shutdown.sh
 
     [Install]
     WantedBy=multi-user.target
