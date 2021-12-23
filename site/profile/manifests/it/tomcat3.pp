@@ -68,7 +68,7 @@ $distribution,
     user           => 'tomcat',
     service_enable => true,
     service_name   => 'tomcat',
-    service_ensure => running,
+    # service_ensure => running,
     start_command  => 'use_init',
   }
 
