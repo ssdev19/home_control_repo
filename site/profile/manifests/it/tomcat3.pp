@@ -9,9 +9,8 @@ $distribution,
   source_url     => "https://dlcdn.apache.org/tomcat/${version}.tar.gz",
   }
   tomcat::instance { 'default':
-  catalina_home  => '/opt/tomcat',
-  catalina_base  => '/opt/tomcat',
-  # manage_service => true,
+  catalina_home => $catalina_home,
+  catalina_base => $catalina_base,
   }
     # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java':
@@ -53,8 +52,9 @@ $distribution,
       line  => ' ',
       path  => '/opt/tomcat/webapps/manager/META-INF/context.xml',
     }
+  $tomcatpass = lookup('tomcatpass')
   tomcat::config::server::tomcat_users { 'tomcatuser':
-    password      => 'tomcatpass',
+    password      => $tomcatpass,
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat',
   }

@@ -9,9 +9,8 @@ $distribution,
   source_url     => "https://dlcdn.apache.org/tomcat/${version}.tar.gz",
   }
   tomcat::instance { 'default':
-  catalina_home  => $catalina_home,
-  catalina_base  => $catalina_base,
-  # manage_service => true,
+  catalina_home => $catalina_home,
+  catalina_base => $catalina_base,
   }
     # Installs Java in '/usr/java/jdk-11.0.2+9/bin/'
   class { 'java':
@@ -59,7 +58,7 @@ $distribution,
     roles         => ['admin-gui, manager-gui, manager-script'],
     catalina_base => '/opt/tomcat',
   }
-# Getting tomcat::service to work was to painful
+# Getting tomcat::service to work was too painful
   $tomcat_service = @("EOT")
     [Unit]
     Description=Apache Tomcat Web Application Container
