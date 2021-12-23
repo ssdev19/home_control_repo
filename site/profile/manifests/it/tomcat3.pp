@@ -78,7 +78,7 @@ $distribution,
     Environment='JAVA_OPTS=-Djava.awt.headless=true -  Djava.security.egd=file:/dev/./urandom'
 
     ExecStart=${catalina_home}/bin/startup.sh
-    ExecStop=/bin/kill -15 $MAINPID
+    ExecStop=${catalina_home}/bin/shutdown.sh
 
     User=tomcat
     Group=tomcat
