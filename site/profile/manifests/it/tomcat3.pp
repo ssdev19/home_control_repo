@@ -102,8 +102,8 @@ $ciphers,
   #   mode => '0400',
   #   checksum => 'md5',
   #   # checksum_value => $keystore_checksum,
-  # } 
-  -> tomcat::config::server::connector { "default-https":
+  # } ->
+    tomcat::config::server::connector { "default-https":
       catalina_base         => $catalina_base,
       port                  => 443,
       protocol              =>'org.apache.coyote.http11.Http11NioProtocol', # $http_version,
@@ -121,5 +121,5 @@ $ciphers,
         'keystorePass'        => 'changeit',
         'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/keystore',
       },
-     }
+    }
 }
