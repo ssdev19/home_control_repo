@@ -4,6 +4,7 @@ $catalina_home,
 $catalina_base,
 $version,
 $distribution,
+$ciphers,
 ){
   tomcat::install { '/opt/tomcat':
   source_url     => "https://dlcdn.apache.org/tomcat/${version}.tar.gz",
@@ -101,25 +102,24 @@ $distribution,
     mode => '0400',
     checksum => 'md5',
     # checksum_value => $keystore_checksum,
-  } ->
+  } 
+  -> tomcat::config::server::connector { "default-https":
+      catalina_base         => $catalina_base,
+      port                  => 443,
+      protocol              =>'org.apache.coyote.http11.Http11NioProtocol', # $http_version,
+      purge_connectors      => true,
+      additional_attributes => {
+        'SSLEnabled'          => true, # bool2str($https_enabled),
+        'maxThreads'          => 150,
+        'scheme'              => https,
+        'secure'              => true, #bool2str($https_connector_secure),
+        'clientAuth'          => 'false',
+        'sslProtocol'         => 'TLS',
+        'sslEnabledProtocols' => 'TLSv1.2',
+        'ciphers'             => $ciphers,
 
-  tomcat::config::server::connector { "default-https":
-    catalina_base         => $catalina_base,
-    port                  => 443,
-    protocol              =>'org.apache.coyote.http11.Http11NioProtocol', # $http_version,
-    purge_connectors      => true,
-    additional_attributes => {
-      'SSLEnabled'          => true, # bool2str($https_enabled),
-      'maxThreads'          => 150,
-      'scheme'              => https,
-      'secure'              => true, #bool2str($https_connector_secure),
-      'clientAuth'          => 'false',
-      'sslProtocol'         => 'TLS',
-      'sslEnabledProtocols' => 'TLSv1.2',
-      'ciphers'             => 'ECDHE-ECDSA-AES256-GCM-SHA384\nECDHE-RSA-AES256-GCM-SHA384\nECDHE-ECDSA-CHACHA20-POLY1305\nECDHE-RSA-CHACHA20-POLY1305\nECDHE-ECDSA-AES128-GCM-SHA256\nECDHE-RSA-AES128-GCM-SHA256\nECDHE-ECDSA-AES256-SHA384\nECDHE-RSA-AES256-SHA384\nECDHE-ECDSA-AES128-SHA256\nECDHE-RSA-AES128-SHA256',
-
-      # 'keystorePass'        => $keystore_pass.unwrap,
-      # 'keystoreFile'        => $keystore_path,
-    },
-  }
+        # 'keystorePass'        => $keystore_pass.unwrap,
+        # 'keystoreFile'        => $keystore_path,
+      },
+     }
 }
