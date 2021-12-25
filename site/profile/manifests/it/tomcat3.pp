@@ -97,7 +97,7 @@ $ciphers,
   }
   file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
     ensure => present,
-    source => $keystore_source,
+    # source => $keystore_source,
     owner => 'tomcat', # $keystore_user
     mode => '0400',
     checksum => 'md5',
