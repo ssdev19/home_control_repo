@@ -95,7 +95,7 @@ $ciphers,
   enable    => true,
   subscribe => Tomcat::Instance['default'],
   }
-  file { '/usr/java/jdk-11.0.2+9/lib/security/cacerts':
+  file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
     ensure => present,
     source => $keystore_source,
     owner => 'tomcat', # $keystore_user
@@ -119,7 +119,7 @@ $ciphers,
         'ciphers'             => $ciphers,
 
         'keystorePass'        => 'changeit',
-        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/lib/security/cacerts',
+        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/.keystore',
       },
      }
 }
