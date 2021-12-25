@@ -95,6 +95,9 @@ $ciphers,
   enable    => true,
   subscribe => Tomcat::Instance['default'],
   }
+  ##################
+  # keytool -genkey -alias svr1.tecadmin.net -keyalg RSA -keystore /etc/pki/keystore
+  ##################
   # file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
   #   ensure => present,
   #   source => '/root/keystore.jks',
