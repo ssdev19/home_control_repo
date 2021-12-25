@@ -121,7 +121,7 @@ $ciphers,
         'clientAuth'          => 'false',
         'sslProtocol'         => 'TLS',
         'sslEnabledProtocols' => 'TLSv1.2',
-        'ciphers'             => join($ciphers, ","),,
+        'ciphers'             => join($ciphers, ","),
 
         'keystorePass'        => 'changeit',
         'keystoreFile'        => '/etc/pki/keystore',
