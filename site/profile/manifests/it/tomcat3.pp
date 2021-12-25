@@ -97,6 +97,7 @@ $ciphers,
   }
   ##################
   # keytool -genkey -alias svr1.tecadmin.net -keyalg RSA -keystore /etc/pki/keystore
+  # https://tecadmin.net/configure-ssl-certificate-in-tomcat/
   ##################
   # file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
   #   ensure => present,
