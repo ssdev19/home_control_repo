@@ -120,7 +120,7 @@ $ciphers,
         'ciphers'             => $ciphers,
 
         # 'keystorePass'        => 'changeit',
-        # 'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/keystore',
+        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/.keystore',
       },
     }
 }
