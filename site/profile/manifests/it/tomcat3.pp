@@ -106,7 +106,7 @@ $distribution,
   tomcat::config::server::connector { "default-https":
     catalina_base         => $catalina_base,
     port                  => 8080,
-    protocol              =>'TLSv1.2', # $http_version,
+    protocol              =>'https', # $http_version,
     purge_connectors      => true,
     additional_attributes => {
       'SSLEnabled'          => true, # bool2str($https_enabled),
