@@ -103,7 +103,7 @@ $distribution,
     # checksum_value => $keystore_checksum,
   } ->
 
-  tomcat::config::server::connector { "${tomcat_instance}-https":
+  tomcat::config::server::connector { "default-https":
     catalina_base         => $catalina_base,
     port                  => 8080,
     protocol              =>'TLSv1.2', # $http_version,
