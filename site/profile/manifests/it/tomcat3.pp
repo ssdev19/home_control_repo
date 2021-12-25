@@ -95,14 +95,14 @@ $ciphers,
   enable    => true,
   subscribe => Tomcat::Instance['default'],
   }
-  file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
-    ensure => present,
-    source => '/root/keystore.jks',
-    owner => 'tomcat', # $keystore_user
-    mode => '0400',
-    checksum => 'md5',
-    # checksum_value => $keystore_checksum,
-  } 
+  # file { '/usr/java/jdk-11.0.2+9/bin/.keystore':
+  #   ensure => present,
+  #   source => '/root/keystore.jks',
+  #   owner => 'tomcat', # $keystore_user
+  #   mode => '0400',
+  #   checksum => 'md5',
+  #   # checksum_value => $keystore_checksum,
+  # } 
   -> tomcat::config::server::connector { "default-https":
       catalina_base         => $catalina_base,
       port                  => 443,
@@ -119,7 +119,7 @@ $ciphers,
         'ciphers'             => $ciphers,
 
         'keystorePass'        => 'changeit',
-        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/.keystore',
+        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/keystore',
       },
      }
 }
