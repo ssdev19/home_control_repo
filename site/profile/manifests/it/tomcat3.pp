@@ -97,7 +97,7 @@ $distribution,
   file { '/usr/java/jdk-11.0.2+9/lib/security':
     ensure => present,
     source => $keystore_source,
-    owner => 'keystoreuser', # $keystore_user
+    owner => 'tomcat', # $keystore_user
     mode => '0400',
     checksum => 'md5',
     # checksum_value => $keystore_checksum,
@@ -116,7 +116,7 @@ $distribution,
       # 'clientAuth'          => bool2str($https_connector_client_auth),
       # 'sslProtocol'         => $https_connector_ssl_protocol,
       # 'sslEnabledProtocols' => join($https_connector_ssl_protocols_enabled, ","),
-      # 'ciphers'             => join($ciphers_enabled, ","),
+      'ciphers'             => 'ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256',
 
       # 'keystorePass'        => $keystore_pass.unwrap,
       # 'keystoreFile'        => $keystore_path,
