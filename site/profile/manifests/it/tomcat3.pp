@@ -119,8 +119,8 @@ $ciphers,
         'sslEnabledProtocols' => 'TLSv1.2',
         'ciphers'             => $ciphers,
 
-        # 'keystorePass'        => 'changeit',
-        'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/tomcat',
+        'keystorePass'        => 'changeit',
+        'keystoreFile'        => '/etc/pki/keystore',
       },
     }
 }
