@@ -103,23 +103,23 @@ $ciphers,
   #   checksum => 'md5',
   #   # checksum_value => $keystore_checksum,
   # } ->
-    # tomcat::config::server::connector { "default-https":
-    #   catalina_base         => $catalina_base,
-    #   port                  => 443,
-    #   protocol              =>'org.apache.coyote.http11.Http11NioProtocol', # $http_version,
-    #   purge_connectors      => true,
-    #   additional_attributes => {
-    #     'SSLEnabled'          => true, # bool2str($https_enabled),
-    #     'maxThreads'          => 150,
-    #     'scheme'              => https,
-    #     'secure'              => true, #bool2str($https_connector_secure),
-    #     'clientAuth'          => 'false',
-    #     'sslProtocol'         => 'TLS',
-    #     'sslEnabledProtocols' => 'TLSv1.2',
-    #     'ciphers'             => $ciphers,
+    tomcat::config::server::connector { "default-https":
+      catalina_base         => $catalina_base,
+      port                  => 8080,
+      protocol              =>'org.apache.coyote.http11.Http11NioProtocol', # $http_version,
+      purge_connectors      => true,
+      additional_attributes => {
+        'SSLEnabled'          => true, # bool2str($https_enabled),
+        'maxThreads'          => 150,
+        'scheme'              => https,
+        'secure'              => true, #bool2str($https_connector_secure),
+        'clientAuth'          => 'false',
+        'sslProtocol'         => 'TLS',
+        'sslEnabledProtocols' => 'TLSv1.2',
+        'ciphers'             => $ciphers,
 
-    #     'keystorePass'        => 'changeit',
-    #     'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/keystore',
-    #   },
-    # }
+        # 'keystorePass'        => 'changeit',
+        # 'keystoreFile'        => '/usr/java/jdk-11.0.2+9/bin/keystore',
+      },
+    }
 }
