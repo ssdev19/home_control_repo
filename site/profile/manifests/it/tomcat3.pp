@@ -94,15 +94,32 @@ $distribution,
   enable    => true,
   subscribe => Tomcat::Instance['default'],
   }
-  # tomcat::service {'tomcat':
-  #   catalina_base  => $catalina_base,
-  #   catalina_home  => $catalina_home,
-  #   use_init       => true,
-  #   # java_home      => '/usr/java/jdk-11.0.2+9',
-  #   user           => 'tomcat',
-  #   service_enable => true,
-  #   service_name   => 'tomcat',
-  #   # service_ensure => running,
-  #   start_command  => 'use_init',
-  # }
+  file { '/usr/java/jdk-11.0.2+9/lib/security':
+    ensure => present,
+    source => $keystore_source,
+    owner => 'keystoreuser', # $keystore_user
+    mode => '0400',
+    checksum => 'md5',
+    # checksum_value => $keystore_checksum,
+  } ->
+
+  tomcat::config::server::connector { "${tomcat_instance}-https":
+    catalina_base         => $catalina_base,
+    port                  => 8080,
+    protocol              =>'TLSv1.2', # $http_version,
+    purge_connectors      => true,
+    additional_attributes => {
+      'SSLEnabled'          => true, # bool2str($https_enabled),
+      # 'maxThreads'          => $https_connector_max_threads,
+      # 'scheme'              => $https_connector_scheme,
+      # 'secure'              => bool2str($https_connector_secure),
+      # 'clientAuth'          => bool2str($https_connector_client_auth),
+      # 'sslProtocol'         => $https_connector_ssl_protocol,
+      # 'sslEnabledProtocols' => join($https_connector_ssl_protocols_enabled, ","),
+      # 'ciphers'             => join($ciphers_enabled, ","),
+
+      # 'keystorePass'        => $keystore_pass.unwrap,
+      # 'keystoreFile'        => $keystore_path,
+    },
+  }
 }

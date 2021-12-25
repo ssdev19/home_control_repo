@@ -56,6 +56,7 @@ mod 'puppet-grafana', '8.0.0'
 mod 'puppetlabs-concat', '7.1.1'
 mod 'puppetlabs-inifile', '5.0.1'
 mod 'puppetlabs-java', '7.3.0'
+mod 'puppetlabs-java_ks', '4.2.0' # Kestore management
 mod 'maestrodev-maven', '1.4.0'
 mod 'puppetlabs-stdlib', '7.0.1'
 mod 'puppetlabs-vcsrepo', '5.0.0'
