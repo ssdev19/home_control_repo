@@ -1,5 +1,7 @@
 # Applies to all servers
-class profile::default {
+class profile::default (
+  Boolean $awscli           = false,
+) {
   # include profile::it::monitoring
 # All telegraf configuration came from Hiera
   include ssh
@@ -35,7 +37,27 @@ class { 'prometheus::node_exporter':
   #   job  => 'node',
   #   host => "${fqdn}:9100",
   # }
-
+if $awscli {
+  Package { [ 'awscli' ]:
+  ensure => installed,
+  }
+  $awscreds = lookup('awscreds')
+    file {
+      '/root/.aws':
+        ensure => directory,
+        mode   => '0700',
+        ;
+      '/root/.aws/credentials':
+        ensure  => file,
+        mode    => '0600',
+        content => $awscreds,
+        ;
+      '/root/.aws/config':
+        ensure  => file,
+        mode    => '0600',
+        content => "[default]\n",
+    }
+}
 $motd_msg = lookup('motd')
 file { '/etc/motd' :
   ensure  => file,
