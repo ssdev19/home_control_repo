@@ -4,7 +4,7 @@ classes:
   - profile::default
   - profile::it::tomcat3
   - profile::it::pwm3
-profile::defaul::awscli: true
+profile::default::awscli: true
 profile::it::tomcat3::catalina_home: '/opt/tomcat'
 profile::it::tomcat3::catalina_base: '/opt/tomcat'
 profile::it::tomcat3::distribution: 'jre'
