@@ -16,7 +16,7 @@ class profile::default (
   # }
   class { '::openssl':
     package_ensure         => '3.0.1',
-    ca_certificates_ensure => '3.0.1',
+    ca_certificates_ensure => present,
   }
 
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
