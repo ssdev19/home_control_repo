@@ -15,7 +15,7 @@ class profile::default (
   #   timeout => 3300,
   # }
   class { '::openssl':
-    package_ensure         => '3.0.1',
+    package_ensure         => present,
     ca_certificates_ensure => present,
   }
 
