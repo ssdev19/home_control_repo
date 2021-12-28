@@ -15,8 +15,8 @@ class profile::default (
   #   timeout => 3300,
   # }
   class { '::openssl':
-    package_ensure         => latest,
-    ca_certificates_ensure => latest,
+    package_ensure         => '3.0.1',
+    ca_certificates_ensure => '3.0.1',
   }
 
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
