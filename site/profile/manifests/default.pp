@@ -14,8 +14,13 @@ class profile::default (
   #   ensure  => present,
   #   timeout => 3300,
   # }
+  class { '::openssl':
+    package_ensure         => latest,
+    ca_certificates_ensure => latest,
+  }
+
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'bash-completion', 'sudo', 'screen', 'vim',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => installed,
 }
