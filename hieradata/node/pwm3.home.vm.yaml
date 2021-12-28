@@ -4,11 +4,11 @@ classes:
   - profile::default
   - profile::it::tomcat3
   - profile::it::pwm3
-profile::default::awscli: true
+profile::default::awscli: false
 profile::it::tomcat3::catalina_home: '/opt/tomcat'
 profile::it::tomcat3::catalina_base: '/opt/tomcat'
 profile::it::tomcat3::distribution: 'jre'
-profile::it::tomcat3::version: 'tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56'
+profile::it::tomcat3::version: 'tomcat-10/v10.0.14/bin/apache-tomcat-10.0.14'
 profile::it::tomcat3::ciphers: |
     TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
