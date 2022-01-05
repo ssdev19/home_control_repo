@@ -27,7 +27,9 @@ mod 'puppetlabs-facts', '1.4.0'
 mod 'puppetlabs/cron_core', '1.0.2'
 mod 'puppetlabs/k5login_core', '1.0.2'
 mod 'ghoneycutt/hosts', '2.7.0'
-mod 'camptocamp/postfix', '1.8.0'
+mod 'puppet-postfix', '2.0.0'
+mod 'puppet-alternatives', '4.0.0' # postfix dependency
+mod 'puppetlabs-mailalias_core', '1.1.0' # postfix dependency
 mod 'herculesteam-augeasproviders_core', '2.7.0'
 mod 'herculesteam-augeasproviders_nagios', '2.1.1'
 mod 'herculesteam-augeasproviders_syslog', '2.3.0'
