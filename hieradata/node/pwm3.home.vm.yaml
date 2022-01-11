@@ -5,6 +5,7 @@ classes:
   - profile::it::tomcat3
   - profile::it::pwm3
 profile::default::awscli: true 
+profile::default::postfix: true 
 profile::it::tomcat3::catalina_home: '/opt/tomcat'
 profile::it::tomcat3::catalina_base: '/opt/tomcat'
 profile::it::tomcat3::distribution: 'jre'

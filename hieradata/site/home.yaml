@@ -83,3 +83,11 @@ rsyslog::config::actions:
       Target: "tu.lsst.org"
       Port: 5514
       Protocol: "udp"
+postfix::mta: true
+postfix::inet_protocols: "ipv4"
+postfix::manage_root_alias: true
+postfix::inet_interfaces: "localhost"
+postfix::mydestination: "$myhostname, localhost.$mydomain, localhost"
+postfix::relayhost: 'localhost'
+postfix::root_mail_recipient: 'shahram@belldex.com'
+postfix::configs:

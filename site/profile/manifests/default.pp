@@ -1,6 +1,7 @@
 # Applies to all servers
 class profile::default (
   Boolean $awscli           = false,
+  Boolean $postfix           = false,
 ) {
   # include profile::it::monitoring
 # All telegraf configuration came from Hiera
@@ -10,6 +11,10 @@ class profile::default (
   include network
   include ::network
   include ::firewalld
+  if $postfix {
+  include postfix
+  }
+
   #   yum::group { 'X Window System':
   #   ensure  => present,
   #   timeout => 3300,
