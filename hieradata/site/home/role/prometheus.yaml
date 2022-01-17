@@ -210,7 +210,7 @@ prometheus::alerts:
             summary: jira_mail_queue_error_gauge (instance {{ $labels.instance }})
             description: "jira_mail_queue_error_gauge is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-# prometheus::alertmanager::version: '0.22.2'          
+prometheus::alertmanager::version: '0.23.0'          
 prometheus::alertmanager::route:
   group_by:
     - 'alertname'
