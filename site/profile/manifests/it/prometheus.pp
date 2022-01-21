@@ -80,7 +80,7 @@ class { 'prometheus::alertmanager':
         {
           'api_url'       => unwrap($slackapi_hide),
           'channel'       => '#monitoring',
-          'icon_url'      => 'https://avatars3.githubusercontent.com/u/3380462',
+          'icon_url'      => 'https://imgur.com/ZqYqeEC',
           'username'      => unwrap($slackuser_hide),
           'title'         => '{{ template "custom_title" . }}',
           'text'          => '{{ template "custom_slack_message" . }}',
