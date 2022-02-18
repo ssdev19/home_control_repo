@@ -55,7 +55,7 @@ profile::it::tomcat3::ciphers: |
 network::interfaces_hash:
   eth0:
     type: Ethernet
-    ipaddress: '192.168.0.54'
+    ipaddress: '192.168.0.55'
     netmask: '255.255.255.0'
     gateway: 192.168.0.1
     dns1: 192.168.0.1
