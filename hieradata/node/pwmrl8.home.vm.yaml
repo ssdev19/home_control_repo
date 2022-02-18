@@ -1,0 +1,64 @@
+# Run puppet agent about 4 times eo ensure all config has been applied.
+---
+classes:
+  - profile::default
+  - profile::it::tomcat3
+  - profile::it::pwm3
+profile::default::awscli: true 
+profile::default::postfix: true 
+profile::it::tomcat3::catalina_home: '/opt/tomcat'
+profile::it::tomcat3::catalina_base: '/opt/tomcat'
+profile::it::tomcat3::distribution: 'jre'
+profile::it::tomcat3::version: 'tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58'
+profile::it::tomcat3::ciphers: |
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
+    TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384,
+    TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384,
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256,
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,
+    TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA,
+    TLS_ECDH_RSA_WITH_AES_256_CBC_SHA,
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA,
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,
+    TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256,
+    TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256,
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,
+    TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,
+    TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA,
+    TLS_ECDHE_ECDSA_WITH_RC4_128_SHA,
+    TLS_ECDH_ECDSA_WITH_RC4_128_SHA,
+    TLS_ECDH_RSA_WITH_RC4_128_SHA,
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+    TLS_RSA_WITH_AES_256_GCM_SHA384,
+    TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384,
+    TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384,
+    TLS_DHE_DSS_WITH_AES_256_GCM_SHA384,
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+    TLS_RSA_WITH_AES_128_GCM_SHA256,
+    TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,
+    TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256,
+    TLS_DHE_DSS_WITH_AES_128_GCM_SHA256,
+    TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,
+    TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,
+    TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,
+    TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,
+    TLS_EMPTY_RENEGOTIATION_INFO_SCSVF
+# network::hostname: "%{facts.fqdn}"
+network::interfaces_hash:
+  eth0:
+    type: Ethernet
+    ipaddress: '192.168.0.54'
+    netmask: '255.255.255.0'
+    gateway: 192.168.0.1
+    dns1: 192.168.0.1
+    peerdns: 'yes'
+    bootproto: 'none'
+    onboot: 'yes'

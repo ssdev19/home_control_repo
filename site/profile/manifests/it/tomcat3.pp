@@ -98,7 +98,7 @@ $ciphers,
   # cert test:
   java_ks { 'puppetca:truststore':
     ensure       => latest,
-    certificate  => '/etc/puppet/ssl/certs/ca.pem',
+    certificate  => '/etc/pki/ca.pem',
     target       => '/etc/activemq/broker.ts',
     password     => 'puppet',
     trustcacerts => true,
