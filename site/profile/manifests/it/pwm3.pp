@@ -25,6 +25,21 @@ class profile::it::pwm3 {
       line  => "<param-value>${applicationpath}</param-value>",
       match => '<param-value>unspecified</param-value>', # "^unspecified.*$" can be used for string
     }
+    $lsst_theme = lookup('lsst_theme')
+    file {
+      '/opt/tomcat/webapps/pwm/public/resources/themes/lsst':
+        ensure => directory,
+    }
+    archive { '/tmp/lsst.zip' :
+      # path => '/tmp/lsst.zip',
+      # ensure  => present,
+      source       => $lsst_theme,
+      cleanup      => false,
+      extract      => true,
+      extract_path => '/opt/tomcat/webapps/pwm/public/resources/themes/lsst',
+      # creates      => '/opt/tomcat/webapps/pwm/public/resources/themes/lsst',
+      # require      => File['/opt/tomcat/webapps/pwm/public/resources/themes/lsst'],
+    }
 # # Maven installation
 #   $install_path        = '/opt'
 #   $package_name        = 'apache-maven'
