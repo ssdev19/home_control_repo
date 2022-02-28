@@ -44,10 +44,6 @@ class { 'prometheus::node_exporter':
   #   host => "${fqdn}:9100",
   # }
 
-  class { 'nsswitch':
-    hosts  => ['dns myhostname','files'],
-  }
-
   if $awscli {
   Package { [ 'awscli' ]:
     ensure => installed,
