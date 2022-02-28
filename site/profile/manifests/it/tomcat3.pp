@@ -96,13 +96,13 @@ $ciphers,
   subscribe => Tomcat::Instance['default'],
   }
   # cert test:
-  java_ks { 'puppetca:truststore':
-    ensure       => latest,
-    certificate  => '/etc/pki/ca.pem',
-    target       => '/etc/activemq/broker.ts',
-    password     => 'puppet',
-    trustcacerts => true,
-  }
+  # java_ks { 'puppetca:truststore':
+  #   ensure       => latest,
+  #   certificate  => '/etc/pki/ca.pem',
+  #   target       => '/etc/activemq/broker.ts',
+  #   password     => 'puppet',
+  #   trustcacerts => true,
+  # }
   ##################
   # keytool -genkey -alias svr1.tecadmin.net -keyalg RSA -keystore /etc/pki/keystore
   # https://tecadmin.net/configure-ssl-certificate-in-tomcat/
