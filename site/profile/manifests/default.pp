@@ -45,7 +45,7 @@ class { 'prometheus::node_exporter':
   # }
 if $awscli {
   Package { [ 'awscli' ]:
-  ensure => installed,
+    ensure => installed,
   }
   $awscreds = lookup('awscreds')
     file {
