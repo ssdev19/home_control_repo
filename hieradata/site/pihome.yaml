@@ -43,14 +43,23 @@ ssh::server_options:
 ##########################################################
 
 cron::job:
-  'goddayddns':
-    command: 'sh /root/GoDaddy_Bash_DDNS.sh -u root'
-    minute: 0 # every hour on the hour
+  # 'goddayddns':
+  #   command: 'sh /root/GoDaddy_Bash_DDNS.sh -u root'
+  #   minute: 0 # every hour on the hour
+  #   user: root
+  #   environment:
+  #     - 'MAILTO=root'
+  #     - 'PATH="/usr/bin:/bin"'
+  #   description: 'godaddy ddns update'
+  # Renew letsencrypt certs for belldex.com
+  'letsencrypt':
+    command: 'certbot renew --quiet'
+    minute: 00 # every day at 1 AM
+    hour: 1
     user: root
     environment:
       - 'MAILTO=root'
       - 'PATH="/usr/bin:/bin"'
-    description: 'godaddy ddns update'
   # Restart Apache
   'apache':
     command: 'systemctl restart apache2'
@@ -61,7 +70,7 @@ cron::job:
       - 'PATH="/usr/bin:/bin"'
   'reboot':
     command: 'reboot'
-    minute: 0 # every day at 1 AM
+    minute: 0 # every day at 4 AM
     hour: 4
     user: root
     environment:
