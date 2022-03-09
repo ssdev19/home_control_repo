@@ -9,7 +9,8 @@ class profile::it::rasbianos {
   include '::mysql::server'
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
   'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
-  'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute', 'unzip' ]:
+  'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute', 
+  'unzip', 'net-tools' ]:
   ensure => installed,
 }
 class { 'chrony':
