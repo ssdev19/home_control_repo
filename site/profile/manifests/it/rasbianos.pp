@@ -8,10 +8,10 @@ class profile::it::rasbianos {
   include '::php'
   include '::mysql::server'
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-  'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
-  'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute',
-  'unzip', 'net-tools' ]:
-  ensure => installed,
+'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
+'acpid', 'wget', 'nmap', 'ifupdown-extra', 'traceroute',
+'unzip', 'net-tools' ]:
+ensure => installed,
 }
 class { 'chrony':
   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
