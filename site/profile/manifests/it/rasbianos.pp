@@ -23,31 +23,6 @@ class { 'prometheus::node_exporter':
   # collectors_disable => ['loadavg', 'mdadm'],
   # extra_options      => '--collector.ntp.server ntp1.orange.intra',
 }
-$motd_msg = lookup('motd')
-file { '/etc/motd' :
-  ensure  => file,
-  content => $motd_msg,
-}
-$sshd_banner_content = lookup('sshd_banner_content')
-file { '/etc/ssh/sshd_banner' :
-  ensure  => file,
-  content => $sshd_banner_content,
-}
-$hosts = lookup ('hosts')
-file { '/etc/hosts' :
-  ensure  => file,
-  content => $hosts,
-}
-$denyhosts = lookup ('denyhosts')
-file { '/etc/hosts.deny' :
-  ensure  => file,
-  content => $denyhosts,
-}
-$allowhosts = lookup ('allowhosts')
-file { '/etc/hosts.allow' :
-  ensure  => file,
-  content => $allowhosts,
-}
 # class { 'phpmyadmin': }
 # $db_password = lookup('db_password')
 # wordpress::instance { '/var/www/wpbd':
