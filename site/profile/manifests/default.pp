@@ -22,7 +22,8 @@ class profile::default (
   # }
 Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
+'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute', 
+'unzip', 'net-tools' ]:
 ensure => installed,
 }
 class { 'chrony':
