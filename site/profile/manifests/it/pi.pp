@@ -27,7 +27,7 @@ file { '/root/GoDaddy_Bash_DDNS.sh' :
 # }
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl',
-'acpid', 'wget', 'nmap', 'ifupdown-extra', 'john', 
+'acpid', 'wget', 'nmap', 'ifupdown-extra', 'john',
 'unzip', 'net-tools']:
 ensure => installed,
 }
