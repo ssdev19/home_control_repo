@@ -31,7 +31,7 @@ class { 'chrony':
 }
 # config: /etc/systemd/system/node_exporter.service
 class { 'prometheus::node_exporter':
-  version       => '1.1.2',
+  version       => '1.3.1',
   extra_options => '--collector.systemd \--collector.processes \--collector.meminfo_numa',
   # collectors_disable => ['loadavg', 'mdadm'],
   # extra_options      => '--collector.ntp.server ntp1.orange.intra',

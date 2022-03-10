@@ -19,7 +19,7 @@ $advertise_ip,
   }
 
   class { 'prometheus::blackbox_exporter':
-    version => '0.19.0',
+    version => '0.20.0',
     modules => {
       'http_2xx'    => {
         'prober'  => 'http',
