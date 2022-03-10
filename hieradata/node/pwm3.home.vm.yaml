@@ -9,7 +9,7 @@ profile::default::postfix: true
 profile::it::tomcat3::catalina_home: '/opt/tomcat'
 profile::it::tomcat3::catalina_base: '/opt/tomcat'
 profile::it::tomcat3::distribution: 'jre'
-profile::it::tomcat3::version: 'tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58'
+profile::it::tomcat3::version: 'tomcat-9/v9.0.59/bin/apache-tomcat-9.0.59'
 profile::it::tomcat3::ciphers: |
     TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
