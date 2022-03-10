@@ -1,7 +1,7 @@
 ---
 prometheus::manage_prometheus_server: true
 
-prometheus::version: '2.34.0'
+prometheus::version: '2.33.5'
 prometheus::storage_retention: '30d'
 prometheus::alerts:
   groups:
@@ -33,7 +33,7 @@ prometheus::alerts:
           annotations:
             summary: Prometheus job missing (instance {{ $labels.instance }})
             description: "A Prometheus job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-        - alert: WindowsServerServiceStatus
+        - alert: WindowsServrServiceStatus
           expr: windows_service_status{status="ok"} != 1
           for: 1m
           labels:
