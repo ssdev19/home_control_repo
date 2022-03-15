@@ -54,8 +54,8 @@ cron::job:
   # Renew letsencrypt certs for belldex.com
   'letsencrypt':
     command: 'certbot renew --quiet'
-    minute: 30 # every day at 1 AM
-    hour: 1
+    minute: 25 # every day at 1 AM
+    hour: 8
     user: root
     environment:
       - 'MAILTO=root'
