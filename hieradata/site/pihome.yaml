@@ -54,8 +54,8 @@ cron::job:
   # Renew letsencrypt certs for belldex.com
   'letsencrypt':
     command: 'certbot renew --quiet'
-    minute: 25 # every day at 1 AM
-    hour: 8
+    minute: 25 # every day at 3:25 AM
+    hour: 3
     user: root
     environment:
       - 'MAILTO=root'
@@ -63,7 +63,7 @@ cron::job:
   # Restart Apache
   'apache':
     command: 'systemctl restart apache2'
-    minute: 30 # every hour on the hour
+    minute: 30 # every hour on the half hour
     user: root
     environment:
       - 'MAILTO=root'
