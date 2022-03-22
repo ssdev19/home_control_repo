@@ -26,6 +26,9 @@ Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'unzip', 'net-tools' ]:
 ensure => installed,
 }
+  class {'::puppet_agent':
+    package_version => '6.26.0',
+  }
 class { 'chrony':
   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
 }
