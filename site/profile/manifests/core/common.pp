@@ -34,7 +34,7 @@ class profile::core::common (
 #    include profile::core::telegraf
 #  }
 class {'::puppet_agent':
-  package_version => '6.21.1',
+  package_version => '6.26.0',
 }
 
 file { '/root/secretfile.cfg':
