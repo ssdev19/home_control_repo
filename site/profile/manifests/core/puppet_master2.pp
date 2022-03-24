@@ -20,6 +20,17 @@ $pwd_encrypt,
     ensure   => present,
     provider => 'puppetserver_gem',
     }
+class { 'foreman':
+  rails_cache_store => {
+    'type' => 'redis',
+    'urls' => ['localhost:8479/0'],
+    'options' => {
+      'compress' => 'true',
+      'namespace' => 'foreman'
+    }
+  }
+}
+
 # firewall config
   # class { 'firewalld':
   #   service_ensure => stopped,
