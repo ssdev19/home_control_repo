@@ -10,7 +10,7 @@ profile::it::prometheus::advertise_ip: 192.168.0.51:9093
 # network::hostname: "%{facts.fqdn}"
 network::interfaces_hash:
   eth0:
-    ipaddress: '192.168.0.51'
+    ipaddress: '192.168.0.57'
     netmask: '255.255.255.0'
     gateway: '192.168.0.1'
     dns1: 192.168.0.1
