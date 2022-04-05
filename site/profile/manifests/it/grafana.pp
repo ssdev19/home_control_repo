@@ -5,7 +5,7 @@ $binddns_hide,
 $ldaphost_hide,
 ){
   class { 'grafana':
-    version                  => '7.5.3',
+    version                  => '8.4.5',
     provisioning_datasources => {
     apiVersion  => 1,
     datasources => [
@@ -14,14 +14,14 @@ $ldaphost_hide,
         type      => 'prometheus',
         access    => 'proxy',
         url       => 'http://prometheus.home.vm:9090/',
-        isDefault => true,
+        isDefault => false,
       },
       {
         name      => 'Prometheus-2',
         type      => 'prometheus',
         access    => 'proxy',
         url       => 'http://prometheus2.home.vm:9090/',
-        isDefault => false,
+        isDefault => true,
       },
     ],
   },
