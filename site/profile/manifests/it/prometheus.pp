@@ -44,22 +44,22 @@ class { 'prometheus::alertmanager':
   # extra_options => '--cluster.listen-address=',
   extra_options => "--cluster.advertise-address=${advertise_ip} \--cluster.listen-address=:9797 \--cluster.peer=${unwrap($cluster_hide)}",
   version       => '0.24.0',
-  # global    => {
-  #   'resolve_timeout' => '1m',
-  #   'to'              => 'wf@belldex.com',
-  #   'from'            => $gmail_account,
-  #   'smarthost'       => 'smtp.gmail.com:587',
-  #   'auth_username'   => true,
-  #   'auth_identity'   => $gmail_account,
-  #   'auth_password'   => $gmail_auth_token,
-  #   },
-  # route         => {
-  #   'group_by'        => ['alertname', 'job'],
-  #   'group_wait'      => '30s',
-  #   'group_interval'  => '1m',
-  #   'repeat_interval' => '3h',
-  #   'receiver'        => 'slack',
-  # },
+  global        => {
+    'resolve_timeout' => '1m',
+    'to'              => 'wf@belldex.com',
+    'from'            => $gmail_account,
+    'smarthost'       => 'smtp.gmail.com:587',
+    'auth_username'   => true,
+    'auth_identity'   => $gmail_account,
+    'auth_password'   => $gmail_auth_token,
+    },
+  route         => {
+    'group_by'        => ['alertname', 'job'],
+    'group_wait'      => '30s',
+    'group_interval'  => '1m',
+    'repeat_interval' => '3h',
+    'receiver'        => 'slack',
+  },
   receivers     => [
     # { 'name'          => 'email',
     #   'email_configs' => [
