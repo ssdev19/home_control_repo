@@ -12,7 +12,7 @@ facter::fact { 'symantec_defenition_version':
 }
 
 package { 'windows_exporter':
-    ensure => '0.16.0',
+    ensure => '0.18.1',
     source => 'https://github.com/prometheus-community/windows_exporter/releases/download/v0.16.0/windows_exporter-0.16.0-amd64.msi'
 }
 service { 'windows_exporter':
