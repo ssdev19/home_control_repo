@@ -1,7 +1,7 @@
 ---
 prometheus::manage_prometheus_server: true
 
-prometheus::version: '2.33.5'
+prometheus::version: '2.34.0'
 prometheus::storage_retention: '30d'
 prometheus::alerts:
   groups:
