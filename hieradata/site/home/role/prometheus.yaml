@@ -219,7 +219,7 @@ prometheus::alerts:
             summary: Foreman service down (instance {{ $labels.instance }})
             description: "Foreman service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-prometheus::alertmanager::version: '0.23.0'          
+prometheus::alertmanager::version: '0.24.0'          
 prometheus::alertmanager::route:
   group_by:
     - 'alertname'
