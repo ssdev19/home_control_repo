@@ -209,6 +209,15 @@ prometheus::alerts:
           annotations:
             summary: jira_mail_queue_error_gauge (instance {{ $labels.instance }})
             description: "jira_mail_queue_error_gauge is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+# foreman service
+        - alert: foreman service
+          expr: node_systemd_unit_state{name="foreman.service", state="active"} != 1
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: Foreman service down (instance {{ $labels.instance }})
+            description: "Foreman service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
 prometheus::alertmanager::version: '0.23.0'          
 prometheus::alertmanager::route:
