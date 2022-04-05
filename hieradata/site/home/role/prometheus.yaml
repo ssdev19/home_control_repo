@@ -1,7 +1,7 @@
 ---
 prometheus::manage_prometheus_server: true
 
-prometheus::version: '2.27.0'
+prometheus::version: '2.34.0'
 prometheus::storage_retention: '30d'
 prometheus::alerts:
   groups:
@@ -219,16 +219,16 @@ prometheus::alerts:
             summary: Foreman service down (instance {{ $labels.instance }})
             description: "Foreman service is down on {{ $labels.instance }}\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 
-prometheus::alertmanager::version: '0.24.0'          
-prometheus::alertmanager::route:
-  group_by:
-    - 'alertname'
-    - 'cluster'
-    - 'service'
-  group_wait: '30s'
-  group_interval: '1m'
-  repeat_interval: '3h'
-  receiver: 'slack' # email it to me
+# prometheus::alertmanager::version: '0.24.0'          
+# prometheus::alertmanager::route:
+#   group_by:
+#     - 'alertname'
+#     - 'cluster'
+#     - 'service'
+#   group_wait: '30s'
+#   group_interval: '1m'
+#   repeat_interval: '3h'
+#   receiver: 'slack' # email it to me
 
 prometheus::alertmanager::template:
   - '/alertmanager/notifications.tmpl'
