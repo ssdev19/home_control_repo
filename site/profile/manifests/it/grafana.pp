@@ -32,9 +32,4 @@ $ldaphost_hide,
       },
   }
 }
-  grafana_organization { 'grafana':
-    grafana_url      => 'http://grafana2.home.vm:3000',
-    grafana_user     => 'admin',
-    grafana_password => 'admin',
-  }
 }
