@@ -42,9 +42,9 @@ class { 'prometheus::node_exporter':
   extra_options => '--collector.systemd \--collector.processes',
   # collectors_disable => ['loadavg', 'mdadm'],
 }
-  class {'::puppet_agent':
-    package_version => '6.26.0',
-  }
+  # class {'::puppet_agent':
+  #   package_version => '6.26.0',
+  # }
 
   file { '/root/secretfile.cfg':
     ensure  => file,
