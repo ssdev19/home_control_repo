@@ -53,7 +53,8 @@ class { 'prometheus::node_exporter':
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
+'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute',
+'yum-utils' ]:
 ensure => latest,
 }
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
