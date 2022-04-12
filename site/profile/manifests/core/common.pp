@@ -52,7 +52,7 @@ class { 'prometheus::node_exporter':
   }
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
+'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute' ]:
 ensure => latest,
 }
