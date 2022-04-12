@@ -127,9 +127,9 @@ file { '/etc/hosts.allow' :
   #   require  => Class['firewalld'],
   #   onlyif   => "[[ \"\$(firewall-cmd --list-protocols)\" != *\"icmp\"* ]]"
   # }
-# 	Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
-# 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
-# 'acpid', 'wget', 'nmap']:
-# ensure => installed,
-# }
+  Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+  'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
+  'acpid', 'wget', 'nmap']:
+  ensure => installed,
+  }
 }
