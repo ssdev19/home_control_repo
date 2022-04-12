@@ -75,6 +75,7 @@
 # r10k::webhook::group: "root"
 # r10k::deploy_settings:
 #   generate_types: true
+apache::mod::proxy::proxy_timeout: 300
 foreman::apache: true
 # foreman::compute::libvirt: true
 # foreman::compute::vmware: true
@@ -209,7 +210,7 @@ puppet::server: true
 #   0:foreman-cli-2.4.1-1.el7.noarch:
 #     ensure: "present"
 
-redis::globals::scl: "rh-redis5"
+# redis::globals::scl: "rh-redis5"
 
 # profile::core::puppet_master::foreman_config:
 #   destroy_vm_on_host_delete: {value: false}
