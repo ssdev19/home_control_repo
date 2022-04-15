@@ -13,7 +13,7 @@ class profile::default (
   include firewalld
   include puppet_agent
   if $postfix {
-  include postfix
+    include postfix
   }
 
   #   yum::group { 'X Window System':
