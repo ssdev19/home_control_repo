@@ -10,7 +10,7 @@ class profile::default (
   include accounts
   include network
   include ::network
-  include firewalld
+  include ::firewalld
   include puppet_agent
   if $postfix {
     include postfix
