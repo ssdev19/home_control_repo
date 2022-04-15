@@ -74,4 +74,13 @@ file {
 #   setting => 'cfg_file',
 #   value => "/usr/local/nagios/etc/objects/${::hostname}.cfg"
 # }
+  yumrepo { 'pc_repo':
+    ensure   => 'present',
+    baseurl  => 'https://yum.puppet.com/puppet7/el/7/x86_64/',
+    descr    => 'uppet Labs Products El 7 - $basearch',
+    enabled  => '1',
+    gpgcheck => '1',
+    gpgkey   => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet\n  file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-20250406",
+    before   => Class['puppet'],
+  }
 }
