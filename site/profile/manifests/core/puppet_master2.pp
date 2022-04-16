@@ -3,23 +3,23 @@ class profile::core::puppet_master2 (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
-  include foreman
-  include foreman::cli
-  include foreman::compute::libvirt
-  include foreman::compute::vmware
-  include foreman::plugin::remote_execution
-  include foreman::plugin::tasks
-  include foreman_proxy
-  # include foreman_proxy::plugin::dns::route53
-  include foreman_proxy::plugin::dynflow
-  include foreman_proxy::plugin::remote_execution::ssh
-  # include node_exporter
-  # include prometheus::node_exporter
-  include prometheus::process_exporter
-    package { 'toml':
-    ensure   => present,
-    provider => 'puppetserver_gem',
-    }
+  # include foreman
+  # include foreman::cli
+  # include foreman::compute::libvirt
+  # include foreman::compute::vmware
+  # include foreman::plugin::remote_execution
+  # include foreman::plugin::tasks
+  # include foreman_proxy
+  # # include foreman_proxy::plugin::dns::route53
+  # include foreman_proxy::plugin::dynflow
+  # include foreman_proxy::plugin::remote_execution::ssh
+  # # include node_exporter
+  # # include prometheus::node_exporter
+  # include prometheus::process_exporter
+  #   package { 'toml':
+  #   ensure   => present,
+  #   provider => 'puppetserver_gem',
+  #   }
 # class { 'foreman':
 #   rails_cache_store => {
 #     'type' => 'redis',
@@ -50,11 +50,11 @@ file {
     ensure => directory,
     mode   => '0755',
   ;
-  '/root/encrypt':
-    ensure  => file,
-    mode    => '0755',
-    content => unwrap($pwd_encrypt).node_encrypt::secret,
-  ;
+  # '/root/encrypt':
+  #   ensure  => file,
+  #   mode    => '0755',
+  #   content => unwrap($pwd_encrypt).node_encrypt::secret,
+  # ;
   }
 # user {'erwin':
 #     ensure     => present,
@@ -77,10 +77,10 @@ file {
   yumrepo { 'pc_repo':
     ensure   => 'present',
     baseurl  => 'https://yum.puppet.com/puppet7/el/7/x86_64/',
-    descr    => 'uppet Labs Products El 7 - $basearch',
+    descr    => 'Puppet Labs Products El 7 - $basearch',
     enabled  => '1',
-    gpgcheck => '1',
-    gpgkey   => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet\n  file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-20250406",
+    gpgcheck => '0',
+    # gpgkey   => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet\n  file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-20250406",
     before   => Class['puppet'],
   }
 }
