@@ -1,7 +1,7 @@
 # foreman
 class profile::core::puppet_master2 (Sensitive[String]
 $psswrd_encrypt,
-$pwd_encrypt,
+# $pwd_encrypt,
 ){
   # include foreman
   # include foreman::cli
