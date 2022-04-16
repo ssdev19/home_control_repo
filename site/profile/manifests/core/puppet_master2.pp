@@ -76,6 +76,6 @@ file {
 # }
   package{ 'puppetserver':
     ensure => installed,
-    source => 'https://yum.puppet.com/puppet7/puppet7-release-el-8.noarch.rpm',
+    source => 'https://yum.puppet.com/puppet6-release/el/8/x86_64/puppet-release-1.0.0-14.el8.noarch.rpm',
   }
 }
