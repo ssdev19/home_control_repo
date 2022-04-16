@@ -79,8 +79,8 @@ file {
     baseurl  => 'https://yum.puppet.com/puppet7/el/7/x86_64/',
     descr    => 'Puppet Labs Products El 7 - $basearch',
     enabled  => '1',
-    gpgcheck => '0',
-    # gpgkey   => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet\n  file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-20250406",
-    # before   => Class['puppet'],
+    gpgcheck => '1',
+    gpgkey   => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet\n  file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet-20250406",
+    before   => Class['puppet'],
   }
 }
