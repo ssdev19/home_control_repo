@@ -38,7 +38,7 @@ class { 'chrony':
   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
 }
 class { 'prometheus::node_exporter':
-  version       => '1.1.2',
+  version       => '1.3.1',
   extra_options => '--collector.systemd \--collector.processes',
   # collectors_disable => ['loadavg', 'mdadm'],
 }
