@@ -31,10 +31,6 @@ $psswrd_encrypt,
 #   }
 # }
 
-# firewall config
-  # class { 'firewalld':
-  #   service_ensure => stopped,
-  # }
 file {
   default:
     ensure => file,
@@ -56,26 +52,6 @@ file {
   #   content => unwrap($pwd_encrypt).node_encrypt::secret,
   # ;
   }
-# user {'erwin':
-#     ensure     => present,
-#     name       => 'erwin',
-#     groups     => ['wheel'],
-#     password   => pw_hash($pwd_encrypt.unwrap, 'SHA-512', 'mysalt'),
-#     managehome => true,
-# }
-# file {'/root/enctryp2':
-#     ensure  => file,
-#     owner   => 'root',
-#     content => unwrap($psswrd_encrypt).node_encrypt::secret,
-#   }
-# ini_setting { "testfilecomment":
-#   path => "/root/nagiostest.cfg",
-#   section => 'test',
-#   setting => 'cfg_file',
-#   value => "/usr/local/nagios/etc/objects/${::hostname}.cfg"
-# }
-  package{ 'puppetserver':
-    ensure => installed,
-    source => 'https://yum.puppet.com/puppet6/el/8/x86_64/puppetserver-6.18.0-1.el8.noarch.rpm',
-  }
+
+
 }
