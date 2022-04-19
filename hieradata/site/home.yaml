@@ -91,9 +91,9 @@ rsyslog::config::actions:
 # postfix::relayhost: 'localhost'
 # postfix::root_mail_recipient: 'shahram@belldex.com'
 # postfix::configs:
-# puppet_agent::package_version: "7.15.0"
-# puppet_agent::collection: "puppet7"
-# puppet_agent::manage_repo: true
+puppet_agent::package_version: "7.15.0"
+puppet_agent::collection: "puppet7"
+puppet_agent::manage_repo: true
 puppet_agent::config:
   - {section: "agent", setting: "show_diff", value: "true"}
   - {section: "agent", setting: "report", value: "true"}
