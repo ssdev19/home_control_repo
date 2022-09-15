@@ -1,5 +1,5 @@
 # Neo4j stuff
-class profile::it::pi {
+class profile::it::neo {
   class { 'neo4j' :
   }
 }
