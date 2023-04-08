@@ -33,9 +33,9 @@ class profile::core::common (
 #  if $collect_metrics {
 #    include profile::core::telegraf
 #  }
-class {'::puppet_agent':
-  package_version => '6.26.0',
-}
+# class {'::puppet_agent':
+#   package_version => '6.26.0',
+# }
 
 file { '/root/secretfile.cfg':
   ensure  => file,
