@@ -26,9 +26,9 @@ Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'unzip', 'net-tools' ]:
 ensure => installed,
 }
-# class { 'chrony':
-#   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
-# }
+class { 'chrony':
+  servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
+}
 # config: /etc/systemd/system/node_exporter.service
 class { 'prometheus::node_exporter':
   version       => '1.3.1',
