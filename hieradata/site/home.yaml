@@ -75,14 +75,14 @@ accounts::user_list:
   shahramdel:
     <<: *remove_user
 # graylog
-rsyslog::config::actions:
-  graylogAWS:
-    type: "omfwd"
-    facility: "*.*"
-    config:
-      Target: "tu.lsst.org"
-      Port: 5514
-      Protocol: "udp"
+# rsyslog::config::actions:
+#   graylogAWS:
+#     type: "omfwd"
+#     facility: "*.*"
+#     config:
+#       Target: "tu.lsst.org"
+#       Port: 5514
+#       Protocol: "udp"
 # postfix::mta: true
 # postfix::inet_protocols: "ipv4"
 # postfix::manage_root_alias: true
