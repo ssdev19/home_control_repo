@@ -12,9 +12,9 @@ Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils']:
 ensure => installed,
 }
-class { 'ntp':
-  servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
-}
+# class { 'ntp':
+#   servers => [ 'time-a-g.nist.gov', 'time-a-wwv.nist.gov', 'time.nist.gov' ],
+# }
   # include prometheus::node_exporter
 class { 'prometheus::node_exporter':
   version            => '1.1.2',
