@@ -37,10 +37,10 @@ class profile::core::common (
 #   package_version => '6.26.0',
 # }
 
-file { '/root/secretfile.cfg':
-  ensure  => file,
-  content => "this string will be encrypted in your catalog\n".node_encrypt::secret
-}
+# file { '/root/secretfile.cfg':
+#   ensure  => file,
+#   content => "this string will be encrypted in your catalog\n".node_encrypt::secret
+# }
 
 Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
 'bash-completion', 'sudo', 'screen', 'vim', 'openssl', 'openssl-devel',
