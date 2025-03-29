@@ -1,0 +1,2 @@
+class profile::it::default {
+}
