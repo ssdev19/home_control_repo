@@ -24,7 +24,7 @@ class profile::default (
   #   ensure  => present,
   #   timeout => 3300,
   # }
-Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+Package { [ 'git', 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc',
 'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute',
 'unzip', 'net-tools' ]:
