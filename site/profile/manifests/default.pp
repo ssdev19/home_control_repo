@@ -7,10 +7,10 @@ class profile::default (
   # include profile::it::monitoring
 # All telegraf configuration came from Hiera
   # include ssh
-  include timezone
-  include accounts
+  # include timezone
+  # include accounts
   # include ::network
-  include ::firewalld
+  # include ::firewalld
   # include puppet_agent
   if $postfix {
     include postfix
