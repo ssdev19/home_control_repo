@@ -1,6 +1,6 @@
 ---
 classes:
-  #  - profile::core::common
+   - profile::core::common
    - profile::default
    - profile::core::puppet_master
 profile::core::puppet_master::pwd_encrypt: ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAeltWti/NeuGg/a38XJlCiyTWq9UdAY9+51B9hTD7U9JKgGT0YPi8EEVBdG7hPAIiXn5VE8Xa/FF7ID3g8fAzEDoWwJhOFHHMQblL6S0+yVRfYRKrx+WkahPLlcPBGblIXJpVn0Q6o3udynyxhQ17jOkAGoMTV2xMkOec3J4w7nMeDtqN1LCQfYhvtfl+ONTxCg4KO/XOLmZ1w/6mPnjlM5/v6DoOYrEneJyqwiBWUPHlr2qQ+oJxHyaLjKitLpoK19Plroaao3CaqrPiu1NIAhkPlydqSnRjbKmmA3Jui4V9kp943o39pNBP6K6f99qJcsGbA2glKxehh5IBaA5hIjA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBFmyR9AiEOBiLrnMgRjcb7gBCjmGf9OFyOcmDhJigJAgAG]
