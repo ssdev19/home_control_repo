@@ -2,13 +2,16 @@
 classes:
   - profile::default
 profile::default::network: true
-network::interfaces_hash:
+network_config:
   eth0:
-    ipaddress: '192.168.0.57'
-    netmask: '255.255.255.0'
-    gateway: '192.168.0.1'
-    dns1: 192.168.0.1
-    dns2: 75.75.75.75
-    peerdns: 'yes'
-    bootproto: none
-    onboot: 'yes'
+    # name: 'eth0'
+    ensure: present
+    ipaddress: 192.168.0.57
+    netmask: 255.255.255.0
+    method: 'static'
+    onboot: true
+    options:
+      GATEWAY: 140.252.32.1
+      DNS1: 192.168.0.1
+      dns2: 75.75.76.76
+      dns3: 75.75.75.75
