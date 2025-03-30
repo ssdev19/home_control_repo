@@ -1,5 +1,5 @@
 # Raspberry Pi
-class profile::it::default {
+class profile::it::pi {
   include ssh
   include timezone
   include accounts
