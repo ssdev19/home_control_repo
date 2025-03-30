@@ -51,7 +51,7 @@ class { 'prometheus::node_exporter':
     content => "this string will be encrypted in your catalog\n".node_encrypt::secret
   }
 
-Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc', 'xinetd',
+Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc',
 'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute',
 'yum-utils' ]:
