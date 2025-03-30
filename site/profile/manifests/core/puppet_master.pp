@@ -3,7 +3,7 @@ class profile::core::puppet_master (Sensitive[String]
 $psswrd_encrypt,
 $pwd_encrypt,
 ){
-  # include node_exporter
+  include r10k
   # include prometheus::node_exporter
   include prometheus::process_exporter
     package { 'toml':
