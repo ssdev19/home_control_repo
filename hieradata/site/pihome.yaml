@@ -52,14 +52,14 @@ cron::job:
   #     - 'PATH="/usr/bin:/bin"'
   #   description: 'godaddy ddns update'
   # Renew letsencrypt certs for belldex.com
-  'letsencrypt':
-    command: 'certbot renew --quiet'
-    minute: 25 # every day at 3:25 AM
-    hour: 3
-    user: root
-    environment:
-      - 'MAILTO=root'
-      - 'PATH="/usr/bin:/bin"'
+  # 'letsencrypt':
+  #   command: 'certbot renew --quiet'
+  #   minute: 25 # every day at 3:25 AM
+  #   hour: 3
+  #   user: root
+  #   environment:
+  #     - 'MAILTO=root'
+  #     - 'PATH="/usr/bin:/bin"'
   # Restart Apache
   'apache':
     command: 'systemctl restart apache2'
