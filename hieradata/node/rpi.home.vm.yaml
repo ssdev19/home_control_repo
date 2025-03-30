@@ -1,13 +1,17 @@
 ---
 classes:
   - profile::it::pi
-#  - profile::it::network
-# network::interfaces_hash:
-#   eth0:
-#     ipaddress: '192.168.0.118'
-#     netmask: '255.255.255.0'
-#     gateway: '192.168.0.1'
-#     dns_nameservers: "192.168.0.1 8.8.8.8 8.8.4.4"
-#     onboot: "yes"
-#     bootproto: none
+network_config:
+  eth0:
+    # name: 'eth0'
+    ensure: present
+    ipaddress: 192.168.0.54
+    netmask: 255.255.255.0
+    method: 'static'
+    onboot: true
+    options:
+      GATEWAY: 192.168.0.1
+      DNS1: 192.168.0.1
+      DNS2: 75.75.75.75
+      DNS3: 75.75.76.76
     
