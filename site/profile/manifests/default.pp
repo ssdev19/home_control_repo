@@ -2,20 +2,24 @@
 class profile::default (
   Boolean $awscli           = false,
   Boolean $postfix           = false,
+  Boolean $network          = false,
 ) {
   # include profile::it::monitoring
 # All telegraf configuration came from Hiera
   include ssh
   include timezone
   include accounts
-  include network
   include ::network
   include ::firewalld
   include puppet_agent
   if $postfix {
     include postfix
   }
-
+  # include archive
+  if $network {
+    include network
+    create_resources('network_config', hiera('network_config'))
+  }
   #   yum::group { 'X Window System':
   #   ensure  => present,
   #   timeout => 3300,
