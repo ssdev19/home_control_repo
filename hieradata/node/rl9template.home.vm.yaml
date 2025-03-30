@@ -11,7 +11,7 @@ network_config:
     method: 'static'
     onboot: true
     options:
-      GATEWAY: 140.252.32.1
+      GATEWAY: 192.168.0.1
       DNS1: 192.168.0.1
       dns2: 75.75.76.76
       dns3: 75.75.75.75
