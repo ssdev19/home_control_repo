@@ -81,11 +81,11 @@ file { '/etc/ssh/sshd_banner' :
   content => $sshd_banner_content,
 }
 $hosts = lookup ('hosts')
-file { '/etc/hosts' :
-  ensure  => file,
-  content => $hosts,
-}
-$denyhosts = lookup ('denyhosts')
+  file { '/etc/hosts' :
+    ensure  => file,
+    content => $hosts,
+  }
+  $denyhosts = lookup ('denyhosts')
 file { '/etc/hosts.deny' :
   ensure  => file,
   content => $denyhosts,
