@@ -51,12 +51,12 @@ class { 'prometheus::node_exporter':
     content => "this string will be encrypted in your catalog\n".node_encrypt::secret
   }
 
-Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc',
-'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
-'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute',
-'yum-utils' ]:
-ensure => latest,
-}
+# Package { [ 'tree', 'tcpdump', 'telnet', 'lvm2', 'gcc',
+# 'bash-completion', 'sudo', 'vim', 'openssl', 'openssl-devel',
+# 'acpid', 'wget', 'nmap', 'bind-utils', 'iputils', 'traceroute',
+# 'yum-utils' ]:
+# ensure => latest,
+# }
 # *.* @graylog-tuc.lsst.org:5514;RSYSLOG_SyslogProtocol23Format
 # class { 'archive':
 #   archives => { '/tmp/openssl-1.1.1k.tar.gz' => {
